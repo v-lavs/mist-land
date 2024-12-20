@@ -1,4 +1,12 @@
 .section-symptoms{
+  position: relative;
+  .container {
+    position: relative;
+    &>*{
+      position: relative;
+      z-index: 2;
+    }
+  }
   .block-label{
     margin-bottom: 30px;
   }
@@ -8,5 +16,19 @@
     &:last-child{
       margin-right: 0;
     }
+  }
+
+  .moving-element {
+    filter: blur(65px);
+    background: radial-gradient(93.19% 74.17% at 30% 59%,rgb(255, 255, 255),rgb(204, 0, 255) 52.831%,rgb(35, 141, 172) 100%)/* warning: gradient uses a rotation that is not supported by CSS and may not behave as expected */;
+    opacity: 0.28;
+
+    width: 330px;
+    height: 330px;
+ position: absolute;
+    top: 65px;
+    left: 100px;
+    transform: translateX(-100%);
+    z-index: 1;
   }
 }

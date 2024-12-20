@@ -2,18 +2,18 @@
   padding: 0 24px;
   width: 100%;
   margin: 0 auto;
+  max-width: 360px;
 }
-
-@include respond-to($sm) {
-  .container {
-    max-width: 360px;
-    width: 100%;
-  }
-}
+//
+//@include respond-to($sm) {
+//  .container {
+//    width: 100%;
+//  }
+//}
 
 @include respond-to($md) {
   .container {
-    max-width: 576px;
+    //max-width: 576px;
     padding: 0 16px;
   }
 }

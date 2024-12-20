@@ -22,7 +22,6 @@
 }
 
 .block-label {
-
   &__item {
     display: inline-flex;
     align-items: center;
@@ -33,6 +32,9 @@
     font-weight: 500;
     line-height: 19.6px;
     margin-bottom: 4px;
+    &:last-child{
+      margin-bottom: 0;
+    }
 
   }
 
@@ -41,7 +43,9 @@
     height: 28px;
     background-position: center;
     background-size: contain;
+    background-repeat: no-repeat;
     margin-right: 10px;
+    flex-shrink: 0;
   }
 
 }

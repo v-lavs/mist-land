@@ -1,6 +1,6 @@
 .section-manifestation {
   position: relative;
-  height: 1000vh;
+  //height: 1000vh;
   overflow: visible;
 
   .message-block {
@@ -31,15 +31,21 @@
       opacity: 1;
     }
   }
+  .wrap-content{
+    display: flex;
+    flex-wrap: wrap;
+  }
+  .wrap-img{
+
+  }
 }
 
 .sticky-trigger {
-  height: 100vh;
   position: sticky;
+  height: 100vh;
   top: 0;
   border: 1px solid red;
-  display: flex;
-  flex-wrap: wrap;
+
 }
 
 .symptom-list {
@@ -58,14 +64,15 @@
   font-size: 16px;
   font-weight: 500;
   line-height: 19.2px;
-  padding-left: 18px;
+  padding-left: 16px;
   position: relative;
-  max-width: 265px;
-  width: 100%;
+  max-width: 280px;
   transition: opacity 0.5s ease, filter 0.5s ease;
   opacity: 0.5;
   backdrop-filter: blur(2px);
-  margin-right: 24px;
+  margin-right:8px;
+  flex-shrink: 0;
+  width: auto;
 
   &:before {
     position: absolute;
@@ -101,7 +108,9 @@
   left: 50%;
   transform: translateX(-50%) scale(.95);
   width: 182px;
+  //width: 62%;
   height: 284px;
+
   opacity: 0;
   transition: opacity 0.5s ease-in-out;
 }
