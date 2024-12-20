@@ -1,0 +1,12 @@
+.section-symptoms{
+  .block-label{
+    margin-bottom: 30px;
+  }
+  .btn{
+    margin-right: 24px;
+    min-width: 116px;
+    &:last-child{
+      margin-right: 0;
+    }
+  }
+}

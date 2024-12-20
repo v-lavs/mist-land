@@ -1,0 +1,124 @@
+.section-manifestation {
+  position: relative;
+  height: 1000vh;
+  overflow: visible;
+
+  .message-block {
+    padding-top: 42px;
+    position: relative;
+    transition: transform 1.5s ease, opacity 1s ease;
+    transform: translateY(150%);
+    opacity: 0;
+
+    &:before {
+      position: absolute;
+      content: '';
+      display: block;
+      background-image: url(../assets/img/danger.svg);
+      background-position: center;
+      background-size: contain;
+      background-repeat: no-repeat;
+      width: 32px;
+      height: 32px;
+      top: 10px;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 1;
+    }
+
+    &.move-up {
+      transform: translateY(0);
+      opacity: 1;
+    }
+  }
+}
+
+.sticky-trigger {
+  height: 100vh;
+  position: sticky;
+  top: 0;
+  border: 1px solid red;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.symptom-list {
+  min-height: 50px;
+  padding-bottom: 13px;
+  overflow: hidden;
+
+  ul {
+    display: flex;
+    transition: transform 0.5s ease;
+    will-change: transform;
+  }
+}
+
+.symptom {
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 19.2px;
+  padding-left: 18px;
+  position: relative;
+  max-width: 265px;
+  width: 100%;
+  transition: opacity 0.5s ease, filter 0.5s ease;
+  opacity: 0.5;
+  backdrop-filter: blur(2px);
+  margin-right: 24px;
+
+  &:before {
+    position: absolute;
+    content: '';
+    display: block;
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background-color: #01CAFA;
+    top: 6px;
+    left: 0;
+  }
+
+  &:last-child {
+    margin-right: 0;
+  }
+}
+
+.symptom.visible {
+  opacity: 1;
+  filter: blur(0);
+}
+
+.images {
+  position: relative;
+  width: 100%;
+  height: 332px;
+}
+
+.image {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%) scale(.95);
+  width: 182px;
+  height: 284px;
+  opacity: 0;
+  transition: opacity 0.5s ease-in-out;
+}
+
+.image.visible {
+  opacity: 1;
+  transform: translateX(-50%) scale(1);
+}
+
+.icons .icon {
+  position: absolute;
+  top: 0;
+  left: 0;
+  opacity: 0;
+  transition: opacity 0.5s ease-in-out;
+}
+
+.icons .icon.visible {
+  opacity: 1;
+}

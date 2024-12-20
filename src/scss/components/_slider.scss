@@ -1,0 +1,77 @@
+//.swiper-horizontal > .swiper-pagination-bullets,
+//.swiper-pagination-bullets.swiper-pagination-horizontal {
+//  display: none;
+//  width: auto;
+//  left: auto;
+//  right: 0;
+//  text-align: left;
+//  bottom: 19px;
+//}
+//
+//.swiper-pagination-bullet {
+//  width: 30px;
+//  height: 10px;
+//  margin: 0 8px 0 0 !important;
+//  background-color: #46B600;
+//  border-radius: 100px;
+//  opacity: .25;
+//}
+//.swiper-pagination.white .swiper-pagination-bullet {
+//  background-color: #FFFFFF;
+//}
+//.swiper-pagination-bullet-active {
+//  opacity: 1;
+//}
+//
+////navigation slider
+//
+//.swiper-button-next,
+//.swiper-button-prev {
+//  width: 64px;
+//  height: 64px;
+//  border: 1px solid #46B600;
+//  border-radius: 50%;
+//  top: auto;
+//  margin-top: 96px;
+//}
+//
+//.swiper-button-next {
+//  right: auto;
+//  left: 118px;
+//}
+//
+//.swiper-button-prev {
+//  left: 0;
+//}
+//
+//.swiper-button-prev:before,
+//.swiper-button-next:before {
+//  position: absolute;
+//  content: '';
+//  display: block;
+//  width: 24px;
+//  height: 24px;
+//  left: 50%;
+//  top: 50%;
+//  transform: translate(-50%, -50%);
+//  background-image: url(../assets/img/triangle.svg);
+//  background-repeat: no-repeat;
+//  background-size: auto;
+//  background-position: center;
+//}
+//
+//.swiper-button-prev:before {
+//  transform: translate(-50%, -50%) rotate(180deg);
+//}
+//
+//.swiper-button-prev:after,
+//.swiper-button-next:after {
+//  display: none;
+//}
+//
+//@include respond-to($sm) {
+//  .swiper-horizontal > .swiper-pagination-bullets,
+//  .swiper-pagination-bullets.swiper-pagination-horizontal {
+//    bottom: 0;
+//  }
+//}

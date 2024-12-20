@@ -1,0 +1,47 @@
+.container {
+  padding: 0 24px;
+  width: 100%;
+  margin: 0 auto;
+}
+
+@include respond-to($sm) {
+  .container {
+    max-width: 360px;
+    width: 100%;
+  }
+}
+
+@include respond-to($md) {
+  .container {
+    max-width: 576px;
+    padding: 0 16px;
+  }
+}
+
+@include respond-to($lg) {
+  .container {
+    max-width: 768px;
+    padding: 0 37px;
+  }
+}
+
+@include respond-to($xl) {
+  .container {
+    max-width: 1024px;
+    padding: 0 20px;
+  }
+}
+
+@include respond-to($xxl) {
+  .container {
+    max-width: 1280px;
+    padding: 0 37px;
+  }
+}
+
+@include respond-to($xxl) {
+  .container {
+    max-width: 1280px;
+    padding: 0 37px;
+  }
+}

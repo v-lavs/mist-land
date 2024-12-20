@@ -1,0 +1,35 @@
+{
+  "name": "iLavs-gulp-starter",
+  "version": "1.0.0",
+  "description": "Easy start to build WP and HTML themes",
+  "scripts": {
+    "start": "gulp clean && gulp watch",
+    "build": "gulp clean && gulp build"
+  },
+  "author": "vLavs",
+  "license": "ISC",
+  "devDependencies": {
+    "clean-css": "^4.2.3",
+    "gulp": "^3.9.1",
+    "gulp-autoprefixer": "4.1.0",
+    "gulp-group-css-media-queries": "^1.2.2",
+    "gulp-include": "^2.4.1",
+    "gulp-minify-css": "1.2.4",
+    "gulp-sass": "3.1.0",
+    "gulp-sourcemaps": "2.6.4",
+    "gulp-uglify": "3.0.0",
+    "gulp-util": "3.0.8",
+    "gulp-watch": "5.0.0",
+    "minimatch": "^3.1.2",
+    "rimraf": "2.6.2"
+  },
+  "dependencies": {
+    "bootstrap-4-grid": "^2.4.1",
+    "braces": "^2.3.2",
+    "jquery": "^3.5.1",
+    "jquery-scrollify": "^1.0.21",
+    "lodash": "^4.17.21",
+    "natives": "^1.1.6",
+    "swiper": "^7.0.3"
+  }
+}

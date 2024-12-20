@@ -1,0 +1,37 @@
+
+.title {
+  font-size: 24px;
+  font-weight: 400;
+  line-height: 28.8px;
+  margin-bottom: 30px;
+
+ b {
+    font-weight: 600;
+  }
+
+}
+
+.title_xl {
+  font-family: "Manrope", sans-serif;
+  font-size: 88px;
+  font-weight: 800;
+  line-height: 97px;
+  letter-spacing: 0.06em;
+
+}
+
+.title_md {
+
+}
+
+.title_sm {
+
+}
+
+@include respond-to($sm) {
+
+}
+
+.main_hot {
+
+}

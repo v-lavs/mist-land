@@ -1,0 +1,70 @@
+.section-banner {
+  padding-top: 48px;
+  padding-bottom: 40px;
+
+  .sub-title {
+    font-size: 24px;
+    line-height: 28.8px;
+    letter-spacing: 0.01em;
+  }
+
+  .wrap-btn {
+    position: relative;
+    z-index: 1;
+    width: 38%;
+  }
+
+  &__header {
+    margin-bottom: 28px;
+  }
+
+  &__content {
+    position: relative;
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+  }
+
+  &__thumb {
+    width: 62%;
+    height: 286px;
+    padding-left: 23px;
+    position: relative;
+
+    img {
+      position: absolute;
+      width: 100vw;
+      max-width: 194px;
+      left: 23px;
+      bottom: 0;
+    }
+  }
+}
+
+
+
+.heading-site {
+  font-size: 56px;
+  font-weight: 800;
+  line-height: 61.6px;
+  letter-spacing: 0.06em;
+}
+
+@include respond-to($lg) {
+  .section-banner {
+
+  }
+}
+
+@include respond-to($md) {
+  .section-banner {
+
+  }
+}
+
+@include respond-to($sm) {
+  .section-banner {
+
+  }
+
+}
