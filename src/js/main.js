@@ -4,7 +4,7 @@
 
 // CUSTOM SCRIPTS
 document.addEventListener('DOMContentLoaded', function () {
-
+    gsap.registerPlugin(ScrollTrigger, ScrollToPlugin);
 // MOBILE MENU
     const nav = document.querySelector('.header__nav');
     const navOpenHeader = document.querySelector('.header');
@@ -12,7 +12,7 @@ document.addEventListener('DOMContentLoaded', function () {
     const btnClose = document.querySelector('.btn_close');
     const backdrop = document.querySelector('.backdrop');
     const menuLinks = document.querySelectorAll('.menu__link');
-       const body = document.querySelector('body');
+    const body = document.querySelector('body');
 
     btnBurger.addEventListener('click', function (e) {
         e.preventDefault();
@@ -60,15 +60,30 @@ document.addEventListener('DOMContentLoaded', function () {
 
     smoothScrollToAnchor('.menu__item a');
 
+//ACCORDION
+    const accordionList = document.querySelectorAll(".accordion__item");
+
+    accordionList.forEach((event) =>
+        event.addEventListener("click", () => {
+            if (event.classList.contains("active")) {
+                event.classList.remove("active");
+            } else {
+                accordionList.forEach((event2) => event2.classList.remove("active"));
+                event.classList.add("active");
+            }
+        })
+    );
+
+// SLIDER - TABS
     const titles = document.querySelectorAll('.swiper-container .swiper-slide');
     const title = [];
-    titles.forEach(function(element) {
+    titles.forEach(function (element) {
         title.push(element.dataset.title);
     });
 
-   const sliderAbout = new Swiper('.slider-about', {
-       spaceBetween: 10,
-       slidesPerView: 'auto',
+    const sliderAbout = new Swiper('.slider-about', {
+        spaceBetween: 10,
+        slidesPerView: 'auto',
         pagination: {
             el: '.swiper-pagination',
             clickable: true,
@@ -152,114 +167,112 @@ document.addEventListener('DOMContentLoaded', function () {
 //         });
 
 
-
-
 // // ANIM BLOCK WITH GIRL
-        const symptoms = document.querySelectorAll(".symptom");
-        const symptomList = document.querySelector(".symptom-list ul");
-        const images = document.querySelectorAll(".image");
-        const iconsContainer = document.querySelector(".icons");
-        const animationSection = document.querySelector(".section-manifestation");
-        const stickyTrigger = document.querySelector(".sticky-trigger"); // Секція зі стікі ефектом
+    const symptoms = document.querySelectorAll(".symptom");
+    const symptomList = document.querySelector(".symptom-list ul");
+    const images = document.querySelectorAll(".image");
+    const iconsContainer = document.querySelector(".icons");
+    const animationSection = document.querySelector(".section-manifestation");
+    const stickyTrigger = document.querySelector(".sticky-trigger"); // Секція зі стікі ефектом
 
-        let currentSymptomIndex = -1; // Індекс поточного активного симптому
-        let isLastAnimation = false; // Флаг, чи виконується остання анімація
-        const delayAfterLastAnimation = 1000; // Затримка перед зняттям стікі (мс)
+    let currentSymptomIndex = -1; // Індекс поточного активного симптому
+    let isLastAnimation = false; // Флаг, чи виконується остання анімація
+    const delayAfterLastAnimation = 1000; // Затримка перед зняттям стікі (мс)
 
-        const sectionTop = animationSection.offsetTop;
-        const sectionHeight = animationSection.offsetHeight;
-        const symptomStep = sectionHeight / symptoms.length; // Висота секції для кожного текстового пункту
+    const sectionTop = animationSection.offsetTop;
+    const sectionHeight = animationSection.offsetHeight;
+    const symptomStep = sectionHeight / symptoms.length; // Висота секції для кожного текстового пункту
 
-        // Функція для визначення, яка картинка відповідає поточному симптому
-        const getImageIndexForSymptom = (symptomIndex) => {
-            if (symptomIndex >= 0 && symptomIndex <= 2) return 0; // Картинка 1 (симптоми 1–3)
-            if (symptomIndex >= 3 && symptomIndex <= 5) return 1; // Картинка 2 (симптоми 4–6)
-            if (symptomIndex >= 6 && symptomIndex <= 7) return 2; // Картинка 3 (симптоми 7–8)
-            if (symptomIndex === 8) return 3; // Картинка 4 (симптом 9)
-            return -1; // Без картинки
-        };
+    // Функція для визначення, яка картинка відповідає поточному симптому
+    const getImageIndexForSymptom = (symptomIndex) => {
+        if (symptomIndex >= 0 && symptomIndex <= 2) return 0; // Картинка 1 (симптоми 1–3)
+        if (symptomIndex >= 3 && symptomIndex <= 5) return 1; // Картинка 2 (симптоми 4–6)
+        if (symptomIndex >= 6 && symptomIndex <= 7) return 2; // Картинка 3 (симптоми 7–8)
+        if (symptomIndex === 8) return 3; // Картинка 4 (симптом 9)
+        return -1; // Без картинки
+    };
 
-        // Функція для оновлення стану елементів
-        const updateState = (index) => {
-            // Робимо всі симптоми розмитими
-            symptoms.forEach((s, i) => {
-                if (i === index) {
-                    s.classList.add("visible"); // Активний
-                } else {
-                    s.classList.remove("visible"); // Інші залишаються розмитими
-                }
-            });
-
-            // Динамічно обчислюємо зсув `ul` на ширину попередніх елементів
-            let shiftWidth = 0;
-            for (let i = 0; i < index; i++) {
-                shiftWidth += symptoms[i].offsetWidth + 8; // Додаємо ширину елементів та gap (8px)
+    // Функція для оновлення стану елементів
+    const updateState = (index) => {
+        // Робимо всі симптоми розмитими
+        symptoms.forEach((s, i) => {
+            if (i === index) {
+                s.classList.add("visible"); // Активний
+            } else {
+                s.classList.remove("visible"); // Інші залишаються розмитими
             }
-            symptomList.style.transform = `translateX(-${shiftWidth}px)`;
+        });
 
-            // Показуємо відповідну картинку
-            const newImageIndex = getImageIndexForSymptom(index);
-            images.forEach((image, imgIndex) => {
-                if (imgIndex === newImageIndex) {
-                    image.classList.add("visible");
-                } else {
-                    image.classList.remove("visible");
-                }
-            });
+        // Динамічно обчислюємо зсув `ul` на ширину попередніх елементів
+        let shiftWidth = 0;
+        for (let i = 0; i < index; i++) {
+            shiftWidth += symptoms[i].offsetWidth + 8; // Додаємо ширину елементів та gap (8px)
+        }
+        symptomList.style.transform = `translateX(-${shiftWidth}px)`;
 
-            // Оновлюємо іконки
-            const iconSrc = symptoms[index].dataset.icon;
-            if (iconSrc) {
-                iconsContainer.innerHTML = ""; // Очищаємо попередні іконки
-                const iconElement = document.createElement("img");
-                iconElement.src = iconSrc;
-                iconElement.classList.add("icon", "visible");
-                iconsContainer.appendChild(iconElement);
+        // Показуємо відповідну картинку
+        const newImageIndex = getImageIndexForSymptom(index);
+        images.forEach((image, imgIndex) => {
+            if (imgIndex === newImageIndex) {
+                image.classList.add("visible");
+            } else {
+                image.classList.remove("visible");
             }
-        };
+        });
 
-        // Оновлюємо анімацію на основі скролу
-        const updateAnimationOnScroll = () => {
-            const scrollPosition = window.scrollY - sectionTop;
+        // Оновлюємо іконки
+        const iconSrc = symptoms[index].dataset.icon;
+        if (iconSrc) {
+            iconsContainer.innerHTML = ""; // Очищаємо попередні іконки
+            const iconElement = document.createElement("img");
+            iconElement.src = iconSrc;
+            iconElement.classList.add("icon", "visible");
+            iconsContainer.appendChild(iconElement);
+        }
+    };
 
-            if (!isLastAnimation) {
-                symptoms.forEach((symptom, index) => {
-                    const start = index * symptomStep;
-                    const end = start + symptomStep;
+    // Оновлюємо анімацію на основі скролу
+    const updateAnimationOnScroll = () => {
+        const scrollPosition = window.scrollY - sectionTop;
 
-                    if (scrollPosition >= start && scrollPosition < end) {
-                        if (currentSymptomIndex !== index) {
-                            currentSymptomIndex = index;
-                            updateState(index);
-                        }
+        if (!isLastAnimation) {
+            symptoms.forEach((symptom, index) => {
+                const start = index * symptomStep;
+                const end = start + symptomStep;
+
+                if (scrollPosition >= start && scrollPosition < end) {
+                    if (currentSymptomIndex !== index) {
+                        currentSymptomIndex = index;
+                        updateState(index);
                     }
-                });
-            }
+                }
+            });
+        }
 
-            // Перевіряємо, чи дійшли до останньої анімації
-            if (currentSymptomIndex === symptoms.length - 1 && !isLastAnimation) {
-                isLastAnimation = true;
+        // Перевіряємо, чи дійшли до останньої анімації
+        if (currentSymptomIndex === symptoms.length - 1 && !isLastAnimation) {
+            isLastAnimation = true;
 
-                stickyTrigger.style.height = "auto";
-                // Додаємо затримку, після якої знімаємо "стики"
-                setTimeout(() => {
-                    stickyTrigger.style.position = "relative"; // Стіки більше не активний
-                    stickyTrigger.style.top = "auto"; // Знімаємо прив'язку до верху
-                    stickyTrigger.style.scroll = "auto"; // Знімаємо прив'язку до верху
-                    updateState(currentSymptomIndex); // Фіксуємо останній стан
-                }, delayAfterLastAnimation);
-            }
-        };
+            stickyTrigger.style.height = "auto";
+            // Додаємо затримку, після якої знімаємо "стики"
+            setTimeout(() => {
+                stickyTrigger.style.position = "relative"; // Стіки більше не активний
+                stickyTrigger.style.top = "auto"; // Знімаємо прив'язку до верху
+                stickyTrigger.style.scroll = "auto"; // Знімаємо прив'язку до верху
+                updateState(currentSymptomIndex); // Фіксуємо останній стан
+            }, delayAfterLastAnimation);
+        }
+    };
 
-        // Прив'язка функції до події скролу
-        window.addEventListener("scroll", updateAnimationOnScroll);
+    // Прив'язка функції до події скролу
+    window.addEventListener("scroll", updateAnimationOnScroll);
 //
 
 
 //    ANIMATION PILL
 
     // This function scales the container to fit the screen.
-    function scaleContainer () {
+    function scaleContainer() {
         const container = document.getElementById("animation-container");
         const scale = Math.min(window.innerWidth / 690, window.innerHeight / 384);
         container.style.transform = `scale(${scale})`;
@@ -276,7 +289,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
         // This function creates the animation for each component.
         document.querySelectorAll(".component").forEach((component) => {
-            const tl = gsap.timeline({ repeat: -1, yoyo: true });
+            const tl = gsap.timeline({repeat: -1, yoyo: true});
 
             tl.to(component, {
                 y: `+=${getCoordinatesRandomValue()}`,

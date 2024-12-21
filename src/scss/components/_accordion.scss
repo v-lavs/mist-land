@@ -1,96 +1,125 @@
-//.accordion {
-//  font-weight: 500;
-//  width: 100%;
-//  padding-top: 10px;
-//}
-//
-//.accordion__item {
-//  margin: 0 0 10px 0;
-//  border-bottom: 1px solid #000000;
-//  overflow: hidden;
-//
-//  &:last-child {
-//    margin-bottom: 0;
-//  }
-//}
-//
-//.accordion__tab-container {
+.accordion {
+  width: 100%;
+}
+
+.accordion__item {
+  padding: 14px 12px 14px 20px;
+  margin-bottom: 12px;
+  overflow: hidden;
+  background: linear-gradient(96.49deg, #00E0E0 5.97%, #00C6FF 98.25%);
+  border-radius: 40px;
+}
+.accordion__item h4{
+  color: rgba(1, 69, 137, 1);
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 18.2px;
+}
+.accordion__tab-container {
+  position: relative;
+  //padding: 10px 96px 10px 0;
+  //font-weight: 700;
+  //font-size: 32px;
+  //color: #2e3540;
+}
+
+.accordion__caret {
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #ffffff;;
+  transition: .35s ease-in-out;
+
+  &:before {
+    content: '';
+    width: 24px;
+    height: 24px;
+    background-image: url(../assets/img/plus.svg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+    transform-origin: 50% 50%;
+    transform: rotate(45deg);
+    transition: .35s ease-in-out;
+  }
+
+  &:hover,
+  &:focus {
+
+  }
+  &:active{
+
+  }
+}
+
+
+.accordion__item .display {
+  max-height: 0;
+  padding: 16px 96px 0 0;
+  padding: 0;
+  transition: max-height 0.3s ease;
+  overflow: hidden;
+}
+.accordion__item.active{
+  background-color: transparent;
+  display: flow-root;
+  position: relative;
+  &:before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    border-radius: 40px;
+    border: 1px solid transparent;
+    background: linear-gradient(96.49deg, #00E0E0 5.97%, #00C6FF 98.25%);
+    -webkit-mask: linear-gradient(#fff 0 0) padding-box, linear-gradient(#fff 0 0);
+    -webkit-mask-composite: destination-out;
+    mask-composite: exclude;
+    opacity: 0;
+  }
+}
+.accordion__item.active .display {
+  max-height: 500px;
+  transition: max-height 1s ease;
+  overflow: hidden;
+}
+
+.active .accordion__caret {
+  border: 1px solid rgba(0, 230, 255, 1);
+  background-color: transparent;
+  &:before {
+    filter: invert(57%) sepia(59%) saturate(2489%) hue-rotate(337deg) brightness(126%) contrast(105%);
+
+    transform: rotate(0) ;
+  }
+}
+
+//.border-mask {
+//  display: flow-root;
 //  position: relative;
-//  padding: 10px 60px 10px 0;
-//  font-weight: 500;
-//  color: #000000;
 //}
-//
-//.accordion__caret {
+////
+//.border-mask::before {
+//  content: "";
 //  position: absolute;
+//  top: 0;
+//  left: 0;
 //  right: 0;
-//  top: 0.55em;
-//  width: 26px;
-//  height: 26px;
-//  color: #ffffff;
-//  transition: .35s ease-in-out;
-//
-//  &:before {
-//    content: '';
-//    display: block;
-//    width: 26px;
-//    height: 26px;
-//    background-image: url(../assets/img/arrow-down-right2.svg);
-//    background-position: center;
-//    background-repeat: no-repeat;
-//    background-size: 90% 90%;
-//    transform-origin: 50% 50%;
-//    transform: rotate(0deg);
-//    transition: .35s ease-in-out;
-//    z-index: 1;
-//  }
-//}
-//
-//
-//.accordion__item .display {
-//  font-weight: 300;
-//  max-height: 0;
-//  margin: 0;
-//  padding: 10px 14px 0 0;
-//  transition: max-height 0.3s ease;
-//  overflow: hidden;
-//  border: none;
-//
-//}
-//
-//.accordion__item .display:empty {
-//  display: none;
-//}
-//
-//.accordion__item.active .display {
-//  max-height: 1000px;
-//  transition: max-height 2s linear;
-//  overflow: hidden;
-//  padding-bottom: 26px;
-//  padding-top: 10px;
-//}
-//
-//.active .accordion__caret {
-//  &:before {
-//    transform: rotate(90deg);
-//  }
-//}
-//
-//@media screen and (max-width: 1920px) {
-//  .accordion__caret:before {
-//    width: 20px;
-//    height: 20px;
-//  }
-//}
-//
-//@include respond-to($sm) {
-//  .accordion__caret {
-//    width: 20px;
-//    height: 20px;
-//    top: 0.46em;
-//  }
-//  .accordion__caret:before {
-//    width: 20px;
-//    height: 20px;
-//  }
+//  bottom: 0;
+//  border-radius: 40px;
+//  border: 1px solid transparent;
+//  background: linear-gradient(96.49deg, #00E0E0 5.97%, #00C6FF 98.25%);
+//  -webkit-mask: linear-gradient(#fff 0 0) padding-box, linear-gradient(#fff 0 0);
+//  -webkit-mask-composite: destination-out;
+//  mask-composite: exclude;
+//  opacity: 0;
 //}

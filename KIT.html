@@ -66,6 +66,41 @@
     </header>
     <div class="overlay"></div>
     <main class="main">
+        <style>
+
+            .gradient-border-bg {
+                border: 5px solid;
+                border-image: linear-gradient(45deg, purple, orange) 1;
+                padding: 1rem;
+            }
+
+            .gradient-border-mask {
+                display: flow-root;
+                position: relative;
+                padding: 1.3rem;
+            }
+
+            .gradient-border-mask::before {
+                content: "";
+                position: absolute;
+                top: 0;
+                left: 0;
+                right: 0;
+                bottom: 0;
+                border-radius: 25px;
+                border: 5px solid transparent;
+                background: linear-gradient(45deg, purple, orange) border-box;
+                -webkit-mask: linear-gradient(#fff 0 0) padding-box, linear-gradient(#fff 0 0);
+                -webkit-mask-composite: destination-out;
+                mask-composite: exclude;
+            }
+
+        </style>
+        <div class="gradient-border-mask">
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Necessitatibus, aut fugit? Perspiciatis
+                cupiditate, tenetur rem ratione facere iste inventore harum, quaerat, similique voluptate ab vitae saepe
+                quod odit eveniet assumenda!</p>
+        </div>
         <section class="section-banner">
             <div class="container">
                 <h1 class="heading-site">Містерія</h1>
@@ -247,8 +282,8 @@
                 <li class="block-label__item">
                     <div class="block-label__icon"
                          style="background-image: url(assets/img/symptoms/simptom6.svg);"></div>
-                Надмірна дратівливість
-            </li>
+                    Надмірна дратівливість
+                </li>
                 <li class="block-label__item">
                     <div class="block-label__icon"
                          style="background-image: url(assets/img/symptoms/simptom7.svg);"></div>
@@ -262,8 +297,8 @@
                 <li class="block-label__item">
                     <div class="block-label__icon"
                          style="background-image: url(assets/img/symptoms/simptom9.svg);"></div>
-                Забудькуватість
-            </li>
+                    Забудькуватість
+                </li>
             </ul>
         </div>
     </main>

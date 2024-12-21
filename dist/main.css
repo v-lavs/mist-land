@@ -976,6 +976,102 @@ body.disable-scroll {
   background-size: 28px 28px;
 }
 
+.accordion {
+  width: 100%;
+}
+
+.accordion__item {
+  padding: 14px 12px 14px 20px;
+  margin-bottom: 12px;
+  overflow: hidden;
+  background: linear-gradient(96.49deg, #00E0E0 5.97%, #00C6FF 98.25%);
+  border-radius: 40px;
+}
+
+.accordion__item h4 {
+  color: #014589;
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 18.2px;
+}
+
+.accordion__tab-container {
+  position: relative;
+}
+
+.accordion__caret {
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #ffffff;
+  transition: .35s ease-in-out;
+}
+
+.accordion__caret:before {
+  content: '';
+  width: 24px;
+  height: 24px;
+  background-image: url(../assets/img/plus.svg);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+  transform-origin: 50% 50%;
+  transform: rotate(45deg);
+  transition: .35s ease-in-out;
+}
+
+.accordion__item .display {
+  max-height: 0;
+  padding: 16px 96px 0 0;
+  padding: 0;
+  transition: max-height 0.3s ease;
+  overflow: hidden;
+}
+
+.accordion__item.active {
+  background-color: transparent;
+  display: flow-root;
+  position: relative;
+}
+
+.accordion__item.active:before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  border-radius: 40px;
+  border: 1px solid transparent;
+  background: linear-gradient(96.49deg, #00E0E0 5.97%, #00C6FF 98.25%);
+  -webkit-mask: linear-gradient(#fff 0 0) padding-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: destination-out;
+  mask-composite: exclude;
+  opacity: 0;
+}
+
+.accordion__item.active .display {
+  max-height: 500px;
+  transition: max-height 1s ease;
+  overflow: hidden;
+}
+
+.active .accordion__caret {
+  border: 1px solid #00e6ff;
+  background-color: transparent;
+}
+
+.active .accordion__caret:before {
+  filter: invert(57%) sepia(59%) saturate(2489%) hue-rotate(337deg) brightness(126%) contrast(105%);
+  transform: rotate(0);
+}
+
 .card {
   border-radius: 30px;
   backdrop-filter: blur(16px);
