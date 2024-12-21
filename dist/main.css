@@ -1421,6 +1421,7 @@ body.disable-scroll {
 
 .section-manifestation {
   position: relative;
+  height: 1000vh;
   overflow: visible;
 }
 
@@ -1477,7 +1478,7 @@ body.disable-scroll {
   position: sticky;
   height: 100vh;
   top: 0;
-  border: 1px solid red;
+  border: 2px solid red;
 }
 
 .symptom-list {
