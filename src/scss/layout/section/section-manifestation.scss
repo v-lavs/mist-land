@@ -1,14 +1,16 @@
 .section-manifestation {
   position: relative;
-  //height: 1000vh;
+  height: 1000vh;
   overflow: visible;
-
+.container{
+  overflow: hidden;
+}
   .message-block {
     padding-top: 42px;
     position: relative;
     transition: transform 1.5s ease, opacity 1s ease;
-    transform: translateY(150%);
-    opacity: 0;
+    //transform: translateY(150%);
+    //opacity: 0;
 
     &:before {
       position: absolute;
@@ -35,8 +37,17 @@
     display: flex;
     flex-wrap: wrap;
   }
-  .wrap-img{
-
+  .wrap-content__bg{
+    position: absolute;
+    background-image: url(../assets/img/back-wave.png);
+    background-position: center bottom;
+    background-size: cover;
+    left: 50%;
+    transform: translateX(-45%);
+    height: 463px;
+    width: 397px;
+    bottom: -68px;
+    z-index: -1;
   }
 }
 
