@@ -4,7 +4,9 @@
 
 // CUSTOM SCRIPTS
 document.addEventListener('DOMContentLoaded', function () {
+    console.log("GSAP:", gsap);
     gsap.registerPlugin(ScrollTrigger, ScrollToPlugin);
+
 // MOBILE MENU
     const nav = document.querySelector('.header__nav');
     const navOpenHeader = document.querySelector('.header');
@@ -63,35 +65,72 @@ document.addEventListener('DOMContentLoaded', function () {
 //ACCORDION
     const accordionList = document.querySelectorAll(".accordion__item");
 
-    accordionList.forEach((event) =>
-        event.addEventListener("click", () => {
-            if (event.classList.contains("active")) {
-                event.classList.remove("active");
-            } else {
-                accordionList.forEach((event2) => event2.classList.remove("active"));
-                event.classList.add("active");
+    accordionList.forEach((item) => {
+
+        item.addEventListener("click", () => {
+            // Перевіряємо, чи цей елемент вже активний
+            const isActive = item.classList.contains("active");
+
+            // Видаляємо клас "active" з усіх елементів
+            accordionList.forEach((item) => item.classList.remove("active"));
+
+            // Додаємо клас "active" тільки до натиснутого елемента, якщо він не був активним
+            if (!isActive) {
+                item.classList.add("active");
             }
-        })
-    );
+        });
+    });
+
+
+
+
 
 // SLIDER - TABS
-    const titles = document.querySelectorAll('.swiper-container .swiper-slide');
-    const title = [];
-    titles.forEach(function (element) {
-        title.push(element.dataset.title);
-    });
+//     const titles = document.querySelectorAll('.swiper-container .swiper-slide');
+//     const title = [];
+//     titles.forEach(function (element) {
+//         title.push(element.dataset.title);
+//     });
 
     const sliderAbout = new Swiper('.slider-about', {
         spaceBetween: 10,
         slidesPerView: 'auto',
         pagination: {
-            el: '.swiper-pagination',
+            el: '.slider-about .swiper-pagination',
             clickable: true,
-            renderBullet: function (index, className) {
-                return '<span class="' + className + '">' + title[index] + '</span>';
-            },
+            // renderBullet: function (index, className) {
+            //     return '<span class="' + className + '">' + title[index] + '</span>';
+            // },
         },
     });
+
+//BTN-UP
+    (function () {
+
+        function trackScroll() {
+            var scrolled = window.pageYOffset;
+            var coords = document.documentElement.clientHeight;
+
+            if (scrolled > coords) {
+                goTopBtn.classList.add('show');
+            }
+            if (scrolled < coords) {
+                goTopBtn.classList.remove('show');
+            }
+        }
+
+        function backToTop() {
+            if (window.pageYOffset > 0) {
+                window.scrollBy(0, -80);
+                setTimeout(backToTop, 0);
+            }
+        }
+
+        var goTopBtn = document.querySelector('.btn_up');
+
+        window.addEventListener('scroll', trackScroll);
+        goTopBtn.addEventListener('click', backToTop);
+    })();
 
 //    GSAP ANIMATION
 //     gsap.registerPlugin(ScrollTrigger);

@@ -3,11 +3,14 @@
     font-size: 15px;
     vertical-align: text-top;
   }
-  .block-label__item {
-    margin-right: 8px;
-    margin-bottom: 8px;
-    &:first-child {
-      margin-right: 25px;
+  .block-label {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    &__item {
+      &:first-child {
+        margin-right: 30px;
+      }
     }
   }
 }

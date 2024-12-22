@@ -3,123 +3,146 @@
 }
 
 .accordion__item {
+  position: relative;
   padding: 14px 12px 14px 20px;
   margin-bottom: 12px;
-  overflow: hidden;
+
   background: linear-gradient(96.49deg, #00E0E0 5.97%, #00C6FF 98.25%);
   border-radius: 40px;
+
+  &:before {
+    border-radius: 40px;
+  }
+
+  h4 {
+    color: rgba(1, 69, 137, 1);
+    font-size: 14px;
+    padding-right: 42px;
+    font-weight: 600;
+    line-height: 18.2px;
+  }
+
+  &:hover {
+    background: linear-gradient(96.49deg, #00E0E0 5.97%, #00C6FF 98.25%),
+    linear-gradient(0deg, rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.5));
+    box-shadow: 0 0 20px 0 #04F4E280;
+  }
+  &:last-child{
+    margin-bottom: 0;
+  }
 }
-.accordion__item h4{
-  color: rgba(1, 69, 137, 1);
-  font-size: 14px;
-  font-weight: 600;
-  line-height: 18.2px;
-}
+
 .accordion__tab-container {
   position: relative;
-  //padding: 10px 96px 10px 0;
-  //font-weight: 700;
-  //font-size: 32px;
-  //color: #2e3540;
 }
 
 .accordion__caret {
   position: absolute;
   right: 0;
-  top: 0;
+  top: 2px;
   width: 32px;
   height: 32px;
   border-radius: 50%;
-
   display: flex;
   justify-content: center;
   align-items: center;
-  color: #ffffff;;
-  transition: .35s ease-in-out;
+  transition: .35s;
+  background: #014589;
 
-  &:before {
-    content: '';
-    width: 24px;
-    height: 24px;
-    background-image: url(../assets/img/plus.svg);
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: contain;
-    transform-origin: 50% 50%;
-    transform: rotate(45deg);
-    transition: .35s ease-in-out;
+  svg {
+    max-width: 100%;
+    height: auto;
+    transition: .3s;
+
+    circle {
+      fill: transparent;
+    }
   }
 
   &:hover,
   &:focus {
 
   }
-  &:active{
+
+  &:active {
 
   }
 }
 
-
-.accordion__item .display {
+.accordion__item-display {
   max-height: 0;
-  padding: 16px 96px 0 0;
+  background: none;
+  color: #FFFFFF;
   padding: 0;
-  transition: max-height 0.3s ease;
+  margin: 0;
   overflow: hidden;
+
+  ul li {
+    padding-left: 25px;
+    position: relative;
+
+    &:before {
+      content: "";
+      position: absolute;
+      display: block;
+      width: 5px;
+      height: 5px;
+      border-radius: 50%;
+      background-color: #FFFFFF;
+      left: 10px;
+      top: 6px;
+    }
+  }
 }
-.accordion__item.active{
-  background-color: transparent;
+
+.accordion__item.active {
+  background: transparent;
   display: flow-root;
   position: relative;
+  border-radius: 30px;
+
   &:before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    border-radius: 40px;
-    border: 1px solid transparent;
-    background: linear-gradient(96.49deg, #00E0E0 5.97%, #00C6FF 98.25%);
-    -webkit-mask: linear-gradient(#fff 0 0) padding-box, linear-gradient(#fff 0 0);
-    -webkit-mask-composite: destination-out;
-    mask-composite: exclude;
-    opacity: 0;
+    border-radius: 30px;
   }
-}
-.accordion__item.active .display {
-  max-height: 500px;
-  transition: max-height 1s ease;
-  overflow: hidden;
+
+  .accordion__item-display {
+    max-height: 500px;
+    padding: 16px 42px 0 0;
+    transition: max-height 1s ease;
+    overflow: hidden;
+  }
+
+  h4 {
+    color: rgba(0, 230, 255, 1);
+  }
+
+  &:hover {
+    box-shadow: none;
+  }
+
+  > .accordion__tab-container:hover {
+    .accordion__caret {
+      box-shadow: 0 0 20px 0 #04F4E280;
+      background:
+      linear-gradient(0deg, rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.5)),
+      linear-gradient(96.49deg, #00C6FF 5.97%, #05FFDA 98.25%);
+    }
+  }
 }
 
 .active .accordion__caret {
-  border: 1px solid rgba(0, 230, 255, 1);
-  background-color: transparent;
-  &:before {
-    filter: invert(57%) sepia(59%) saturate(2489%) hue-rotate(337deg) brightness(126%) contrast(105%);
+  transform: rotate(180deg);
+  background: linear-gradient(96.49deg, #00C6FF 5.97%, #05FFDA 98.25%);
+  box-shadow: none;
 
-    transform: rotate(0) ;
+  svg {
+    circle {
+      fill: transparent;
+    }
+
+    path {
+      stroke: #014589;
+    }
   }
 }
 
-//.border-mask {
-//  display: flow-root;
-//  position: relative;
-//}
-////
-//.border-mask::before {
-//  content: "";
-//  position: absolute;
-//  top: 0;
-//  left: 0;
-//  right: 0;
-//  bottom: 0;
-//  border-radius: 40px;
-//  border: 1px solid transparent;
-//  background: linear-gradient(96.49deg, #00E0E0 5.97%, #00C6FF 98.25%);
-//  -webkit-mask: linear-gradient(#fff 0 0) padding-box, linear-gradient(#fff 0 0);
-//  -webkit-mask-composite: destination-out;
-//  mask-composite: exclude;
-//  opacity: 0;
-//}

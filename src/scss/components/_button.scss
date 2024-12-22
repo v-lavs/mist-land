@@ -80,12 +80,14 @@
   &_up {
     justify-content: center;
     align-items: center;
-    position: relative;
     width: 36px;
     height: 36px;
     padding: 0;
     border-radius: 50%;
-
+    position: fixed;
+    right: 24px;
+    bottom: 100px;
+    z-index: 300;
     .icon:before {
       transform: rotate(-90deg);
       background-image: url('../assets/img/arrow-right-sm.svg');
