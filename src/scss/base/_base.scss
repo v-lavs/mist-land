@@ -27,9 +27,13 @@ body {
   right: 0;
   bottom: 0;
   top: 0;
-  z-index: 10;
-  //background-color: #070707;
-  //opacity: .35;
+  z-index: 900;
+  background: #014F9F1A;
+  backdrop-filter: blur(5px);
+  &.show{
+    display: block;
+  }
+
 }
 
 .overlay.show {

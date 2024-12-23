@@ -1,0 +1,216 @@
+.modal {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  position: fixed;
+  left: 50%;
+  top: 50%;
+  width: 100%;
+  max-width: 312px;
+  transform: translate(-50%, -50%);
+  padding: 40px 20px 30px;
+  background: radial-gradient(50.47% 50% at 47.91% 50%, #0659AC 0%, #00356C 95.74%);
+  border-radius: 30px;
+  height: 526px;;
+  z-index: 1000;
+
+  &.open {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: all;
+  }
+
+  &__header {
+    font-size: 20px;
+    font-weight: 700;
+    line-height: 24px;
+    letter-spacing: -0.01em;
+    margin-bottom: 30px;
+  }
+
+  &__inner {
+    max-height: 526px;
+    height: 100%;
+    overflow-y: auto;
+  }
+
+  &__body {
+    font-size: 14px;
+    line-height: 16.8px;
+    overflow: hidden;
+
+    b {
+      font-weight: 700;
+    }
+  }
+
+  &__content {
+    display: flex;
+    align-items: center;
+    flex-wrap: nowrap;
+    padding-bottom: 20px;
+  }
+
+  .thumb {
+    width: 48px;
+    height: 48px;
+    margin-right: 10px;
+    flex-shrink: 0;
+  }
+
+  .card-modal {
+    position: relative;
+    border-radius: 40px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 20px 20px 13px;
+    background: linear-gradient(87.04deg, rgba(28, 126, 176, 0.25) 2.46%, rgba(28, 126, 176, 0) 105.58%);
+    font-size: 16px;
+    font-weight: 700;
+    line-height: 19.2px;
+    min-height: 243px;
+
+    ul {
+      width: 100%;
+
+      li {
+        position: relative;
+        color: #00E6FF;
+        padding-left: 36px;
+
+        &:before {
+          position: absolute;
+          content: '';
+          display: block;
+          background-image: url(../assets/img/ul-chek.svg);
+          background-position: center;
+          background-size: cover;
+          width: 26px;
+          height: 26px;
+          top: 0;
+          left: 0;
+          z-index: 1;
+        }
+      }
+    }
+
+    &__footer {
+      width: 145px;
+      padding-bottom: 30px;
+    }
+  }
+
+  .img {
+    width: 106px;
+    height: 156px;
+    position: absolute;
+    right: 0;
+    bottom: 43px;
+    z-index: 1;
+  }
+}
+
+.round {
+  -webkit-animation: rotate 2s normal linear infinite;
+  animation: rotate 2s normal linear infinite;
+  transform-origin: center center;
+}
+
+@keyframes rotate {
+  0% {
+    -webkit-transform: rotate3d(0, 0, 1, 0deg);
+    transform: rotate3d(0, 0, 1, 0deg);
+  }
+
+  100% {
+    -webkit-transform: rotate3d(0, 0, 1, 360deg);
+    transform: rotate3d(0, 0, 1, 360deg);
+  }
+}
+
+.modal-play {
+  text-align: center;
+  font-size: 16px;
+  line-height: 19.2px;
+
+  .text_xl {
+    font-size: 24px;
+    line-height: 28.8px;
+  }
+
+  .text {
+    max-width: 342px;
+  }
+
+  .btn_secondary,
+  .text-end {
+    display: none;
+    margin-bottom: 12px;
+  }
+}
+
+.roulette {
+  position: relative;
+  width: 240px;
+  height: 245px;
+  margin: 0 auto 10px;
+
+  &__wheel {
+    display: block;
+    width: 100%;
+    height: 100%;
+    transform: rotate(60deg);
+    transform-origin: center center;
+    transition: transform 3s cubic-bezier(0.1, 0.7, 0.1, 1);
+  }
+
+  &__svg {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    top: 0;
+    z-index: 1;
+  }
+
+  &__spin {
+    position: absolute;
+    width: 50px;
+    height: 61px;
+    background-image: url(../assets/img/hand.svg);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: auto;
+    padding: 0;
+    background-color: transparent;
+    border-radius: 0;
+    bottom: 6px;
+    right: -15px;
+    z-index: 1;
+  }
+}
+.btn_discount{
+  max-width: 224px;
+  margin: 0 auto;
+}
+
+// Змінні для налаштування
+$num-dots: 17; // Кількість точок
+$animation-duration: .5s; // Тривалість анімації
+
+// Цикл для генерації стилів
+@for $i from 1 through $num-dots {
+  .dot:nth-child(#{$i}) {
+    animation: fade $animation-duration linear infinite;
+    animation-delay: #{($i - 1) * (1 / $num-dots)}s; // Рівномірна затримка
+  }
+}
+
+// Анімація для точок
+@keyframes fade {
+  0%, 100% { opacity: 0.5; }
+  50% { opacity: 1; }
+}
+
+

@@ -61,6 +61,8 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
     smoothScrollToAnchor('.menu__item a');
+    smoothScrollToAnchor('.btn_up');
+
 
 //ACCORDION
     const accordionList = document.querySelectorAll(".accordion__item");
@@ -80,9 +82,6 @@ document.addEventListener('DOMContentLoaded', function () {
             }
         });
     });
-
-
-
 
 
 // SLIDER - TABS
@@ -108,8 +107,8 @@ document.addEventListener('DOMContentLoaded', function () {
     (function () {
 
         function trackScroll() {
-            var scrolled = window.pageYOffset;
-            var coords = document.documentElement.clientHeight;
+            let scrolled = window.pageYOffset;
+            let coords = document.documentElement.clientHeight;
 
             if (scrolled > coords) {
                 goTopBtn.classList.add('show');
@@ -126,11 +125,92 @@ document.addEventListener('DOMContentLoaded', function () {
             }
         }
 
-        var goTopBtn = document.querySelector('.btn_up');
+        const goTopBtn = document.querySelector('.btn_up');
 
         window.addEventListener('scroll', trackScroll);
         goTopBtn.addEventListener('click', backToTop);
     })();
+
+
+// POPUPS
+    const openButtons = document.querySelectorAll('.open-popup'); // Кнопки для відкриття перших двох попапів
+    const popup = document.getElementById('modal'); // Перший/Другий Попап
+    const popupText = document.getElementById('modalHeader');
+    const closePopupButton = document.getElementById('closePopup');
+
+    const thirdPopup = document.getElementById('playDiscount'); // Третій Попап
+    const closeThirdPopupButton = document.getElementById('closeThirdPopup');
+
+    function openPopup(popupElement) {
+        popupElement.classList.add('open');
+        backdrop.classList.add('show');
+        body.classList.add('disable-scroll');
+    }
+
+    function closePopup(popupElement) {
+        popupElement.classList.remove('open');
+
+        if (!document.querySelector('.popup.show')) {
+            backdrop.classList.remove('show');
+            body.classList.remove('disable-scroll');
+        }
+    }
+
+    openButtons.forEach(button => {
+        button.addEventListener('click', () => {
+            const templateId = button.getAttribute('data-template-id');
+            const template = document.getElementById(templateId);
+
+            if (template) {
+                const templateContent = template.content.cloneNode(true);
+                popupText.innerHTML = '';
+                popupText.appendChild(templateContent);
+
+                const thirdPopupButton = popup.querySelector('.trigger-play');
+                thirdPopupButton.addEventListener('click', () => {
+                    closePopup(popup);
+                    openPopup(thirdPopup);
+                });
+
+                openPopup(popup);
+            }
+        });
+    });
+
+    closePopupButton.addEventListener('click', () => closePopup(popup));
+    closeThirdPopupButton.addEventListener('click', () => closePopup(thirdPopup));
+
+    backdrop.addEventListener('click', () => {
+        closePopup(popup);
+        closePopup(thirdPopup);
+    });
+
+// SPIN ROULETTE
+    const btnSpin = document.getElementById('spinButton');
+    btnSpin.addEventListener('click', () => {
+        const wheel = document.getElementById('wheel');
+        const textStart = document.querySelector('.text-start');
+        const textEnd = document.querySelector('.text-end');
+const btnDiscount = document.querySelector('.btn_discount')
+
+        // Кут сектору, на якому зупиняється (наприклад, "15%")
+        const targetSectorAngle = 0; // Наприклад, сектор 15% на 60°
+
+        const randomSpins = Math.floor(Math.random() * 5) + 5; // Випадкові оберти (5-10)
+        const totalRotation = randomSpins * 360 + targetSectorAngle;
+
+        // Анімація через CSS
+        wheel.style.transform = `rotate(${totalRotation}deg)`;
+        textStart.style.display = 'none';
+        btnSpin.style.display = 'none';
+
+        // Повідомлення після завершення
+        setTimeout(() => {
+            textEnd.style.display = 'block';
+            btnDiscount.style.display = 'inline-flex';
+        }, 3000);
+    });
+
 
 //    GSAP ANIMATION
 //     gsap.registerPlugin(ScrollTrigger);
@@ -311,65 +391,64 @@ document.addEventListener('DOMContentLoaded', function () {
 //    ANIMATION PILL
 
     // This function scales the container to fit the screen.
-    function scaleContainer() {
-        const container = document.getElementById("animation-container");
-        const scale = Math.min(window.innerWidth / 690, window.innerHeight / 384);
-        container.style.transform = `scale(${scale})`;
-    }
-
-    window.addEventListener("resize", scaleContainer);
-    scaleContainer();
+    // function scaleContainer() {
+    //     const container = document.getElementById("animation-container");
+    //     const scale = Math.min(container.innerWidth / 1200, container.innerHeight / 1005);
+    //     container.style.transform = `scale(${scale})`;
+    // }
+    //
+    // window.addEventListener("resize", scaleContainer);
+    // scaleContainer();
 
 // This function creates the animation.
-    document.addEventListener("DOMContentLoaded", () => {
-        const getCoordinatesRandomValue = () => Math.random() * 20 - 10;
-        const getDurationRandomValue = () => 2 + Math.random() * 1;
-        const getRotationRandomValue = () => Math.random() * 20 - 10;
 
-        // This function creates the animation for each component.
-        document.querySelectorAll(".component").forEach((component) => {
-            const tl = gsap.timeline({repeat: -1, yoyo: true});
-
-            tl.to(component, {
-                y: `+=${getCoordinatesRandomValue()}`,
-                x: `+=${getCoordinatesRandomValue()}`,
-                rotation: `+=${getRotationRandomValue()}`,
-                duration: getDurationRandomValue(),
-                ease: "sine.inOut",
-            })
-                .to(component, {
-                    y: `+=${getCoordinatesRandomValue()}`,
-                    x: `+=${getCoordinatesRandomValue()}`,
-                    rotation: `+=${getRotationRandomValue()}`,
-                    duration: getDurationRandomValue(),
-                    ease: "sine.inOut",
-                })
-                .to(component, {
-                    y: `+=${getCoordinatesRandomValue()}`,
-                    x: `+=${getCoordinatesRandomValue()}`,
-                    rotation: `+=${getRotationRandomValue()}`,
-                    duration: getDurationRandomValue(),
-                    ease: "sine.inOut",
-                });
-        });
-
-        gsap.timeline()
-            .to(".components", {
-                scale: 0,
-                rotation: 360,
-                duration: 2,
-                ease: "linear",
-            }, "+=5")
-            .from(".images", {
-                scale: 0,
-                duration: 2,
-                ease: "linear",
-            }, "+=2")
-            .from(".logo", {
-                x: -400,
-                duration: 1,
-            }, "+=0.6");
-    });
+    // const getCoordinatesRandomValue = () => Math.random() * 20 - 10;
+    // const getDurationRandomValue = () => 2 + Math.random() * 1;
+    // const getRotationRandomValue = () => Math.random() * 20 - 10;
+    //
+    // // This function creates the animation for each component.
+    // document.querySelectorAll(".component").forEach((component) => {
+    //     const tl = gsap.timeline({repeat: -1, yoyo: true});
+    //
+    //     tl.to(component, {
+    //         y: `+=${getCoordinatesRandomValue()}`,
+    //         x: `+=${getCoordinatesRandomValue()}`,
+    //         rotation: `+=${getRotationRandomValue()}`,
+    //         duration: getDurationRandomValue(),
+    //         ease: "sine.inOut",
+    //     })
+    //         .to(component, {
+    //             y: `+=${getCoordinatesRandomValue()}`,
+    //             x: `+=${getCoordinatesRandomValue()}`,
+    //             rotation: `+=${getRotationRandomValue()}`,
+    //             duration: getDurationRandomValue(),
+    //             ease: "sine.inOut",
+    //         })
+    //         .to(component, {
+    //             y: `+=${getCoordinatesRandomValue()}`,
+    //             x: `+=${getCoordinatesRandomValue()}`,
+    //             rotation: `+=${getRotationRandomValue()}`,
+    //             duration: getDurationRandomValue(),
+    //             ease: "sine.inOut",
+    //         });
+    // });
+    //
+    // gsap.timeline()
+    //     .to(".components", {
+    //         scale: 0,
+    //         rotation: 360,
+    //         duration: 2,
+    //         ease: "linear",
+    //     }, "+=5")
+    //     .from(".images", {
+    //         scale: 0,
+    //         duration: 2,
+    //         ease: "linear",
+    //     }, "+=2")
+    //     .from(".logo", {
+    //         x: -400,
+    //         duration: 1,
+    //     }, "+=0.6");
 
 });
 

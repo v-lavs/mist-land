@@ -4,12 +4,12 @@
   margin: 0 auto;
   max-width: 360px;
 }
-//
-//@include respond-to($sm) {
-//  .container {
-//    width: 100%;
-//  }
-//}
+
+@include respond-to($xs) {
+  .container {
+    max-width: 460px;
+  }
+}
 
 @include respond-to($md) {
   .container {

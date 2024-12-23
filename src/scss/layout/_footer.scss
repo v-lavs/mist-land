@@ -37,6 +37,9 @@
 }
 
 .disclaimer {
+  background: linear-gradient(261.51deg, rgba(0, 107, 182, 0.1) 1.66%, rgba(0, 78, 158, 0.1) 35.57%, rgba(9, 64, 134, 0.1) 63.71%, rgba(9, 46, 103, 0.1) 87.36%);
+  backdrop-filter: blur(75px);
+  padding: 3px 6px 0;
   position: fixed;
   bottom: 0;
   right: 0;

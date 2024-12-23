@@ -2,6 +2,9 @@
   padding-top: 48px;
   padding-bottom: 40px;
   overflow: hidden;
+  .container{
+    position: relative;
+  }
   .sub-title {
     font-size: 24px;
     line-height: 28.8px;
@@ -27,17 +30,20 @@
 
   &__thumb {
     width: 62%;
-    height: 286px;
-    padding-left: 23px;
+    padding-left: 8%;
     position: relative;
 
     img {
-      position: absolute;
-      width: 100vw;
       max-width: 194px;
-      left: 23px;
-      bottom: 0;
     }
+  }
+  .ellipse{
+    position: absolute;
+    width: 319.25px;
+    height: 400.41px;
+    opacity: 0.6;
+    background: linear-gradient(341.13deg, #7DE2FF 22.48%, #36FFAB 47.61%);
+    filter: blur(154px)
   }
 }
 

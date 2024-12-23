@@ -10,6 +10,7 @@
   padding: 0 50px;
   border-radius: 40px;
 
+  &_modal-close,
   &_up,
   &_primary {
     justify-content: center;
@@ -88,10 +89,16 @@
     right: 24px;
     bottom: 100px;
     z-index: 300;
+    opacity: 0;
+
     .icon:before {
       transform: rotate(-90deg);
       background-image: url('../assets/img/arrow-right-sm.svg');
       background-size: 15px 11px;
+    }
+
+    &.show {
+      opacity: 1;
     }
   }
 
@@ -102,6 +109,7 @@
     height: 25px;
     border-radius: 50%;
     transition: transform .35s;
+    flex-shrink: 0;
 
     &:before {
       position: absolute;
@@ -137,6 +145,18 @@
         background-size: 28px 28px;
       }
     }
+  }
+
+  &_modal-close {
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    right: 10px;
+    top: 10px;
+    padding: 0;
+    width: 40px;
+    height: 40px;
   }
 }
 
