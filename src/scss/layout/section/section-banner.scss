@@ -2,9 +2,11 @@
   padding-top: 48px;
   padding-bottom: 40px;
   overflow: hidden;
-  .container{
+
+  .container {
     position: relative;
   }
+
   .sub-title {
     font-size: 24px;
     line-height: 28.8px;
@@ -34,10 +36,36 @@
     position: relative;
 
     img {
+      position: relative;
       max-width: 194px;
+      z-index: 2;
     }
   }
-  .ellipse{
+
+  .banner__img-block {
+    position: relative;
+  }
+
+  .back-wave {
+    position: absolute!important;
+    bottom: 0;
+    height: 434px!important;
+    width: auto;
+    max-width: none!important;
+    z-index: 1!important;
+  }
+
+  .back-wave-l {
+    left: 0;
+    transform: translate(-90%, 103px);
+  }
+
+  .back-wave-r {
+    left: 0;
+    transform: translate(10%, 50px);
+  }
+
+  .ellipse {
     position: absolute;
     width: 319.25px;
     height: 400.41px;
@@ -46,7 +74,6 @@
     filter: blur(154px)
   }
 }
-
 
 
 .heading-site {

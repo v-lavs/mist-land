@@ -1848,7 +1848,32 @@ body.disable-scroll {
 }
 
 .section-banner__thumb img {
+  position: relative;
   max-width: 194px;
+  z-index: 2;
+}
+
+.section-banner .banner__img-block {
+  position: relative;
+}
+
+.section-banner .back-wave {
+  position: absolute !important;
+  bottom: 0;
+  height: 434px !important;
+  width: auto;
+  max-width: none !important;
+  z-index: 1 !important;
+}
+
+.section-banner .back-wave-l {
+  left: 0;
+  transform: translate(-90%, 103px);
+}
+
+.section-banner .back-wave-r {
+  left: 0;
+  transform: translate(10%, 50px);
 }
 
 .section-banner .ellipse {
