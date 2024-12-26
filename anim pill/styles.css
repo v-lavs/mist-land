@@ -1,0 +1,161 @@
+
+body {
+	margin: 0;
+	padding: 0;
+	min-height: 100vh;
+	background-color: #1a1a1a;
+	overflow: hidden;
+	background-color: #023885;
+}
+
+#animation-container {
+	position: relative;
+	width: 1200px;
+	height: 1005px;
+	transform-origin: top left;
+}
+
+#animation {
+	position: relative;
+	width: 1050px;
+	height: 800px;
+	border-radius: 100px;
+	background: radial-gradient(54.03% 53.88% at 55.47% 52.34%, rgba(6, 89, 172, 0) 0%, rgba(0, 53, 108, 0.5) 95.74%);
+	overflow: hidden;
+
+	margin: 50px auto;
+}
+
+.bg-circle {
+	position: absolute;
+	top: 10%;
+	left: 10%;
+	width: 524.328px;
+	height: 524.328px;
+	border-radius: 50%;
+	opacity: 0.8;
+	background: radial-gradient(50% 50% at 50% 50%, #2052d1 58.89%, rgba(72, 70, 217, 0) 100%);
+	filter: blur(50px);
+}
+
+.components {
+	position: absolute;
+	width: 900px;
+	height: 650px;
+	transform-origin: 500px center;
+}
+
+.circle {
+	position: absolute;
+	width: 326.586px;
+	height: 326.586px;
+	border-radius: 50%;
+	border: 3px solid #00c6ff;
+	opacity: 0.6;
+}
+
+.circle_1 {
+	top: 150px;
+	left: 175px;
+}
+
+.circle_2 {
+	top: 90px;
+	left: 430px;
+}
+
+.circle_3 {
+	top: 288px;
+	left: 340px;
+}
+
+.color-circle {
+	position: absolute;
+	border-radius: 50%;
+	background: linear-gradient(234deg, #1fff78 29%, rgba(31, 255, 120, 0) 63.81%);
+	filter: blur(75px);
+}
+
+.color-circle_1 {
+	width: 280px;
+	height: 280px;
+	top: 150px;
+	left: 95px;
+}
+
+.color-circle_2 {
+	width: 280px;
+	height: 280px;
+	top: 90px;
+	left: 560px;
+}
+
+.color-circle_3 {
+	width: 180px;
+	height: 180px;
+	top: 368px;
+	left: 480px;
+}
+
+.component {
+	position: absolute;
+}
+
+.component_1 {
+	top: 40px;
+	left: 16px;
+	width: 508.163px;
+	height: 498.163px;
+	transform: rotate(0.357deg);
+}
+
+.component_2 {
+	top: 28px;
+	left: 489px;
+	width: 483.076px;
+	height: 483.076px;
+	transform: rotate(360.604deg);
+}
+
+.component_3 {
+	top: 327px;
+	left: 370px;
+	width: 363px;
+	height: 364px;
+}
+
+.images {
+	/* position: absolute;
+	left: 0;
+	top: 0; */
+	width: 1051px;
+	height: 700px;
+	transform-origin: center;
+}
+
+.images__circle {
+	position: absolute;
+	left: 410px;
+	top: 100px;
+	width: 438px;
+	height: 438px;
+	opacity: 0.6;
+	border-radius: 50%;
+	border: 3px solid #00c6ff;
+}
+
+.pill {
+	position: absolute;
+	width: 393px;
+	height: 224px;
+	left: 200px;
+	top: 200px;
+}
+
+.logo {
+	position: absolute;
+	width: 248px;
+	height: 65px;
+	left: 620px;
+	top: 300px;
+}
