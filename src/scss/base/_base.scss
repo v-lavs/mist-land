@@ -30,7 +30,8 @@ body {
   z-index: 900;
   background: #014F9F1A;
   backdrop-filter: blur(5px);
-  &.show{
+
+  &.show {
     display: block;
   }
 
@@ -170,7 +171,9 @@ body {
     margin-right: auto
   }
 }
-
+sup{
+  font-size: initial;
+}
 @media screen and (max-width: 1920px) {
 
 }

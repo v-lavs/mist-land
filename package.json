@@ -24,12 +24,8 @@
     "rimraf": "2.6.2"
   },
   "dependencies": {
-    "bootstrap-4-grid": "^2.4.1",
-    "braces": "^2.3.2",
     "jquery": "^3.5.1",
     "jquery-scrollify": "^1.0.21",
-    "lodash": "^4.17.21",
-    "natives": "^1.1.6",
     "swiper": "^7.0.3"
   }
 }

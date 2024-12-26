@@ -1,21 +1,46 @@
-.section-app{
-  &__thumb{
-    padding-left: 46px;
-    max-width: 240px;
-    margin: 0 auto;
-  }
+@use "../../utils/mixins";
+@use "../../utils/variables";
+
+.section-app {
   sup {
     font-size: 15px;
     vertical-align: text-top;
   }
-  .block-label {
+
+  .labels-grid {
     display: flex;
     flex-wrap: wrap;
     gap: 8px;
     padding-bottom: 40px;
+
     &__item {
-      &:first-child {
-        margin-right: 30px;
+      &:nth-child(1) {
+        width: 100%;
+
+        .pill-label {
+          width: max-content;
+        }
+      }
+    }
+  }
+}
+
+@include mixins.respond-to(variables.$sm) {
+  .section-app {
+    sup {
+      font-size: 20px;
+    }
+
+    .labels-grid {
+      padding-bottom: 24px;
+      br {
+        display: none;
+      }
+
+      &__item {
+        &:nth-child(1) {
+          width: auto;
+        }
       }
     }
   }

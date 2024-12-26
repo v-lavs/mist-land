@@ -90,18 +90,36 @@ document.addEventListener('DOMContentLoaded', function () {
 //     titles.forEach(function (element) {
 //         title.push(element.dataset.title);
 //     });
+    let sliderAbout;
 
-    const sliderAbout = new Swiper('.slider-about', {
-        spaceBetween: 10,
-        slidesPerView: 'auto',
-        pagination: {
-            el: '.slider-about .swiper-pagination',
-            clickable: true,
-            // renderBullet: function (index, className) {
-            //     return '<span class="' + className + '">' + title[index] + '</span>';
-            // },
-        },
-    });
+// Функція для створення Swiper з різними ефектами
+    function initSwiper() {
+        if (window.innerWidth >= 1024) {
+            if (sliderAbout) sliderAbout.destroy(true, true); // Знищуємо старий Swiper
+            sliderAbout = new Swiper('.slider-about', {
+                effect: 'fade',
+            });
+        } else {
+            if (sliderAbout) sliderAbout.destroy(true, true); // Знищуємо старий Swiper
+            sliderAbout = new Swiper('.slider-about', {
+                    spaceBetween: 10,
+                    slidesPerView: 'auto',
+                    breakpoints: {
+                        768: {
+                            spaceBetween: 20,
+                        },
+                    },
+                    pagination: {
+                        el: '.slider-about .swiper-pagination',
+                        clickable: true,
+                    },
+                }
+            );
+        }
+    }
+    window.addEventListener('load', initSwiper);
+    window.addEventListener('resize', initSwiper);
+
 
 //BTN-UP
     (function () {
@@ -191,7 +209,7 @@ document.addEventListener('DOMContentLoaded', function () {
         const wheel = document.getElementById('wheel');
         const textStart = document.querySelector('.text-start');
         const textEnd = document.querySelector('.text-end');
-const btnDiscount = document.querySelector('.btn_discount')
+        const btnDiscount = document.querySelector('.btn_discount')
 
         // Кут сектору, на якому зупиняється (наприклад, "15%")
         const targetSectorAngle = 0; // Наприклад, сектор 15% на 60°
@@ -287,8 +305,8 @@ const btnDiscount = document.querySelector('.btn_discount')
 
 
 // // ANIM BLOCK WITH GIRL
-    const symptoms = document.querySelectorAll(".symptom");
-    const symptomList = document.querySelector(".symptom-list ul");
+    const symptoms = document.querySelectorAll(".manifestation");
+    const symptomList = document.querySelector(".manifestation-list ul");
     const images = document.querySelectorAll(".image");
     const iconsContainer = document.querySelector(".icons");
     const animationSection = document.querySelector(".section-manifestation");
@@ -302,7 +320,7 @@ const btnDiscount = document.querySelector('.btn_discount')
     const sectionHeight = animationSection.offsetHeight;
     const symptomStep = sectionHeight / symptoms.length; // Висота секції для кожного текстового пункту
 
-    // Функція для визначення, яка картинка відповідає поточному симптому
+// Функція для визначення, яка картинка відповідає поточному симптому
     const getImageIndexForSymptom = (symptomIndex) => {
         if (symptomIndex >= 0 && symptomIndex <= 2) return 0; // Картинка 1 (симптоми 1–3)
         if (symptomIndex >= 3 && symptomIndex <= 5) return 1; // Картинка 2 (симптоми 4–6)
@@ -311,7 +329,7 @@ const btnDiscount = document.querySelector('.btn_discount')
         return -1; // Без картинки
     };
 
-    // Функція для оновлення стану елементів
+// Функція для оновлення стану елементів
     const updateState = (index) => {
         // Робимо всі симптоми розмитими
         symptoms.forEach((s, i) => {
@@ -350,7 +368,7 @@ const btnDiscount = document.querySelector('.btn_discount')
         }
     };
 
-    // Оновлюємо анімацію на основі скролу
+// Оновлюємо анімацію на основі скролу
     const updateAnimationOnScroll = () => {
         const scrollPosition = window.scrollY - sectionTop;
 
@@ -383,72 +401,73 @@ const btnDiscount = document.querySelector('.btn_discount')
         }
     };
 
-    // Прив'язка функції до події скролу
+// Прив'язка функції до події скролу
     window.addEventListener("scroll", updateAnimationOnScroll);
 //
 
 
 //    ANIMATION PILL
 
-    // This function scales the container to fit the screen.
-    // function scaleContainer() {
-    //     const container = document.getElementById("animation-container");
-    //     const scale = Math.min(container.innerWidth / 1200, container.innerHeight / 1005);
-    //     container.style.transform = `scale(${scale})`;
-    // }
-    //
-    // window.addEventListener("resize", scaleContainer);
-    // scaleContainer();
+// This function scales the container to fit the screen.
+// function scaleContainer() {
+//     const container = document.getElementById("animation-container");
+//     const scale = Math.min(container.innerWidth / 1200, container.innerHeight / 1005);
+//     container.style.transform = `scale(${scale})`;
+// }
+//
+// window.addEventListener("resize", scaleContainer);
+// scaleContainer();
 
 // This function creates the animation.
 
-    // const getCoordinatesRandomValue = () => Math.random() * 20 - 10;
-    // const getDurationRandomValue = () => 2 + Math.random() * 1;
-    // const getRotationRandomValue = () => Math.random() * 20 - 10;
-    //
-    // // This function creates the animation for each component.
-    // document.querySelectorAll(".component").forEach((component) => {
-    //     const tl = gsap.timeline({repeat: -1, yoyo: true});
-    //
-    //     tl.to(component, {
-    //         y: `+=${getCoordinatesRandomValue()}`,
-    //         x: `+=${getCoordinatesRandomValue()}`,
-    //         rotation: `+=${getRotationRandomValue()}`,
-    //         duration: getDurationRandomValue(),
-    //         ease: "sine.inOut",
-    //     })
-    //         .to(component, {
-    //             y: `+=${getCoordinatesRandomValue()}`,
-    //             x: `+=${getCoordinatesRandomValue()}`,
-    //             rotation: `+=${getRotationRandomValue()}`,
-    //             duration: getDurationRandomValue(),
-    //             ease: "sine.inOut",
-    //         })
-    //         .to(component, {
-    //             y: `+=${getCoordinatesRandomValue()}`,
-    //             x: `+=${getCoordinatesRandomValue()}`,
-    //             rotation: `+=${getRotationRandomValue()}`,
-    //             duration: getDurationRandomValue(),
-    //             ease: "sine.inOut",
-    //         });
-    // });
-    //
-    // gsap.timeline()
-    //     .to(".components", {
-    //         scale: 0,
-    //         rotation: 360,
-    //         duration: 2,
-    //         ease: "linear",
-    //     }, "+=5")
-    //     .from(".images", {
-    //         scale: 0,
-    //         duration: 2,
-    //         ease: "linear",
-    //     }, "+=2")
-    //     .from(".logo", {
-    //         x: -400,
-    //         duration: 1,
-    //     }, "+=0.6");
+// const getCoordinatesRandomValue = () => Math.random() * 20 - 10;
+// const getDurationRandomValue = () => 2 + Math.random() * 1;
+// const getRotationRandomValue = () => Math.random() * 20 - 10;
+//
+// // This function creates the animation for each component.
+// document.querySelectorAll(".component").forEach((component) => {
+//     const tl = gsap.timeline({repeat: -1, yoyo: true});
+//
+//     tl.to(component, {
+//         y: `+=${getCoordinatesRandomValue()}`,
+//         x: `+=${getCoordinatesRandomValue()}`,
+//         rotation: `+=${getRotationRandomValue()}`,
+//         duration: getDurationRandomValue(),
+//         ease: "sine.inOut",
+//     })
+//         .to(component, {
+//             y: `+=${getCoordinatesRandomValue()}`,
+//             x: `+=${getCoordinatesRandomValue()}`,
+//             rotation: `+=${getRotationRandomValue()}`,
+//             duration: getDurationRandomValue(),
+//             ease: "sine.inOut",
+//         })
+//         .to(component, {
+//             y: `+=${getCoordinatesRandomValue()}`,
+//             x: `+=${getCoordinatesRandomValue()}`,
+//             rotation: `+=${getRotationRandomValue()}`,
+//             duration: getDurationRandomValue(),
+//             ease: "sine.inOut",
+//         });
+// });
+//
+// gsap.timeline()
+//     .to(".components", {
+//         scale: 0,
+//         rotation: 360,
+//         duration: 2,
+//         ease: "linear",
+//     }, "+=5")
+//     .from(".images", {
+//         scale: 0,
+//         duration: 2,
+//         ease: "linear",
+//     }, "+=2")
+//     .from(".logo", {
+//         x: -400,
+//         duration: 1,
+//     }, "+=0.6");
 
-});
+})
+;
 

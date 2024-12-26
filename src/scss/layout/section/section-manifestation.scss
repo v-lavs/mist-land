@@ -1,10 +1,15 @@
+@use "../../utils/mixins";
+@use "../../utils/variables";
+
 .section-manifestation {
   position: relative;
-  height: 1000vh;
+  //height: 1000vh;
   overflow: visible;
-.container{
-  overflow: hidden;
-}
+
+  .container {
+    overflow: hidden;
+  }
+
   .message-block {
     padding-top: 42px;
     position: relative;
@@ -33,11 +38,13 @@
       opacity: 1;
     }
   }
-  .wrap-content{
+
+  .manifestation-grid {
     display: flex;
     flex-wrap: wrap;
   }
-  .wrap-content__bg{
+
+  .manifestation-grid__bg {
     position: absolute;
     background-image: url(../assets/img/back-wave.png);
     background-position: center bottom;
@@ -59,7 +66,7 @@
 
 }
 
-.symptom-list {
+.manifestation-list {
   min-height: 50px;
   padding-bottom: 13px;
   overflow: hidden;
@@ -71,7 +78,7 @@
   }
 }
 
-.symptom {
+.manifestation {
   font-size: 16px;
   font-weight: 500;
   line-height: 19.2px;
@@ -81,7 +88,7 @@
   transition: opacity 0.5s ease, filter 0.5s ease;
   opacity: 0.5;
   backdrop-filter: blur(2px);
-  margin-right:8px;
+  margin-right: 8px;
   flex-shrink: 0;
   width: auto;
 
@@ -102,7 +109,7 @@
   }
 }
 
-.symptom.visible {
+.manifestation.visible {
   opacity: 1;
   filter: blur(0);
 }
@@ -141,4 +148,39 @@
 
 .icons .icon.visible {
   opacity: 1;
+}
+
+@include mixins.respond-to(variables.$sm) {
+  .manifestation-list {
+    order: 1;
+    width: 50%;
+
+    ul {
+      display: block;
+    }
+  }
+  .manifestation{
+    max-width: 100%;
+    margin-bottom: 12px;
+    font-size: 20px;
+    line-height: 1.4;
+    &:last-child{
+      margin-bottom: 0;
+    }
+  }
+  .section-manifestation {
+    .message-block{
+      font-size: 24px;
+      line-height: 1.4;
+      padding: 80px 80px 30px;
+      &::before{
+        width: 60px;
+        height: 60px;
+        top: 28px;
+      }
+    }
+    .images {
+      width: 50%;
+    }
+  }
 }

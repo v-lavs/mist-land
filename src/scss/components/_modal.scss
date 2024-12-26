@@ -190,7 +190,8 @@
     z-index: 1;
   }
 }
-.btn_discount{
+
+.btn_discount {
   max-width: 224px;
   margin: 0 auto;
 }
@@ -209,8 +210,12 @@ $animation-duration: .5s; // Тривалість анімації
 
 // Анімація для точок
 @keyframes fade {
-  0%, 100% { opacity: 0.5; }
-  50% { opacity: 1; }
+  0%, 100% {
+    opacity: 0.5;
+  }
+  50% {
+    opacity: 1;
+  }
 }
 
 

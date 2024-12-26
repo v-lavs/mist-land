@@ -334,24 +334,34 @@
                     <h3 class="title"><b class="color_blue">Майже 80% населення</b>
                         стикаються з проявами вегетативних порушень, такими як<sup>*</sup><sup>1</sup>:
                     </h3>
-                    <div class="wrap-content">
+                    <div class="manifestation-grid">
                         <!-- Блок зі списком симптомів -->
-                        <div class="symptom-list">
+                        <div class="manifestation-list">
                             <ul>
-                                <li class="symptom visible" data-icon="assets/img/icon1.svg">Напади головного болю</li>
-                                <li class="symptom" data-icon="assets/img/icon2.svg">Роздратованість</li>
-                                <li class="symptom" data-icon="assets/img/icon3.svg">Відчуття «порожньої» голови</li>
-                                <li class="symptom" data-icon="assets/img/icon4.svg">Неуважність, забудькуватість</li>
-                                <li class="symptom" data-icon="assets/img/icon5.svg">Неуважність, забудькуватість</li>
-                                <li class="symptom" data-icon="assets/img/icon6.svg">Коливання артеріального тиску</li>
-                                <li class="symptom" data-icon="assets/img/icon7.svg">Порушення сну (сонливість удень та
+                                <li class="manifestation visible" data-icon="assets/img/icon1.svg">Напади головного
+                                    болю
+                                </li>
+                                <li class="manifestation" data-icon="assets/img/icon2.svg">Роздратованість</li>
+                                <li class="manifestation" data-icon="assets/img/icon3.svg">Відчуття «порожньої» голови
+                                </li>
+                                <li class="manifestation" data-icon="assets/img/icon4.svg">Неуважність,
+                                    забудькуватість
+                                </li>
+                                <li class="manifestation" data-icon="assets/img/icon5.svg">Неуважність,
+                                    забудькуватість
+                                </li>
+                                <li class="manifestation" data-icon="assets/img/icon6.svg">Коливання артеріального
+                                    тиску
+                                </li>
+                                <li class="manifestation" data-icon="assets/img/icon7.svg">Порушення сну (сонливість
+                                    удень та
                                     погане засинання вночі)
                                 </li>
-                                <li class="symptom" data-icon="assets/img/icon8.svg">Запаморочення при зміні <br>
+                                <li class="manifestation" data-icon="assets/img/icon8.svg">Запаморочення при зміні <br>
                                     положення
                                     тіла
                                 </li>
-                                <li class="symptom" data-icon="assets/img/icon9.svg">Мерзлякуватість</li>
+                                <li class="manifestation" data-icon="assets/img/icon9.svg">Мерзлякуватість</li>
                             </ul>
                         </div>
                         <!-- Блок з картинками -->
@@ -362,7 +372,7 @@
                             <img src="assets/img/anim4.png" alt="Картинка 4" class="image" data-symptom="8">
                             <!-- Блок для іконок -->
                             <div class="icons"></div>
-                            <div class="wrap-content__bg"></div>
+                            <div class="manifestation-grid__bg"></div>
                         </div>
                     </div>
                     <div class="card message-block">
@@ -374,49 +384,77 @@
         </section>
         <section class="section section-improvement">
             <div class="container">
-                <h3 class="title">Завдяки ефектам компонентів <b class="color_blue">Містерія може сприяти поліпшенню
-                    самопочуття людей</b>
-                    із проявами вегетативних порушень<sup>*</sup><sup>2</sup>:</h3>
-                <ul class="block-label">
-                    <li class="block-label__item">
-                        <div class="block-label__icon"
-                             style="background-image: url(assets/img/improvement/improvement1.svg);"></div>
-                        Зменшувати симптоми метеочутливості
-                    </li>
-                    <li class="block-label__item">
-                        <div class="block-label__icon"
-                             style="background-image: url(assets/img/improvement/improvement2.svg);"></div>
-                        Стимулювати пам'ять, сприяти концентрації уваги
-                    <li class="block-label__item">
-                        <div class="block-label__icon"
-                             style="background-image: url(assets/img/improvement/improvement3.svg);"></div>
-                        Полегшувати відчуття тривоги
-                    </li>
-                    <li class="block-label__item">
-                        <div class="block-label__icon"
-                             style="background-image: url(assets/img/improvement/improvement4.svg);"></div>
-                        Покращувати психоемоційний стан
-                    </li>
-                    <li class="block-label__item">
-                        <div class="block-label__icon"
-                             style="background-image: url(assets/img/improvement/improvement5.svg);"></div>
-                        Сприяти нормалізації ліпідного профілю
-                    <li class="block-label__item">
-                        <div class="block-label__icon"
-                             style="background-image: url(assets/img/improvement/improvement6.svg);"></div>
-                        Підвищувати розумову енергію
-                    </li>
-                    <li class="block-label__item">
-                        <div class="block-label__icon"
-                             style="background-image: url(assets/img/improvement/improvement7.svg);"></div>
-                        Сприяти фокусуванню та ясності розуму
-                    </li>
-                </ul>
+                <div class="improvement-grid">
+                    <div class="improvement-grid__header">
+                        <h3 class="title">Завдяки ефектам компонентів <b class="color_blue">Містерія може сприяти
+                            поліпшенню
+                            самопочуття людей</b>
+                            із проявами вегетативних порушень<sup>*</sup><sup>2</sup>:</h3>
+                    </div>
+                    <div class="labels-grid">
+                        <div class="labels-grid__item">
+                            <div class="pill-label">
+                                <object class="pill-label__icon" data="assets/img/improvement/improvement1.svg"
+                                        type="image/svg+xml">
+                                </object>
+                                Зменшувати симптоми метеочутливості
+                            </div>
+                        </div>
+                        <div class="labels-grid__item">
+                            <div class="pill-label">
+                                <object class="pill-label__icon" data="assets/img/improvement/improvement2.svg"
+                                        type="image/svg+xml">
+                                </object>
+                                Стимулювати пам'ять, сприяти концентрації уваги
+                            </div>
+                        </div>
+                        <div class="labels-grid__item">
+                            <div class="pill-label">
+                                <object class="pill-label__icon" data="assets/img/improvement/improvement3.svg"
+                                        type="image/svg+xml">
+                                </object>
+                                Полегшувати відчуття тривоги
+                            </div>
+                        </div>
+                        <div class="labels-grid__item">
+                            <div class="pill-label">
+                                <object class="pill-label__icon" data="assets/img/improvement/improvement4.svg"
+                                        type="image/svg+xml">
+                                </object>
+                                Покращувати психоемоційний стан
+                            </div>
+                        </div>
+                        <div class="labels-grid__item">
+                            <div class="pill-label">
+                                <object class="pill-label__icon" data="assets/img/improvement/improvement5.svg"
+                                        type="image/svg+xml">
+                                </object>
+                                Сприяти нормалізації ліпідного профілю
+                            </div>
+                        </div>
+                        <div class="labels-grid__item">
+                            <div class="pill-label">
+                                <object class="pill-label__icon" data="assets/img/improvement/improvement6.svg"
+                                        type="image/svg+xml">
+                                </object>
+                                Підвищувати розумову енергію
+                            </div>
+                        </div>
+                        <div class="labels-grid__item">
+                            <div class="pill-label">
+                                <object class="pill-label__icon" data="assets/img/improvement/improvement7.svg"
+                                        type="image/svg+xml">
+                                </object>
+                                Сприяти фокусуванню та ясності розуму
+                            </div>
+                        </div>
 
-                <div class="section-improvement__bg">
-                    <div class="back" style="background-image: url(assets/img/improvement/back-improvement.png);"></div>
-                    <div class="wrap-thumb">
-                        <img src="assets/img/improvement/pack.png" alt="Упаковка препарату Містерія">
+                    </div>
+
+                    <div class="improvement-grid__img-block">
+                        <img class="back-wave" src="assets/img/improvement/back-improvement.png" alt="">
+                        <img class="improvement-grid__product-img" src="assets/img/improvement/pack.png"
+                             alt="Упаковка препарату Містерія">
                     </div>
                 </div>
             </div>
@@ -464,21 +502,27 @@
 
                 <div class="slider-about-wrap">
                     <div class="about-nav">
-                        <a href="#" class="about-nav__btn bg-mask active">Рослинна форма Омега-3 200 мг</a>
-                        <a href="#" class="about-nav__btn bg-mask">Екстракт гінкго білоби <br> 80 мг</a>
-                        <a href="#" class="about-nav__btn bg-mask"><span>Cognizin<sup>ТМ</sup></span> Цитиколін 250
-                            мг</a>
+                        <a href="#" class="about-nav__btn bg-mask active">Рослинна форма Омега-3
+                            <span> 200 мг</span></a>
+                        <a href="#" class="about-nav__btn bg-mask">Екстракт гінкго білоби <span> 80 мг</span></a>
+                        <a href="#" class="about-nav__btn bg-mask"><span>Cognizin<sup>ТМ</sup> <br> Цитиколін</span>
+                            <span>250 мг</span>
+                        </a>
                     </div>
                     <div class="swiper slider-about">
                         <div class="swiper-wrapper">
                             <div class="swiper-slide" data-title="Рослинна форма Омега-3 200 мг">
                                 <div class="card-about">
-                                    <div class="card-about__thumb"
-                                         style="background-image: url(assets/img/slide1.png);"></div>
+                                    <div class="card-about__thumb">
+                                        <picture>
+                                            <source srcset="assets/img/slide1b.png" media="(min-width: 768px)"/>
+                                            <img src="assets/img/slide1.png" alt="" width="271" height="120">
+                                        </picture>
+                                    </div>
                                     <div class="card-about__content">
-                                        <div class="card-about__title">
+                                        <h3 class="card-about__title">
                                             Рослинна форма Омега-3 AvailOm <sup>®</sup> 50 High DHA Algae<sup>2</sup>
-                                        </div>
+                                        </h3>
                                         <div class="card-about__label">200 мг</div>
 
                                         <ul>
@@ -486,7 +530,7 @@
                                             <li>У 5 разів вища біодоступність, ніж у рідких форм Омега-3</li>
                                             <li>Легке засвоєння організмом</li>
                                         </ul>
-                                        <p><b class="color_blue">Ефекти: </b></p>
+                                        <h4><b class="color_blue">Ефекти: </b></h4>
                                         <p>потужний антиоксидант, який чинить комплексну протизапальну дію, підтримує
                                             роботу мозку, гальмує розвиток атеросклерозу</p>
                                     </div>
@@ -494,8 +538,12 @@
                             </div>
                             <div class="swiper-slide" data-title="Екстракт гінкго білоби 80 мг">
                                 <div class="card-about">
-                                    <div class="card-about__thumb"
-                                         style="background-image: url(assets/img/slide2.png);"></div>
+                                    <div class="card-about__thumb">
+                                        <picture>
+                                            <source srcset="assets/img/slide2b.png" media="(min-width: 768px)"/>
+                                            <img src="assets/img/slide2.png" alt="" width="271" height="120">
+                                        </picture>
+                                    </div>
                                     <div class="card-about__content">
                                         <div class="card-about__title">
                                             Екстракт гінкго білоби EGb 7612<sup>2</sup>
@@ -506,7 +554,7 @@
                                             <li>Оригінальний високостандартизований екстракт</li>
                                             <li>Технологія виробництва з 7 ступенями якості</li>
                                         </ul>
-                                        <p><b class="color_blue">Ефекти: </b></p>
+                                        <h4><b class="color_blue">Ефекти: </b></h4>
                                         <p>покращує енергетичний обмін і транспортування кисню до головного мозку,
                                             усуває спазми судин та має виражену антиоксидантну дію
                                         </p>
@@ -515,8 +563,12 @@
                             </div>
                             <div class="swiper-slide" data-title="CognizinТМ  Цитиколін 250 мг">
                                 <div class="card-about">
-                                    <div class="card-about__thumb"
-                                         style="background-image: url(assets/img/slide3.png);"></div>
+                                    <div class="card-about__thumb">
+                                        <picture>
+                                            <source srcset="assets/img/slide3b.png" media="(min-width: 768px)"/>
+                                            <img src="assets/img/slide3.png" alt="" width="272" height="120">
+                                        </picture>
+                                    </div>
                                     <div class="card-about__content">
                                         <div class="card-about__title">
                                             Cognizin<sup>™</sup> Цитиколін<sup>2</sup>
@@ -528,7 +580,7 @@
                                             <li>Японська якість</li>
                                             <li>Запатентована форма</li>
                                         </ul>
-                                        <p><b class="color_blue">Ефекти: </b></p>
+                                        <h4><b class="color_blue">Ефекти: </b></h4>
                                         <p>бере участь у відновленні структури та функції нервових клітин, сприяє
                                             покращенню концентрації, уваги та пам'яті</p>
                                     </div>
@@ -540,127 +592,144 @@
                 </div>
             </div>
         </section>
-        <section id="application" class="section section-app">
+        <div class="section-sticky">
             <div class="container">
-                <h3 class="title">
-                    <b class="color_blue">Спосіб застосування</b>
-                    <span class="text_uppercase"> Містерія<sup>2</sup></span>
-                </h3>
-                <ul class="block-label">
-                    <li class="block-label__item">
-                        <div class="block-label__icon"
-                             style="background-image: url(assets/img/app1.svg);"></div>
-                        1 таблетка
-                    </li>
-                    <li class="block-label__item">
-                        <div class="block-label__icon"
-                             style="background-image: url(assets/img/app2.svg);"></div>
-                        2 рази <br>на добу
-                    </li>
-                    <li class="block-label__item">
-                        <div class="block-label__icon"
-                             style="background-image: url(assets/img/app3.svg);"></div>
-                        Після <br>прийому їжі
-                    </li>
-                    <li class="block-label__item">
-                        <div class="block-label__icon"
-                             style="background-image: url(assets/img/app4.svg);"></div>
-                        За рекомендацією лікаря можна приймати до З таблеток на добу
-                    </li>
-                </ul>
-                <div class="section-app__thumb">
-                    <img src="assets/img/Mystery_20tab.png" alt="Упаковка препарату Містерія">
+                <div class="sticky-grid">
+                    <section id="application" class="section section-app">
+                        <h3 class="title">
+                            <b class="color_blue">Спосіб застосування</b>
+                            <span class="text_uppercase"> Містерія<sup>2</sup></span>
+                        </h3>
+                        <div class="labels-grid">
+                            <div class="labels-grid__item">
+                                <div class="pill-label">
+                                    <object class="pill-label__icon" data="assets/img/app1.svg" type="image/svg+xml">
+                                    </object>
+                                    1 таблетка
+                                </div>
+                            </div>
+                            <div class="labels-grid__item">
+                                <div class="pill-label">
+                                    <object class="pill-label__icon" data="assets/img/app2.svg" type="image/svg+xml">
+                                    </object>
+                                    2 рази <br>на добу
+                                </div>
+                            </div>
+                            <div class="labels-grid__item">
+                                <div class="pill-label">
+                                    <object class="pill-label__icon" data="assets/img/app3.svg" type="image/svg+xml">
+                                    </object>
+                                    Після <br>прийому їжі
+                                </div>
+                            </div>
+                            <div class="labels-grid__item">
+                                <div class="pill-label">
+                                    <object class="pill-label__icon" data="assets/img/app4.svg" type="image/svg+xml">
+                                    </object>
+                                    За рекомендацією лікаря можна приймати до З таблеток на добу
+                                </div>
+                            </div>
+
+                        </div>
+
+                    </section>
+                    <div class="sticky-grid__img-block">
+                        <div class="section-sticky__img">
+                            <img class="sticky-grid__product-img" src="assets/img/Mystery_20tab_right.png"
+                                 alt="Упаковка препарату Містерія">
+                        </div>
+                    </div>
+                    <section id="faq" class="section section-faq">
+
+                        <h3 class="title">Поширені запитання</h3>
+                        <div class="accordion">
+
+                            <div class="accordion__item bg-mask">
+                                <div class="accordion__tab-container">
+                                    <div class="accordion__caret">
+                                        <svg width="32" height="32" viewBox="0 0 32 32" fill="none"
+                                             xmlns="http://www.w3.org/2000/svg">
+                                            <circle cx="15.9994" cy="15.9999" r="14.4018" fill="#014589"
+                                                    fill-opacity="0.9"/>
+                                            <path d="M8.79688 12.7993L15.9978 20.0002L23.1986 12.7993" stroke="#00E6FF"
+                                                  stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                        </svg>
+                                    </div>
+                                    <h4>З якого віку можна застосовувати Містерія?</h4>
+                                </div>
+                                <div class="accordion__item-display">
+                                    <p>Від 18 років<sup>2</sup>.</p>
+                                </div>
+                            </div>
+
+                            <div class="accordion__item bg-mask">
+                                <div class="accordion__tab-container">
+                                    <div class="accordion__caret">
+                                        <svg width="32" height="32" viewBox="0 0 32 32" fill="none"
+                                             xmlns="http://www.w3.org/2000/svg">
+                                            <circle cx="15.9994" cy="15.9999" r="14.4018" fill="#014589"
+                                                    fill-opacity="0.9"/>
+                                            <path d="M8.79688 12.7993L15.9978 20.0002L23.1986 12.7993" stroke="#00E6FF"
+                                                  stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                        </svg>
+                                    </div>
+                                    <h4>Містерія треба приймати до чи після їди?</h4>
+                                </div>
+                                <div class="accordion__item-display">
+                                    <p>Рекомендовано приймати Містерія після їди, запиваючи достатньою кількістю питної
+                                        води<sup>2</sup>.
+                                    </p>
+                                </div>
+                            </div>
+
+                            <div class="accordion__item bg-mask">
+                                <div class="accordion__tab-container">
+                                    <div class="accordion__caret">
+                                        <svg width="32" height="32" viewBox="0 0 32 32" fill="none"
+                                             xmlns="http://www.w3.org/2000/svg">
+                                            <circle cx="15.9994" cy="15.9999" r="14.4018" fill="#014589"
+                                                    fill-opacity="0.9"/>
+                                            <path d="M8.79688 12.7993L15.9978 20.0002L23.1986 12.7993" stroke="#00E6FF"
+                                                  stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                        </svg>
+                                    </div>
+                                    <h4>Кому протипоказане застосування Містерія?</h4>
+                                </div>
+                                <div class="accordion__item-display">
+                                    <p>Містерія протипоказана<sup>2</sup>:</p>
+                                    <ul>
+                                        <li>При індивідуальній чутливості до компонентів</li>
+                                        <li>У дитячому віці до 18 років</li>
+                                        <li>У період вагітності та лактації</li>
+                                    </ul>
+                                </div>
+                            </div>
+
+                            <div class="accordion__item bg-mask">
+                                <div class="accordion__tab-container">
+                                    <div class="accordion__caret">
+                                        <svg width="32" height="32" viewBox="0 0 32 32" fill="none"
+                                             xmlns="http://www.w3.org/2000/svg">
+                                            <circle cx="15.9994" cy="15.9999" r="14.4018" fill="#014589"
+                                                    fill-opacity="0.9"/>
+                                            <path d="M8.79688 12.7993L15.9978 20.0002L23.1986 12.7993" stroke="#00E6FF"
+                                                  stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                        </svg>
+                                    </div>
+                                    <h4>Як довго можна приймати Містерія?</h4>
+                                </div>
+                                <div class="accordion__item-display">
+                                    <p>Містерія можна приймати 1 місяць.</p>
+                                    <p>За рекомендацією лікаря тривалість може бути збільшена<sup>2</sup>.</p>
+                                </div>
+                            </div>
+
+                        </div>
+
+                    </section>
                 </div>
             </div>
-        </section>
-        <section id="faq" class="section section-faq">
-            <div class="container">
-                <h3 class="title">Поширені запитання</h3>
-                <div class="accordion">
-
-                    <div class="accordion__item bg-mask">
-                        <div class="accordion__tab-container">
-                            <div class="accordion__caret">
-                                <svg width="32" height="32" viewBox="0 0 32 32" fill="none"
-                                     xmlns="http://www.w3.org/2000/svg">
-                                    <circle cx="15.9994" cy="15.9999" r="14.4018" fill="#014589"
-                                            fill-opacity="0.9"/>
-                                    <path d="M8.79688 12.7993L15.9978 20.0002L23.1986 12.7993" stroke="#00E6FF"
-                                          stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                                </svg>
-                            </div>
-                            <h4>З якого віку можна застосовувати Містерія?</h4>
-                        </div>
-                        <div class="accordion__item-display">
-                            <p>Від 18 років<sup>2</sup>.</p>
-                        </div>
-                    </div>
-
-                    <div class="accordion__item bg-mask">
-                        <div class="accordion__tab-container">
-                            <div class="accordion__caret">
-                                <svg width="32" height="32" viewBox="0 0 32 32" fill="none"
-                                     xmlns="http://www.w3.org/2000/svg">
-                                    <circle cx="15.9994" cy="15.9999" r="14.4018" fill="#014589"
-                                            fill-opacity="0.9"/>
-                                    <path d="M8.79688 12.7993L15.9978 20.0002L23.1986 12.7993" stroke="#00E6FF"
-                                          stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                                </svg>
-                            </div>
-                            <h4>Містерія треба приймати до чи після їди?</h4>
-                        </div>
-                        <div class="accordion__item-display">
-                            <p>Рекомендовано приймати Містерія після їди, запиваючи достатньою кількістю питної
-                                води<sup>2</sup>.
-                            </p>
-                        </div>
-                    </div>
-
-                    <div class="accordion__item bg-mask">
-                        <div class="accordion__tab-container">
-                            <div class="accordion__caret">
-                                <svg width="32" height="32" viewBox="0 0 32 32" fill="none"
-                                     xmlns="http://www.w3.org/2000/svg">
-                                    <circle cx="15.9994" cy="15.9999" r="14.4018" fill="#014589"
-                                            fill-opacity="0.9"/>
-                                    <path d="M8.79688 12.7993L15.9978 20.0002L23.1986 12.7993" stroke="#00E6FF"
-                                          stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                                </svg>
-                            </div>
-                            <h4>Кому протипоказане застосування Містерія?</h4>
-                        </div>
-                        <div class="accordion__item-display">
-                            <p>Містерія протипоказана<sup>2</sup>:</p>
-                            <ul>
-                                <li>При індивідуальній чутливості до компонентів</li>
-                                <li>У дитячому віці до 18 років</li>
-                                <li>У період вагітності та лактації</li>
-                            </ul>
-                        </div>
-                    </div>
-
-                    <div class="accordion__item bg-mask">
-                        <div class="accordion__tab-container">
-                            <div class="accordion__caret">
-                                <svg width="32" height="32" viewBox="0 0 32 32" fill="none"
-                                     xmlns="http://www.w3.org/2000/svg">
-                                    <circle cx="15.9994" cy="15.9999" r="14.4018" fill="#014589"
-                                            fill-opacity="0.9"/>
-                                    <path d="M8.79688 12.7993L15.9978 20.0002L23.1986 12.7993" stroke="#00E6FF"
-                                          stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                                </svg>
-                            </div>
-                            <h4>Як довго можна приймати Містерія?</h4>
-                        </div>
-                        <div class="accordion__item-display">
-                            <p>Містерія можна приймати 1 місяць.</p>
-                            <p>За рекомендацією лікаря тривалість може бути збільшена<sup>2</sup>.</p>
-                        </div>
-                    </div>
-
-                </div>
-            </div>
-        </section>
+        </div>
     </main>
     <a href="#" class="btn btn_up"><span class="icon"></span></a>
     <!--footer-->
