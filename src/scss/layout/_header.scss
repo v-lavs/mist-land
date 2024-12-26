@@ -129,6 +129,7 @@
     .header__nav-inner {
       height: auto;
       padding: 0;
+      overflow: hidden;
     }
 
     .btn_mob {
@@ -138,6 +139,7 @@
     .menu {
       display: flex;
       justify-content: flex-end;
+
       gap: 20px;
       padding: 0;
     }

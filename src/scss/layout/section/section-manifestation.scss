@@ -39,25 +39,24 @@
     }
   }
 
-  .manifestation-grid {
-    display: flex;
-    flex-wrap: wrap;
-  }
-
-  .manifestation-grid__bg {
-    position: absolute;
-    background-image: url(../assets/img/back-wave.png);
-    background-position: center bottom;
-    background-size: cover;
-    left: 50%;
-    transform: translateX(-45%);
-    height: 463px;
-    width: 397px;
-    bottom: -68px;
-    z-index: -1;
-  }
+}
+.manifestation-grid {
+  display: flex;
+  flex-wrap: wrap;
 }
 
+.manifestation-grid__bg {
+  position: absolute;
+  background-image: url(../assets/img/back-wave.png);
+  background-position: center bottom;
+  background-size: cover;
+  left: 50%;
+  transform: translateX(-45%);
+  height: 463px;
+  width: 397px;
+  bottom: -68px;
+  z-index: -1;
+}
 .sticky-trigger {
   position: sticky;
   height: 100vh;
@@ -159,28 +158,70 @@
       display: block;
     }
   }
-  .manifestation{
+  .manifestation {
     max-width: 100%;
     margin-bottom: 12px;
     font-size: 20px;
     line-height: 1.4;
-    &:last-child{
+
+    &:last-child {
       margin-bottom: 0;
     }
   }
   .section-manifestation {
-    .message-block{
+    .title {
+      max-width: 609px;
+    }
+
+    .message-block {
       font-size: 24px;
       line-height: 1.4;
       padding: 80px 80px 30px;
-      &::before{
+
+      &::before {
         width: 60px;
         height: 60px;
         top: 28px;
       }
     }
+
     .images {
       width: 50%;
+    }
+  }
+}
+
+
+@include mixins.respond-to(variables.$md) {
+  .manifestation-list {
+    width: 100%;
+    grid-column: 2 / 3;
+    grid-row: 2 / 3;
+    li{
+      font-size: 16px;
+      li.visible{
+        font-size: 20px;
+        opacity: 1;
+        filter: blur(0);
+      }
+    }
+  }
+  .manifestation-grid{
+    display: grid;
+    grid-template-columns:50% 50%;
+    grid-template-rows: auto auto;
+  }
+  .section-manifestation {
+    .images {
+      grid-column: 1 / 2;
+      grid-row: 1 / 3;
+      width: 100%;
+    }
+
+    .section__header {
+      margin-bottom: 20px;
+      grid-column: 2 / 3;
+      grid-row: 1 / 2;
     }
   }
 }

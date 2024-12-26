@@ -292,7 +292,6 @@ sup {
   font-size: 24px;
   font-weight: 400;
   line-height: 28.8px;
-  margin-bottom: 30px;
 }
 
 .title b {
@@ -1554,6 +1553,10 @@ sup {
   overflow: hidden;
 }
 
+.section__header {
+  margin-bottom: 30px;
+}
+
 .section-symptoms {
   position: relative;
 }
@@ -1635,12 +1638,12 @@ sup {
   opacity: 1;
 }
 
-.section-manifestation .manifestation-grid {
+.manifestation-grid {
   display: flex;
   flex-wrap: wrap;
 }
 
-.section-manifestation .manifestation-grid__bg {
+.manifestation-grid__bg {
   position: absolute;
   background-image: url(../assets/img/back-wave.png);
   background-position: center bottom;
@@ -1783,6 +1786,10 @@ sup {
   line-height: 28.8px;
   letter-spacing: 0.01em;
   text-align: center;
+}
+
+.section-about .section__header {
+  margin-bottom: 34px;
 }
 
 .section-about #animation-container {
@@ -2019,7 +2026,6 @@ sup {
   .title {
     font-size: 32px;
     line-height: 1.2;
-    margin-bottom: 70px;
   }
 
   .pill-label {
@@ -2069,6 +2075,7 @@ sup {
   .header .header__nav-inner {
     height: auto;
     padding: 0;
+    overflow: hidden;
   }
 
   .header .btn_mob {
@@ -2141,6 +2148,10 @@ sup {
     padding: 80px 0;
   }
 
+  .section__header {
+    margin-bottom: 70px;
+  }
+
   .section-symptoms .labels-grid {
     grid-template-columns: repeat(3, 1fr);
     gap: 4px;
@@ -2173,6 +2184,10 @@ sup {
 
   .manifestation:last-child {
     margin-bottom: 0;
+  }
+
+  .section-manifestation .title {
+    max-width: 609px;
   }
 
   .section-manifestation .message-block {
@@ -2289,6 +2304,14 @@ sup {
     margin-bottom: 20px;
   }
 
+  .section-about .section__header {
+    margin-bottom: 70px;
+  }
+
+  .section-app .section__header {
+    margin-bottom: 60px;
+  }
+
   .section-app sup {
     font-size: 20px;
   }
@@ -2305,7 +2328,7 @@ sup {
     width: auto;
   }
 
-  .section-faq .title {
+  .section-faq .section__header {
     margin-bottom: 40px;
   }
 
@@ -2432,6 +2455,40 @@ sup {
 
   .section-banner .banner-grid__product-img {
     max-width: 340px;
+  }
+
+  .manifestation-list {
+    width: 100%;
+    grid-column: 2/3;
+    grid-row: 2/3;
+  }
+
+  .manifestation-list li {
+    font-size: 16px;
+  }
+
+  .manifestation-list li li.visible {
+    font-size: 20px;
+    opacity: 1;
+    filter: blur(0);
+  }
+
+  .manifestation-grid {
+    display: grid;
+    grid-template-columns: 50% 50%;
+    grid-template-rows: auto auto;
+  }
+
+  .section-manifestation .images {
+    grid-column: 1/2;
+    grid-row: 1/3;
+    width: 100%;
+  }
+
+  .section-manifestation .section__header {
+    margin-bottom: 20px;
+    grid-column: 2/3;
+    grid-row: 1/2;
   }
 
   .improvement-grid__product-img {

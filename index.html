@@ -86,10 +86,11 @@
         <section class="section section-symptoms">
             <div class="container">
                 <div class="moving-element"></div>
-                <h3 id="symptomsTest" class="title">Чи можуть зазначені симптоми бути проявами
-                    <b class="color_blue"> вегетативних порушень?</b>
-                </h3>
-
+                <div class="section__header">
+                    <h3 id="symptomsTest" class="title">Чи можуть зазначені симптоми бути проявами
+                        <b class="color_blue"> вегетативних порушень?</b>
+                    </h3>
+                </div>
                 <div class="labels-grid">
                     <div class="labels-grid__item">
                         <div class="pill-label">
@@ -185,10 +186,13 @@
         <section class="section section-manifestation">
             <div class="sticky-trigger">
                 <div class="container ">
-                    <h3 class="title"><b class="color_blue">Майже 80% населення</b>
-                        стикаються з проявами вегетативних порушень, такими як<sup>*</sup><sup>1</sup>:
-                    </h3>
                     <div class="manifestation-grid">
+                        <div class="section__header">
+                            <h3 class="title"><b class="color_blue">Майже 80% населення</b>
+                                стикаються з проявами вегетативних порушень, такими як<sup>*</sup><sup>1</sup>:
+                            </h3>
+                        </div>
+
                         <!-- Блок зі списком симптомів -->
                         <div class="manifestation-list">
                             <ul>
@@ -239,7 +243,7 @@
         <section class="section section-improvement">
             <div class="container">
                 <div class="improvement-grid">
-                    <div class="improvement-grid__header">
+                    <div class="section__header">
                         <h3 class="title">Завдяки ефектам компонентів <b class="color_blue">Містерія може сприяти
                             поліпшенню
                             самопочуття людей</b>
@@ -315,10 +319,11 @@
         </section>
         <section id="about" class="section section-about">
             <div class="container">
-                <h2 class="title_lg">МІСТЕРІЯ</h2>
-                <div class="sub-title"><b class="color_blue">сучасний<sup>**</sup> комплекс для підтримки судин і
-                    здоров’я мозку<sup>2</sup></b></div>
-
+                <div class="section__header">
+                    <h2 class="title_lg">МІСТЕРІЯ</h2>
+                    <div class="sub-title"><b class="color_blue">сучасний<sup>**</sup> комплекс для підтримки судин і
+                        здоров’я мозку<sup>2</sup></b></div>
+                </div>
                 <!--                <div id="animation-container">-->
                 <!--                    <div id="animation">-->
                 <!--                        <div class="bg-circle"></div>-->
@@ -356,16 +361,17 @@
 
                 <div class="slider-about-wrap">
                     <div class="about-nav">
-                        <a href="#" class="about-nav__btn bg-mask active">Рослинна форма Омега-3
+                        <a data-slide="0" href="#" class="about-nav__btn bg-mask active">Рослинна форма Омега-3
                             <span> 200 мг</span></a>
-                        <a href="#" class="about-nav__btn bg-mask">Екстракт гінкго білоби <span> 80 мг</span></a>
-                        <a href="#" class="about-nav__btn bg-mask"><span>Cognizin<sup>ТМ</sup> <br> Цитиколін</span>
+                        <a data-slide="1" href="#" class="about-nav__btn bg-mask">Екстракт гінкго білоби
+                            <span> 80 мг</span></a>
+                        <a data-slide="2" href="#" class="about-nav__btn bg-mask"><span>Cognizin<sup>ТМ</sup> <br> Цитиколін</span>
                             <span>250 мг</span>
                         </a>
                     </div>
                     <div class="swiper slider-about">
                         <div class="swiper-wrapper">
-                            <div class="swiper-slide" data-title="Рослинна форма Омега-3 200 мг">
+                            <div class="swiper-slide">
                                 <div class="card-about">
                                     <div class="card-about__thumb">
                                         <picture>
@@ -390,7 +396,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="swiper-slide" data-title="Екстракт гінкго білоби 80 мг">
+                            <div class="swiper-slide">
                                 <div class="card-about">
                                     <div class="card-about__thumb">
                                         <picture>
@@ -415,7 +421,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="swiper-slide" data-title="CognizinТМ  Цитиколін 250 мг">
+                            <div class="swiper-slide">
                                 <div class="card-about">
                                     <div class="card-about__thumb">
                                         <picture>
@@ -450,10 +456,12 @@
             <div class="container">
                 <div class="sticky-grid">
                     <section id="application" class="section section-app">
-                        <h3 class="title">
-                            <b class="color_blue">Спосіб застосування</b>
-                            <span class="text_uppercase"> Містерія<sup>2</sup></span>
-                        </h3>
+                        <div class="section__header">
+                            <h3 class="title">
+                                <b class="color_blue">Спосіб застосування</b>
+                                <span class="text_uppercase"> Містерія<sup>2</sup></span>
+                            </h3>
+                        </div>
                         <div class="labels-grid">
                             <div class="labels-grid__item">
                                 <div class="pill-label">
@@ -494,8 +502,9 @@
                         </div>
                     </div>
                     <section id="faq" class="section section-faq">
-
-                        <h3 class="title">Поширені запитання</h3>
+                        <div class="section__header">
+                            <h3 class="title">Поширені запитання</h3>
+                        </div>
                         <div class="accordion">
 
                             <div class="accordion__item bg-mask">
@@ -1315,3 +1324,6 @@
 </div>
 </body>
 </html>
+
+
+

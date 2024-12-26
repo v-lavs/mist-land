@@ -92,33 +92,69 @@ document.addEventListener('DOMContentLoaded', function () {
 //     });
     let sliderAbout;
 
-// Функція для створення Swiper з різними ефектами
     function initSwiper() {
+        if (sliderAbout) sliderAbout.destroy(true, true);
+
         if (window.innerWidth >= 1024) {
-            if (sliderAbout) sliderAbout.destroy(true, true); // Знищуємо старий Swiper
             sliderAbout = new Swiper('.slider-about', {
                 effect: 'fade',
+                speed:1000,
+                pagination: {
+                    el: '.slider-about .swiper-pagination',
+                    clickable: true,
+                },
+                on: {
+                    slideChange: updateCustomNavigation,
+                },
             });
         } else {
-            if (sliderAbout) sliderAbout.destroy(true, true); // Знищуємо старий Swiper
             sliderAbout = new Swiper('.slider-about', {
-                    spaceBetween: 10,
-                    slidesPerView: 'auto',
-                    breakpoints: {
-                        768: {
-                            spaceBetween: 20,
-                        },
+                spaceBetween: 10,
+                slidesPerView: 'auto',
+                breakpoints: {
+                    768: {
+                        spaceBetween: 20,
                     },
-                    pagination: {
-                        el: '.slider-about .swiper-pagination',
-                        clickable: true,
-                    },
-                }
-            );
+                },
+                pagination: {
+                    el: '.slider-about .swiper-pagination',
+                    clickable: true,
+                },
+                on: {
+                    slideChange: updateCustomNavigation,
+                },
+            });
         }
+
+        setupCustomNavigation();
     }
+
+    function updateCustomNavigation() {
+        const activeIndex = sliderAbout.realIndex;
+        document.querySelectorAll('.about-nav__btn').forEach((btn, index) => {
+            if (index === activeIndex) {
+                btn.classList.add('active');
+            } else {
+                btn.classList.remove('active');
+            }
+        });
+    }
+
+
+    function setupCustomNavigation() {
+        const navButtons = document.querySelectorAll('.about-nav__btn');
+
+        navButtons.forEach((button, index) => {
+            button.addEventListener('click', (e) => {
+                e.preventDefault();
+                sliderAbout.slideTo(index);
+            });
+        });
+    }
+
     window.addEventListener('load', initSwiper);
     window.addEventListener('resize', initSwiper);
+
 
 
 //BTN-UP
