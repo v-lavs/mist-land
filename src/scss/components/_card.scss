@@ -1,3 +1,6 @@
+@use "../utils/mixins";
+@use "../utils/variables";
+
 .card {
   border-radius: 30px;
   backdrop-filter: blur(16px);
@@ -49,6 +52,6 @@
 
 }
 
-@include respond-to($lg) {
+@include mixins.respond-to(variables.$lg) {
 
 }

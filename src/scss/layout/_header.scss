@@ -1,17 +1,33 @@
+@use "../utils/mixins";
+@use "../utils/variables";
+
 .header {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
   padding: 12px 0;
   min-height: 60px;
+  z-index: 12;
 
   &__logo {
     display: block;
     max-width: 124px;
     height: auto;
+    flex-shrink: 0;
+
+    img {
+      width: 100%;
+      height: auto;
+    }
   }
 
   .container {
     position: relative;
     display: flex;
     align-items: center;
+    z-index: 1000;
   }
 
   .btn_burger,
@@ -73,7 +89,7 @@
   }
 }
 
-.nav__header {
+.header__nav-topbar {
   min-height: 60px;
   padding-left: 24px;
   padding-top: 12px;
@@ -81,31 +97,77 @@
 }
 
 
-@include respond-to($md) {
+@include mixins.respond-to(variables.$sm) {
+  .header {
+    &__logo {
+      margin-right: 35px;
+    }
+
+    .container {
+      justify-content: space-between;
+    }
+
+    .btn_burger {
+      display: none;
+    }
+
+    .header__nav {
+      position: relative;
+      left: auto;
+      top: auto;
+      bottom: auto;
+      transform: none;
+      height: auto;
+      background: transparent;
+      transition: none;
+    }
+
+    .header__nav-topbar {
+      display: none;
+    }
+
+    .header__nav-inner {
+      height: auto;
+      padding: 0;
+    }
+
+    .btn_mob {
+      display: none;
+    }
+
+    .menu {
+      display: flex;
+      justify-content: flex-end;
+      gap: 20px;
+      padding: 0;
+    }
+
+    .menu__item {
+      font-size: 15px;
+      line-height: 1;
+      margin-bottom: 0;
+      font-weight: 500;
+
+      a {
+        white-space: nowrap;
+        padding: 0;
+      }
+    }
+
+    .menu__link:after {
+      display: none;
+    }
+  }
+}
+
+
+@include mixins.respond-to(variables.$md) {
   .header {
     color: #FFFFFF;
-    font-size: 16px;
-    font-weight: 500;
-    line-height: 1;
-    letter-spacing: 0.01em;
     padding: 24px 0;
 
     &__logo {
       max-width: 140px;
-
-    }
-
-    .container {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
     }
   }
-
-  .btn_mob {
-    display: none;
-  }
-
 }
-
-

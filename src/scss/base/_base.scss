@@ -1,5 +1,8 @@
+@use "../utils/mixins";
+@use "../utils/variables";
+
 html {
-  font: 400 14px/1.2 $main-font;
+  font: 400 14px/1.2 variables.$main-font;
   height: 100%;
 }
 
@@ -34,7 +37,6 @@ body {
   &.show {
     display: block;
   }
-
 }
 
 .overlay.show {
@@ -178,19 +180,24 @@ sup{
 
 }
 
-@include respond-to($xl) {
+@include mixins.respond-to(variables.$xl) {
 
 }
 
-@include respond-to($lg) {
+@include mixins.respond-to(variables.$lg) {
 
 }
 
-@include respond-to($md) {
-
+@include mixins.respond-to(variables.$md) {
+  sup{
+    font-size: 17px;
+  }
 }
 
-@include respond-to($sm) {
+@include mixins.respond-to(variables.$sm) {
+  html {
+    font-size: 16px;
+  }
 
 }
 

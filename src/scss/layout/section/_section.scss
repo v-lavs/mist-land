@@ -1,4 +1,13 @@
+@use "../../utils/mixins";
+@use "../../utils/variables";
+
 .section{
   padding: 40px 0;
   overflow: hidden;
+}
+
+@include mixins.respond-to(variables.$sm) {
+  .section {
+    padding: 80px 0;
+  }
 }

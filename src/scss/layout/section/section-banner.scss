@@ -1,5 +1,8 @@
+@use "../../utils/mixins";
+@use "../../utils/variables";
+
 .section-banner {
-  padding-top: 48px;
+  padding-top: calc(60px + 48px);
   padding-bottom: 40px;
   overflow: hidden;
 
@@ -7,39 +10,59 @@
     position: relative;
   }
 
-  .sub-title {
+  .banner-grid {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    row-gap: 20px;
+  }
+
+  .banner-grid__header {
+    width: 100%;
+    padding-bottom: 10px;
+  }
+
+  .banner-grid__img-block {
+    position: relative;
+    width: 50%;
+    z-index: 1;
+  }
+
+  .banner-grid__call2action-row {
+    position: relative;
+    width: 50%;
+    z-index: 5;
+  }
+
+  .banner-grid__addition-info {
+    position: relative;
+    width: 100%;
+  }
+
+  .banner-grid__title {
+    font-size: 56px;
+    text-transform: uppercase;
+    font-weight: 800;
+    line-height: 61.6px;
+    letter-spacing: 0.06em;
+  }
+
+  .banner-grid__subtitle {
     font-size: 24px;
     line-height: 28.8px;
     letter-spacing: 0.01em;
   }
 
-  .wrap-btn {
+  .banner-grid__product-img {
     position: relative;
-    z-index: 1;
-    width: 38%;
-  }
-
-  &__header {
-    margin-bottom: 28px;
-  }
-
-  &__content {
-    position: relative;
-    display: flex;
-    align-items: center;
-    margin-bottom: 20px;
+    max-width: 194px;
+    z-index: 2;
   }
 
   &__thumb {
     width: 62%;
     padding-left: 8%;
     position: relative;
-
-    img {
-      position: relative;
-      max-width: 194px;
-      z-index: 2;
-    }
   }
 
   .banner__img-block {
@@ -47,12 +70,12 @@
   }
 
   .back-wave {
-    position: absolute!important;
+    position: absolute !important;
     bottom: 0;
-    height: 434px!important;
+    height: 434px !important;
     width: auto;
-    max-width: none!important;
-    z-index: 1!important;
+    max-width: none !important;
+    z-index: 1 !important;
   }
 
   .back-wave-l {
@@ -71,33 +94,101 @@
     height: 400.41px;
     opacity: 0.6;
     background: linear-gradient(341.13deg, #7DE2FF 22.48%, #36FFAB 47.61%);
-    filter: blur(154px)
+    filter: blur(154px);
+    pointer-events: none;
   }
 }
 
 
-.heading-site {
-  font-size: 56px;
-  font-weight: 800;
-  line-height: 61.6px;
-  letter-spacing: 0.06em;
+@include mixins.respond-to(variables.$sm) {
+  .section-banner {
+    .banner-grid__header {
+      text-align: center;
+      order: 1;
+    }
+
+    .banner-grid__title {
+      font-size: 88px;
+      line-height: 97px;
+    }
+
+    .banner-grid__subtitle br {
+      display: none;
+    }
+
+    .banner-grid__call2action-row {
+      width: 100%;
+      order: 2;
+      display: flex;
+      justify-content: center;
+      margin-bottom: 70px;
+    }
+
+    .banner-grid__addition-info {
+      order: 3;
+      width: 50%;
+      z-index: 20;
+      padding-right: 40px;
+    }
+
+    .banner-grid__img-block {
+      order: 4;
+      width: 50%;
+      padding-left: 40px;
+    }
+
+    .banner-grid__product-img {
+      max-width: 309px;
+    }
+  }
 }
 
-@include respond-to($lg) {
+@include mixins.respond-to(variables.$md) {
+  .section-banner {
+    .banner-grid {
+      display: grid;
+      grid-template-columns: 50% 50%; /* Two columns, each taking 50% */
+      grid-template-rows: auto auto auto; /* Three rows for content */
+      width: 100%; /* Full width of the container */
+      gap: 0;
+    }
+
+    .banner-grid__header {
+      grid-column: 1 / 2; /* First column */
+      grid-row: 1 / 2; /* First row */
+      width: 100%;
+    }
+
+    .banner-grid__call2action-row {
+      grid-column: 1 / 2; /* First column */
+      grid-row: 2 / 3; /* Second row */
+      width: 100%;
+    }
+
+    .banner-grid__addition-info {
+      grid-column: 1 / 2; /* First column */
+      grid-row: 3 / 4; /* Third row */
+      width: 100%;
+    }
+
+    .banner-grid__img-block {
+      grid-column: 2 / 3; /* Second column */
+      grid-row: 1 / 4; /* Span all three rows */
+      width: 100%;
+      padding-left: 90px;
+    }
+
+    .banner-grid__product-img {
+      max-width: 340px;
+    }
+  }
+}
+
+@include mixins.respond-to(variables.$lg) {
   .section-banner {
 
   }
 }
 
-@include respond-to($md) {
-  .section-banner {
 
-  }
-}
 
-@include respond-to($sm) {
-  .section-banner {
-
-  }
-
-}

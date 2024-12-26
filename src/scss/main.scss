@@ -1,31 +1,33 @@
-@import 'utils/variables';
-@import 'utils/mixins';
+@use 'utils/variables';
+@use 'utils/mixins';
 
-@import 'base/reset';
-@import 'base/base';
-@import 'base/typography';
-@import 'base/animation';
+@use 'base/reset';
+@use 'base/base';
+@use 'base/typography';
+@use 'base/animation';
 
-@import 'components/menu';
-@import 'components/button';
-@import 'components/slider';
-@import 'components/accordion';
-@import 'components/card';
-@import 'components/modal';
-@import 'components/animation-container';
+@use 'components/menu';
+@use 'components/button';
+@use 'components/pill-label';
+@use 'components/slider';
+@use 'components/accordion';
+@use 'components/card';
+@use 'components/modal';
+@use 'components/animation-container';
 
-@import "layout/layout";
-@import "layout/footer";
-@import "layout/header";
+@use "layout/layout";
+@use "layout/footer";
+@use "layout/header";
 
-@import "layout/section/section-banner";
-@import "layout/section/section";
-@import "layout/section/section-symptoms";
-@import "layout/section/section-manifestation";
-@import "layout/section/section-improvement";
-@import "layout/section/section-about";
-@import "layout/section/section-app";
-@import "layout/section/section-faq";
+@use "layout/section/section-banner";
+@use "layout/section/section";
+@use "layout/section/section-symptoms";
+@use "layout/section/section-manifestation";
+@use "layout/section/section-improvement";
+@use "layout/section/section-about";
+@use "layout/section/section-app";
+@use "layout/section/section-faq";
+@use "layout/section/section-sticky-img";
 
 
 

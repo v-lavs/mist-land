@@ -3,6 +3,10 @@
 }
 
 .accordion__item {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  min-height: 65px;
   position: relative;
   padding: 14px 12px 14px 20px;
   margin-bottom: 12px;
@@ -34,12 +38,15 @@
 
 .accordion__tab-container {
   position: relative;
+  min-height: 32px;
+  display: flex;
+  align-items: center;
+  width: 100%;
 }
 
 .accordion__caret {
   position: absolute;
   right: 0;
-  top: 2px;
   width: 32px;
   height: 32px;
   border-radius: 50%;
@@ -50,8 +57,10 @@
   background: #014589;
 
   svg {
+    position: relative;
     max-width: 100%;
     height: auto;
+    transform-origin: 50% 50%;
     transition: .3s;
 
     circle {
@@ -131,11 +140,12 @@
 }
 
 .active .accordion__caret {
-  transform: rotate(180deg);
   background: linear-gradient(96.49deg, #00C6FF 5.97%, #05FFDA 98.25%);
   box-shadow: none;
 
   svg {
+    transform: rotate(180deg);
+
     circle {
       fill: transparent;
     }

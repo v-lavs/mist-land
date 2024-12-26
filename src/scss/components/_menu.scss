@@ -1,9 +1,12 @@
+@use "../utils/mixins";
+@use "../utils/variables";
+
 .menu {
   margin-top: auto;
   margin-bottom: auto;
   padding: 40px 0;
   &__item {
-    font-family: $main-font;
+    font-family: variables.$main-font;
     font-size: 24px;
     font-weight: 600;
     line-height: 28.8px;
@@ -35,27 +38,7 @@
     }
   }
 
-  @include respond-to($md) {
-    &__item {
-      font-family: "Manrope", sans-serif;
-      font-size: 16px;
-      font-weight: 500;
-      line-height: 1;
-      letter-spacing: 0.01em;
-      margin-right: 36px;
-      transition: .35s;
+  @include mixins.respond-to(variables.$md) {
 
-      &:last-child {
-        margin-right: 0;
-      }
-
-      &:hover {
-        color: #00E6FF;
-      }
-
-      &:active {
-        color: #0093EE;
-      }
-    }
   }
 }

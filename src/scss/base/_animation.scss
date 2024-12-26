@@ -1,3 +1,4 @@
+@use "sass:math";
 // ANIM STARS
 @keyframes scaleAnim {
   0%, 100% {
@@ -81,8 +82,8 @@
 //fly bg
 @keyframes randomMove {
   @for $i from 0 through 100 {
-    $x: random(100); // Рандомна X координата (від 0% до 100%)
-    $y: random(100); // Рандомна Y координата (від 0% до 100%)
+    $x: math.random(100); // Рандомна X координата (від 0% до 100%)
+    $y: math.random(100); // Рандомна Y координата (від 0% до 100%)
 
     #{$i}% {
       //transform: translate(#{$x}%, #{$y}%); // Рух елемента
