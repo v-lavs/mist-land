@@ -2073,6 +2073,10 @@ sup {
     height: 40px;
   }
 
+  .accordion__tab-container {
+    padding-right: 76px;
+  }
+
   .accordion__item h4 {
     line-height: 20.8px;
   }

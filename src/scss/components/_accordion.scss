@@ -159,7 +159,12 @@
 }
 
 @include mixins.respond-to(variables.$sm){
-  .accordion__item h4{
-    line-height: 20.8px;
+  .accordion {
+    &__tab-container{
+      padding-right: 76px;
+    }
+    &__item h4 {
+      line-height: 20.8px;
+    }
   }
 }
