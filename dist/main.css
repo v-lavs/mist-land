@@ -1635,6 +1635,14 @@ sup {
   z-index: 1;
 }
 
+.section-manifestation .message-block p {
+  max-width: 406px;
+  width: 100%;
+  display: inline-block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
 .section-manifestation .message-block.move-up {
   transform: translateY(0);
   opacity: 1;
@@ -1958,6 +1966,10 @@ sup {
   color: #204679;
 }
 
+.section-app .title {
+  font-weight: 600;
+}
+
 .section-app sup {
   font-size: 15px;
   vertical-align: text-top;
@@ -2023,6 +2035,7 @@ sup {
 @media only screen and (min-width: 768px) {
   html {
     font-size: 16px;
+    line-height: 20.8px;
   }
 
   html .note {
@@ -2032,6 +2045,12 @@ sup {
   .title {
     font-size: 32px;
     line-height: 1.2;
+  }
+
+  .title_lg {
+    font-size: 64px;
+    line-height: 70.4px;
+    letter-spacing: 0.06em;
   }
 
   .menu .menu__link:hover {
@@ -2052,6 +2071,10 @@ sup {
   .pill-label__icon {
     width: 40px;
     height: 40px;
+  }
+
+  .accordion__item h4 {
+    line-height: 20.8px;
   }
 
   .container {
@@ -2140,12 +2163,18 @@ sup {
 
   .section-banner .banner-grid__header {
     text-align: center;
+    padding-bottom: 14px;
     order: 1;
   }
 
   .section-banner .banner-grid__title {
     font-size: 88px;
     line-height: 97px;
+  }
+
+  .section-banner .banner-grid__subtitle {
+    font-size: 32px;
+    line-height: 35.2px;
   }
 
   .section-banner .banner-grid__subtitle br {
@@ -2185,12 +2214,8 @@ sup {
     margin-bottom: 70px;
   }
 
-  .section {
-    padding: 100px 0;
-  }
-
-  .section__header {
-    margin-bottom: 70px;
+  .section-symptoms .section__header {
+    text-align: center;
   }
 
   .section-symptoms .labels-grid {
@@ -2242,6 +2267,10 @@ sup {
     top: 11px;
   }
 
+  .section-manifestation .section__header {
+    margin-bottom: 50px;
+  }
+
   .section-manifestation .title {
     max-width: 609px;
   }
@@ -2249,7 +2278,11 @@ sup {
   .section-manifestation .message-block {
     font-size: 24px;
     line-height: 1.4;
-    padding: 80px 30px 30px;
+    padding-top: 80px;
+  }
+
+  .section-manifestation .message-block p {
+    max-width: 610px;
   }
 
   .section-manifestation .message-block::before {
@@ -2287,6 +2320,7 @@ sup {
     width: 100%;
     margin-left: auto;
     margin-right: auto;
+    max-width: 610px;
   }
 
   .improvement-grid {
@@ -2298,6 +2332,7 @@ sup {
     order: 1;
     width: 50%;
     margin-bottom: 0;
+    gap: 8px;
   }
 
   .improvement-grid__product-img {
@@ -2325,6 +2360,12 @@ sup {
     max-width: 200px;
     padding-left: 46px;
     padding-right: 46px;
+    border-radius: 40px;
+    line-height: 19.6px;
+  }
+
+  .about-nav__btn:before {
+    border-radius: 40px;
   }
 
   .about-nav {
@@ -2379,14 +2420,26 @@ sup {
     margin-bottom: 20px;
   }
 
+  .section-about .sub-title {
+    font-size: 32px;
+    line-height: 38.4px;
+    max-width: 676px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
   .section-about .section__header {
     margin-bottom: 70px;
+  }
+
+  .section-about .section__header sup {
+    font-size: x-large;
+    vertical-align: text-top;
   }
 
   .section-app {
     grid-column: 1/2;
     grid-row: 1/2;
-    padding-top: 80px;
     padding-bottom: 124px;
   }
 
@@ -2421,7 +2474,6 @@ sup {
   }
 
   .section-faq {
-    padding-top: 80px;
     padding-bottom: 100px;
     grid-column: 1/2;
     grid-row: 2/3;

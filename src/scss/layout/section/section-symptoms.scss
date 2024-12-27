@@ -49,6 +49,9 @@
 
 @include mixins.respond-to(variables.$sm) {
   .section-symptoms {
+    .section__header{
+      text-align: center;
+    }
     .labels-grid {
       grid-template-columns: repeat(3, 1fr);
       gap: 4px;

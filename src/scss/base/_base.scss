@@ -199,6 +199,7 @@ sup{
 @include mixins.respond-to(variables.$sm) {
   html {
     font-size: 16px;
+    line-height: 20.8px;
     .note {
       padding-top: 80px;
     }

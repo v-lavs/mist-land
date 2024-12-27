@@ -26,7 +26,6 @@
 
 @include mixins.respond-to(variables.$sm) {
   .section-faq {
-    padding-top: 80px;
     padding-bottom: 100px;
     grid-column: 1 / 2;
     grid-row: 2 / 3;

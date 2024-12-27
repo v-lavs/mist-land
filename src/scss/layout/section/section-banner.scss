@@ -105,6 +105,7 @@
     padding-top: 180px;
     .banner-grid__header {
       text-align: center;
+      padding-bottom: 14px;
       order: 1;
     }
 
@@ -113,8 +114,12 @@
       line-height: 97px;
     }
 
-    .banner-grid__subtitle br {
-      display: none;
+    .banner-grid__subtitle {
+      font-size: 32px;
+      line-height: 35.2px;
+      br {
+        display: none;
+      }
     }
 
     .banner-grid__call2action-row {

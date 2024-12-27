@@ -1,3 +1,6 @@
+@use "../utils/mixins";
+@use "../utils/variables";
+
 .accordion {
   width: 100%;
 }
@@ -155,3 +158,8 @@
   }
 }
 
+@include mixins.respond-to(variables.$sm){
+  .accordion__item h4{
+    line-height: 20.8px;
+  }
+}

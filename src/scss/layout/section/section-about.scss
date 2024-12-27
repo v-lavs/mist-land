@@ -190,6 +190,12 @@
     max-width: 200px;
     padding-left: 46px;
     padding-right: 46px;
+    border-radius: 40px;
+    line-height: 19.6px;
+
+    &:before {
+      border-radius: 40px;
+    }
   }
   .about-nav {
     gap: 10px;
@@ -240,9 +246,22 @@
       margin-bottom: 20px;
     }
   }
-  .section-about{
-    .section__header{
+  .section-about {
+    .sub-title {
+      font-size: 32px;
+      line-height: 38.4px;
+      max-width: 676px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .section__header {
       margin-bottom: 70px;
+
+      sup {
+        font-size: x-large;
+        vertical-align: text-top;
+      }
     }
   }
 }

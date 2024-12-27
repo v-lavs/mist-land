@@ -18,11 +18,11 @@
   }
 }
 
-@include mixins.respond-to(variables.$sm) {
-  .section {
-    padding: 100px 0;
-    &__header{
-      margin-bottom: 70px;
-    }
-  }
-}
+//@include mixins.respond-to(variables.$md) {
+//  .section {
+//    padding: 100px 0;
+//    &__header{
+//      //margin-bottom: 70px;
+//    }
+//  }
+//}
