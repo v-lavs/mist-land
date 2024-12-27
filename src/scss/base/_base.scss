@@ -22,8 +22,7 @@ body {
   background: linear-gradient(108deg, rgb(9, 46, 103) 0%, rgb(9, 64, 134) 28%, rgb(0, 78, 158) 60%, rgb(0, 107, 182) 100%);
 }
 
-.overlay,
-.backdrop {
+.overlay{
   display: none;
   position: fixed;
   left: 0;
@@ -31,8 +30,8 @@ body {
   bottom: 0;
   top: 0;
   z-index: 900;
-  background: #014F9F1A;
-  backdrop-filter: blur(5px);
+  background: rgba(1, 79, 159, 0.1);
+  backdrop-filter: blur(40px);
 
   &.show {
     display: block;

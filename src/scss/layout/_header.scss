@@ -57,6 +57,7 @@
 
   .btn_mob {
     width: 100%;
+    max-width: 260px;
   }
 
   &__nav {
@@ -99,8 +100,11 @@
 
 @include mixins.respond-to(variables.$sm) {
   .header {
+    padding-top: 22px;
+    padding-bottom: 22px;
     &__logo {
-      margin-right: 35px;
+      max-width: 128px;
+      margin-right: 25px;
     }
 
     .container {

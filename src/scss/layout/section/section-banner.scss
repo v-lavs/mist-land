@@ -102,6 +102,7 @@
 
 @include mixins.respond-to(variables.$sm) {
   .section-banner {
+    padding-top: 180px;
     .banner-grid__header {
       text-align: center;
       order: 1;

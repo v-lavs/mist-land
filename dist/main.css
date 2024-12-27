@@ -135,8 +135,7 @@ body.disable-scroll {
   background: linear-gradient(108deg, rgb(9, 46, 103) 0%, rgb(9, 64, 134) 28%, rgb(0, 78, 158) 60%, rgb(0, 107, 182) 100%);
 }
 
-.overlay,
-.backdrop {
+.overlay {
   display: none;
   position: fixed;
   left: 0;
@@ -144,12 +143,11 @@ body.disable-scroll {
   bottom: 0;
   top: 0;
   z-index: 900;
-  background: rgba(1, 79, 159, 0.1019607843);
-  backdrop-filter: blur(5px);
+  background: rgba(1, 79, 159, 0.1);
+  backdrop-filter: blur(40px);
 }
 
-.overlay.show,
-.backdrop.show {
+.overlay.show {
   display: block;
 }
 
@@ -495,14 +493,14 @@ sup {
 .btn_modal-close:hover,
 .btn_up:hover,
 .btn_primary:hover {
-  background: linear-gradient(96.49deg, #05FFDA 5.97%, #00C6FF 98.25%), linear-gradient(0deg, rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.5));
+  background: linear-gradient(0deg, rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.5)), linear-gradient(96.49deg, #05FFDA 5.97%, #00C6FF 98.25%);
   box-shadow: 8px 8px 30px 0 rgba(0, 200, 255, 0.4);
 }
 
 .btn_modal-close:active,
 .btn_up:active,
 .btn_primary:active {
-  background: linear-gradient(96.49deg, #05FFDA 5.97%, #00C6FF 98.25%), linear-gradient(0deg, rgba(0, 198, 255, 0.5), rgba(0, 198, 255, 0.5));
+  background: linear-gradient(0deg, rgba(0, 198, 255, 0.5), rgba(0, 198, 255, 0.5)), linear-gradient(96.49deg, #05FFDA 5.97%, #00C6FF 98.25%);
   box-shadow: none;
 }
 
@@ -510,7 +508,7 @@ sup {
   justify-content: space-between;
   align-items: center;
   gap: 10px;
-  padding: 11px 10px 11px 30px;
+  padding: 13px 10px 13px 30px;
 }
 
 .btn_secondary {
@@ -535,7 +533,7 @@ sup {
 }
 
 .btn_secondary:hover .icon {
-  background: linear-gradient(96.49deg, #05FFDA 5.97%, #00C6FF 98.25%), linear-gradient(0deg, rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.5));
+  background: linear-gradient(0deg, rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.5)), linear-gradient(96.49deg, #05FFDA 5.97%, #00C6FF 98.25%);
   transform: rotate(-45deg);
 }
 
@@ -545,7 +543,7 @@ sup {
 }
 
 .btn_secondary:active .icon {
-  background: linear-gradient(96.49deg, #05FFDA 5.97%, #00C6FF 98.25%), linear-gradient(0deg, rgba(0, 198, 255, 0.5), rgba(0, 198, 255, 0.5));
+  background: linear-gradient(0deg, rgba(0, 198, 255, 0.5), rgba(0, 198, 255, 0.5)), linear-gradient(96.49deg, #05FFDA 5.97%, #00C6FF 98.25%);
 }
 
 .btn_up {
@@ -693,7 +691,7 @@ sup {
 }
 
 .accordion__item:hover {
-  background: linear-gradient(96.49deg, #00E0E0 5.97%, #00C6FF 98.25%), linear-gradient(0deg, rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.5));
+  background: linear-gradient(0deg, rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.5)), linear-gradient(96.49deg, #00E0E0 5.97%, #00C6FF 98.25%);
   box-shadow: 0 0 20px 0 rgba(4, 244, 226, 0.5019607843);
 }
 
@@ -1413,6 +1411,7 @@ sup {
 
 .header .btn_mob {
   width: 100%;
+  max-width: 260px;
 }
 
 .header__nav {
@@ -1615,6 +1614,8 @@ sup {
 .section-manifestation .message-block {
   padding-top: 42px;
   position: relative;
+  padding-left: 18px;
+  padding-right: 18px;
   transition: transform 1.5s ease, opacity 1s ease;
 }
 
@@ -1770,7 +1771,7 @@ sup {
 }
 
 .improvement-grid .labels-grid {
-  margin-bottom: 22px;
+  margin-bottom: 25px;
   display: flex;
   gap: 4px;
   flex-direction: column;
@@ -2033,6 +2034,14 @@ sup {
     line-height: 1.2;
   }
 
+  .menu .menu__link:hover {
+    color: #00E6FF;
+  }
+
+  .menu .menu__link:active {
+    color: #447899;
+  }
+
   .pill-label {
     font-size: 16px;
     line-height: 22px;
@@ -2059,8 +2068,14 @@ sup {
     height: 64px;
   }
 
+  .header {
+    padding-top: 22px;
+    padding-bottom: 22px;
+  }
+
   .header__logo {
-    margin-right: 35px;
+    max-width: 128px;
+    margin-right: 25px;
   }
 
   .header .container {
@@ -2117,6 +2132,10 @@ sup {
 
   .header .menu__link:after {
     display: none;
+  }
+
+  .section-banner {
+    padding-top: 180px;
   }
 
   .section-banner .banner-grid__header {

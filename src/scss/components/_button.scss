@@ -21,14 +21,14 @@
     color: #014589;
 
     &:hover {
-      background: linear-gradient(96.49deg, #05FFDA 5.97%, #00C6FF 98.25%),
-      linear-gradient(0deg, rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.5));
+      background:  linear-gradient(0deg, rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.5)),
+      linear-gradient(96.49deg, #05FFDA 5.97%, #00C6FF 98.25%);
       box-shadow: 8px 8px 30px 0 #00C8FF66;
     }
 
     &:active {
-      background: linear-gradient(96.49deg, #05FFDA 5.97%, #00C6FF 98.25%),
-      linear-gradient(0deg, rgba(0, 198, 255, 0.5), rgba(0, 198, 255, 0.5));
+      background: linear-gradient(0deg, rgba(0, 198, 255, 0.5), rgba(0, 198, 255, 0.5)),
+      linear-gradient(96.49deg, #05FFDA 5.97%, #00C6FF 98.25%);
       box-shadow: none;
     }
 
@@ -38,7 +38,7 @@
     justify-content: space-between;
     align-items: center;
     gap: 10px;
-    padding: 11px 10px 11px 30px;
+    padding: 13px 10px 13px 30px;
   }
 
   &_secondary {
@@ -61,8 +61,8 @@
       color: #91FFFA;
 
       .icon {
-        background: linear-gradient(96.49deg, #05FFDA 5.97%, #00C6FF 98.25%),
-        linear-gradient(0deg, rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.5));
+        background: linear-gradient(0deg, rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.5)),
+        linear-gradient(96.49deg, #05FFDA 5.97%, #00C6FF 98.25%);
         transform: rotate(-45deg);
       }
     }
@@ -72,8 +72,7 @@
       border-color: #00C6FF;
 
       .icon {
-        background: linear-gradient(96.49deg, #05FFDA 5.97%, #00C6FF 98.25%),
-        linear-gradient(0deg, rgba(0, 198, 255, 0.5), rgba(0, 198, 255, 0.5));
+        background:linear-gradient(0deg, rgba(0, 198, 255, 0.5), rgba(0, 198, 255, 0.5)), linear-gradient(96.49deg, #05FFDA 5.97%, #00C6FF 98.25%);
       }
     }
   }

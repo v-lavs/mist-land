@@ -12,7 +12,6 @@ document.addEventListener('DOMContentLoaded', function () {
     const navOpenHeader = document.querySelector('.header');
     const btnBurger = document.querySelector('.btn_burger');
     const btnClose = document.querySelector('.btn_close');
-    const backdrop = document.querySelector('.backdrop');
     const menuLinks = document.querySelectorAll('.menu__link');
     const body = document.querySelector('body');
 
@@ -20,7 +19,6 @@ document.addEventListener('DOMContentLoaded', function () {
         e.preventDefault();
         nav.classList.add('open');
         navOpenHeader.classList.remove('hidden')
-        backdrop.style.display = 'block';
         body.classList.add('disable-scroll');
         navOpenHeader.classList.add('active');
         setTimeout(() => {
@@ -29,10 +27,9 @@ document.addEventListener('DOMContentLoaded', function () {
 
     });
 
-    [btnClose, backdrop, ...menuLinks].forEach(function (element) {
+    [btnClose, ...menuLinks].forEach(function (element) {
         element.addEventListener('click', function () {
             nav.classList.remove('open');
-            backdrop.style.display = 'none';
             btnClose.style.display = 'none';
             body.classList.remove('disable-scroll');
             navOpenHeader.classList.remove('active');
@@ -180,13 +177,13 @@ document.addEventListener('DOMContentLoaded', function () {
     const popup = document.getElementById('modal'); // Перший/Другий Попап
     const popupText = document.getElementById('modalHeader');
     const closePopupButton = document.getElementById('closePopup');
-
+    const overlay = document.querySelector('.overlay');
     const thirdPopup = document.getElementById('playDiscount'); // Третій Попап
     const closeThirdPopupButton = document.getElementById('closeThirdPopup');
 
     function openPopup(popupElement) {
         popupElement.classList.add('open');
-        backdrop.classList.add('show');
+        overlay.classList.add('show');
         body.classList.add('disable-scroll');
     }
 
@@ -194,7 +191,7 @@ document.addEventListener('DOMContentLoaded', function () {
         popupElement.classList.remove('open');
 
         if (!document.querySelector('.popup.show')) {
-            backdrop.classList.remove('show');
+            overlay.classList.remove('show');
             body.classList.remove('disable-scroll');
         }
     }
@@ -223,7 +220,7 @@ document.addEventListener('DOMContentLoaded', function () {
     closePopupButton.addEventListener('click', () => closePopup(popup));
     closeThirdPopupButton.addEventListener('click', () => closePopup(thirdPopup));
 
-    backdrop.addEventListener('click', () => {
+    overlay.addEventListener('click', () => {
         closePopup(popup);
         closePopup(thirdPopup);
     });
