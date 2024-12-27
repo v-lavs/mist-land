@@ -145,6 +145,8 @@
 
 @include mixins.respond-to(variables.$md) {
   .section-banner {
+    padding-top: 156px;
+    padding-bottom: 112px;
     .banner-grid {
       display: grid;
       grid-template-columns: 50% 50%; /* Two columns, each taking 50% */
@@ -157,6 +159,7 @@
       grid-column: 1 / 2; /* First column */
       grid-row: 1 / 2; /* First row */
       width: 100%;
+
     }
 
     .banner-grid__call2action-row {

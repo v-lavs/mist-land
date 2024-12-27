@@ -4,8 +4,8 @@
 
 // CUSTOM SCRIPTS
 document.addEventListener('DOMContentLoaded', function () {
-    console.log("GSAP:", gsap);
-    gsap.registerPlugin(ScrollTrigger, ScrollToPlugin);
+    // console.log("GSAP:", gsap);
+    // gsap.registerPlugin(ScrollTrigger, ScrollToPlugin);
 
 // MOBILE MENU
     const nav = document.querySelector('.header__nav');
@@ -68,15 +68,10 @@ document.addEventListener('DOMContentLoaded', function () {
     const accordionList = document.querySelectorAll(".accordion__item");
 
     accordionList.forEach((item) => {
-
         item.addEventListener("click", () => {
-            // Перевіряємо, чи цей елемент вже активний
             const isActive = item.classList.contains("active");
-
-            // Видаляємо клас "active" з усіх елементів
             accordionList.forEach((item) => item.classList.remove("active"));
 
-            // Додаємо клас "active" тільки до натиснутого елемента, якщо він не був активним
             if (!isActive) {
                 item.classList.add("active");
             }
@@ -85,11 +80,6 @@ document.addEventListener('DOMContentLoaded', function () {
 
 
 // SLIDER - TABS
-//     const titles = document.querySelectorAll('.swiper-container .swiper-slide');
-//     const title = [];
-//     titles.forEach(function (element) {
-//         title.push(element.dataset.title);
-//     });
     let sliderAbout;
 
     function initSwiper() {
@@ -98,7 +88,7 @@ document.addEventListener('DOMContentLoaded', function () {
         if (window.innerWidth >= 1024) {
             sliderAbout = new Swiper('.slider-about', {
                 effect: 'fade',
-                speed:1000,
+                speed: 1000,
                 pagination: {
                     el: '.slider-about .swiper-pagination',
                     clickable: true,
@@ -154,7 +144,6 @@ document.addEventListener('DOMContentLoaded', function () {
 
     window.addEventListener('load', initSwiper);
     window.addEventListener('resize', initSwiper);
-
 
 
 //BTN-UP
@@ -247,18 +236,15 @@ document.addEventListener('DOMContentLoaded', function () {
         const textEnd = document.querySelector('.text-end');
         const btnDiscount = document.querySelector('.btn_discount')
 
-        // Кут сектору, на якому зупиняється (наприклад, "15%")
-        const targetSectorAngle = 0; // Наприклад, сектор 15% на 60°
+        const targetSectorAngle = 0;
 
-        const randomSpins = Math.floor(Math.random() * 5) + 5; // Випадкові оберти (5-10)
+        const randomSpins = Math.floor(Math.random() * 5) + 5;
         const totalRotation = randomSpins * 360 + targetSectorAngle;
 
-        // Анімація через CSS
         wheel.style.transform = `rotate(${totalRotation}deg)`;
         textStart.style.display = 'none';
         btnSpin.style.display = 'none';
 
-        // Повідомлення після завершення
         setTimeout(() => {
             textEnd.style.display = 'block';
             btnDiscount.style.display = 'inline-flex';
@@ -375,14 +361,14 @@ document.addEventListener('DOMContentLoaded', function () {
                 s.classList.remove("visible"); // Інші залишаються розмитими
             }
         });
-
-        // Динамічно обчислюємо зсув `ul` на ширину попередніх елементів
-        let shiftWidth = 0;
-        for (let i = 0; i < index; i++) {
-            shiftWidth += symptoms[i].offsetWidth + 8; // Додаємо ширину елементів та gap (8px)
+        if (window.innerWidth < 768) {
+            // Динамічно обчислюємо зсув `ul` на ширину попередніх елементів
+            let shiftWidth = 0;
+            for (let i = 0; i < index; i++) {
+                shiftWidth += symptoms[i].offsetWidth + 8; // Додаємо ширину елементів та gap (8px)
+            }
+            symptomList.style.transform = `translateX(-${shiftWidth}px)`;
         }
-        symptomList.style.transform = `translateX(-${shiftWidth}px)`;
-
         // Показуємо відповідну картинку
         const newImageIndex = getImageIndexForSymptom(index);
         images.forEach((image, imgIndex) => {
