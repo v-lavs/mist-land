@@ -127,7 +127,6 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     }
 
-
     function setupCustomNavigation() {
         const navButtons = document.querySelectorAll('.about-nav__btn');
 

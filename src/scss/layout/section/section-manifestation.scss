@@ -58,7 +58,7 @@
 
 .manifestation-grid__bg {
   position: absolute;
-  background-image: url(../assets/img/back-wave.png);
+  background-image: url(../assets/img/back-wave-girl-1920.png);
   background-position: center bottom;
   background-size: cover;
   left: 50%;
@@ -264,9 +264,12 @@
     grid-template-rows: auto auto;
   }
   .section-manifestation {
-    .message-block p {
-      max-width: 610px;
-      margin: 0 auto;
+    .message-block {
+      padding-bottom: 30px;
+      p {
+        max-width: 610px;
+        margin: 0 auto;
+      }
     }
 
     .container {

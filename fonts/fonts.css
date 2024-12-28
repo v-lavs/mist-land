@@ -2,11 +2,10 @@
     font-family: 'Manrope';
 
     src: local('Manrope Bold'), local('Manrope-Bold'),
-    url('Manrope-Bold.eot?#iefix') format('embedded-opentype'),
     url('Manrope-Bold.woff2') format('woff2'),
     url('Manrope-Bold.woff') format('woff'),
     url('Manrope-Bold.ttf') format('truetype');
-    font-weight: bold;
+    font-weight: 700;
     font-style: normal;
 }
 
@@ -26,7 +25,7 @@
     url('Manrope-Regular.woff2') format('woff2'),
     url('Manrope-Regular.woff') format('woff'),
     url('Manrope-Regular.ttf') format('truetype');
-    font-weight: normal;
+    font-weight: 400;
     font-style: normal;
 }
 

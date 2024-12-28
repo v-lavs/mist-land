@@ -204,7 +204,7 @@ $animation-duration: .5s; // Тривалість анімації
 @for $i from 1 through $num-dots {
   .dot:nth-child(#{$i}) {
     animation: fade $animation-duration linear infinite;
-   animation-delay: #{($i - 1) * (1 / $num-dots)}s; // Рівномірна затримка
+   animation-delay: #{($i - 1) * calc(1 / 17)}s; // Рівномірна затримка
   }
 }
 

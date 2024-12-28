@@ -58,6 +58,9 @@ body {
 .note {
   padding-top: 60px;
   padding-bottom: 20px;
+  sup{
+    vertical-align: bottom;
+  }
 }
 
 .note,
@@ -208,7 +211,7 @@ sup{
 
 @include mixins.respond-to(variables.$md) {
   .note {
-    padding-top: 100px;
+    padding-top: 56px;
   }
 }
 

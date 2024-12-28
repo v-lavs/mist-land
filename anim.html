@@ -166,133 +166,133 @@
     /*    opacity: 1; !* Робимо блок видимим *!*/
     /*}*/
 
-    @media screen and (max-width: 576px) {
+ /*   @media screen and (max-width: 576px) {*/
 
-        /*.animation-section .container {*/
-        /*    !*position: relative;*!*/
-        /*    !*flex-direction: column;*!*/
-        /*    !*flex-wrap: wrap;*!*/
-        /*}*/
+ /*       !*.animation-section .container {*!*/
+ /*       !*    !*position: relative;*!*!*/
+ /*       !*    !*flex-direction: column;*!*!*/
+ /*       !*    !*flex-wrap: wrap;*!*!*/
+ /*       !*}*!*/
 
-        /*.image {*/
-        /*    opacity: 0;*/
-        /*    transition: opacity 0.5s ease-in-out;*/
-        /*}*/
+ /*       !*.image {*!*/
+ /*       !*    opacity: 0;*!*/
+ /*       !*    transition: opacity 0.5s ease-in-out;*!*/
+ /*       !*}*!*/
 
-        /*.image.visible {*/
-        /*    opacity: 1;*/
-        /*}*/
+ /*       !*.image.visible {*!*/
+ /*       !*    opacity: 1;*!*/
+ /*       !*}*!*/
 
-        /*.icon {*/
-        /*    opacity: 0;*/
-        /*    transition: opacity 0.5s ease-in-out;*/
-        /*}*/
+ /*       !*.icon {*!*/
+ /*       !*    opacity: 0;*!*/
+ /*       !*    transition: opacity 0.5s ease-in-out;*!*/
+ /*       !*}*!*/
 
-        /*.icon.visible {*/
-        /*    opacity: 1;*/
-        /*}*/
+ /*       !*.icon.visible {*!*/
+ /*       !*    opacity: 1;*!*/
+ /*       !*}*!*/
 
-        /* Текст */
-        /*.symptom-list {*/
-        /*    order: -1;*/
-        /*    width: 100%;*/
-        /*    overflow: hidden;*/
-        /*}*/
+ /*       !* Текст *!*/
+ /*       !*.symptom-list {*!*/
+ /*       !*    order: -1;*!*/
+ /*       !*    width: 100%;*!*/
+ /*       !*    overflow: hidden;*!*/
+ /*       !*}*!*/
 
- /*       .symptom-list {*/
- /*           overflow: hidden; !* Ховаємо симптоми за межами контейнера *!*/
- /*           position: relative;*/
- /*           width: 100%;*/
- /*       }*/
+ /*!*       .symptom-list {*!*/
+ /*!*           overflow: hidden; !* Ховаємо симптоми за межами контейнера *!*!*/
+ /*!*           position: relative;*!*/
+ /*!*           width: 100%;*!*/
+ /*!*       }*!*/
 
- /*       .symptom-list ul {*/
- /*           display: flex;*/
- /*           flex-direction: row;*/
- /*           gap: 20px; !* Відстань між симптомами *!*/
- /*           transition: transform 0.5s ease; !* Плавний зсув списку *!*/
- /*          */
- /*will-change: transform; !* Оптимізація анімації *!*/
- /*       }*/
- /*       .symptom {*/
- /*           flex-shrink: 0;*/
- /*           font-size: 18px;*/
- /*           opacity: 0.2; !* Напівпрозорий *!*/
- /*           filter: blur(3px); !* Розмиття *!*/
- /*           transition: opacity 0.5s ease, filter 0.5s ease; !* Плавна анімація *!*/
- /*       }*/
+ /*!*       .symptom-list ul {*!*/
+ /*!*           display: flex;*!*/
+ /*!*           flex-direction: row;*!*/
+ /*!*           gap: 20px; !* Відстань між симптомами *!*!*/
+ /*!*           transition: transform 0.5s ease; !* Плавний зсув списку *!*!*/
+ /*!*          *!*/
+ /*!*will-change: transform; !* Оптимізація анімації *!*!*/
+ /*!*       }*!*/
+ /*!*       .symptom {*!*/
+ /*!*           flex-shrink: 0;*!*/
+ /*!*           font-size: 18px;*!*/
+ /*!*           opacity: 0.2; !* Напівпрозорий *!*!*/
+ /*!*           filter: blur(3px); !* Розмиття *!*!*/
+ /*!*           transition: opacity 0.5s ease, filter 0.5s ease; !* Плавна анімація *!*!*/
+ /*!*       }*!*/
 
-        /*.symptom.visible {*/
-        /*    opacity: 1; !* Робимо чітким *!*/
-        /*    filter: blur(0); !* Прибираємо розмиття *!*/
-        /*}*/
+ /*       !*.symptom.visible {*!*/
+ /*       !*    opacity: 1; !* Робимо чітким *!*!*/
+ /*       !*    filter: blur(0); !* Прибираємо розмиття *!*!*/
+ /*       !*}*!*/
 
-        /*.image {*/
-        /*    opacity: 0;*/
-        /*    transition: opacity 0.5s ease-in-out;*/
-        /*}*/
+ /*       !*.image {*!*/
+ /*       !*    opacity: 0;*!*/
+ /*       !*    transition: opacity 0.5s ease-in-out;*!*/
+ /*       !*}*!*/
 
-        /*.image.visible {*/
-        /*    opacity: 1;*/
-        /*}*/
+ /*       !*.image.visible {*!*/
+ /*       !*    opacity: 1;*!*/
+ /*       !*}*!*/
 
-        /*.icon {*/
-        /*    opacity: 0;*/
-        /*    transition: opacity 0.5s ease-in-out;*/
-        /*}*/
+ /*       !*.icon {*!*/
+ /*       !*    opacity: 0;*!*/
+ /*       !*    transition: opacity 0.5s ease-in-out;*!*/
+ /*       !*}*!*/
 
-        /*.icon.visible {*/
-        /*    opacity: 1;*/
-        /*}*/
-    }
+ /*       !*.icon.visible {*!*/
+ /*       !*    opacity: 1;*!*/
+ /*       !*}*!*/
+ /*   }*/
 </style>
 <body>
-
+<div class="container-flow"></div>
 <div class="wrapper">
 
-    <div class="overlay"></div>
-    <main class="main">
-        <section class="section-banner" style="height: 100vh">
-            <div class="container"></div>
-        </section>
-        <!-- Триггер-блок -->
-        <div class="sticky-trigger"></div>
-        <section class="animation-section">
-            <div class="container">
-                <!-- Блок з картинками -->
-                <div class="images">
-                    <img src="assets/img/anim1.png" alt="Картинка 1" class="image visible" data-symptom="0">
-                    <img src="assets/img/anim2.png" alt="Картинка 2" class="image" data-symptom="3">
-                    <img src="assets/img/anim3.png" alt="Картинка 3" class="image" data-symptom="6">
-                    <img src="assets/img/anim4.png" alt="Картинка 4" class="image" data-symptom="8">
-                    <!-- Блок для іконок -->
-                    <div class="icons"></div>
-                </div>
-                <!-- Блок зі списком симптомів -->
-                <div class="symptom-list">
-                    <ul>
-                        <li class="symptom" data-icon="assets/img/icon1.svg">Симптом 1</li>
-                        <li class="symptom" data-icon="assets/img/icon2.svg">Симптом 2</li>
-                        <li class="symptom" data-icon="assets/img/icon3.svg">Симптом 3</li>
-                        <li class="symptom" data-icon="assets/img/icon4.svg">Симптом 4</li>
-                        <li class="symptom" data-icon="assets/img/icon5.svg">Симптом 5</li>
-                        <li class="symptom" data-icon="assets/img/icon6.svg">Симптом 6</li>
-                        <li class="symptom" data-icon="assets/img/icon7.svg">Симптом 7</li>
-                        <li class="symptom" data-icon="assets/img/icon8.svg">Симптом 8</li>
-                        <li class="symptom" data-icon="assets/img/icon9.svg">Симптом 9</li>
-                    </ul>
-                </div>
-                <div class="message-block"
-                     style="background:rosybrown; height: 80px;width: 100%; margin-top: 30px; color: #FFFFFF">
-                    <p>Це ваше повідомлення, яке з'явиться після завершення анімації.</p>
-                </div>
-            </div>
+<!--    <div class="overlay"></div>-->
+<!--    <main class="main">-->
+<!--        <section class="section-banner" style="height: 100vh">-->
+<!--            <div class="container"></div>-->
+<!--        </section>-->
+<!--        &lt;!&ndash; Триггер-блок &ndash;&gt;-->
+<!--        <div class="sticky-trigger"></div>-->
+<!--        <section class="animation-section">-->
+<!--            <div class="container">-->
+<!--                &lt;!&ndash; Блок з картинками &ndash;&gt;-->
+<!--                <div class="images">-->
+<!--                    <img src="assets/img/anim1.png" alt="Картинка 1" class="image visible" data-symptom="0">-->
+<!--                    <img src="assets/img/anim2.png" alt="Картинка 2" class="image" data-symptom="3">-->
+<!--                    <img src="assets/img/anim3.png" alt="Картинка 3" class="image" data-symptom="6">-->
+<!--                    <img src="assets/img/anim4.png" alt="Картинка 4" class="image" data-symptom="8">-->
+<!--                    &lt;!&ndash; Блок для іконок &ndash;&gt;-->
+<!--                    <div class="icons"></div>-->
+<!--                </div>-->
+<!--                &lt;!&ndash; Блок зі списком симптомів &ndash;&gt;-->
+<!--                <div class="symptom-list">-->
+<!--                    <ul>-->
+<!--                        <li class="symptom" data-icon="assets/img/icon1.svg">Симптом 1</li>-->
+<!--                        <li class="symptom" data-icon="assets/img/icon2.svg">Симптом 2</li>-->
+<!--                        <li class="symptom" data-icon="assets/img/icon3.svg">Симптом 3</li>-->
+<!--                        <li class="symptom" data-icon="assets/img/icon4.svg">Симптом 4</li>-->
+<!--                        <li class="symptom" data-icon="assets/img/icon5.svg">Симптом 5</li>-->
+<!--                        <li class="symptom" data-icon="assets/img/icon6.svg">Симптом 6</li>-->
+<!--                        <li class="symptom" data-icon="assets/img/icon7.svg">Симптом 7</li>-->
+<!--                        <li class="symptom" data-icon="assets/img/icon8.svg">Симптом 8</li>-->
+<!--                        <li class="symptom" data-icon="assets/img/icon9.svg">Симптом 9</li>-->
+<!--                    </ul>-->
+<!--                </div>-->
+<!--                <div class="message-block"-->
+<!--                     style="background:rosybrown; height: 80px;width: 100%; margin-top: 30px; color: #FFFFFF">-->
+<!--                    <p>Це ваше повідомлення, яке з'явиться після завершення анімації.</p>-->
+<!--                </div>-->
+<!--            </div>-->
 
-        </section>
-        <section class="section-third" style="height: 100vh;">
+<!--        </section>-->
+<!--        <section class="section-third" style="height: 100vh;">-->
 
-            <div class="container"><div class="moving-element"></div></div>
-        </section>
-    </main>
+<!--            <div class="container"><div class="moving-element"></div></div>-->
+<!--        </section>-->
+<!--    </main>-->
 </div>
 <script src="./lib/swiper/swiper-bundle.min.js"></script>
 <script src="dist/main.js"></script>

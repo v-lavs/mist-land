@@ -173,6 +173,10 @@ body.disable-scroll {
   padding-bottom: 20px;
 }
 
+.note sup {
+  vertical-align: bottom;
+}
+
 .note,
 .src-block {
   font-size: 12px;
@@ -295,7 +299,7 @@ sup {
   line-height: 28.8px;
 }
 
-.title b {
+.title > b {
   font-weight: 600;
 }
 
@@ -416,9 +420,6 @@ sup {
 /* Базовий шар: світло-синій фон з напівпрозорими зірками */
 
 /* Видалення чорного фону під маскою */
-
-@keyframes randomMove {
-}
 
 .moving-element {
   z-index: -1;
@@ -1470,6 +1471,8 @@ sup {
 .section-banner .banner-grid__header {
   width: 100%;
   padding-bottom: 10px;
+  position: relative;
+  z-index: 1;
 }
 
 .section-banner .banner-grid__img-block {
@@ -1507,7 +1510,7 @@ sup {
 .section-banner .banner-grid__product-img {
   position: relative;
   max-width: 194px;
-  z-index: 2;
+  z-index: 3;
 }
 
 .section-banner__thumb {
@@ -1596,6 +1599,7 @@ sup {
   left: 100px;
   transform: translateX(-100%);
   z-index: 1;
+  animation: flow 0.5s cubic-bezier(0.42, 0, 0.58, 1) infinite;
 }
 
 .section-symptoms .call2action-row {
@@ -1656,7 +1660,7 @@ sup {
 
 .manifestation-grid__bg {
   position: absolute;
-  background-image: url(../assets/img/back-wave.png);
+  background-image: url(../assets/img/back-wave-girl-1920.png);
   background-position: center bottom;
   background-size: cover;
   left: 50%;
@@ -1989,6 +1993,8 @@ sup {
 
 .section-app .labels-grid__item:nth-child(1) .pill-label {
   width: max-content;
+  padding-top: 14px;
+  padding-bottom: 14px;
 }
 
 .section-faq {
@@ -2064,10 +2070,6 @@ sup {
 
   .menu .menu__link:active {
     color: #447899;
-  }
-
-  .btn_primary {
-    padding: 19px 50px;
   }
 
   .pill-label {
@@ -2172,6 +2174,10 @@ sup {
 
   .section-banner {
     padding-top: 180px;
+  }
+
+  .section-banner .btn_primary {
+    padding: 19px 50px;
   }
 
   .section-banner .banner-grid__header {
@@ -2453,7 +2459,7 @@ sup {
   .section-app {
     grid-column: 1/2;
     grid-row: 1/2;
-    padding-bottom: 124px;
+    padding-bottom: 200px;
   }
 
   .section-app .pill-label {
@@ -2535,7 +2541,7 @@ sup {
   }
 
   .note {
-    padding-top: 100px;
+    padding-top: 56px;
   }
 
   .labels-grid__item .pill-label {
@@ -2576,6 +2582,11 @@ sup {
   .section-banner {
     padding-top: 156px;
     padding-bottom: 112px;
+  }
+
+  .section-banner .banner-grid__subtitle {
+    font-size: 28px;
+    line-height: 33.6px;
   }
 
   .section-banner .banner-grid {
@@ -2680,6 +2691,10 @@ sup {
     display: grid;
     grid-template-columns: 50% 50%;
     grid-template-rows: auto auto;
+  }
+
+  .section-manifestation .message-block {
+    padding-bottom: 30px;
   }
 
   .section-manifestation .message-block p {
@@ -2826,6 +2841,10 @@ sup {
   .section-faq {
     padding-top: 120px;
     padding-bottom: 194px;
+  }
+
+  .section-faq .accordion {
+    padding-bottom: 44px;
   }
 
   .sticky-grid {

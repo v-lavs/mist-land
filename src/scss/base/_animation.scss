@@ -80,16 +80,16 @@
 
 //-------------------
 //fly bg
-@keyframes randomMove {
-  @for $i from 0 through 100 {
-    $x: math.random(100); // Рандомна X координата (від 0% до 100%)
-    $y: math.random(100); // Рандомна Y координата (від 0% до 100%)
-
-    #{$i}% {
-      //transform: translate(#{$x}%, #{$y}%); // Рух елемента
-    }
-  }
-}
+//@keyframes randomMove {
+//  @for $i from 0 through 100 {
+//    $x: math.random(100); // Рандомна X координата (від 0% до 100%)
+//    $y: math.random(100); // Рандомна Y координата (від 0% до 100%)
+//
+//    #{$i}% {
+//      transform: translate(#{$x}%, #{$y}%); // Рух елемента
+//    }
+//  }
+//}
 
 .moving-element {
   z-index: -1;
@@ -107,4 +107,45 @@
 
 
 //----------------------------------------
+
+//.container-flow {
+//  filter: blur(65px);
+//  background: radial-gradient(93.19% 74.17% at 30% 59%, rgb(255, 255, 255), rgb(204, 0, 255) 52.831%, rgb(35, 141, 172) 100%);
+//  opacity: 0.28;
+//
+//  width: 330px;
+//  height: 330px;
+//  position: absolute;
+//  top: 65px;
+//  left: 100px;
+//  transform: translateX(-100%);
+//  z-index: 1;
+//  animation: flow 10s cubic-bezier(0.42, 0, 0.58, 1) infinite;
+//}
+//
+//@mixin random-keyframes($steps) {
+//  $start-x: random(100); // Початкова позиція X
+//  $start-y: random(100); // Початкова позиція Y
+//
+//  @keyframes flow {
+//    0% {
+//      background-position: $start-x + "%" + " " + $start-y + "%"; // Початкові координати
+//    }
+//
+//    @for $i from 1 through $steps {
+//      $percentage: ($i / $steps) * 100%;
+//      $x: random(100);
+//      $y: random(100);
+//      #{$percentage} {
+//        background-position: $x + "%" + " " + $y + "%";
+//      }
+//    }
+//
+//    100% {
+//      background-position: $start-x + "%" + " " + $start-y + "%"; // Повторюємо початкові координати
+//    }
+//  }
+//}
+//
+//@include random-keyframes(10);
 

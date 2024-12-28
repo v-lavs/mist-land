@@ -163,9 +163,7 @@
 }
 
 @include mixins.respond-to(variables.$sm) {
-  .btn_primary {
-    padding: 19px 50px;
-  }
+
 }
 
 

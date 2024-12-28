@@ -39,6 +39,7 @@
     left: 100px;
     transform: translateX(-100%);
     z-index: 1;
+    animation: flow .5s cubic-bezier(0.42, 0, 0.58, 1) infinite;
   }
 
   .call2action-row {

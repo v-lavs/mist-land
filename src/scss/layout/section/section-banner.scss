@@ -20,6 +20,8 @@
   .banner-grid__header {
     width: 100%;
     padding-bottom: 10px;
+    position: relative;
+    z-index: 1;
   }
 
   .banner-grid__img-block {
@@ -57,7 +59,7 @@
   .banner-grid__product-img {
     position: relative;
     max-width: 194px;
-    z-index: 2;
+    z-index: 3;
   }
 
   &__thumb {
@@ -104,7 +106,9 @@
 @include mixins.respond-to(variables.$sm) {
   .section-banner {
     padding-top: 180px;
-
+    .btn_primary {
+      padding: 19px 50px;
+    }
     .banner-grid__header {
       text-align: center;
       padding-bottom: 14px;
@@ -157,6 +161,11 @@
     padding-top: 156px;
     padding-bottom: 112px;
 
+    .banner-grid__subtitle {
+      font-size: 28px;
+      line-height: 33.6px;
+    }
+
     .banner-grid {
       display: grid;
       grid-template-columns: 50% 50%; /* Two columns, each taking 50% */
@@ -177,7 +186,8 @@
       grid-column: 1 / 2; /* First column */
       grid-row: 2 / 3; /* Second row */
       width: 100%;
-      .btn_primary{
+
+      .btn_primary {
         margin-right: auto;
         min-width: 151px;
       }
@@ -206,9 +216,11 @@
       align-items: center;
       text-align: left;
       padding: 24px 30px;
-      .btn_secondary{
+
+      .btn_secondary {
         flex-shrink: 0;
       }
+
       p {
         margin-bottom: 0;
       }
