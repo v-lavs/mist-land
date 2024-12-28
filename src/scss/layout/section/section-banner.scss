@@ -179,7 +179,7 @@
       grid-row: 1 / 2; /* First row */
       width: 100%;
       text-align: left;
-
+      padding-top: 10px;
     }
 
     .banner-grid__call2action-row {
@@ -190,6 +190,7 @@
       .btn_primary {
         margin-right: auto;
         min-width: 151px;
+        margin-bottom: 30px;
       }
     }
 
@@ -216,7 +217,7 @@
       align-items: center;
       text-align: left;
       padding: 24px 30px;
-
+      margin-bottom: 20px;
       .btn_secondary {
         flex-shrink: 0;
       }

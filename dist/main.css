@@ -2607,6 +2607,7 @@ sup {
     /* First row */
     width: 100%;
     text-align: left;
+    padding-top: 10px;
   }
 
   .section-banner .banner-grid__call2action-row {
@@ -2620,6 +2621,7 @@ sup {
   .section-banner .banner-grid__call2action-row .btn_primary {
     margin-right: auto;
     min-width: 151px;
+    margin-bottom: 30px;
   }
 
   .section-banner .banner-grid__addition-info {
@@ -2649,6 +2651,7 @@ sup {
     align-items: center;
     text-align: left;
     padding: 24px 30px;
+    margin-bottom: 20px;
   }
 
   .section-banner .message-block .btn_secondary {
