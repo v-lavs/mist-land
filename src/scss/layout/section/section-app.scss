@@ -68,6 +68,14 @@
 @include mixins.respond-to(variables.$md){
   .section-app{
     padding-top: 120px;
+    padding-bottom: 224px;
     bottom: 224px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    .labels-grid{
+      max-width: 370px;
+    }
   }
+
 }

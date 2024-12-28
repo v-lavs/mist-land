@@ -200,9 +200,15 @@ sup{
   html {
     font-size: 16px;
     line-height: 20.8px;
-    .note {
-      padding-top: 80px;
-    }
+  }
+  .note {
+    padding-top: 80px;
+  }
+}
+
+@include mixins.respond-to(variables.$md) {
+  .note {
+    padding-top: 100px;
   }
 }
 

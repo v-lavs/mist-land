@@ -3,6 +3,10 @@
 
 .section-faq {
   padding-bottom: 56px;
+
+  .title {
+    font-weight: 600;
+  }
 }
 
 .bg-mask {
@@ -29,11 +33,19 @@
     padding-bottom: 100px;
     grid-column: 1 / 2;
     grid-row: 2 / 3;
-    .section__header{
+
+    .section__header {
       margin-bottom: 40px;
     }
   }
-  .accordion__item h4{
+  .accordion__item h4 {
     font-size: 16px;
+  }
+}
+
+@include mixins.respond-to(variables.$md) {
+  .section-faq {
+    padding-top: 120px;
+    padding-bottom: 194px;
   }
 }

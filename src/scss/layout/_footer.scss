@@ -62,7 +62,7 @@
 @include mixins.respond-to(variables.$sm) {
   .footer {
     padding-top: 60px;
-    padding-bottom: 124px;
+    padding-bottom: 107px;
   }
   .disclaimer {
     height: 64px;
@@ -87,7 +87,7 @@
     height: 40px;
   }
 }
-@include mixins.respond-to(variables.$xl) {
+@include mixins.respond-to(variables.$xxl) {
   .footer {
     padding-top: 80px;
     padding-bottom: 165px;

@@ -30,10 +30,11 @@
   }
 
   &:hover {
-    background:linear-gradient(0deg, rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.5)), linear-gradient(96.49deg, #00E0E0 5.97%, #00C6FF 98.25%);
+    background: linear-gradient(0deg, rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.5)), linear-gradient(96.49deg, #00E0E0 5.97%, #00C6FF 98.25%);
     box-shadow: 0 0 20px 0 #04F4E280;
   }
-  &:last-child{
+
+  &:last-child {
     margin-bottom: 0;
   }
 }
@@ -134,8 +135,7 @@
   > .accordion__tab-container:hover {
     .accordion__caret {
       box-shadow: 0 0 20px 0 #04F4E280;
-      background:
-      linear-gradient(0deg, rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.5)),
+      background: linear-gradient(0deg, rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.5)),
       linear-gradient(96.49deg, #00C6FF 5.97%, #05FFDA 98.25%);
     }
   }
@@ -158,13 +158,23 @@
   }
 }
 
-@include mixins.respond-to(variables.$sm){
+@include mixins.respond-to(variables.$sm) {
   .accordion {
-    &__tab-container{
+    &__tab-container {
       padding-right: 76px;
     }
+
     &__item h4 {
       line-height: 20.8px;
     }
+  }
+}
+
+@include mixins.respond-to(variables.$md) {
+  .accordion__tab-container {
+    padding-right: 30px;
+  }
+  .accordion__item{
+    min-height: 68px;
   }
 }
