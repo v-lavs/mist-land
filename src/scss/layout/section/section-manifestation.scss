@@ -137,7 +137,6 @@
   left: 50%;
   transform: translateX(-50%) scale(.95);
   width: 182px;
-  //width: 62%;
   height: 284px;
 
   opacity: 0;
@@ -241,7 +240,6 @@
   }
 }
 
-
 @include mixins.respond-to(variables.$md) {
   .manifestation-list {
     width: 100%;
@@ -304,5 +302,11 @@
     &.visible {
       transform: translateX(35px) scale(1);
     }
+  }
+}
+
+@include mixins.respond-to(variables.$xl){
+  .image {
+    width: 360px;
   }
 }

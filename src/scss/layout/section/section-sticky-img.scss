@@ -62,3 +62,9 @@
     padding-left: 113px;
   }
 }
+
+@include mixins.respond-to(variables.$xxl) {
+  .sticky-grid {
+    grid-template-columns: 50% 50%;
+  }
+}

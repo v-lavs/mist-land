@@ -79,5 +79,17 @@
       max-width: 370px;
     }
   }
-
+}
+@include mixins.respond-to(variables.$xxl){
+  .section-app{
+    padding-top: 160px;
+    padding-bottom: 322px;
+    .pill-label{
+      padding-top: 14px;
+      padding-bottom: 14px;
+    }
+    .labels-grid{
+      max-width: 100%;
+    }
+  }
 }
