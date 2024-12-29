@@ -422,67 +422,68 @@ document.addEventListener('DOMContentLoaded', function () {
 
 
 //    ANIMATION PILL
+    const getCoordinatesRandomValue = () => Math.random() * 20 - 10;
+    const getDurationRandomValue = () => 2 + Math.random();
+    const getRotationRandomValue = () => Math.random() * 20 - 10;
 
-// This function scales the container to fit the screen.
-// function scaleContainer() {
-//     const container = document.getElementById("animation-container");
-//     const scale = Math.min(container.innerWidth / 1200, container.innerHeight / 1005);
-//     container.style.transform = `scale(${scale})`;
-// }
-//
-// window.addEventListener("resize", scaleContainer);
-// scaleContainer();
+    // This function creates the animation for each component.
+    document.querySelectorAll(".pill-anim__component").forEach((component) => {
+        const tl = gsap.timeline({repeat: -1, yoyo: true});
 
-// This function creates the animation.
+        tl.to(component, {
+            y: `+=${getCoordinatesRandomValue()}`,
+            x: `+=${getCoordinatesRandomValue()}`,
+            rotation: `+=${getRotationRandomValue()}`,
+            duration: getDurationRandomValue(),
+            ease: "sine.inOut",
+        })
+            .to(component, {
+                y: `+=${getCoordinatesRandomValue()}`,
+                x: `+=${getCoordinatesRandomValue()}`,
+                rotation: `+=${getRotationRandomValue()}`,
+                duration: getDurationRandomValue(),
+                ease: "sine.inOut",
+            })
+            .to(component, {
+                y: `+=${getCoordinatesRandomValue()}`,
+                x: `+=${getCoordinatesRandomValue()}`,
+                rotation: `+=${getRotationRandomValue()}`,
+                duration: getDurationRandomValue(),
+                ease: "sine.inOut",
+            });
+    });
 
-// const getCoordinatesRandomValue = () => Math.random() * 20 - 10;
-// const getDurationRandomValue = () => 2 + Math.random() * 1;
-// const getRotationRandomValue = () => Math.random() * 20 - 10;
-//
-// // This function creates the animation for each component.
-// document.querySelectorAll(".component").forEach((component) => {
-//     const tl = gsap.timeline({repeat: -1, yoyo: true});
-//
-//     tl.to(component, {
-//         y: `+=${getCoordinatesRandomValue()}`,
-//         x: `+=${getCoordinatesRandomValue()}`,
-//         rotation: `+=${getRotationRandomValue()}`,
-//         duration: getDurationRandomValue(),
-//         ease: "sine.inOut",
-//     })
-//         .to(component, {
-//             y: `+=${getCoordinatesRandomValue()}`,
-//             x: `+=${getCoordinatesRandomValue()}`,
-//             rotation: `+=${getRotationRandomValue()}`,
-//             duration: getDurationRandomValue(),
-//             ease: "sine.inOut",
-//         })
-//         .to(component, {
-//             y: `+=${getCoordinatesRandomValue()}`,
-//             x: `+=${getCoordinatesRandomValue()}`,
-//             rotation: `+=${getRotationRandomValue()}`,
-//             duration: getDurationRandomValue(),
-//             ease: "sine.inOut",
-//         });
-// });
-//
-// gsap.timeline()
-//     .to(".components", {
-//         scale: 0,
-//         rotation: 360,
-//         duration: 2,
-//         ease: "linear",
-//     }, "+=5")
-//     .from(".images", {
-//         scale: 0,
-//         duration: 2,
-//         ease: "linear",
-//     }, "+=2")
-//     .from(".logo", {
-//         x: -400,
-//         duration: 1,
-//     }, "+=0.6");
+    const timeline = gsap.timeline({
+        scrollTrigger: {
+            trigger: "#about", // Section to observe for scroll
+            start: "top top", // When to start (e.g., when the top of the section reaches the top of the viewport)
+            onEnter: () => {
+                // Add the class when the timeline starts
+                document.getElementById("about").classList.add("timeline-started");
+            },
+            markers: true,        // Remove in production; helpful for debugging
+        },
+    });
 
-})
-;
+    timeline
+        .to(".pill-anim__components", {
+            scale: 0,
+            opacity: 1,
+            rotation: 360,
+            duration: 2,
+            ease: "linear",
+        }, "+=3")
+        .from(".pill-anim__images", {
+            opacity: 1,
+            scale: 0,
+            duration: 2,
+            ease: "linear",
+        }, "+=0.5")
+        .from(".pill-anim__logo", {
+            opacity: 0,
+            xPercent: -150,
+            duration: 1,
+        }, "+=0.6");
+
+});
 
