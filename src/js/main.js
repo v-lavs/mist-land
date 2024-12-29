@@ -56,10 +56,7 @@ document.addEventListener('DOMContentLoaded', function () {
             });
         });
     }
-
     smoothScrollToAnchor('.menu__item a');
-    smoothScrollToAnchor('.btn_up');
-
 
 //ACCORDION
     const accordionList = document.querySelectorAll(".accordion__item");
