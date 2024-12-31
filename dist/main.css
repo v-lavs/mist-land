@@ -647,6 +647,11 @@ sup {
   height: 28px;
 }
 
+.labels-grid {
+  position: relative;
+  z-index: 1;
+}
+
 .swiper-horizontal > .swiper-pagination-bullets,
 .swiper-pagination-bullets.swiper-pagination-horizontal {
   bottom: 0;
@@ -2091,6 +2096,7 @@ sup {
 
 .section-faq {
   padding-bottom: 56px;
+  position: relative;
 }
 
 .section-faq .title {
@@ -2120,6 +2126,7 @@ sup {
   display: flex;
   justify-content: center;
   padding-left: 36px;
+  position: relative;
 }
 
 .sticky-grid__product-img {
@@ -2127,6 +2134,18 @@ sup {
   max-width: 196px;
   width: 100%;
   z-index: 2;
+}
+
+.sticky-grid .back-wave {
+  position: absolute;
+  width: auto;
+  max-width: none !important;
+  height: 531px;
+  right: auto;
+  left: auto;
+  margin-left: 70px;
+  bottom: -156px;
+  z-index: 0;
 }
 
 @media only screen and (min-width: 576px) {
@@ -2734,6 +2753,12 @@ sup {
     gap: 0;
   }
 
+  .sticky-grid .back-wave {
+    height: 698px;
+    margin-left: 127px;
+    bottom: -210px;
+  }
+
   .sticky-grid__img-block {
     position: sticky;
     top: 0;
@@ -3104,6 +3129,14 @@ sup {
     max-width: 350px;
   }
 
+  .sticky-grid .back-wave {
+    height: 958px;
+    margin-left: 0;
+    bottom: -304px;
+    z-index: 0;
+    right: -520px;
+  }
+
   .section-sticky__img {
     padding-top: 40px;
     padding-left: 113px;
@@ -3226,5 +3259,10 @@ sup {
 
   .sticky-grid {
     grid-template-columns: 50% 50%;
+  }
+
+  .sticky-grid .back-wave {
+    height: 1040px;
+    bottom: -312px;
   }
 }

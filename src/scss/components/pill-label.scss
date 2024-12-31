@@ -18,7 +18,10 @@
     height: 28px;
   }
 }
-
+.labels-grid{
+  position: relative;
+  z-index: 1;
+}
 @include mixins.respond-to(variables.$sm) {
   .pill-label {
     font-size: 16px;
