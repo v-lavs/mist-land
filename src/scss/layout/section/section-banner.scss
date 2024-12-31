@@ -4,7 +4,6 @@
 .section-banner {
   padding-top: calc(60px + 48px);
   padding-bottom: 40px;
-  overflow: hidden;
 
   .container {
     position: relative;
@@ -90,18 +89,47 @@
     left: 0;
     transform: translate(10%, 50px);
   }
-
-  .ellipse {
+  .ellipse-back {
     position: absolute;
+    pointer-events: none;
+  }
+  .ellipse-back-1{
+    background: #0F2F6E;
+filter: blur(154.59px);
+    width: 536.94px;
+    height: 689.27px;
+    top: -9px;
+    left: -100%;
+
+  }
+  .ellipse-back-2 {
     width: 319.25px;
     height: 400.41px;
     opacity: 0.6;
     background: linear-gradient(341.13deg, #7DE2FF 22.48%, #36FFAB 47.61%);
     filter: blur(154px);
-    pointer-events: none;
+
+    top: 10px;
+    right: -130px;
   }
 }
+.banner__stars{
+  position: absolute;
+  pointer-events: none;
+  z-index: 2;
+  &_1{
+    width:200%;
+    height: 434.14px;
+    bottom: 0;
+    left: -100%;
+    max-width: 1089px;
+  }
+  &_2{
+    width: 696px;
+    height: 267px;
 
+  }
+}
 
 @include mixins.respond-to(variables.$sm) {
   .section-banner {

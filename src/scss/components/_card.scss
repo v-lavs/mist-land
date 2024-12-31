@@ -13,7 +13,8 @@
 
 .message-block {
   padding: 20px;
-
+  position: relative;
+  z-index: 1;
   p {
     margin-bottom: 20px;
 

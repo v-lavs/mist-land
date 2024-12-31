@@ -4,17 +4,17 @@
 .section-improvement {
   .back-wave {
     position: absolute;
-    background-position: center;
-    background-size: initial;
-    background-repeat: no-repeat;
-    width: 110vw;
-    height: 100%;
-    z-index: -1;
+    height: 1000px;
+    width: auto;
+    left: -65%;
+    max-width: none !important;
+    z-index: 0;
   }
 }
 
 .improvement-grid {
   &__product-img {
+    position: relative;
     margin-right: 45px;
     max-width: 166px;
     height: auto;
@@ -28,6 +28,7 @@
   }
 
   .labels-grid {
+    position: relative;
     margin-bottom: 25px;
     display: flex;
     gap: 4px;

@@ -1,9 +1,11 @@
 @use "../../utils/mixins";
 @use "../../utils/variables";
-
+.main__inner{
+  overflow: hidden;
+}
 .section{
   padding: 40px 0;
-  overflow: hidden;
+  //overflow: hidden;
   &__header{
     margin-bottom: 30px;
   }
