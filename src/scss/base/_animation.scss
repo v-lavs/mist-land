@@ -8,7 +8,19 @@
     opacity: 0;
   }
 }
-.improvement-stars .star,
+.star{
+  transition: .35s;
+}
+.improvement-stars .star {
+  animation: scaleAnim 2s infinite ease-in-out;
+
+  @for $i from 1 through 32 {
+    &:nth-child(#{$i}) {
+      animation-delay: 0.45s * ($i - 1);
+    }
+  }
+}
+
 .banner__stars .star {
   animation: scaleAnim 2s infinite ease-in-out;
 
@@ -18,7 +30,15 @@
     }
   }
 }
+.about-stars .star{
+  animation: scaleAnim 3s infinite ease-in-out;
 
+  @for $i from 1 through 43 {
+    &:nth-child(#{$i}) {
+      animation-delay: 0.45s * ($i - 1);
+    }
+  }
+}
 .moving-element {
   filter: blur(65px);
   background: radial-gradient(93.19% 74.17% at 30% 59%, rgb(255, 255, 255), rgb(204, 0, 255) 52.831%, rgb(35, 141, 172) 100%);
