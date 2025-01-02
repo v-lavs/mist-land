@@ -133,7 +133,7 @@ body.disable-scroll {
 .wrapper {
   position: relative;
   background: linear-gradient(108deg, rgb(9, 46, 103) 0%, rgb(9, 64, 134) 28%, rgb(0, 78, 158) 60%, rgb(0, 107, 182) 100%);
-  background: linear-gradient(260.64deg, #006BB6 3.35%, #004E9E 36.26%, #094086 63.57%, #092E67 86.53%);
+  overflow: hidden;
 }
 
 .overlay {
@@ -329,98 +329,125 @@ sup {
   }
 }
 
-.block-stars .star {
+.banner__stars .star {
   animation: scaleAnim 2s infinite ease-in-out;
 }
 
-.block-stars .star:nth-child(1) {
+.banner__stars .star:nth-child(1) {
   animation-delay: 0s;
 }
 
-.block-stars .star:nth-child(2) {
-  animation-delay: 0.7s;
+.banner__stars .star:nth-child(2) {
+  animation-delay: 0.45s;
 }
 
-.block-stars .star:nth-child(3) {
-  animation-delay: 1.4s;
+.banner__stars .star:nth-child(3) {
+  animation-delay: 0.9s;
 }
 
-.block-stars .star:nth-child(4) {
-  animation-delay: 2.1s;
+.banner__stars .star:nth-child(4) {
+  animation-delay: 1.35s;
 }
 
-.block-stars .star:nth-child(5) {
-  animation-delay: 2.8s;
+.banner__stars .star:nth-child(5) {
+  animation-delay: 1.8s;
 }
 
-.block-stars .star:nth-child(6) {
-  animation-delay: 3.5s;
+.banner__stars .star:nth-child(6) {
+  animation-delay: 2.25s;
 }
 
-.block-stars .star:nth-child(7) {
-  animation-delay: 4.2s;
+.banner__stars .star:nth-child(7) {
+  animation-delay: 2.7s;
 }
 
-.block-stars .star:nth-child(8) {
-  animation-delay: 4.9s;
+.banner__stars .star:nth-child(8) {
+  animation-delay: 3.15s;
 }
 
-.block-stars .star:nth-child(9) {
-  animation-delay: 5.6s;
+.banner__stars .star:nth-child(9) {
+  animation-delay: 3.6s;
 }
 
-.block-stars .star:nth-child(10) {
+.banner__stars .star:nth-child(10) {
+  animation-delay: 4.05s;
+}
+
+.banner__stars .star:nth-child(11) {
+  animation-delay: 4.5s;
+}
+
+.banner__stars .star:nth-child(12) {
+  animation-delay: 4.95s;
+}
+
+.banner__stars .star:nth-child(13) {
+  animation-delay: 5.4s;
+}
+
+.banner__stars .star:nth-child(14) {
+  animation-delay: 5.85s;
+}
+
+.banner__stars .star:nth-child(15) {
   animation-delay: 6.3s;
 }
 
-.block-stars .star:nth-child(11) {
-  animation-delay: 7s;
+.banner__stars .star:nth-child(16) {
+  animation-delay: 6.75s;
 }
 
-.block-stars .star:nth-child(12) {
-  animation-delay: 7.7s;
+.banner__stars .star:nth-child(17) {
+  animation-delay: 7.2s;
 }
 
-.block-stars .star:nth-child(13) {
-  animation-delay: 8.4s;
+.banner__stars .star:nth-child(18) {
+  animation-delay: 7.65s;
 }
 
-.block-stars .star:nth-child(14) {
-  animation-delay: 9.1s;
+.banner__stars .star:nth-child(19) {
+  animation-delay: 8.1s;
 }
 
-.block-stars .star:nth-child(15) {
-  animation-delay: 9.8s;
+.banner__stars .star:nth-child(20) {
+  animation-delay: 8.55s;
 }
 
-.block-stars .star:nth-child(16) {
-  animation-delay: 10.5s;
+.banner__stars .star:nth-child(21) {
+  animation-delay: 9s;
 }
 
-.block-stars .star:nth-child(17) {
-  animation-delay: 11.2s;
+.banner__stars .star:nth-child(22) {
+  animation-delay: 9.45s;
 }
 
-.block-stars {
-  position: absolute;
-  width: 100vw;
-  max-width: 696px;
-  height: 266px;
-  z-index: 0;
-  pointer-events: none;
+.banner__stars .star:nth-child(23) {
+  animation-delay: 9.9s;
 }
 
-.block-stars svg {
-  max-width: 100%;
-  height: auto;
-  display: block;
+.banner__stars .star:nth-child(24) {
+  animation-delay: 10.35s;
 }
 
-/* Загальний стиль */
+.banner__stars .star:nth-child(25) {
+  animation-delay: 10.8s;
+}
 
-/* Базовий шар: світло-синій фон з напівпрозорими зірками */
+.banner__stars .star:nth-child(26) {
+  animation-delay: 11.25s;
+}
 
-/* Видалення чорного фону під маскою */
+.banner__stars .star:nth-child(27) {
+  animation-delay: 11.7s;
+}
+
+.banner__stars .star:nth-child(28) {
+  animation-delay: 12.15s;
+}
+
+.banner__stars .star:nth-child(29) {
+  animation-delay: 12.6s;
+}
 
 .moving-element {
   z-index: -1;
@@ -1513,7 +1540,7 @@ sup {
   width: 100%;
   padding-bottom: 10px;
   position: relative;
-  z-index: 1;
+  z-index: 2;
 }
 
 .section-banner .banner-grid__img-block {
@@ -1565,36 +1592,28 @@ sup {
 }
 
 .section-banner .back-wave {
-  position: absolute !important;
-  bottom: 0;
-  height: 434px !important;
+  position: absolute;
+  height: 434px;
   width: auto;
-  max-width: none !important;
-  z-index: 1 !important;
-}
-
-.section-banner .back-wave-l {
-  left: 0;
-  transform: translate(-90%, 103px);
-}
-
-.section-banner .back-wave-r {
-  left: 0;
-  transform: translate(10%, 50px);
+  max-width: none;
+  left: auto;
+  right: 0;
+  transform: translate(27%, 92px);
+  z-index: 1;
 }
 
 .section-banner .ellipse-back {
   position: absolute;
   pointer-events: none;
+  filter: blur(120px);
 }
 
 .section-banner .ellipse-back-1 {
   background: #0F2F6E;
-  filter: blur(154.59px);
   width: 536.94px;
   height: 689.27px;
   top: -9px;
-  left: -100%;
+  left: -90%;
 }
 
 .section-banner .ellipse-back-2 {
@@ -1602,28 +1621,28 @@ sup {
   height: 400.41px;
   opacity: 0.6;
   background: linear-gradient(341.13deg, #7DE2FF 22.48%, #36FFAB 47.61%);
-  filter: blur(154px);
-  top: 10px;
+  top: 162px;
   right: -130px;
+  z-index: 0;
 }
 
 .banner__stars {
   position: absolute;
   pointer-events: none;
+  width: auto;
+  max-width: none;
+  left: 0;
   z-index: 2;
 }
 
 .banner__stars_1 {
-  width: 200%;
-  height: 434.14px;
-  bottom: 0;
-  left: -100%;
-  max-width: 1089px;
+  height: 264px;
+  transform: translate(-23%, 0);
 }
 
 .banner__stars_2 {
-  width: 696px;
-  height: 267px;
+  height: 434px;
+  transform: translate(-63%, -68px);
 }
 
 .main__inner {
@@ -2398,6 +2417,11 @@ sup {
     padding-top: 180px;
   }
 
+  .section-banner .back-wave {
+    height: 612px;
+    transform: translate(25%, 41%);
+  }
+
   .section-banner .btn_primary {
     padding: 19px 50px;
   }
@@ -2437,6 +2461,10 @@ sup {
     padding-right: 40px;
   }
 
+  .section-banner .banner-grid__addition-info .card {
+    text-align: left;
+  }
+
   .section-banner .banner-grid__img-block {
     order: 4;
     width: 50%;
@@ -2445,6 +2473,24 @@ sup {
 
   .section-banner .banner-grid__product-img {
     max-width: 309px;
+  }
+
+  .section-banner .banner-grid__addition-info {
+    padding-bottom: 60px;
+  }
+
+  .banner__stars_1 {
+    height: 430px;
+    transform: translate(-19%, -45px);
+  }
+
+  .banner__stars_2 {
+    height: 562px;
+    transform: translate(-58%, -68px);
+  }
+
+  .section-banner .ellipse-back-1 {
+    left: -36%;
   }
 
   .section {
@@ -2867,6 +2913,7 @@ sup {
     /* Third row */
     width: 100%;
     padding-right: 16px;
+    padding-bottom: 0;
   }
 
   .section-banner .banner-grid__img-block {
@@ -2887,7 +2934,8 @@ sup {
     align-items: center;
     text-align: left;
     padding: 24px 30px;
-    margin-bottom: 20px;
+    margin-bottom: 33px;
+    max-width: 464px;
   }
 
   .section-banner .message-block .btn_secondary {
@@ -2896,6 +2944,40 @@ sup {
 
   .section-banner .message-block p {
     margin-bottom: 0;
+  }
+
+  .section-banner .back-wave {
+    height: 768px;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: -24%;
+  }
+
+  .section-banner .ellipse-back-2 {
+    width: 720px;
+    height: 768px;
+    top: -30px;
+    right: -30%;
+    filter: blur(260px);
+  }
+
+  .section-banner .ellipse-back-1 {
+    width: 1042px;
+    height: 1027.29px;
+    filter: blur(260px);
+    left: -65%;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+
+  .banner__stars_1 {
+    height: 472px;
+    transform: translate(-20%, -82px);
+  }
+
+  .banner__stars_2 {
+    height: 768px;
+    transform: translate(-57%, -148px);
   }
 
   .section {
@@ -3161,6 +3243,19 @@ sup {
 
   .disclaimer {
     height: 40px;
+  }
+
+  .banner__stars_1 {
+    left: 0;
+    width: 1089px;
+    transform: translate(-23%, -58px);
+  }
+
+  .banner__stars_2 {
+    height: 768px;
+    width: auto;
+    left: 0;
+    transform: translate(-58%, -131px);
   }
 
   .image {

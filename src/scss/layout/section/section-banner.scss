@@ -20,7 +20,7 @@
     width: 100%;
     padding-bottom: 10px;
     position: relative;
-    z-index: 1;
+    z-index: 2;
   }
 
   .banner-grid__img-block {
@@ -72,71 +72,85 @@
   }
 
   .back-wave {
-    position: absolute !important;
-    bottom: 0;
-    height: 434px !important;
+    position: absolute;
+    height: 434px;
     width: auto;
-    max-width: none !important;
-    z-index: 1 !important;
+    max-width: none;
+    left: auto;
+    right: 0;
+    transform: translate(27%, 92px);
+    z-index: 1;
   }
 
-  .back-wave-l {
-    left: 0;
-    transform: translate(-90%, 103px);
-  }
+  //
+  //.back-wave-l {
+  //  left: 0;
+  //  transform: translate(-90%, 103px);
+  //}
+  //
+  //.back-wave-r {
+  //  left: 0;
+  //  transform: translate(10%, 50px);
+  //}
 
-  .back-wave-r {
-    left: 0;
-    transform: translate(10%, 50px);
-  }
   .ellipse-back {
     position: absolute;
     pointer-events: none;
+    filter: blur(120px);
   }
-  .ellipse-back-1{
+
+  .ellipse-back-1 {
     background: #0F2F6E;
-filter: blur(154.59px);
     width: 536.94px;
     height: 689.27px;
     top: -9px;
-    left: -100%;
+    left: -90%;
 
   }
+
   .ellipse-back-2 {
     width: 319.25px;
     height: 400.41px;
     opacity: 0.6;
     background: linear-gradient(341.13deg, #7DE2FF 22.48%, #36FFAB 47.61%);
-    filter: blur(154px);
-
-    top: 10px;
+    top: 162px;
     right: -130px;
+    z-index: 0;
   }
 }
-.banner__stars{
+
+.banner__stars {
   position: absolute;
   pointer-events: none;
+  width: auto;
+  max-width: none;
+  left: 0;
   z-index: 2;
-  &_1{
-    width:200%;
-    height: 434.14px;
-    bottom: 0;
-    left: -100%;
-    max-width: 1089px;
-  }
-  &_2{
-    width: 696px;
-    height: 267px;
 
+  &_1 {
+    height: 264px;
+    transform: translate(-23%, 0);
+  }
+
+  &_2 {
+    height: 434px;
+    transform: translate(-63%, -68px);
   }
 }
 
 @include mixins.respond-to(variables.$sm) {
   .section-banner {
     padding-top: 180px;
+
+    .back-wave {
+      height: 612px;
+      transform: translate(25%, 41%);
+    }
+
     .btn_primary {
       padding: 19px 50px;
     }
+
     .banner-grid__header {
       text-align: center;
       padding-bottom: 14px;
@@ -170,6 +184,10 @@ filter: blur(154.59px);
       width: 50%;
       z-index: 20;
       padding-right: 40px;
+
+      .card {
+        text-align: left;
+      }
     }
 
     .banner-grid__img-block {
@@ -181,6 +199,24 @@ filter: blur(154.59px);
     .banner-grid__product-img {
       max-width: 309px;
     }
+
+    .banner-grid__addition-info {
+      padding-bottom: 60px;
+    }
+  }
+  .banner__stars {
+    &_1 {
+      height: 430px;
+      transform: translate(-19%, -45px);
+    }
+
+    &_2 {
+      height: 562px;
+      transform: translate(-58%, -68px);
+    }
+  }
+  .section-banner .ellipse-back-1 {
+    left: -36%;
   }
 }
 
@@ -227,6 +263,7 @@ filter: blur(154.59px);
       grid-row: 3 / 4; /* Third row */
       width: 100%;
       padding-right: 16px;
+      padding-bottom: 0;
     }
 
     .banner-grid__img-block {
@@ -245,7 +282,9 @@ filter: blur(154.59px);
       align-items: center;
       text-align: left;
       padding: 24px 30px;
-      margin-bottom: 20px;
+      margin-bottom: 33px;
+      max-width: 464px;
+
       .btn_secondary {
         flex-shrink: 0;
       }
@@ -254,14 +293,76 @@ filter: blur(154.59px);
         margin-bottom: 0;
       }
     }
+
+    .back-wave {
+      height: 768px;
+      left: 50%;
+      transform: translateX(-50%);
+      bottom: -24%;
+
+    }
+
+    .ellipse-back-2 {
+      width: 720px;
+      height: 768px;
+      top: -30px;
+      right: -30%;
+      filter: blur(260px);
+    }
+
+    .ellipse-back-1 {
+      width: 1042px;
+      height: 1027.29px;
+      filter: blur(260px);
+      left: -65%;
+      top: 50%;
+      transform: translateY(-50%);
+    }
+  }
+  .banner__stars {
+    &_1 {
+      height: 472px;
+      transform: translate(-20%, -82px);
+    }
+
+    &_2 {
+      height: 768px;
+      transform: translate(-57%, -148px);
+    }
   }
 }
 
-@include mixins.respond-to(variables.$lg) {
+@include mixins.respond-to(variables.$xl) {
   .section-banner {
+    //.back-wave {
+    //  height: 646px !important;
+    //}
 
+    //.back-wave-r {
+    //  transform: translate(30%, 50px);
+    //}
+    //.back-wave-l {
+    //  transform: translate(-90%, 125px);
+    //}
+  }
+  .banner__stars {
+    &_1 {
+      left: 0;
+      width: 1089px;
+      transform: translate(-23%, -58px);
+    }
+
+    &_2 {
+      height: 768px;
+      width: auto;
+      left: 0;
+      transform: translate(-58%, -131px);
+    }
   }
 }
 
+@include mixins.respond-to(variables.$xxl) {
+
+}
 
 

@@ -9,74 +9,45 @@
   }
 }
 
-.block-stars .star {
+.banner__stars .star {
   animation: scaleAnim 2s infinite ease-in-out;
 
-  // Генеруємо затримку анімації для кожної зірки
-  @for $i from 1 through 17 {
+  @for $i from 1 through 29 {
     &:nth-child(#{$i}) {
-      animation-delay: 0.7s * ($i - 1);
+      animation-delay: 0.45s * ($i - 1);
     }
   }
 }
 
-.block-stars {
-  position: absolute;
-  width: 100vw;
-  max-width: 696px;
-  height: 266px;
-  z-index: 0;
-  pointer-events: none;
-  svg {
-    max-width: 100%;
-    height: auto;
-    display: block;
-  }
-}
+//.banner__stars_2 .star {
+//  animation: scaleAnim 2s infinite ease-in-out;
+//
+//  @for $i from 1 through 7 {
+//    &:nth-child(#{$i}) {
+//      animation-delay: 0.7s * ($i - 1);
+//    }
+//  }
+//}
 
-
-
-
-
-
-
-/* Загальний стиль */
-//.stars, .twinkling {
+//.block-stars {
 //  position: absolute;
-//  top: 0;
-//  left: auto;
-//  right: 0;
-//  width: 75%;
-//  height: 100%;
-//}
-
-/* Базовий шар: світло-синій фон з напівпрозорими зірками */
-//.stars {
-//  background-color: #87CEEB; /* Світло-синій фон */
-//  background-image: url('assets/img/stars.png');
-//  background-position: right top;
-//  background-repeat: no-repeat;
-//  background-size: contain;
+//  width: 100vw;
+//  max-width: 696px;
+//  height: 266px;
 //  z-index: 0;
-//}
-//
-///* Шар мерехтіння */
-//.twinkling {
-//  background-image: url('assets/img/twinkling.png');
-//  background-repeat: repeat;
-//  background-size: 150px 150px;
-//  z-index: 1;
-//  animation: move-twink-back 200s linear infinite;
-//
+//  pointer-events: none;
+//  svg {
+//    max-width: 100%;
+//    height: auto;
+//    display: block;
+//  }
 //}
 
-/* Видалення чорного фону під маскою */
-//
-//.block-sky {
-//  position: relative;
-//  width: 65vw;
-//  height: 472px;
-//}
+
+
+
+
+
 
 //-------------------
 //fly bg
