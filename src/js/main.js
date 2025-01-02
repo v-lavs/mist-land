@@ -502,7 +502,7 @@ document.addEventListener('DOMContentLoaded', function () {
     const timeline = gsap.timeline({
         scrollTrigger: {
             trigger: "#about", // Section to observe for scroll
-            start: "top top", // When to start (e.g., when the top of the section reaches the top of the viewport)
+            start: "top center", // When to start (e.g., when the top of the section reaches the top of the viewport)
             onEnter: () => {
                 // Add the class when the timeline starts
                 document.getElementById("about").classList.add("timeline-started");
