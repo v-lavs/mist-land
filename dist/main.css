@@ -453,7 +453,7 @@ sup {
   z-index: -1;
   position: absolute;
   /* Анімація руху */
-  animation: randomMove 10s infinite ease-in-out;
+  transition: transform 0.5s;
 }
 
 .menu {
@@ -1691,9 +1691,6 @@ sup {
   width: 330px;
   height: 330px;
   position: absolute;
-  top: 65px;
-  left: 100px;
-  transform: translateX(-100%);
   z-index: 1;
   animation: flow 0.5s cubic-bezier(0.42, 0, 0.58, 1) infinite;
 }
@@ -2990,6 +2987,11 @@ sup {
     margin-left: auto;
     margin-right: auto;
     text-align: center;
+  }
+
+  .section-symptoms .moving-element {
+    width: 368px;
+    height: 368px;
   }
 
   .manifestation-list {

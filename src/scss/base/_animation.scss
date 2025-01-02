@@ -72,7 +72,7 @@
   position: absolute;
 
   /* Анімація руху */
-  animation: randomMove 10s infinite ease-in-out;
+  transition: transform .5s;
 }
 
 
