@@ -266,7 +266,7 @@ document.addEventListener('DOMContentLoaded', function () {
             let currentY = Math.random() * (sectionHeight - blockHeight);
             let targetX = Math.random() * (sectionWidth - blockWidth);
             let targetY = Math.random() * (sectionHeight - blockHeight);
-            const speed = 0.8; // Швидкість руху
+            const speed = 0.5; // Швидкість руху
 
             function animate() {
                 // Плавне наближення до цільових координат
@@ -276,7 +276,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 block.style.transform = `translate(${currentX}px, ${currentY}px)`;
 
                 // Якщо елемент майже досягнув цілі, змінюємо ціль
-                if (Math.abs(targetX - currentX) < 5 && Math.abs(targetY - currentY) < 5) {
+                if (Math.abs(targetX - currentX) < 1 && Math.abs(targetY - currentY) < 1) {
                     targetX = Math.random() * (sectionWidth - blockWidth);
                     targetY = Math.random() * (sectionHeight - blockHeight);
                 }
