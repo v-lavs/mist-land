@@ -28,6 +28,14 @@
       }
     }
   }
+  .moving-element{
+    width: 240px;
+    height: 242px;
+    opacity: 0.3;
+    background: #00E6FF;
+  filter: blur(140px)
+
+  }
 }
 
 @include mixins.respond-to(variables.$sm) {

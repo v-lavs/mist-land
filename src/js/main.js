@@ -246,6 +246,55 @@ document.addEventListener('DOMContentLoaded', function () {
 
 //MOVING ELEMENT
 
+        // const sections = document.querySelectorAll('.move-el');
+        //
+        // sections.forEach((section, index) => {
+        //     const block = section.querySelector('.moving-element');
+        //     if (!block) {
+        //         console.warn(`У секції #${index + 1} блок .moving-element не знайдено`);
+        //         return;
+        //     }
+        //
+        //     console.log(`Секція #${index + 1} знайдена, запускаємо анімацію для блоку`);
+        //
+        //     const sectionWidth = section.offsetWidth;
+        //     const sectionHeight = section.offsetHeight;
+        //     const blockWidth = block.offsetWidth;
+        //     const blockHeight = block.offsetHeight;
+        //
+        //     let currentX = Math.random() * (sectionWidth - blockWidth);
+        //     let currentY = Math.random() * (sectionHeight - blockHeight);
+        //     let targetX = Math.random() * (sectionWidth - blockWidth);
+        //     let targetY = Math.random() * (sectionHeight - blockHeight);
+        //     const speed = 0.5; // Швидкість руху
+        //
+        //     function animate() {
+        //         // Плавне наближення до цільових координат
+        //         currentX += (targetX - currentX) * speed;
+        //         currentY += (targetY - currentY) * speed;
+        //
+        //         block.style.transform = `translate(${currentX}px, ${currentY}px)`;
+        //
+        //         // Якщо елемент майже досягнув цілі, змінюємо ціль
+        //         if (Math.abs(targetX - currentX) < 5 && Math.abs(targetY - currentY) < 5) {
+        //             targetX = Math.random() * (sectionWidth - blockWidth);
+        //             targetY = Math.random() * (sectionHeight - blockHeight);
+        //         }
+        //
+        //         // Рекурсивний виклик для наступного кадру
+        //         requestAnimationFrame(animate);
+        //     }
+        //
+        //     // Запускаємо анімацію
+        //     animate();
+        // });
+// Функція для перевірки розміру екрану та запуску анімації
+    function startAnimationForLargeScreens() {
+        if (window.innerWidth < 768) {
+            console.log('Анімація не запускається для екранів менше 768px');
+            return; // Вихід, якщо ширина вікна менше 768px
+        }
+
         const sections = document.querySelectorAll('.move-el');
 
         sections.forEach((section, index) => {
@@ -288,6 +337,15 @@ document.addEventListener('DOMContentLoaded', function () {
             // Запускаємо анімацію
             animate();
         });
+    }
+
+// Виклик функції при завантаженні сторінки
+    startAnimationForLargeScreens();
+
+// Перевірка розміру екрану при зміні розміру вікна
+    window.addEventListener('resize', () => {
+        startAnimationForLargeScreens();
+    });
 
 
 

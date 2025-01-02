@@ -2064,20 +2064,22 @@ sup {
 
 .section-banner .ellipse-back-1 {
   background: #0F2F6E;
-  width: 536.94px;
-  height: 689.27px;
+  width: 537px;
+  height: 689px;
   top: -9px;
-  left: -90%;
+  left: 0;
+  transform: translateX(-95%);
 }
 
 .section-banner .ellipse-back-2 {
-  width: 319.25px;
-  height: 400.41px;
+  width: 319px;
+  height: 400px;
   opacity: 0.6;
   background: linear-gradient(341.13deg, #7DE2FF 22.48%, #36FFAB 47.61%);
   top: 162px;
   right: -130px;
   z-index: 0;
+  filter: blur(155px);
 }
 
 .banner__stars {
@@ -2601,6 +2603,14 @@ sup {
   padding-bottom: 14px;
 }
 
+.section-app .moving-element {
+  width: 240px;
+  height: 242px;
+  opacity: 0.3;
+  background: #00E6FF;
+  filter: blur(140px);
+}
+
 .section-faq {
   padding-bottom: 56px;
   position: relative;
@@ -2984,7 +2994,16 @@ sup {
   }
 
   .section-banner .ellipse-back-1 {
-    left: -36%;
+    width: 695px;
+    height: 892px;
+    transform: translateX(-50%);
+  }
+
+  .section-banner .ellipse-back-2 {
+    width: 413px;
+    height: 518px;
+    transform: translateY(53%);
+    top: 0;
   }
 
   .section {
@@ -3465,20 +3484,9 @@ sup {
   }
 
   .section-banner .ellipse-back-2 {
-    width: 720px;
-    height: 768px;
-    top: -30px;
-    right: -30%;
-    filter: blur(260px);
-  }
-
-  .section-banner .ellipse-back-1 {
-    width: 1042px;
-    height: 1027.29px;
-    filter: blur(260px);
-    left: -65%;
-    top: 50%;
-    transform: translateY(-50%);
+    width: 619px;
+    height: 619px;
+    transform: translateY(-26px);
   }
 
   .banner__stars_1 {
@@ -3777,6 +3785,15 @@ sup {
     height: 40px;
   }
 
+  .section-banner .ellipse-back-1 {
+    width: 1042px;
+    height: 1027px;
+    filter: blur(260px);
+    left: 0;
+    top: 50%;
+    transform: translate(-64%, -50%);
+  }
+
   .banner__stars_1 {
     left: 0;
     width: 1089px;
@@ -3827,6 +3844,10 @@ sup {
 
   .disclaimer {
     height: 55px;
+  }
+
+  .section-banner .ellipse-back-1 {
+    transform: translate(-53%, -50%);
   }
 
   .improvement-grid {
