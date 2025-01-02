@@ -10,11 +10,17 @@
 }
 .star{
   transition: .35s;
+  animation: scaleAnim 2s infinite ease-in-out;
+}
+.stars{
+  position: absolute;
+  pointer-events: none;
+  width: auto;
+  max-width: none;
+  z-index: 1;
 }
 .improvement-stars .star {
-  animation: scaleAnim 2s infinite ease-in-out;
-
-  @for $i from 1 through 32 {
+    @for $i from 1 through 32 {
     &:nth-child(#{$i}) {
       animation-delay: 0.45s * ($i - 1);
     }
@@ -22,8 +28,6 @@
 }
 
 .banner__stars .star {
-  animation: scaleAnim 2s infinite ease-in-out;
-
   @for $i from 1 through 29 {
     &:nth-child(#{$i}) {
       animation-delay: 0.45s * ($i - 1);
@@ -32,7 +36,6 @@
 }
 .about-stars .star{
   animation: scaleAnim 3s infinite ease-in-out;
-
   @for $i from 1 through 43 {
     &:nth-child(#{$i}) {
       animation-delay: 0.45s * ($i - 1);
@@ -46,6 +49,7 @@
   z-index: 0;
   position: absolute;
   transition: transform 1s;
-  animation: flow .5s cubic-bezier(0.42, 0, 0.58, 1) infinite;
+  //animation: flow .5s cubic-bezier(0.42, 0, 0.58, 1) infinite;
+  animation: flow .5s linear infinite;
 }
 

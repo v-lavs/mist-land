@@ -276,7 +276,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 block.style.transform = `translate(${currentX}px, ${currentY}px)`;
 
                 // Якщо елемент майже досягнув цілі, змінюємо ціль
-                if (Math.abs(targetX - currentX) < 1 && Math.abs(targetY - currentY) < 1) {
+                if (Math.abs(targetX - currentX) < 5 && Math.abs(targetY - currentY) < 5) {
                     targetX = Math.random() * (sectionWidth - blockWidth);
                     targetY = Math.random() * (sectionHeight - blockHeight);
                 }

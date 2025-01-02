@@ -55,13 +55,8 @@
 }
 
 .improvement-stars {
-  position: absolute;
-  pointer-events: none;
-  width: auto;
-  max-width: none;
   left: auto;
   right: auto;
-  z-index: 1;
   bottom: 0;
   height: 170px;
   transform: translate(17%, -56px);
