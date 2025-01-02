@@ -33,6 +33,19 @@
       width: 100%;
     }
   }
+  .moving-element{
+    width: 386px;
+    height: 323px;
+    opacity: 0.8;
+    background: linear-gradient(341.13deg, #36FFAB 22.48%, #7DE2FF 47.61%);
+filter: blur(130px);
+    top: 0;
+
+  }
+  .pill-anim-wrap{
+    position: relative;
+    z-index: 1;
+  }
 }
 
 .slider-about {

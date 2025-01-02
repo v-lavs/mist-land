@@ -1,0 +1,669 @@
+<!DOCTYPE html>
+<html lang="uk" xmlns="http://www.w3.org/1999/html">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <title>Містерія анім тест</title>
+
+    <!--    закрити індексацію-->
+    <meta name="robots" content="noindex"/>
+
+    <link rel="stylesheet" href="./lib/swiper/swiper-bundle.min.css">
+    <link rel="stylesheet" href="./fonts/fonts.css">
+    <link rel="stylesheet" href="./dist/main.css">
+</head>
+<style>
+
+    /*.animation-section {*/
+    /*    position: relative;*/
+    /*    height: 1000vh;*/
+
+    /*}*/
+
+    /*.animation-section .container {*/
+    /*    padding-top: 100px;*/
+    /*    max-width: 980px;*/
+    /*    height: 100vh;*/
+    /*    margin: 0 auto;*/
+    /*    position: sticky;*/
+    /*    top: 0;*/
+    /*    border: 1px solid red;*/
+    /*    display: flex;*/
+    /*    flex-wrap: wrap;*/
+    /*    padding-bottom: 100px;*/
+    /*}*/
+
+    /*.images {*/
+    /*    position: relative;*/
+    /*    width: 50%;*/
+    /*    height: 585px;*/
+    /*}*/
+
+    /*.image {*/
+    /*    position: absolute;*/
+    /*    right: 50%;*/
+    /*    transform: translateX(50%);*/
+    /*    bottom: 0;*/
+    /*    width: auto;*/
+    /*    height: 90%;*/
+    /*    opacity: 0;*/
+    /*    !*transition: opacity 0.5s ease-in-out;*!*/
+    /*}*/
+
+    /*.image.visible {*/
+    /*    opacity: 1;*/
+    /*}*/
+
+    /*.icon {*/
+    /*    position: absolute;*/
+    /*    left: 0;*/
+    /*    right: 0;*/
+    /*    height: auto;*/
+    /*    opacity: 0;*/
+    /*    transform: scale(0.95);*/
+    /*    !*transition: opacity 0.5s ease-in-out;*!*/
+    /*}*/
+
+    /*.icon.visible {*/
+    /*    opacity: 1;*/
+    /*    z-index: 1;*/
+    /*    transform: scale(1);*/
+    /*    transition: opacity 0.5s ease, transform 0.5s ease;*/
+    /*}*/
+
+    /*.symptom-list {*/
+    /*    width: 50%;*/
+    /*    background-color: mistyrose;*/
+    /*}*/
+
+
+ /*   .image {*/
+ /*       transform: translateX(50%) scale(0.95);*/
+ /*   }*/
+
+ /*   .image.visible {*/
+ /*       transform: translateX(50%) scale(1);*/
+ /*       opacity: 1;*/
+ /*   }*/
+ /*.image, .icon {*/
+ /*       transition: opacity 0.5s ease, transform 0.5s ease;*/
+ /*   }*/
+    /*.symptom {*/
+    /*    font-size: 16px;*/
+    /*    transition: opacity 0.5s ease, filter 0.5s ease;*/
+    /*    opacity: 0.2;*/
+    /*}*/
+
+    .symptom:nth-child(1) {
+        opacity: 1;
+        filter: blur(0);
+    }
+
+    .symptom:nth-child(2) {
+        opacity: .6;
+        filter: blur(0);
+    }
+
+    .symptom:nth-child(3) {
+        opacity: .6;
+        filter: blur(0);
+    }
+
+    .symptom:nth-child(4) {
+        opacity: .4;
+        filter: blur(0);
+    }
+
+    .symptom:nth-child(5) {
+        opacity: .4;
+        filter: blur(0);
+    }
+
+    .symptom:nth-child(6) {
+        opacity: .3;
+        filter: blur(2px);
+    }
+
+    .symptom:nth-child(7) {
+        opacity: .3;
+        filter: blur(2px);
+    }
+
+    .symptom:nth-child(8) {
+        opacity: .2;
+        filter: blur(4px);
+    }
+
+    .symptom:nth-child(9) {
+        opacity: .2;
+        filter: blur(4px);
+    }
+
+    /*.symptom.visible {*/
+    /*    opacity: 1;*/
+    /*    filter: blur(0);*/
+    /*    transform: scale(1.1);*/
+    /*    transform-origin: 0 100%;*/
+    /*}*/
+
+    /*.message-block {*/
+    /*    position: absolute;*/
+    /*    left: 0;*/
+    /*    right: 0;*/
+    /*    bottom:100px;*/
+    /*    width: 100%;*/
+    /*    transition: transform 1.5s ease, opacity 1s ease;*/
+    /*    transform: translateY(150%);*/
+    /*    opacity: 0;*/
+    /*    z-index: 1;*/
+    /*    height: 200px!important;*/
+    /*}*/
+
+    /*.message-block.move-up {*/
+    /*    transform: translateY(0); !* Піднімається під блок з картинками *!*/
+    /*    opacity: 1; !* Робимо блок видимим *!*/
+    /*}*/
+
+ /*   @media screen and (max-width: 576px) {*/
+
+ /*       !*.animation-section .container {*!*/
+ /*       !*    !*position: relative;*!*!*/
+ /*       !*    !*flex-direction: column;*!*!*/
+ /*       !*    !*flex-wrap: wrap;*!*!*/
+ /*       !*}*!*/
+
+ /*       !*.image {*!*/
+ /*       !*    opacity: 0;*!*/
+ /*       !*    transition: opacity 0.5s ease-in-out;*!*/
+ /*       !*}*!*/
+
+ /*       !*.image.visible {*!*/
+ /*       !*    opacity: 1;*!*/
+ /*       !*}*!*/
+
+ /*       !*.icon {*!*/
+ /*       !*    opacity: 0;*!*/
+ /*       !*    transition: opacity 0.5s ease-in-out;*!*/
+ /*       !*}*!*/
+
+ /*       !*.icon.visible {*!*/
+ /*       !*    opacity: 1;*!*/
+ /*       !*}*!*/
+
+ /*       !* Текст *!*/
+ /*       !*.symptom-list {*!*/
+ /*       !*    order: -1;*!*/
+ /*       !*    width: 100%;*!*/
+ /*       !*    overflow: hidden;*!*/
+ /*       !*}*!*/
+
+ /*!*       .symptom-list {*!*/
+ /*!*           overflow: hidden; !* Ховаємо симптоми за межами контейнера *!*!*/
+ /*!*           position: relative;*!*/
+ /*!*           width: 100%;*!*/
+ /*!*       }*!*/
+
+ /*!*       .symptom-list ul {*!*/
+ /*!*           display: flex;*!*/
+ /*!*           flex-direction: row;*!*/
+ /*!*           gap: 20px; !* Відстань між симптомами *!*!*/
+ /*!*           transition: transform 0.5s ease; !* Плавний зсув списку *!*!*/
+ /*!*          *!*/
+ /*!*will-change: transform; !* Оптимізація анімації *!*!*/
+ /*!*       }*!*/
+ /*!*       .symptom {*!*/
+ /*!*           flex-shrink: 0;*!*/
+ /*!*           font-size: 18px;*!*/
+ /*!*           opacity: 0.2; !* Напівпрозорий *!*!*/
+ /*!*           filter: blur(3px); !* Розмиття *!*!*/
+ /*!*           transition: opacity 0.5s ease, filter 0.5s ease; !* Плавна анімація *!*!*/
+ /*!*       }*!*/
+
+ /*       !*.symptom.visible {*!*/
+ /*       !*    opacity: 1; !* Робимо чітким *!*!*/
+ /*       !*    filter: blur(0); !* Прибираємо розмиття *!*!*/
+ /*       !*}*!*/
+
+ /*       !*.image {*!*/
+ /*       !*    opacity: 0;*!*/
+ /*       !*    transition: opacity 0.5s ease-in-out;*!*/
+ /*       !*}*!*/
+
+ /*       !*.image.visible {*!*/
+ /*       !*    opacity: 1;*!*/
+ /*       !*}*!*/
+
+ /*       !*.icon {*!*/
+ /*       !*    opacity: 0;*!*/
+ /*       !*    transition: opacity 0.5s ease-in-out;*!*/
+ /*       !*}*!*/
+
+ /*       !*.icon.visible {*!*/
+ /*       !*    opacity: 1;*!*/
+ /*       !*}*!*/
+ /*   }*/
+</style>
+<body>
+<div class="container-flow"></div>
+<div class="wrapper">
+
+<!--    <div class="overlay"></div>-->
+<!--    <main class="main">-->
+<!--        <section class="section-banner" style="height: 100vh">-->
+<!--            <div class="container"></div>-->
+<!--        </section>-->
+<!--        &lt;!&ndash; Триггер-блок &ndash;&gt;-->
+<!--        <div class="sticky-trigger"></div>-->
+<!--        <section class="animation-section">-->
+<!--            <div class="container">-->
+<!--                &lt;!&ndash; Блок з картинками &ndash;&gt;-->
+<!--                <div class="images">-->
+<!--                    <img src="assets/img/anim1.png" alt="Картинка 1" class="image visible" data-symptom="0">-->
+<!--                    <img src="assets/img/anim2.png" alt="Картинка 2" class="image" data-symptom="3">-->
+<!--                    <img src="assets/img/anim3.png" alt="Картинка 3" class="image" data-symptom="6">-->
+<!--                    <img src="assets/img/anim4.png" alt="Картинка 4" class="image" data-symptom="8">-->
+<!--                    &lt;!&ndash; Блок для іконок &ndash;&gt;-->
+<!--                    <div class="icons"></div>-->
+<!--                </div>-->
+<!--                &lt;!&ndash; Блок зі списком симптомів &ndash;&gt;-->
+<!--                <div class="symptom-list">-->
+<!--                    <ul>-->
+<!--                        <li class="symptom" data-icon="assets/img/icon1.svg">Симптом 1</li>-->
+<!--                        <li class="symptom" data-icon="assets/img/icon2.svg">Симптом 2</li>-->
+<!--                        <li class="symptom" data-icon="assets/img/icon3.svg">Симптом 3</li>-->
+<!--                        <li class="symptom" data-icon="assets/img/icon4.svg">Симптом 4</li>-->
+<!--                        <li class="symptom" data-icon="assets/img/icon5.svg">Симптом 5</li>-->
+<!--                        <li class="symptom" data-icon="assets/img/icon6.svg">Симптом 6</li>-->
+<!--                        <li class="symptom" data-icon="assets/img/icon7.svg">Симптом 7</li>-->
+<!--                        <li class="symptom" data-icon="assets/img/icon8.svg">Симптом 8</li>-->
+<!--                        <li class="symptom" data-icon="assets/img/icon9.svg">Симптом 9</li>-->
+<!--                    </ul>-->
+<!--                </div>-->
+<!--                <div class="message-block"-->
+<!--                     style="background:rosybrown; height: 80px;width: 100%; margin-top: 30px; color: #FFFFFF">-->
+<!--                    <p>Це ваше повідомлення, яке з'явиться після завершення анімації.</p>-->
+<!--                </div>-->
+<!--            </div>-->
+
+<!--        </section>-->
+<!--        <section class="section-third" style="height: 100vh;">-->
+
+<!--            <div class="container"><div class="moving-element"></div></div>-->
+<!--        </section>-->
+<!--    </main>-->
+</div>
+<script src="./lib/swiper/swiper-bundle.min.js"></script>
+<script src="dist/main.js"></script>
+
+<script>
+
+    <!--    desktop-->
+
+    // document.addEventListener("DOMContentLoaded", () => {
+    //     const symptoms = document.querySelectorAll(".symptom");
+    //     const images = document.querySelectorAll(".image");
+    //     const iconsContainer = document.querySelector(".icons");
+    //     const animationSection = document.querySelector(".animation-section");
+    //     const messageBlock = document.querySelector(".message-block");
+    //
+    //     let currentImageIndex = 0; // Поточна картинка
+    //     let iconElements = []; // Масив для іконок
+    //     let isMessageAnimating = false; // Для блокування скролу
+    //
+    //     const sectionHeight = animationSection.offsetHeight;
+    //     const symptomStep = sectionHeight / symptoms.length;
+    //
+    //     const updateAnimationOnScroll = () => {
+    //         const scrollPosition = window.scrollY - animationSection.offsetTop;
+    //         const currentSymptom = Math.floor(scrollPosition / symptomStep);
+    //
+    //         if (isMessageAnimating) return;
+    //
+    //         if (currentSymptom >= 0 && currentSymptom < symptoms.length) {
+    //             for (let i = 0; i <= currentSymptom; i++) {
+    //                 const symptom = symptoms[i];
+    //                 if (!symptom.classList.contains("visible")) {
+    //                     symptom.classList.add("visible");
+    //
+    //                     // Стилі для поточного та попередніх симптомів
+    //                     updateSymptomStyles();
+    //                     const iconSrc = symptom.dataset.icon;
+    //                     if (iconSrc) {
+    //                         iconsContainer.innerHTML = ""; // Очищаємо попередні іконки
+    //                         const iconElement = document.createElement("img");
+    //                         iconElement.src = iconSrc;
+    //                         iconElement.classList.add("icon");
+    //                         iconsContainer.appendChild(iconElement);
+    //                         setTimeout(() => {
+    //                             iconElement.classList.add( "visible");
+    //                         }, 50);          // Оновлюємо іконки
+    //                     }
+    //
+    //
+    //                 }
+    //             }
+    //
+    //             // Оновлюємо видиму картинку
+    //             let newImageIndex = getImageIndexForSymptom(currentSymptom);
+    //             if (newImageIndex !== currentImageIndex) {
+    //                 currentImageIndex = newImageIndex;
+    //                 images.forEach((image, index) => {
+    //                     image.classList.toggle("visible", index === currentImageIndex);
+    //                 });
+    //             }
+    //         }
+    //
+    //         const isLastSymptomVisible = currentSymptom === symptoms.length - 1;
+    //         if (isLastSymptomVisible && !messageBlock.classList.contains("move-up")) {
+    //             isMessageAnimating = true;
+    //             messageBlock.classList.add("move-up");
+    //             setTimeout(() => (isMessageAnimating = false), 3000);
+    //         }
+    //     };
+    //
+    //     const updateSymptomStyles = () => {
+    //         const getLastVisibleIndex = () => {
+    //             let lastIndex = -1; // Початкове значення (-1, якщо немає жодного visible)
+    //             symptoms.forEach((symptom, index) => {
+    //                 if (symptom.classList.contains("visible")) {
+    //                     lastIndex = index; // Оновлюємо, якщо знайдено visible
+    //                 }
+    //             });
+    //             return lastIndex;
+    //         };
+    //         const lastVisibleIndex = getLastVisibleIndex(); // Знаходимо останній "visible"
+    //
+    //         symptoms.forEach((symptom, index) => {
+    //             if (symptom.classList.contains("visible")) {
+    //                 // Активний елемент
+    //                 symptom.style.opacity = "1";
+    //                 symptom.style.filter = "blur(0px)";
+    //             } else if (index > lastVisibleIndex >= 3) {
+    //                 // Тільки для наступних елементів
+    //                 const offset = index - lastVisibleIndex;
+    //                 symptom.style.opacity = `${Math.min(0.8, 0.6 + 0.1 * offset)}`; // Збільшуємо opacity
+    //                 symptom.style.filter = `blur(${Math.max(0, 4 - offset * 1.5)}px)`; // Зменшуємо blur
+    //             }
+    //         });
+    //     };
+    //
+    //
+    //     const getLastVisibleIndex = () => {
+    //         let lastIndex = -1;
+    //         symptoms.forEach((symptom, index) => {
+    //             if (symptom.classList.contains("visible")) lastIndex = index;
+    //         });
+    //         return lastIndex;
+    //     };
+    //
+    //     const getImageIndexForSymptom = (symptomIndex) => {
+    //         if (symptomIndex >= 0 && symptomIndex <= 2) return 0;
+    //         if (symptomIndex >= 3 && symptomIndex <= 5) return 1;
+    //         if (symptomIndex >= 6 && symptomIndex <= 7) return 2;
+    //         if (symptomIndex === 8) return 3;
+    //         return 0;
+    //     };
+    //
+    //     window.addEventListener("scroll", updateAnimationOnScroll);
+    // });
+    //=========================================
+    // document.addEventListener("DOMContentLoaded", () => {
+    //     const symptoms = document.querySelectorAll(".symptom");
+    //     const images = document.querySelectorAll(".image");
+    //     const iconsContainer = document.querySelector(".icons");
+    //     const animationSection = document.querySelector(".animation-section");
+    //     const messageBlock = document.querySelector(".message-block");
+    //
+    //     let currentImageIndex = 0; // Поточна картинка
+    //     let isMessageAnimating = false; // Для блокування скролу
+    //
+    //     const sectionHeight = animationSection.offsetHeight;
+    //     const symptomStep = sectionHeight / symptoms.length;
+    //
+    //     const updateAnimationOnScroll = () => {
+    //         const scrollPosition = window.scrollY - animationSection.offsetTop;
+    //         const currentSymptom = Math.floor(scrollPosition / symptomStep);
+    //
+    //         if (isMessageAnimating) return;
+    //
+    //         if (currentSymptom >= 0 && currentSymptom < symptoms.length) {
+    //             for (let i = 0; i <= currentSymptom; i++) {
+    //                 const symptom = symptoms[i];
+    //                 if (!symptom.classList.contains("visible")) {
+    //                     symptom.classList.add("visible");
+    //
+    //                     // Стилі для поточного та наступних симптомів
+    //                     updateSymptomStyles();
+    //
+    //                     const iconSrc = symptom.dataset.icon;
+    //                     if (iconSrc) {
+    //                         iconsContainer.innerHTML = ""; // Очищаємо попередні іконки
+    //                         const iconElement = document.createElement("img");
+    //                         iconElement.src = iconSrc;
+    //                         iconElement.classList.add("icon");
+    //                         iconsContainer.appendChild(iconElement);
+    //                         setTimeout(() => {
+    //                             iconElement.classList.add("visible");
+    //                         }, 50);
+    //                     }
+    //                 }
+    //             }
+    //
+    //             // Оновлюємо видиму картинку
+    //             let newImageIndex = getImageIndexForSymptom(currentSymptom);
+    //             if (newImageIndex !== currentImageIndex) {
+    //                 currentImageIndex = newImageIndex;
+    //                 images.forEach((image, index) => {
+    //                     image.classList.toggle("visible", anim === currentImageIndex);
+    //                 });
+    //             }
+    //         }
+    //
+    //         const isLastSymptomVisible = currentSymptom === symptoms.length - 1;
+    //         if (isLastSymptomVisible && !messageBlock.classList.contains("move-up")) {
+    //             isMessageAnimating = true;
+    //             messageBlock.classList.add("move-up");
+    //             setTimeout(() => (isMessageAnimating = false), 3000);
+    //         }
+    //     };
+    //
+    //     const updateSymptomStyles = () => {
+    //         const lastVisibleIndex = getLastVisibleIndex(); // Знаходимо останній "visible"
+    //
+    //         symptoms.forEach((symptom, index) => {
+    //             if (symptom.classList.contains("visible")) {
+    //                 // Активний елемент
+    //                 symptom.style.opacity = "1";
+    //                 symptom.style.filter = "blur(0px)";
+    //             } else if (anim > lastVisibleIndex) {
+    //                 // Тільки для наступних елементів
+    //                 const offset = anim - lastVisibleIndex; // Зсув від останнього видимого
+    //                 symptom.style.opacity = `${Math.min(0.8, 0.6 + 0.1 * offset)}`; // Збільшуємо opacity
+    //                 symptom.style.filter = `blur(${Math.max(0, 4 - offset * 1.5)}px)`; // Зменшуємо blur
+    //             }
+    //         });
+    //     };
+    //
+    //     const getLastVisibleIndex = () => {
+    //         let lastIndex = -1;
+    //         symptoms.forEach((symptom, index) => {
+    //             if (symptom.classList.contains("visible")) lastIndex = anim;
+    //         });
+    //         return lastIndex;
+    //     };
+    //
+    //     const getImageIndexForSymptom = (symptomIndex) => {
+    //         if (symptomIndex >= 0 && symptomIndex <= 2) return 0;
+    //         if (symptomIndex >= 3 && symptomIndex <= 5) return 1;
+    //         if (symptomIndex >= 6 && symptomIndex <= 7) return 2;
+    //         if (symptomIndex === 8) return 3;
+    //         return 0;
+    //     };
+    //
+    //     window.addEventListener("scroll", updateAnimationOnScroll);
+    // });
+
+    // document.addEventListener("DOMContentLoaded", () => {
+    //     const symptoms = document.querySelectorAll(".symptom");
+    //     const images = document.querySelectorAll(".image");
+    //     const iconsContainer = document.querySelector(".icons");
+    //     const animationSection = document.querySelector(".animation-section");
+    //     const messageBlock = document.querySelector(".message-block"); // Блок з повідомленням
+    //
+    //     let currentImageIndex = 0; // Індекс поточної картинки
+    //     let iconElements = []; // Масив для іконок
+    //     let isMessageAnimating = false; // Флаг для блокування скролу
+    //
+    //     const sectionHeight = animationSection.offsetHeight;
+    //     const symptomStep = sectionHeight / symptoms.length; // Висота секції на кількість симптомів
+    //
+    //     const updateAnimationOnScroll = () => {
+    //         const scrollPosition = window.scrollY - animationSection.offsetTop;
+    //         const currentSymptom = Math.floor(scrollPosition / symptomStep); // Визначаємо поточний симптом
+    //         if (isMessageAnimating) return; // Блокуємо скрол під час анімації `message-block`
+    //         // Перевіряємо, чи поточний симптом у межах списку
+    //         if (currentSymptom >= 0 && currentSymptom < symptoms.length) {
+    //             // Додаємо клас "visible" лише один раз
+    //             const symptom = symptoms[currentSymptom];
+    //
+    //             if (!symptom.classList.contains("visible")) {
+    //                 symptom.classList.add("visible");
+    //
+    //                 const iconSrc = symptoms[currentSymptom].dataset.icon;
+    //                 if (!iconElements[currentSymptom]) {
+    //                     const iconElement = document.createElement("img");
+    //                     iconElement.src = iconSrc;
+    //                     iconElement.classList.add("icon", "visible");
+    //                     iconsContainer.appendChild(iconElement);
+    //                     iconElements[currentSymptom] = iconElement;
+    //                 }
+    //
+    //                 iconElements.forEach((icon, index) => {
+    //                     icon.classList.toggle("visible", index === currentSymptom);
+    //                 });
+    //
+    //                 // Показуємо відповідну картинку
+    //                 let newImageIndex = getImageIndexForSymptom(currentSymptom);
+    //                 if (newImageIndex !== currentImageIndex) {
+    //                     currentImageIndex = newImageIndex;
+    //                     images.forEach((image, index) => {
+    //                         image.classList.toggle("visible", index === currentImageIndex);
+    //                     });
+    //                 }
+    //             }
+    //         }
+    //
+    //         const isLastSymptomVisible = currentSymptom === symptoms.length - 1;
+    //         if (isLastSymptomVisible && !messageBlock.classList.contains("move-up")) {
+    //             isMessageAnimating = true; // Встановлюємо флаг блокування скролу
+    //             messageBlock.classList.add("move-up");
+    //
+    //             // Затримка перед розблокуванням скролу
+    //             setTimeout(() => {
+    //                 isMessageAnimating = false;
+    //             }, 3000); // Тривалість анімації (1 секунда)
+    //         }
+    //     };
+    //
+    //     // Функція для визначення, яка картинка відповідає поточному симптому
+    //     const getImageIndexForSymptom = (symptomIndex) => {
+    //         if (symptomIndex >= 0 && symptomIndex <= 2) return 0; // Картинка 1 (1–3 симптоми)
+    //         if (symptomIndex >= 3 && symptomIndex <= 5) return 1; // Картинка 2 (4–6 симптоми)
+    //         if (symptomIndex >= 6 && symptomIndex <= 7) return 2; // Картинка 3 (7–8 симптоми)
+    //         if (symptomIndex === 8) return 3; // Картинка 4 (9 симптом)
+    //         return 0;
+    //     };
+    //
+    //     // Прив'язка функції до події прокрутки
+    //     window.addEventListener("scroll", updateAnimationOnScroll);
+    // });
+
+
+
+    //mobile
+
+    // document.addEventListener("DOMContentLoaded", () => {
+    //     const symptoms = document.querySelectorAll(".symptom");
+    //     const symptomList = document.querySelector(".symptom-list ul");
+    //     const images = document.querySelectorAll(".image");
+    //     const iconsContainer = document.querySelector(".icons");
+    //     const animationSection = document.querySelector(".animation-section");
+    //
+    //     let currentSymptomIndex = 0; // Індекс поточного активного симптому
+    //     const sectionTop = animationSection.offsetTop;
+    //     const sectionHeight = animationSection.offsetHeight;
+    //     const symptomStep = sectionHeight / symptoms.length; // Висота секції для кожного текстового пункту
+    //
+    //     // Функція для визначення, яка картинка відповідає поточному симптому
+    //     const getImageIndexForSymptom = (symptomIndex) => {
+    //         if (symptomIndex >= 0 && symptomIndex <= 2) return 0; // Картинка 1 (симптоми 1–3)
+    //         if (symptomIndex >= 3 && symptomIndex <= 5) return 1; // Картинка 2 (симптоми 4–6)
+    //         if (symptomIndex >= 6 && symptomIndex <= 7) return 2; // Картинка 3 (симптоми 7–8)
+    //         if (symptomIndex === 8) return 3; // Картинка 4 (симптом 9)
+    //         return -1; // Без картинки
+    //     };
+    //
+    //     // Оновлюємо анімацію на основі скролу
+    //     const updateAnimationOnScroll = () => {
+    //         const scrollPosition = window.scrollY - sectionTop;
+    //
+    //         symptoms.forEach((symptom, index) => {
+    //             const start = index * symptomStep;
+    //             const end = start + symptomStep;
+    //
+    //             if (scrollPosition >= start && scrollPosition < end) {
+    //                 if (currentSymptomIndex !== index) {
+    //                     currentSymptomIndex = index;
+    //
+    //                     // Робимо всі симптоми розмитими
+    //                     symptoms.forEach((s, i) => {
+    //                         if (i === index) {
+    //                             s.classList.add("visible"); // Активний
+    //                         } else {
+    //                             s.classList.remove("visible"); // Інші залишаються розмитими
+    //                         }
+    //                     });
+    //
+    //                     // Зсуваємо `ul` вліво на ширину попереднього пункту
+    //                     let shiftWidth = 0;
+    //                     if (index > 0) {
+    //                         const prevSymptom = symptoms[index - 1];
+    //                         shiftWidth = prevSymptom.offsetWidth + 20; // Враховуємо gap
+    //                     }
+    //                     symptomList.style.transform = `translateX(-${shiftWidth * index}px)`;
+    //
+    //                     // Показуємо відповідну картинку
+    //                     const newImageIndex = getImageIndexForSymptom(index);
+    //                     images.forEach((image, imgIndex) => {
+    //                         if (imgIndex === newImageIndex) {
+    //                             image.classList.add("visible");
+    //                         } else {
+    //                             image.classList.remove("visible");
+    //                         }
+    //                     });
+    //
+    //                     // Оновлюємо іконки
+    //                     const iconSrc = symptom.dataset.icon;
+    //                     if (iconSrc) {
+    //                         iconsContainer.innerHTML = ""; // Очищаємо попередні іконки
+    //                         const iconElement = document.createElement("img");
+    //                         iconElement.src = iconSrc;
+    //                         iconElement.classList.add("icon", "visible");
+    //                         iconsContainer.appendChild(iconElement);
+    //                     }
+    //                 }
+    //             }
+    //         });
+    //     };
+    //
+    //     // Прив'язка функції до події скролу
+    //     window.addEventListener("scroll", updateAnimationOnScroll);
+    // });
+
+
+</script>
+</body>
+</html>
+

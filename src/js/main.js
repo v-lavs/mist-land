@@ -246,7 +246,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
 //MOVING ELEMENT
 
-        const sections = document.querySelectorAll('.section');
+        const sections = document.querySelectorAll('.move-el');
 
         sections.forEach((section, index) => {
             const block = section.querySelector('.moving-element');
