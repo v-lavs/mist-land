@@ -130,7 +130,7 @@ body.disable-scroll {
 
 .wrapper {
   position: relative;
-  background: linear-gradient(108deg, rgb(9, 46, 103) 0%, rgb(9, 64, 134) 28%, rgb(0, 78, 158) 60%, rgb(0, 107, 182) 100%);
+  background: linear-gradient(260.64deg, #006BB6 3.35%, #004E9E 36.26%, #094086 63.57%, #092E67 86.53%);
   overflow: hidden;
 }
 
@@ -329,7 +329,7 @@ sup {
 
 .star {
   transition: 0.35s;
-  animation: scaleAnim 2s infinite ease-in-out;
+  animation: scaleAnim 1s infinite ease-in-out;
 }
 
 .stars {
@@ -338,6 +338,150 @@ sup {
   width: auto;
   max-width: none;
   z-index: 1;
+}
+
+.sticky-stars .star:nth-child(1) {
+  animation-delay: 0s;
+}
+
+.sticky-stars .star:nth-child(2) {
+  animation-delay: 0.45s;
+}
+
+.sticky-stars .star:nth-child(3) {
+  animation-delay: 0.9s;
+}
+
+.sticky-stars .star:nth-child(4) {
+  animation-delay: 1.35s;
+}
+
+.sticky-stars .star:nth-child(5) {
+  animation-delay: 1.8s;
+}
+
+.sticky-stars .star:nth-child(6) {
+  animation-delay: 2.25s;
+}
+
+.sticky-stars .star:nth-child(7) {
+  animation-delay: 2.7s;
+}
+
+.sticky-stars .star:nth-child(8) {
+  animation-delay: 3.15s;
+}
+
+.sticky-stars .star:nth-child(9) {
+  animation-delay: 3.6s;
+}
+
+.sticky-stars .star:nth-child(10) {
+  animation-delay: 4.05s;
+}
+
+.sticky-stars .star:nth-child(11) {
+  animation-delay: 4.5s;
+}
+
+.sticky-stars .star:nth-child(12) {
+  animation-delay: 4.95s;
+}
+
+.sticky-stars .star:nth-child(13) {
+  animation-delay: 5.4s;
+}
+
+.sticky-stars .star:nth-child(14) {
+  animation-delay: 5.85s;
+}
+
+.sticky-stars .star:nth-child(15) {
+  animation-delay: 6.3s;
+}
+
+.sticky-stars .star:nth-child(16) {
+  animation-delay: 6.75s;
+}
+
+.sticky-stars .star:nth-child(17) {
+  animation-delay: 7.2s;
+}
+
+.sticky-stars .star:nth-child(18) {
+  animation-delay: 7.65s;
+}
+
+.sticky-stars .star:nth-child(19) {
+  animation-delay: 8.1s;
+}
+
+.sticky-stars .star:nth-child(20) {
+  animation-delay: 8.55s;
+}
+
+.sticky-stars .star:nth-child(21) {
+  animation-delay: 9s;
+}
+
+.sticky-stars .star:nth-child(22) {
+  animation-delay: 9.45s;
+}
+
+.sticky-stars .star:nth-child(23) {
+  animation-delay: 9.9s;
+}
+
+.sticky-stars .star:nth-child(24) {
+  animation-delay: 10.35s;
+}
+
+.sticky-stars .star:nth-child(25) {
+  animation-delay: 10.8s;
+}
+
+.sticky-stars .star:nth-child(26) {
+  animation-delay: 11.25s;
+}
+
+.sticky-stars .star:nth-child(27) {
+  animation-delay: 11.7s;
+}
+
+.sticky-stars .star:nth-child(28) {
+  animation-delay: 12.15s;
+}
+
+.sticky-stars .star:nth-child(29) {
+  animation-delay: 12.6s;
+}
+
+.sticky-stars .star:nth-child(30) {
+  animation-delay: 13.05s;
+}
+
+.sticky-stars .star:nth-child(31) {
+  animation-delay: 13.5s;
+}
+
+.sticky-stars .star:nth-child(32) {
+  animation-delay: 13.95s;
+}
+
+.sticky-stars .star:nth-child(33) {
+  animation-delay: 14.4s;
+}
+
+.sticky-stars .star:nth-child(34) {
+  animation-delay: 14.85s;
+}
+
+.sticky-stars .star:nth-child(35) {
+  animation-delay: 15.3s;
+}
+
+.sticky-stars .star:nth-child(36) {
+  animation-delay: 15.75s;
 }
 
 .improvement-stars .star:nth-child(1) {
@@ -582,10 +726,6 @@ sup {
 
 .banner__stars .star:nth-child(29) {
   animation-delay: 12.6s;
-}
-
-.about-stars .star {
-  animation: scaleAnim 3s infinite ease-in-out;
 }
 
 .about-stars .star:nth-child(1) {
@@ -2515,6 +2655,12 @@ sup {
   z-index: 0;
 }
 
+.sticky-stars {
+  height: 171px;
+  left: auto;
+  transform: translate(0, 68px);
+}
+
 @media only screen and (min-width: 576px) {
   .container {
     max-width: 520px;
@@ -3175,6 +3321,11 @@ sup {
   .sticky-grid__product-img {
     max-width: 257px;
   }
+
+  .sticky-stars {
+    height: 225px;
+    transform: translate(21px, 60px);
+  }
 }
 
 @media only screen and (min-width: 1024px) {
@@ -3597,6 +3748,12 @@ sup {
   .section-sticky__img {
     padding-top: 40px;
     padding-left: 113px;
+  }
+
+  .sticky-stars {
+    height: 310px;
+    left: 0;
+    transform: translate(-10px, 110px);
   }
 }
 

@@ -10,7 +10,7 @@
 }
 .star{
   transition: .35s;
-  animation: scaleAnim 2s infinite ease-in-out;
+  animation: scaleAnim 1s infinite ease-in-out;
 }
 .stars{
   position: absolute;
@@ -18,6 +18,13 @@
   width: auto;
   max-width: none;
   z-index: 1;
+}
+.sticky-stars .star{
+  @for $i from 1 through 36 {
+    &:nth-child(#{$i}) {
+      animation-delay: 0.45s * ($i - 1);
+    }
+  }
 }
 .improvement-stars .star {
     @for $i from 1 through 32 {
@@ -35,7 +42,6 @@
   }
 }
 .about-stars .star{
-  animation: scaleAnim 3s infinite ease-in-out;
   @for $i from 1 through 43 {
     &:nth-child(#{$i}) {
       animation-delay: 0.45s * ($i - 1);
