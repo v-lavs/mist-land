@@ -523,11 +523,10 @@ document.addEventListener('DOMContentLoaded', function () {
         scrollTrigger: {
             trigger: '.sticky-trigger',
             start: 'top top',
-            end: 'center top', // Це значення може бути некоректним, див. пояснення нижче
+            end: 'bottom bottom', // Це значення може бути некоректним, див. пояснення нижче
             pin: true,
             pinSpacing: true,
-            anticipatePin: 1,
-
+            // anticipatePin: 1,
         }
     });
 

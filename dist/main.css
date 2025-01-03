@@ -2097,10 +2097,6 @@ sup {
   transform: translate(-63%, -68px);
 }
 
-.main__inner {
-  overflow: hidden;
-}
-
 .section {
   padding: 40px 0;
 }
@@ -2151,7 +2147,6 @@ sup {
 
 .section-manifestation {
   position: relative;
-  overflow: hidden;
 }
 
 .section-manifestation .container {
@@ -2219,7 +2214,7 @@ sup {
 }
 
 .sticky-trigger {
-  position: sticky;
+  position: relative;
   height: 100vh;
   top: 0;
   border: 2px solid red;
@@ -3328,6 +3323,8 @@ sup {
   }
 
   .sticky-grid__img-block {
+    position: relative;
+    top: 0;
     will-change: transform;
     backface-visibility: hidden;
     grid-column: 2/3;
