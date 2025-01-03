@@ -56,6 +56,7 @@ document.addEventListener('DOMContentLoaded', function () {
             });
         });
     }
+
     smoothScrollToAnchor('.menu__item a');
 
 //ACCORDION
@@ -246,49 +247,48 @@ document.addEventListener('DOMContentLoaded', function () {
 
 //MOVING ELEMENT
 
-        // const sections = document.querySelectorAll('.move-el');
-        //
-        // sections.forEach((section, index) => {
-        //     const block = section.querySelector('.moving-element');
-        //     if (!block) {
-        //         console.warn(`У секції #${index + 1} блок .moving-element не знайдено`);
-        //         return;
-        //     }
-        //
-        //     console.log(`Секція #${index + 1} знайдена, запускаємо анімацію для блоку`);
-        //
-        //     const sectionWidth = section.offsetWidth;
-        //     const sectionHeight = section.offsetHeight;
-        //     const blockWidth = block.offsetWidth;
-        //     const blockHeight = block.offsetHeight;
-        //
-        //     let currentX = Math.random() * (sectionWidth - blockWidth);
-        //     let currentY = Math.random() * (sectionHeight - blockHeight);
-        //     let targetX = Math.random() * (sectionWidth - blockWidth);
-        //     let targetY = Math.random() * (sectionHeight - blockHeight);
-        //     const speed = 0.5; // Швидкість руху
-        //
-        //     function animate() {
-        //         // Плавне наближення до цільових координат
-        //         currentX += (targetX - currentX) * speed;
-        //         currentY += (targetY - currentY) * speed;
-        //
-        //         block.style.transform = `translate(${currentX}px, ${currentY}px)`;
-        //
-        //         // Якщо елемент майже досягнув цілі, змінюємо ціль
-        //         if (Math.abs(targetX - currentX) < 5 && Math.abs(targetY - currentY) < 5) {
-        //             targetX = Math.random() * (sectionWidth - blockWidth);
-        //             targetY = Math.random() * (sectionHeight - blockHeight);
-        //         }
-        //
-        //         // Рекурсивний виклик для наступного кадру
-        //         requestAnimationFrame(animate);
-        //     }
-        //
-        //     // Запускаємо анімацію
-        //     animate();
-        // });
-// Функція для перевірки розміру екрану та запуску анімації
+    // const sections = document.querySelectorAll('.move-el');
+    //
+    // sections.forEach((section, index) => {
+    //     const block = section.querySelector('.moving-element');
+    //     if (!block) {
+    //         console.warn(`У секції #${index + 1} блок .moving-element не знайдено`);
+    //         return;
+    //     }
+    //
+    //     console.log(`Секція #${index + 1} знайдена, запускаємо анімацію для блоку`);
+    //
+    //     const sectionWidth = section.offsetWidth;
+    //     const sectionHeight = section.offsetHeight;
+    //     const blockWidth = block.offsetWidth;
+    //     const blockHeight = block.offsetHeight;
+    //
+    //     let currentX = Math.random() * (sectionWidth - blockWidth);
+    //     let currentY = Math.random() * (sectionHeight - blockHeight);
+    //     let targetX = Math.random() * (sectionWidth - blockWidth);
+    //     let targetY = Math.random() * (sectionHeight - blockHeight);
+    //     const speed = 0.5; // Швидкість руху
+    //
+    //     function animate() {
+    //         // Плавне наближення до цільових координат
+    //         currentX += (targetX - currentX) * speed;
+    //         currentY += (targetY - currentY) * speed;
+    //
+    //         block.style.transform = `translate(${currentX}px, ${currentY}px)`;
+    //
+    //         // Якщо елемент майже досягнув цілі, змінюємо ціль
+    //         if (Math.abs(targetX - currentX) < 5 && Math.abs(targetY - currentY) < 5) {
+    //             targetX = Math.random() * (sectionWidth - blockWidth);
+    //             targetY = Math.random() * (sectionHeight - blockHeight);
+    //         }
+    //
+    //         // Рекурсивний виклик для наступного кадру
+    //         requestAnimationFrame(animate);
+    //     }
+    //
+    //     // Запускаємо анімацію
+    //     animate();
+    // });
     function startAnimationForLargeScreens() {
         if (window.innerWidth < 768) {
             console.log('Анімація не запускається для екранів менше 768px');
@@ -315,38 +315,31 @@ document.addEventListener('DOMContentLoaded', function () {
             let currentY = Math.random() * (sectionHeight - blockHeight);
             let targetX = Math.random() * (sectionWidth - blockWidth);
             let targetY = Math.random() * (sectionHeight - blockHeight);
-            const speed = 0.5; // Швидкість руху
+            const speed = 0.5;
 
             function animate() {
-                // Плавне наближення до цільових координат
                 currentX += (targetX - currentX) * speed;
                 currentY += (targetY - currentY) * speed;
 
                 block.style.transform = `translate(${currentX}px, ${currentY}px)`;
 
-                // Якщо елемент майже досягнув цілі, змінюємо ціль
                 if (Math.abs(targetX - currentX) < 5 && Math.abs(targetY - currentY) < 5) {
                     targetX = Math.random() * (sectionWidth - blockWidth);
                     targetY = Math.random() * (sectionHeight - blockHeight);
                 }
 
-                // Рекурсивний виклик для наступного кадру
                 requestAnimationFrame(animate);
             }
 
-            // Запускаємо анімацію
             animate();
         });
     }
 
-// Виклик функції при завантаженні сторінки
     startAnimationForLargeScreens();
 
-// Перевірка розміру екрану при зміні розміру вікна
     window.addEventListener('resize', () => {
         startAnimationForLargeScreens();
     });
-
 
 
 //    GSAP ANIMATION
@@ -424,6 +417,9 @@ document.addEventListener('DOMContentLoaded', function () {
 
 
 // // ANIM BLOCK WITH GIRL
+
+
+
     const symptoms = document.querySelectorAll(".manifestation");
     const symptomList = document.querySelector(".manifestation-list ul");
     const images = document.querySelectorAll(".image");
@@ -523,7 +519,17 @@ document.addEventListener('DOMContentLoaded', function () {
 // Прив'язка функції до події скролу
     window.addEventListener("scroll", updateAnimationOnScroll);
 //
+    const tl1 = gsap.timeline({
+        scrollTrigger: {
+            trigger: '.sticky-trigger',
+            start: 'top top',
+            end: 'center top', // Це значення може бути некоректним, див. пояснення нижче
+            pin: true,
+            pinSpacing: true,
+            anticipatePin: 1,
 
+        }
+    });
 
 //    ANIMATION PILL
     const getCoordinatesRandomValue = () => Math.random() * 20 - 10;
@@ -588,6 +594,27 @@ document.addEventListener('DOMContentLoaded', function () {
             xPercent: -150,
             duration: 1,
         }, "+=0.6");
+
+
+// ANIM SECTION STICKY
+    ScrollTrigger.matchMedia({
+
+        "(min-width: 768px)": function () {
+            const tl2 = gsap.timeline({
+                scrollTrigger: {
+                    trigger: '.sticky-grid__img-block',
+                    start: 'top top',
+                    end: 'center top', // Це значення може бути некоректним, див. пояснення нижче
+                    pin: true,
+                    pinSpacing: false,
+                    anticipatePin: 1
+                }
+            });
+        }
+    });
+    window.addEventListener('resize', () => {
+        ScrollTrigger.refresh();
+    });
 
 });
 
