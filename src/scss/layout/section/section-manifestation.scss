@@ -3,14 +3,6 @@
 
 .section-manifestation {
   position: relative;
-  //height: 1000vh;
-  //overflow: visible;
-  //overflow: hidden;
-
-
-  .container {
-    overflow: hidden;
-  }
 
   .message-block {
     padding-top: 42px;
@@ -55,7 +47,6 @@
     width: 254px;
     height: 240px;
   }
-
 }
 
 .manifestation-grid {
@@ -78,10 +69,8 @@
 
 .sticky-trigger {
   position: relative;
-  height: 100vh;
   top: 0;
   border: 2px solid red;
-
 }
 
 .manifestation-list {

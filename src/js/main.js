@@ -41,10 +41,9 @@ document.addEventListener('DOMContentLoaded', function () {
         document.querySelectorAll(selector).forEach((element) => {
             element.addEventListener('click', function (event) {
                 const anchor = this.getAttribute('href');
-
                 if (anchor.startsWith('#') && anchor !== '#') {
                     event.preventDefault();
-
+                    console.log('.btn_anchor');
                     const targetElement = document.querySelector(anchor);
                     if (targetElement) {
                         window.scrollTo({
@@ -59,9 +58,9 @@ document.addEventListener('DOMContentLoaded', function () {
 
     smoothScrollToAnchor('.menu__item a');
 
+
 //ACCORDION
     const accordionList = document.querySelectorAll(".accordion__item");
-
     accordionList.forEach((item) => {
         item.addEventListener("click", () => {
             const isActive = item.classList.contains("active");
@@ -76,7 +75,6 @@ document.addEventListener('DOMContentLoaded', function () {
 
 // SLIDER - TABS
     let sliderAbout;
-
     function initSwiper() {
         if (sliderAbout) sliderAbout.destroy(true, true);
 
@@ -113,7 +111,6 @@ document.addEventListener('DOMContentLoaded', function () {
 
         setupCustomNavigation();
     }
-
     function updateCustomNavigation() {
         const activeIndex = sliderAbout.realIndex;
         document.querySelectorAll('.about-nav__btn').forEach((btn, index) => {
@@ -124,7 +121,6 @@ document.addEventListener('DOMContentLoaded', function () {
             }
         });
     }
-
     function setupCustomNavigation() {
         const navButtons = document.querySelectorAll('.about-nav__btn');
 
@@ -135,10 +131,8 @@ document.addEventListener('DOMContentLoaded', function () {
             });
         });
     }
-
     window.addEventListener('load', initSwiper);
     window.addEventListener('resize', initSwiper);
-
 
 //BTN-UP
     (function () {
@@ -167,7 +161,6 @@ document.addEventListener('DOMContentLoaded', function () {
         window.addEventListener('scroll', trackScroll);
         goTopBtn.addEventListener('click', backToTop);
     })();
-
 
 // POPUPS
     const openButtons = document.querySelectorAll('.open-popup'); // Кнопки для відкриття перших двох попапів
@@ -223,15 +216,15 @@ document.addEventListener('DOMContentLoaded', function () {
     });
 
 // SPIN ROULETTE
+    const wheel = document.getElementById('wheel');
     const btnSpin = document.getElementById('spinButton');
-    btnSpin.addEventListener('click', () => {
-        const wheel = document.getElementById('wheel');
-        const textStart = document.querySelector('.text-start');
-        const textEnd = document.querySelector('.text-end');
-        const btnDiscount = document.querySelector('.btn_discount')
+    const textStart = document.querySelector('.text-start');
+    const textEnd = document.querySelector('.text-end');
+    const btnDiscount = document.querySelector('.btn_discount');
 
-        const targetSectorAngle = 0;
-
+// Спільна функція запуску барабана
+    function spinWheel() {
+        const targetSectorAngle = 300;
         const randomSpins = Math.floor(Math.random() * 5) + 5;
         const totalRotation = randomSpins * 360 + targetSectorAngle;
 
@@ -243,7 +236,11 @@ document.addEventListener('DOMContentLoaded', function () {
             textEnd.style.display = 'block';
             btnDiscount.style.display = 'inline-flex';
         }, 3000);
-    });
+    }
+
+// Додаємо слухачі подій
+    wheel.addEventListener('click', spinWheel);
+    btnSpin.addEventListener('click', spinWheel);
 
 //MOVING ELEMENT
 
@@ -418,7 +415,16 @@ document.addEventListener('DOMContentLoaded', function () {
 
 // // ANIM BLOCK WITH GIRL
 
-
+    const tl1 = gsap.timeline({
+        scrollTrigger: {
+            trigger: '.sticky-trigger',
+            start: 'top top',
+            end: 'bottom bottom', // Це значення може бути некоректним, див. пояснення нижче
+            pin: true,
+            pinSpacing: true,
+            anticipatePin: 1,
+        }
+    });
 
     const symptoms = document.querySelectorAll(".manifestation");
     const symptomList = document.querySelector(".manifestation-list ul");
@@ -518,18 +524,6 @@ document.addEventListener('DOMContentLoaded', function () {
 
 // Прив'язка функції до події скролу
     window.addEventListener("scroll", updateAnimationOnScroll);
-//
-    const tl1 = gsap.timeline({
-        scrollTrigger: {
-            trigger: '.sticky-trigger',
-            start: 'top top',
-            end: 'bottom bottom', // Це значення може бути некоректним, див. пояснення нижче
-            pin: true,
-            pinSpacing: true,
-            // anticipatePin: 1,
-        }
-    });
-
 //    ANIMATION PILL
     const getCoordinatesRandomValue = () => Math.random() * 20 - 10;
     const getDurationRandomValue = () => 2 + Math.random();
@@ -565,7 +559,8 @@ document.addEventListener('DOMContentLoaded', function () {
     const timeline = gsap.timeline({
         scrollTrigger: {
             trigger: "#about", // Section to observe for scroll
-            start: "top center", // When to start (e.g., when the top of the section reaches the top of the viewport)
+            start: "top bottom",
+            // When to start (e.g., when the top of the section reaches the top of the viewport)
             onEnter: () => {
                 // Add the class when the timeline starts
                 document.getElementById("about").classList.add("timeline-started");
@@ -574,25 +569,46 @@ document.addEventListener('DOMContentLoaded', function () {
         },
     });
 
+    // timeline
+    //     .to(".pill-anim__components", {
+    //         scale: 0,
+    //         opacity: 1,
+    //         rotation: 360,
+    //         duration: 2,
+    //         ease: "linear",
+    //     }, "+=1")
+    //     .from(".pill-anim__images", {
+    //         opacity: 1,
+    //         scale: 0,
+    //         duration: 2,
+    //         ease: "linear",
+    //     }, "+=0.3")
+    //     .from(".pill-anim__logo", {
+    //         opacity: 0,
+    //         xPercent: -150,
+    //         duration: 1,
+    //     }, "+=0.4");
     timeline
         .to(".pill-anim__components", {
-            scale: 0,
-            opacity: 1,
+            scale: 0.2,
+            opacity: 0,
             rotation: 360,
-            duration: 2,
+            duration: 1.5, // Скорочено тривалість
             ease: "linear",
-        }, "+=3")
+        }, "+=0.5") // Скорочено затримку
         .from(".pill-anim__images", {
             opacity: 1,
             scale: 0,
-            duration: 2,
-            ease: "linear",
-        }, "+=0.5")
+            duration: 1.5, // Скорочено тривалість
+            // ease: "linear",
+            ease: "power1.out"
+        }, "-=1") // Мінімальна затримка
         .from(".pill-anim__logo", {
             opacity: 0,
             xPercent: -150,
-            duration: 1,
-        }, "+=0.6");
+            duration: 0.8, // Менша тривалість
+        }, "+=0.2"); // Мінімальна затримка
+
 
 
 // ANIM SECTION STICKY

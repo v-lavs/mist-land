@@ -6,6 +6,7 @@
     display: flex;
     justify-content: center;
     padding-left: 36px;
+    margin-bottom: 46px;
     position: relative;
   }
 }
@@ -105,7 +106,7 @@
     }
   }
   .section-sticky__img {
-    padding-top: 40px;
+    padding-top: 36px;
     padding-left: 113px;
   }
   .sticky-stars {
@@ -114,7 +115,11 @@
     transform: translate(- 10px, 110px)
   }
 }
-
+@include mixins.respond-to(variables.$xl) {
+  .section-sticky__img {
+    padding-top: 40px;
+  }
+}
 @include mixins.respond-to(variables.$xxl) {
   .sticky-grid {
     grid-template-columns: 50% 50%;

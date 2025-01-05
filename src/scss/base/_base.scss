@@ -19,9 +19,9 @@ body {
 
 .wrapper {
   position: relative;
-  //background: linear-gradient(108deg, rgb(9, 46, 103) 0%, rgb(9, 64, 134) 28%, rgb(0, 78, 158) 60%, rgb(0, 107, 182) 100%);
+  background: linear-gradient(108deg, rgb(9, 46, 103) 0%, rgb(9, 64, 134) 28%, rgb(0, 78, 158) 60%, rgb(0, 107, 182) 100%);
 
-  background: linear-gradient(260.64deg, #006BB6 3.35%, #004E9E 36.26%, #094086 63.57%, #092E67 86.53%);
+  //background: linear-gradient(260.64deg, #006BB6 3.35%, #004E9E 36.26%, #094086 63.57%, #092E67 86.53%);
   overflow: hidden;
 }
 
@@ -214,7 +214,7 @@ sup{
 
 @include mixins.respond-to(variables.$md) {
   .note {
-    padding-top: 56px;
+    padding-top: 100px;
   }
 }
 

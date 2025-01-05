@@ -2,6 +2,7 @@
 @use "../../utils/variables";
 
 .section-about {
+  padding-bottom: 23px;
   .title_lg {
     margin-bottom: 10px;
     text-align: center;
@@ -22,11 +23,7 @@
   .about-grid {
     display: flex;
     flex-direction: column;
-    margin-bottom: 88px;
-
-    &__header-col {
-      margin-bottom: 34px;
-    }
+    margin-bottom: 90px;
 
     &__header-col,
     &__animation-col {
@@ -235,8 +232,14 @@
     justify-content: center;
     padding-bottom: 30px;
   }
-  .slider-about .swiper-slide {
-    width: 614px;
+  .slider-about {
+    padding-bottom: 42px;
+    .swiper-slide {
+      width: 614px;
+    }
+ .swiper-pagination-bullets.swiper-pagination-horizontal {
+      bottom: 10px;
+    }
   }
   .card-about {
     display: flex;
@@ -280,6 +283,7 @@
     }
   }
   .section-about {
+    padding-bottom: 38px;
     .sub-title {
       font-size: 32px;
       line-height: 38.4px;
@@ -296,8 +300,16 @@
         vertical-align: text-top;
       }
     }
+
+    .about-grid {
+      margin-bottom: 160px;
+
+      &__header-col {
+        margin-bottom: 0;
+      }
+    }
   }
-  .about-stars{
+  .about-stars {
     height: 477px;
   }
 }
@@ -360,6 +372,8 @@
     }
   }
   .section-about {
+    padding-top: 150px;
+
     .sub-title {
       text-align: left;
     }
@@ -384,14 +398,18 @@
 
     .section__header {
       text-align: left;
-      max-width: 340px;
-      padding-bottom: 0;
+      max-width: 350px;
+      margin-bottom: 0;
+    }
+
+    .title_lg {
+      display: inline;
     }
 
     .about-grid {
       flex-direction: row;
       align-items: center;
-
+      margin-bottom: 220px;
       &__header-col,
       &__animation-col {
         width: 50%;
@@ -418,7 +436,9 @@
 
 @include mixins.respond-to(variables.$xl) {
   .section-about {
-    padding-top: 150px;
+   .about-grid{
+     margin-bottom: 200px;
+   }
   }
 }
 

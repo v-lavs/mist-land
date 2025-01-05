@@ -130,7 +130,7 @@ body.disable-scroll {
 
 .wrapper {
   position: relative;
-  background: linear-gradient(260.64deg, #006BB6 3.35%, #004E9E 36.26%, #094086 63.57%, #092E67 86.53%);
+  background: linear-gradient(108deg, rgb(9, 46, 103) 0%, rgb(9, 64, 134) 28%, rgb(0, 78, 158) 60%, rgb(0, 107, 182) 100%);
   overflow: hidden;
 }
 
@@ -1504,12 +1504,12 @@ sup {
 }
 
 .roulette__wheel {
-  display: block;
-  width: 100%;
-  height: 100%;
   transform: rotate(60deg);
   transform-origin: center center;
   transition: transform 3s cubic-bezier(0.1, 0.7, 0.1, 1);
+  position: relative;
+  cursor: pointer;
+  z-index: 2;
 }
 
 .roulette__svg {
@@ -2149,10 +2149,6 @@ sup {
   position: relative;
 }
 
-.section-manifestation .container {
-  overflow: hidden;
-}
-
 .section-manifestation .message-block {
   padding-top: 42px;
   position: relative;
@@ -2215,7 +2211,6 @@ sup {
 
 .sticky-trigger {
   position: relative;
-  height: 100vh;
   top: 0;
   border: 2px solid red;
 }
@@ -2359,6 +2354,10 @@ sup {
   transform: translate(17%, -56px);
 }
 
+.section-about {
+  padding-bottom: 23px;
+}
+
 .section-about .title_lg {
   margin-bottom: 10px;
   text-align: center;
@@ -2379,11 +2378,7 @@ sup {
 .section-about .about-grid {
   display: flex;
   flex-direction: column;
-  margin-bottom: 88px;
-}
-
-.section-about .about-grid__header-col {
-  margin-bottom: 34px;
+  margin-bottom: 90px;
 }
 
 .section-about .about-grid__header-col,
@@ -2585,7 +2580,6 @@ sup {
   display: flex;
   flex-wrap: wrap;
   gap: 8px;
-  padding-bottom: 40px;
 }
 
 .section-app .labels-grid__item:nth-child(1) {
@@ -2638,6 +2632,7 @@ sup {
   display: flex;
   justify-content: center;
   padding-left: 36px;
+  margin-bottom: 46px;
   position: relative;
 }
 
@@ -2839,7 +2834,7 @@ sup {
 
   .footer {
     padding-top: 60px;
-    padding-bottom: 107px;
+    padding-bottom: 105px;
   }
 
   .disclaimer {
@@ -2914,6 +2909,7 @@ sup {
 
   .section-banner {
     padding-top: 180px;
+    padding-bottom: 80px;
   }
 
   .section-banner .back-wave {
@@ -3185,8 +3181,16 @@ sup {
     padding-bottom: 30px;
   }
 
+  .slider-about {
+    padding-bottom: 42px;
+  }
+
   .slider-about .swiper-slide {
     width: 614px;
+  }
+
+  .slider-about .swiper-pagination-bullets.swiper-pagination-horizontal {
+    bottom: 10px;
   }
 
   .card-about {
@@ -3231,6 +3235,10 @@ sup {
     margin-bottom: 20px;
   }
 
+  .section-about {
+    padding-bottom: 38px;
+  }
+
   .section-about .sub-title {
     font-size: 32px;
     line-height: 38.4px;
@@ -3248,6 +3256,14 @@ sup {
     vertical-align: text-top;
   }
 
+  .section-about .about-grid {
+    margin-bottom: 160px;
+  }
+
+  .section-about .about-grid__header-col {
+    margin-bottom: 0;
+  }
+
   .about-stars {
     height: 477px;
   }
@@ -3255,7 +3271,7 @@ sup {
   .section-app {
     grid-column: 1/2;
     grid-row: 1/2;
-    padding-bottom: 200px;
+    padding-bottom: 124px;
   }
 
   .section-app .pill-label {
@@ -3277,7 +3293,7 @@ sup {
   }
 
   .section-app .labels-grid {
-    padding-bottom: 24px;
+    padding-bottom: 0;
   }
 
   .section-app .labels-grid br {
@@ -3347,7 +3363,7 @@ sup {
   }
 
   .note {
-    padding-top: 56px;
+    padding-top: 100px;
   }
 
   .labels-grid__item .pill-label {
@@ -3413,7 +3429,7 @@ sup {
     /* First row */
     width: 100%;
     text-align: left;
-    padding-top: 10px;
+    padding-top: 44px;
   }
 
   .section-banner .banner-grid__call2action-row {
@@ -3584,6 +3600,7 @@ sup {
     max-width: 615px;
     margin-left: auto;
     margin-right: auto;
+    margin-bottom: 60px;
   }
 
   .section-improvement .back-wave {
@@ -3654,6 +3671,10 @@ sup {
     margin-bottom: 40px;
   }
 
+  .section-about {
+    padding-top: 150px;
+  }
+
   .section-about .sub-title {
     text-align: left;
   }
@@ -3678,13 +3699,18 @@ sup {
 
   .section-about .section__header {
     text-align: left;
-    max-width: 340px;
-    padding-bottom: 0;
+    max-width: 350px;
+    margin-bottom: 0;
+  }
+
+  .section-about .title_lg {
+    display: inline;
   }
 
   .section-about .about-grid {
     flex-direction: row;
     align-items: center;
+    margin-bottom: 220px;
   }
 
   .section-about .about-grid__header-col,
@@ -3711,7 +3737,7 @@ sup {
 
   .section-app {
     padding-top: 120px;
-    padding-bottom: 224px;
+    padding-bottom: 200px;
     bottom: 224px;
     display: flex;
     flex-direction: column;
@@ -3725,10 +3751,6 @@ sup {
   .section-faq {
     padding-top: 120px;
     padding-bottom: 194px;
-  }
-
-  .section-faq .accordion {
-    padding-bottom: 44px;
   }
 
   .sticky-grid {
@@ -3748,7 +3770,7 @@ sup {
   }
 
   .section-sticky__img {
-    padding-top: 40px;
+    padding-top: 36px;
     padding-left: 113px;
   }
 
@@ -3812,6 +3834,7 @@ sup {
 
   .section-improvement .section__header {
     max-width: 878px;
+    margin-bottom: 80px;
   }
 
   .section-improvement .back-wave {
@@ -3820,8 +3843,12 @@ sup {
     bottom: -187px;
   }
 
-  .section-about {
-    padding-top: 150px;
+  .section-about .about-grid {
+    margin-bottom: 200px;
+  }
+
+  .section-sticky__img {
+    padding-top: 40px;
   }
 }
 

@@ -138,7 +138,7 @@
 @include mixins.respond-to(variables.$sm) {
   .section-banner {
     padding-top: 180px;
-
+    padding-bottom: 80px;
     .back-wave {
       height: 612px;
       transform: translate(25%, 41%);
@@ -250,7 +250,7 @@
       grid-row: 1 / 2; /* First row */
       width: 100%;
       text-align: left;
-      padding-top: 10px;
+      padding-top: 44px;
     }
 
     .banner-grid__call2action-row {
