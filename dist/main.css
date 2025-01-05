@@ -907,7 +907,98 @@ sup {
   z-index: 0;
   position: absolute;
   transition: transform 1s;
-  animation: flow 0.5s linear infinite;
+}
+
+@keyframes float {
+  0% {
+    transform: translate(0, 0);
+  }
+
+  20% {
+    transform: translate(40vw, 30%);
+  }
+
+  40% {
+    transform: translate(80vw, 10%);
+  }
+
+  60% {
+    transform: translate(55vw, 60%);
+  }
+
+  80% {
+    transform: translate(35vw, 30%);
+  }
+
+  100% {
+    transform: translate(0, 0);
+  }
+}
+
+@keyframes float1 {
+  0% {
+    transform: translate(0, 0);
+  }
+
+  25% {
+    transform: translate(60vw, 10%);
+  }
+
+  50% {
+    transform: translate(40vw, 70%);
+  }
+
+  75% {
+    transform: translate(10vw, 30%);
+  }
+
+  100% {
+    transform: translate(0, 0);
+  }
+}
+
+@keyframes float2 {
+  0% {
+    transform: translate(10vw, 20vh);
+  }
+
+  25% {
+    transform: translate(50vw, 50vh);
+  }
+
+  50% {
+    transform: translate(90vw, 10vh);
+  }
+
+  75% {
+    transform: translate(30vw, 80vh);
+  }
+
+  100% {
+    transform: translate(10vw, 20vh);
+  }
+}
+
+@keyframes float3 {
+  0% {
+    transform: translate(50vw, 50vh);
+  }
+
+  25% {
+    transform: translate(20vw, 30vh);
+  }
+
+  50% {
+    transform: translate(70vw, 80vh);
+  }
+
+  75% {
+    transform: translate(10vw, 10vh);
+  }
+
+  100% {
+    transform: translate(50vw, 50vh);
+  }
 }
 
 .menu {
@@ -1800,7 +1891,7 @@ sup {
 
 .pill-anim__logo {
   width: 75.552px;
-  left: 188.928px;
+  left: 176px;
   top: 105px;
 }
 
@@ -2138,6 +2229,7 @@ sup {
   top: 65px;
   left: 100px;
   transform: translateX(-100%);
+  animation: float 40s infinite linear;
 }
 
 .section-symptoms .call2action-row {
@@ -2189,6 +2281,7 @@ sup {
 .section-manifestation .moving-element {
   width: 254px;
   height: 240px;
+  animation: float2 40s infinite linear;
 }
 
 .manifestation-grid {
@@ -2212,6 +2305,7 @@ sup {
 .sticky-trigger {
   position: relative;
   top: 0;
+  height: 400vh;
   border: 2px solid red;
 }
 
@@ -2234,12 +2328,56 @@ sup {
   padding-left: 16px;
   position: relative;
   max-width: 280px;
-  transition: opacity 0.5s ease, filter 0.5s ease;
-  opacity: 0.5;
-  backdrop-filter: blur(2px);
   margin-right: 8px;
   flex-shrink: 0;
   width: auto;
+  filter: blur(0);
+  transition: all 0.3s ease;
+}
+
+.manifestation:nth-child(1) {
+  opacity: 0.6;
+  filter: blur(0px);
+}
+
+.manifestation:nth-child(2) {
+  opacity: 0.55;
+  filter: blur(0.5px);
+}
+
+.manifestation:nth-child(3) {
+  opacity: 0.5;
+  filter: blur(1px);
+}
+
+.manifestation:nth-child(4) {
+  opacity: 0.45;
+  filter: blur(1.5px);
+}
+
+.manifestation:nth-child(5) {
+  opacity: 0.4;
+  filter: blur(2px);
+}
+
+.manifestation:nth-child(6) {
+  opacity: 0.35;
+  filter: blur(2.5px);
+}
+
+.manifestation:nth-child(7) {
+  opacity: 0.3;
+  filter: blur(3px);
+}
+
+.manifestation:nth-child(8) {
+  opacity: 0.25;
+  filter: blur(3.5px);
+}
+
+.manifestation:nth-child(9) {
+  opacity: 0.2;
+  filter: blur(4px);
 }
 
 .manifestation:before {
@@ -2823,7 +2961,7 @@ sup {
 
   .pill-anim__logo {
     width: 161.7285px;
-    left: 404.424px;
+    left: 376.75px;
     top: 214.875px;
   }
 
@@ -3058,8 +3196,16 @@ sup {
     top: 11px;
   }
 
+  .section-manifestation {
+    padding-top: 0;
+  }
+
   .section-manifestation .section__header {
     margin-bottom: 50px;
+  }
+
+  .section-manifestation .sticky-trigger {
+    padding-top: 80px;
   }
 
   .section-manifestation .title {

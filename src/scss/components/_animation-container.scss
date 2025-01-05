@@ -170,7 +170,8 @@ $height: 280px;
 
   .pill-anim__logo {
     width: calc($width * 0.2361);
-    left: calc($width * 0.5904);
+    //left: calc($width * 0.5904);
+    left: calc($width * 0.55);
     top: calc($height * 0.375);
   }
 }

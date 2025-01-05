@@ -55,7 +55,79 @@
   z-index: 0;
   position: absolute;
   transition: transform 1s;
-  //animation: flow .5s cubic-bezier(0.42, 0, 0.58, 1) infinite;
-  animation: flow .5s linear infinite;
 }
 
+@keyframes float {
+  0% {
+    transform: translate(0, 0);
+  }
+  20% {
+    transform: translate(40vw, 30%);
+  }
+  40%{
+    transform: translate(80vw, 10%);
+  }
+  60% {
+    transform: translate(55vw, 60%);
+  }
+  80% {
+    transform: translate(35vw, 30%);
+  }
+  100% {
+    transform: translate(0,0);
+  }
+}
+
+@keyframes float1 {
+  0% {
+    transform: translate(0, 0);
+  }
+  25% {
+    transform: translate(60vw, 10%);
+  }
+  50% {
+    transform: translate(40vw, 70%);
+  }
+  75% {
+    transform: translate(10vw, 30%);
+  }
+  100% {
+    transform: translate(0, 0);
+  }
+}
+
+@keyframes float2 {
+  0% {
+    transform: translate(10vw, 20vh);
+  }
+  25% {
+    transform: translate(50vw, 50vh);
+  }
+  50% {
+    transform: translate(90vw, 10vh);
+  }
+  75% {
+    transform: translate(30vw, 80vh);
+  }
+  100% {
+    transform: translate(10vw, 20vh);
+  }
+}
+
+@keyframes float3 {
+  0% {
+    transform: translate(50vw, 50vh);
+  }
+  25% {
+    transform: translate(20vw, 30vh);
+  }
+  50% {
+    transform: translate(70vw, 80vh);
+  }
+  75% {
+    transform: translate(10vw, 10vh);
+  }
+  100% {
+    transform: translate(50vw, 50vh);
+  }
+}
