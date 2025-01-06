@@ -1,3 +1,6 @@
+@use "../utils/mixins";
+@use "../utils/variables";
+
 .modal {
   opacity: 0;
   visibility: hidden;
@@ -11,7 +14,8 @@
   padding: 40px 20px 30px;
   background: radial-gradient(50.47% 50% at 47.91% 50%, #0659AC 0%, #00356C 95.74%);
   border-radius: 30px;
-  height: 526px;;
+  max-height: 526px;
+  height: 100%;
   z-index: 1000;
 
   &.open {
@@ -56,6 +60,11 @@
     height: 48px;
     margin-right: 10px;
     flex-shrink: 0;
+
+    img {
+      width: 100%;
+      pointer-events: none;
+    }
   }
 
   .card-modal {
@@ -64,7 +73,7 @@
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    padding: 20px 20px 13px;
+    padding: 20px 20px 30px;
     background: linear-gradient(87.04deg, rgba(28, 126, 176, 0.25) 2.46%, rgba(28, 126, 176, 0) 105.58%);
     font-size: 16px;
     font-weight: 700;
@@ -97,7 +106,6 @@
 
     &__footer {
       width: 145px;
-      padding-bottom: 30px;
     }
   }
 
@@ -105,9 +113,13 @@
     width: 106px;
     height: 156px;
     position: absolute;
-    right: 0;
-    bottom: 43px;
+    right: -18px;
+    bottom: 13px;
     z-index: 1;
+  }
+
+  sup {
+    font-size: 11px;
   }
 }
 
@@ -157,9 +169,6 @@
   margin: 0 auto 10px;
 
   &__wheel {
-    //display: block;
-    //width: 100%;
-    //height: 100%;
     transform: rotate(60deg);
     transform-origin: center center;
     transition: transform 3s cubic-bezier(0.1, 0.7, 0.1, 1);
@@ -199,25 +208,139 @@
   margin: 0 auto;
 }
 
-// Змінні для налаштування
-$num-dots: 17; // Кількість точок
-$animation-duration: .5s; // Тривалість анімації
+$num-dots: 17;
+$animation-duration: .5s;
 
-// Цикл для генерації стилів
 @for $i from 1 through $num-dots {
   .dot:nth-child(#{$i}) {
     animation: fade $animation-duration linear infinite;
-   animation-delay: #{($i - 1) * calc(1 / 17)}s; // Рівномірна затримка
+    animation-delay: #{($i - 1) * calc(1 / 17)}s;
   }
 }
 
-// Анімація для точок
 @keyframes fade {
   0%, 100% {
     opacity: 0.5;
   }
   50% {
     opacity: 1;
+  }
+}
+
+@include mixins.respond-to(variables.$sm) {
+  .modal {
+    max-height: 560px;
+    border-radius: 80px;
+    max-width: 658px;
+    padding-right: 72px;
+    padding-left: 72px;
+
+     &.modal-info {
+       padding-top: 55px;
+       padding-bottom: 55px;
+       &:before {
+         position: absolute;
+         content: '';
+         display: block;
+         width: 219px;
+         height: 219px;
+         opacity: 0.6;
+         filter: blur(70px);
+         z-index: 0;
+         right: 50px;
+         border-radius: 50%;
+         bottom: 90px;
+         overflow: hidden;
+         background: #00E6FF;
+         pointer-events: none;
+       }
+     }
+
+    &__header {
+      font-size: 32px;
+      line-height: 38.4px;
+      margin-bottom: 35px;
+    }
+
+    &__content {
+      font-size: 16px;
+      line-height: 19.2px;
+      padding-bottom: 35px;
+      width: 64%;
+    }
+
+    .img {
+      width: 125px;
+      height: 186px;
+      right: -12px;
+      bottom: 60%;
+
+    }
+
+    .thumb {
+      width: 64px;
+      height: 64px;
+      margin-right: 13px;
+    }
+
+    .card-modal {
+      padding-left: 40px;
+      padding-right: 40px;
+      padding-bottom: 30px;
+      font-size: 20px;
+      line-height: 24px;
+      min-height: 178px;
+      max-width: 493px;
+
+      ul {
+        width: 80%;
+
+        li:before {
+          width: 30px;
+          height: 30px;
+        }
+      }
+    }
+
+    .btn_modal-close {
+      width: 54px;
+      height: 54px;
+      top: 40px;
+      right: 40px;
+    }
+
+    .card-modal__footer {
+      padding-bottom: 0;
+    }
+
+    .trigger-play {
+      min-width: 205px;
+    }
+  }
+  .roulette {
+    width: 312px;
+    height: 320px;
+    margin-bottom: 18px;
+    &__spin{
+      width: 67px;
+      height: 81px;
+      background-size: contain;
+      bottom: 16px;
+      right: -30px;
+    }
+    &__svg {
+      width: 100%;
+      height: 100%;
+    }
+  }
+  .modal-play{
+    padding-top: 30px;
+    padding-bottom: 44px;
+    .text{
+      font-size: 20px;
+      line-height: 24px;
+      margin: 0 auto 6px;
+    }
   }
 }
 

@@ -1448,7 +1448,8 @@ sup {
   padding: 40px 20px 30px;
   background: radial-gradient(50.47% 50% at 47.91% 50%, #0659AC 0%, #00356C 95.74%);
   border-radius: 30px;
-  height: 526px;
+  max-height: 526px;
+  height: 100%;
   z-index: 1000;
 }
 
@@ -1496,13 +1497,18 @@ sup {
   flex-shrink: 0;
 }
 
+.modal .thumb img {
+  width: 100%;
+  pointer-events: none;
+}
+
 .modal .card-modal {
   position: relative;
   border-radius: 40px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  padding: 20px 20px 13px;
+  padding: 20px 20px 30px;
   background: linear-gradient(87.04deg, rgba(28, 126, 176, 0.25) 2.46%, rgba(28, 126, 176, 0) 105.58%);
   font-size: 16px;
   font-weight: 700;
@@ -1536,16 +1542,19 @@ sup {
 
 .modal .card-modal__footer {
   width: 145px;
-  padding-bottom: 30px;
 }
 
 .modal .img {
   width: 106px;
   height: 156px;
   position: absolute;
-  right: 0;
-  bottom: 43px;
+  right: -18px;
+  bottom: 13px;
   z-index: 1;
+}
+
+.modal sup {
+  font-size: 11px;
 }
 
 .round {
@@ -2239,6 +2248,7 @@ sup {
 
 .section-manifestation {
   position: relative;
+  overflow: hidden;
 }
 
 .section-manifestation .message-block {
@@ -2305,7 +2315,7 @@ sup {
 .sticky-trigger {
   position: relative;
   top: 0;
-  height: 400vh;
+  height: 200vh;
   border: 2px solid red;
 }
 
@@ -2852,6 +2862,126 @@ sup {
 
   .accordion__item h4 {
     line-height: 20.8px;
+  }
+
+  .modal {
+    max-height: 560px;
+    border-radius: 80px;
+    max-width: 658px;
+    padding-right: 72px;
+    padding-left: 72px;
+  }
+
+  .modal.modal-info {
+    padding-top: 55px;
+    padding-bottom: 55px;
+  }
+
+  .modal.modal-info:before {
+    position: absolute;
+    content: "";
+    display: block;
+    width: 219px;
+    height: 219px;
+    opacity: 0.6;
+    filter: blur(70px);
+    z-index: 0;
+    right: 50px;
+    border-radius: 50%;
+    bottom: 90px;
+    overflow: hidden;
+    background: #00E6FF;
+    pointer-events: none;
+  }
+
+  .modal__header {
+    font-size: 32px;
+    line-height: 38.4px;
+    margin-bottom: 35px;
+  }
+
+  .modal__content {
+    font-size: 16px;
+    line-height: 19.2px;
+    padding-bottom: 35px;
+    width: 64%;
+  }
+
+  .modal .img {
+    width: 125px;
+    height: 186px;
+    right: -12px;
+    bottom: 60%;
+  }
+
+  .modal .thumb {
+    width: 64px;
+    height: 64px;
+    margin-right: 13px;
+  }
+
+  .modal .card-modal {
+    padding-left: 40px;
+    padding-right: 40px;
+    padding-bottom: 30px;
+    font-size: 20px;
+    line-height: 24px;
+    min-height: 178px;
+    max-width: 493px;
+  }
+
+  .modal .card-modal ul {
+    width: 80%;
+  }
+
+  .modal .card-modal ul li:before {
+    width: 30px;
+    height: 30px;
+  }
+
+  .modal .btn_modal-close {
+    width: 54px;
+    height: 54px;
+    top: 40px;
+    right: 40px;
+  }
+
+  .modal .card-modal__footer {
+    padding-bottom: 0;
+  }
+
+  .modal .trigger-play {
+    min-width: 205px;
+  }
+
+  .roulette {
+    width: 312px;
+    height: 320px;
+    margin-bottom: 18px;
+  }
+
+  .roulette__spin {
+    width: 67px;
+    height: 81px;
+    background-size: contain;
+    bottom: 16px;
+    right: -30px;
+  }
+
+  .roulette__svg {
+    width: 100%;
+    height: 100%;
+  }
+
+  .modal-play {
+    padding-top: 30px;
+    padding-bottom: 44px;
+  }
+
+  .modal-play .text {
+    font-size: 20px;
+    line-height: 24px;
+    margin: 0 auto 6px;
   }
 
   .about-grid__header-col {
@@ -3692,6 +3822,14 @@ sup {
     display: grid;
     grid-template-columns: 50% 50%;
     grid-template-rows: auto auto;
+  }
+
+  .section-manifestation {
+    padding-top: 0;
+  }
+
+  .section-manifestation .sticky-trigger {
+    padding-top: 100px;
   }
 
   .section-manifestation .message-block {

@@ -3,7 +3,7 @@
 
 .section-manifestation {
   position: relative;
-
+  overflow: hidden;
   .message-block {
     padding-top: 42px;
     position: relative;
@@ -71,7 +71,7 @@
 .sticky-trigger {
   position: relative;
   top: 0;
-  height: 400vh;
+  height: 200vh;
   border: 2px solid red;
 }
 
@@ -280,6 +280,10 @@
     grid-template-rows: auto auto;
   }
   .section-manifestation {
+    padding-top: 0;
+    .sticky-trigger{
+      padding-top: 100px;
+    }
     .message-block {
       padding-bottom: 30px;
 

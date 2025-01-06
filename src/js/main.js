@@ -37,27 +37,29 @@ document.addEventListener('DOMContentLoaded', function () {
     });
 
 // SCROLL TO ANCHOR
-    function smoothScrollToAnchor(selector) {
-        document.querySelectorAll(selector).forEach((element) => {
-            element.addEventListener('click', function (event) {
-                const anchor = this.getAttribute('href');
-                if (anchor.startsWith('#') && anchor !== '#') {
-                    event.preventDefault();
-                    console.log('.btn_anchor');
-                    const targetElement = document.querySelector(anchor);
-                    if (targetElement) {
-                        window.scrollTo({
-                            top: targetElement.offsetTop,
-                            behavior: 'smooth'
-                        });
+    gsap.registerPlugin(ScrollToPlugin);
+
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault(); // Вимикаємо стандартну поведінку браузера
+
+            const targetId = this.getAttribute("href").substring(1); // Отримуємо ID цільової секції
+            const targetElement = document.getElementById(targetId); // Шукаємо елемент по ID
+
+            if (targetElement) {
+                gsap.to(window, {
+                    scrollTo: targetElement, // Прокручуємо до елемента
+                    duration: 1.5, // Тривалість анімації (в секундах)
+                    ease: "power2.out",// Ефект анімації
+                    onComplete: () => {
+                        // Перезапускаємо всі ScrollTrigger після прокрутки
+                        ScrollTrigger.refresh();
                     }
-                }
-            });
+                });
+            }
         });
-    }
-
-    smoothScrollToAnchor('.menu__item a');
-
+    });
 
 //ACCORDION
     const accordionList = document.querySelectorAll(".accordion__item");
@@ -75,6 +77,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
 // SLIDER - TABS
     let sliderAbout;
+
     function initSwiper() {
         if (sliderAbout) sliderAbout.destroy(true, true);
 
@@ -111,6 +114,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
         setupCustomNavigation();
     }
+
     function updateCustomNavigation() {
         const activeIndex = sliderAbout.realIndex;
         document.querySelectorAll('.about-nav__btn').forEach((btn, index) => {
@@ -121,6 +125,7 @@ document.addEventListener('DOMContentLoaded', function () {
             }
         });
     }
+
     function setupCustomNavigation() {
         const navButtons = document.querySelectorAll('.about-nav__btn');
 
@@ -131,6 +136,7 @@ document.addEventListener('DOMContentLoaded', function () {
             });
         });
     }
+
     window.addEventListener('load', initSwiper);
     window.addEventListener('resize', initSwiper);
 
@@ -242,136 +248,6 @@ document.addEventListener('DOMContentLoaded', function () {
     wheel.addEventListener('click', spinWheel);
     btnSpin.addEventListener('click', spinWheel);
 
-//MOVING ELEMENT
-
-//
-//     function startAnimationForLargeScreens() {
-//         if (window.innerWidth < 768) {
-//             console.log('Анімація не запускається для екранів менше 768px');
-//             return; // Вихід, якщо ширина вікна менше 768px
-//         }
-//
-//         const sections = document.querySelectorAll('.move-el');
-//
-//         sections.forEach((section, index) => {
-//             const block = section.querySelector('.moving-element');
-//             if (!block) {
-//                 console.warn(`У секції #${index + 1} блок .moving-element не знайдено`);
-//                 return;
-//             }
-//
-//             console.log(`Секція #${index + 1} знайдена, запускаємо анімацію для блоку`);
-//
-//             const sectionWidth = section.offsetWidth;
-//             const sectionHeight = section.offsetHeight;
-//             const blockWidth = block.offsetWidth;
-//             const blockHeight = block.offsetHeight;
-//
-//             let currentX = Math.random() * (sectionWidth - blockWidth);
-//             let currentY = Math.random() * (sectionHeight - blockHeight);
-//             let targetX = Math.random() * (sectionWidth - blockWidth);
-//             let targetY = Math.random() * (sectionHeight - blockHeight);
-//             const speed = 0.5;
-//
-//             function animate() {
-//                 currentX += (targetX - currentX) * speed;
-//                 currentY += (targetY - currentY) * speed;
-//
-//                 block.style.transform = `translate(${currentX}px, ${currentY}px)`;
-//
-//                 if (Math.abs(targetX - currentX) < 5 && Math.abs(targetY - currentY) < 5) {
-//                     targetX = Math.random() * (sectionWidth - blockWidth);
-//                     targetY = Math.random() * (sectionHeight - blockHeight);
-//                 }
-//
-//                 requestAnimationFrame(animate);
-//             }
-//
-//             animate();
-//         });
-//     }
-//
-//     startAnimationForLargeScreens();
-//
-//     window.addEventListener('resize', () => {
-//         startAnimationForLargeScreens();
-//     });
-
-
-//    GSAP ANIMATION
-//     gsap.registerPlugin(ScrollTrigger);
-//     console.log(ScrollTrigger);
-//
-//         const symptoms = document.querySelectorAll(".symptom");
-//         const images = document.querySelectorAll(".image");
-//         const iconsContainer = document.querySelector(".icons");
-//         const messageBlock = document.querySelector(".section-manifestation .message-block");
-//
-//         // Функція визначення, яка картинка відповідає поточному симптому
-//         const getImageIndexForSymptom = (symptomIndex) => {
-//             if (symptomIndex >= 0 && symptomIndex <= 2) return 0; // Картинка 1 (симптоми 1–3)
-//             if (symptomIndex >= 3 && symptomIndex <= 5) return 1; // Картинка 2 (симптоми 4–6)
-//             if (symptomIndex >= 6 && symptomIndex <= 7) return 2; // Картинка 3 (симптоми 7–8)
-//             if (symptomIndex === 8) return 3; // Картинка 4 (симптом 9)
-//             return -1; // Без картинки
-//         };
-//
-//         // Функція оновлення іконок та картинок
-//         const updateState = (index) => {
-//             // Оновлення картинки
-//             const newImageIndex = getImageIndexForSymptom(index);
-//             images.forEach((image, imgIndex) => {
-//                 if (imgIndex === newImageIndex) {
-//                     gsap.to(image, { opacity: 1, scale: 1, duration: 0.5 });
-//                 } else {
-//                     gsap.to(image, { opacity: 0, scale: 0.95, duration: 0.5 });
-//                 }
-//             });
-//
-//             // Оновлення іконки
-//             const iconSrc = symptoms[index].dataset.icon; // Іконка прив’язана через data-icon
-//             if (iconSrc) {
-//                 iconsContainer.innerHTML = ""; // Очищуємо попередні іконки
-//                 const iconElement = document.createElement("img");
-//                 iconElement.src = iconSrc;
-//                 iconElement.classList.add("icon");
-//                 iconsContainer.appendChild(iconElement);
-//                 gsap.fromTo(iconElement, { opacity: 0, y: -20 }, { opacity: 1, y: 0, duration: 0.5 });
-//             }
-//         };
-//
-//         // Анімація симптомів
-//         symptoms.forEach((symptom, index) => {
-//             gsap.fromTo(
-//                 symptom,
-//                 { opacity: 0, y: 50 },
-//                 {
-//                     opacity: 1,
-//                     y: 0,
-//                     duration: 0.8,
-//                     scrollTrigger: {
-//                         trigger: symptom,
-//                         start: "top 90%",
-//                         toggleActions: "play none none reverse",
-//                         onEnter: () => updateState(index), // Оновлення стану для кожного симптому
-//                     },
-//                 }
-//             );
-//         });
-//
-//         // Анімація появи блоку з повідомленням
-//         gsap.fromTo(messageBlock, { y: 100, opacity: 0 }, {
-//             y: 0,
-//             opacity: 1,
-//             duration: 1,
-//             scrollTrigger: {
-//                 trigger: messageBlock,
-//                 start: "top 100%",
-//                 toggleActions: "play none none none",
-//             },
-//         });
-
-
 // // ANIM BLOCK WITH GIRL
 
     const tl1 = gsap.timeline({
@@ -433,16 +309,16 @@ document.addEventListener('DOMContentLoaded', function () {
     const updateState = (index) => {
         // Оновлення стилів
         updateSymptomsStyles(index);
-
-        if (window.innerWidth < 768) {
-            // Динамічно обчислюємо зсув `ul` на ширину попередніх елементів
-            let shiftWidth = 0;
-            for (let i = 0; i < index; i++) {
-                shiftWidth += symptoms[i].offsetWidth + 8; // Додаємо ширину елементів та gap (8px)
+        ScrollTrigger.matchMedia({
+            "(max-width: 768px)": function () {
+                // Динамічно обчислюємо зсув `ul` на ширину попередніх елементів
+                let shiftWidth = 0;
+                for (let i = 0; i < index; i++) {
+                    shiftWidth += symptoms[i].offsetWidth + 8; // Додаємо ширину елементів та gap (8px)
+                }
+                symptomList.style.transform = `translateX(-${shiftWidth}px)`;
             }
-            symptomList.style.transform = `translateX(-${shiftWidth}px)`;
-        }
-
+        })
         // Показуємо відповідну картинку
         const newImageIndex = getImageIndexForSymptom(index);
         images.forEach((image, imgIndex) => {
@@ -482,18 +358,49 @@ document.addEventListener('DOMContentLoaded', function () {
             });
         }
 
-        // Перевіряємо, чи дійшли до останньої анімації
+        // Перевірка завершення анімації
         if (currentSymptomIndex === symptoms.length - 1 && !isLastAnimation) {
             isLastAnimation = true;
 
             setTimeout(() => {
-                stickyTrigger.style.position = "relative"; // Стіки більше не активний
-                stickyTrigger.style.top = "auto"; // Знімаємо прив'язку до верху
-                stickyTrigger.style.scroll = "auto"; // Знімаємо прив'язку до верху
-                updateState(currentSymptomIndex); // Фіксуємо останній стан
+                stickyTrigger.style.position = "relative";
+                stickyTrigger.style.top = "auto";
+                stickyTrigger.style.scroll = "auto";
+                updateState(currentSymptomIndex);
+                ScrollTrigger.refresh(); // Оновлюємо стан ScrollTrigger
             }, delayAfterLastAnimation);
         }
     };
+
+//     const updateAnimationOnScroll = (progress) => {
+//         const scrollPosition = progress * sectionHeight;
+//
+//         if (!isLastAnimation) {
+//             symptoms.forEach((symptom, index) => {
+//                 const start = index * symptomStep;
+//                 const end = start + symptomStep;
+//
+//                 if (scrollPosition >= start && scrollPosition < end) {
+//                     if (currentSymptomIndex !== index) {
+//                         currentSymptomIndex = index;
+//                         updateState(index);
+//                     }
+//                 }
+//             });
+//         }
+//
+//         // Перевіряємо, чи дійшли до останньої анімації
+//         if (currentSymptomIndex === symptoms.length - 1 && !isLastAnimation) {
+//             isLastAnimation = true;
+//
+//             setTimeout(() => {
+//                 stickyTrigger.style.position = "relative"; // Стіки більше не активний
+//                 stickyTrigger.style.top = "auto"; // Знімаємо прив'язку до верху
+//                 stickyTrigger.style.scroll = "auto"; // Знімаємо прив'язку до верху
+//                 updateState(currentSymptomIndex); // Фіксуємо останній стан
+//             }, delayAfterLastAnimation);
+//         }
+//     };
 
 
 //    ANIMATION PILL
@@ -580,7 +487,6 @@ document.addEventListener('DOMContentLoaded', function () {
             xPercent: -150,
             duration: 0.8, // Менша тривалість
         }, "+=0.1"); // Мінімальна затримка
-
 
 
 // ANIM SECTION STICKY
