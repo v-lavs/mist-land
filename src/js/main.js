@@ -256,7 +256,7 @@ document.addEventListener('DOMContentLoaded', function () {
             start: 'top top',
             end: 'bottom bottom',
             pin: true,
-            pinSpacing: false,
+            pinSpacing: true,
             anticipatePin: 1,
             onUpdate: self => updateAnimationOnScroll(self.progress), // Викликати функцію оновлення на кожному оновленні
         }

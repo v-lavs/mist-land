@@ -2300,8 +2300,17 @@ sup {
 }
 
 .manifestation-grid__bg {
-  position: absolute;
   background-image: url(../assets/img/back-wave-girl-1920.png);
+}
+
+@supports (background-image: url(../assets/img/back-wave-girl-1920.webp)) {
+  .manifestation-grid__bg {
+    background-image: url(../assets/img/back-wave-girl-1920.webp);
+  }
+}
+
+.manifestation-grid__bg {
+  position: absolute;
   background-position: center bottom;
   background-size: cover;
   left: 50%;
