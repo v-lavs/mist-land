@@ -2238,7 +2238,6 @@ sup {
   top: 65px;
   left: 100px;
   transform: translateX(-100%);
-  animation: float 40s infinite linear;
 }
 
 .section-symptoms .call2action-row {
@@ -2291,7 +2290,6 @@ sup {
 .section-manifestation .moving-element {
   width: 254px;
   height: 240px;
-  animation: float2 40s infinite linear;
 }
 
 .manifestation-grid {
@@ -3282,6 +3280,10 @@ sup {
     margin-bottom: 70px;
   }
 
+  .section-symptoms .moving-element {
+    animation: float 40s infinite linear;
+  }
+
   .section-symptoms .section__header {
     text-align: center;
   }
@@ -3337,6 +3339,10 @@ sup {
 
   .section-manifestation {
     padding-top: 0;
+  }
+
+  .section-manifestation .moving-element {
+    animation: float2 40s infinite linear;
   }
 
   .section-manifestation .section__header {

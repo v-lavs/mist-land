@@ -46,7 +46,6 @@
   .moving-element {
     width: 254px;
     height: 240px;
-    animation: float2 40s infinite linear;
   }
 }
 
@@ -213,6 +212,9 @@
     }
   }
   .section-manifestation {
+    .moving-element{
+      animation: float2 40s infinite linear;
+    }
     padding-top: 0;
     .section__header {
       margin-bottom: 50px;
