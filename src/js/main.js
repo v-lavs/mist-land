@@ -249,16 +249,15 @@ document.addEventListener('DOMContentLoaded', function () {
     btnSpin.addEventListener('click', spinWheel);
 
 // // ANIM BLOCK WITH GIRL
-
     const tl1 = gsap.timeline({
         scrollTrigger: {
             trigger: '.sticky-trigger',
             start: 'top top',
             end: 'bottom bottom',
             pin: true,
-            pinSpacing: true,
+            pinSpacing: false,
             anticipatePin: 1,
-            onUpdate: self => updateAnimationOnScroll(self.progress), // Викликати функцію оновлення на кожному оновленні
+            onUpdate: self => updateAnimationOnScroll(self.progress),
         }
     });
 
@@ -269,32 +268,26 @@ document.addEventListener('DOMContentLoaded', function () {
     const animationSection = document.querySelector(".section-manifestation");
     const stickyTrigger = document.querySelector(".sticky-trigger");
 
-    let currentSymptomIndex = -1; // Індекс поточного активного симптому
-    let isLastAnimation = false; // Флаг, чи виконується остання анімація
-    const delayAfterLastAnimation = 1000; // Затримка перед зняттям стікі (мс)
+    let currentSymptomIndex = -1;
+    let isLastAnimation = false;
+    const delayAfterLastAnimation = 1000;
 
     const sectionTop = animationSection.offsetTop;
     const sectionHeight = animationSection.offsetHeight;
-    const symptomStep = sectionHeight / symptoms.length; // Висота секції для кожного текстового пункту
+    const symptomStep = sectionHeight / symptoms.length;
 
-// Функція для визначення, яка картинка відповідає поточному симптому
-    const getImageIndexForSymptom = (symptomIndex) => {
-        if (symptomIndex >= 0 && symptomIndex <= 2) return 0; // Картинка 1 (симптоми 1–3)
-        if (symptomIndex >= 3 && symptomIndex <= 5) return 1; // Картинка 2 (симптоми 4–6)
-        if (symptomIndex >= 6 && symptomIndex <= 7) return 2; // Картинка 3 (симптоми 7–8)
-        if (symptomIndex === 8) return 3; // Картинка 4 (симптом 9)
-        return -1; // Без картинки
-    };
+// Перевірка, чи це мобільний екран
+    const isMobile = () => window.innerWidth < 768;
 
-// Функція для оновлення стилів симптомів
-    const updateSymptomsStyles = (index) => {
+// Функція для оновлення стилів симптомів на десктопі (накопичувально)
+    const updateSymptomsStylesDesktop = (currentIndex) => {
         symptoms.forEach((symptom, i) => {
-            if (i === index) {
+            if (i <= currentIndex) {
                 symptom.style.fontSize = '20px';
                 symptom.style.opacity = '1';
                 symptom.style.filter = 'blur(0)';
             } else {
-                const factor = Math.abs(i - index);
+                const factor = Math.abs(i - currentIndex);
                 const opacity = 0.6 - factor * (0.6 - 0.2) / symptoms.length;
                 const blur = factor * (4 / symptoms.length);
 
@@ -305,20 +298,36 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     };
 
-// Функція для оновлення стану елементів
-    const updateState = (index) => {
-        // Оновлення стилів
-        updateSymptomsStyles(index);
-        ScrollTrigger.matchMedia({
-            "(max-width: 768px)": function () {
-                // Динамічно обчислюємо зсув `ul` на ширину попередніх елементів
-                let shiftWidth = 0;
-                for (let i = 0; i < index; i++) {
-                    shiftWidth += symptoms[i].offsetWidth + 8; // Додаємо ширину елементів та gap (8px)
-                }
-                symptomList.style.transform = `translateX(-${shiftWidth}px)`;
+// Функція для оновлення стилів симптомів на мобільних (поступово)
+    const updateSymptomsStylesMobile = (currentIndex) => {
+        symptoms.forEach((symptom, i) => {
+            if (i === currentIndex) {
+
+                symptom.style.opacity = '1';
+                symptom.style.filter = 'blur(0)';
+            } else {
+
+                symptom.style.opacity = '0';
+                symptom.style.filter = `blur(4px)`;
             }
-        })
+            symptom.style.fontSize = '16px'; // Фіксований розмір шрифту
+        });
+        let shiftWidth = 0;
+        for (let i = 0; i < currentIndex; i++) {
+            shiftWidth += symptoms[i].offsetWidth + 8; // Ширина елементів + gap (8px)
+        }
+        symptomList.style.transform = `translateX(-${shiftWidth}px)`;
+    };
+
+// Функція для оновлення стану
+    const updateState = (index) => {
+        // Логіка залежно від розміру екрана
+        if (isMobile()) {
+            updateSymptomsStylesMobile(index);
+        } else {
+            updateSymptomsStylesDesktop(index);
+        }
+
         // Показуємо відповідну картинку
         const newImageIndex = getImageIndexForSymptom(index);
         images.forEach((image, imgIndex) => {
@@ -330,7 +339,7 @@ document.addEventListener('DOMContentLoaded', function () {
         });
 
         // Оновлюємо іконки
-        const iconSrc = symptoms[index].dataset.icon;
+        const iconSrc = symptoms[index]?.dataset.icon;
         if (iconSrc) {
             iconsContainer.innerHTML = ""; // Очищаємо попередні іконки
             const iconElement = document.createElement("img");
@@ -340,7 +349,7 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     };
 
-// Оновлюємо анімацію на основі скролу
+// Оновлення анімації на основі скролу
     const updateAnimationOnScroll = (progress) => {
         const scrollPosition = progress * sectionHeight;
 
@@ -352,13 +361,13 @@ document.addEventListener('DOMContentLoaded', function () {
                 if (scrollPosition >= start && scrollPosition < end) {
                     if (currentSymptomIndex !== index) {
                         currentSymptomIndex = index;
-                        updateState(index);
+                        updateState(index); // Оновлюємо стан на основі індексу
                     }
                 }
             });
         }
 
-        // Перевірка завершення анімації
+        // Логіка для завершення анімації (залишаємо незмінною)
         if (currentSymptomIndex === symptoms.length - 1 && !isLastAnimation) {
             isLastAnimation = true;
 
@@ -367,40 +376,19 @@ document.addEventListener('DOMContentLoaded', function () {
                 stickyTrigger.style.top = "auto";
                 stickyTrigger.style.scroll = "auto";
                 updateState(currentSymptomIndex);
-                ScrollTrigger.refresh(); // Оновлюємо стан ScrollTrigger
+                ScrollTrigger.refresh();
             }, delayAfterLastAnimation);
         }
     };
 
-//     const updateAnimationOnScroll = (progress) => {
-//         const scrollPosition = progress * sectionHeight;
-//
-//         if (!isLastAnimation) {
-//             symptoms.forEach((symptom, index) => {
-//                 const start = index * symptomStep;
-//                 const end = start + symptomStep;
-//
-//                 if (scrollPosition >= start && scrollPosition < end) {
-//                     if (currentSymptomIndex !== index) {
-//                         currentSymptomIndex = index;
-//                         updateState(index);
-//                     }
-//                 }
-//             });
-//         }
-//
-//         // Перевіряємо, чи дійшли до останньої анімації
-//         if (currentSymptomIndex === symptoms.length - 1 && !isLastAnimation) {
-//             isLastAnimation = true;
-//
-//             setTimeout(() => {
-//                 stickyTrigger.style.position = "relative"; // Стіки більше не активний
-//                 stickyTrigger.style.top = "auto"; // Знімаємо прив'язку до верху
-//                 stickyTrigger.style.scroll = "auto"; // Знімаємо прив'язку до верху
-//                 updateState(currentSymptomIndex); // Фіксуємо останній стан
-//             }, delayAfterLastAnimation);
-//         }
-//     };
+// Функція для визначення, яка картинка відповідає поточному симптому
+    const getImageIndexForSymptom = (symptomIndex) => {
+        if (symptomIndex >= 0 && symptomIndex <= 2) return 0; // Картинка 1 (симптоми 1–3)
+        if (symptomIndex >= 3 && symptomIndex <= 5) return 1; // Картинка 2 (симптоми 4–6)
+        if (symptomIndex >= 6 && symptomIndex <= 7) return 2; // Картинка 3 (симптоми 7–8)
+        if (symptomIndex === 8) return 3; // Картинка 4 (симптом 9)
+        return -1; // Без картинки
+    };
 
 
 //    ANIMATION PILL
@@ -509,5 +497,54 @@ document.addEventListener('DOMContentLoaded', function () {
         ScrollTrigger.refresh();
     });
 
+
+// HOVER PARALLAX
+    if (window.innerWidth >= 1024) {
+
+        let rect = $('#container')[0].getBoundingClientRect();
+        const mouse = {x: 0, y: 0, moved: false};
+
+        $("#container").mousemove(function (e) {
+            mouse.moved = true;
+            mouse.x = e.clientX - rect.left;
+            mouse.y = e.clientY - rect.top;
+        });
+
+// Ticker event will be called on every frame
+        gsap.ticker.add(() => {
+            if (mouse.moved) {
+                parallaxIt(".banner-grid__product-img", 10);
+                parallaxIt(".back-wave", -20);
+            }
+            mouse.moved = false;
+        });
+
+        function parallaxIt(target, movement) {
+            gsap.to(target, {
+                duration: 0.5,
+                x: (mouse.x - rect.width / 2) / rect.width * movement,
+                y: (mouse.y - rect.height / 2) / rect.height * movement
+            });
+        }
+
+        $(window).on('resize scroll', function () {
+            rect = $('#container')[0].getBoundingClientRect();
+        })
+    }
+
+
+//ANIM TITLE
+    const titles = gsap.utils.toArray('.anim-title');
+
+    titles.forEach((title, i) => {
+        const animTitle = gsap.fromTo(title, 1,  {opacity: 0, y: -100}, {duration: 1, opacity: 1, y: 0});
+        ScrollTrigger.create({
+            trigger: title,
+            start: 'top center',
+            animation: animTitle,
+            stagger: 0.5,
+            onLeaveBack: self => self.disable(),
+        });
+    });
 });
 

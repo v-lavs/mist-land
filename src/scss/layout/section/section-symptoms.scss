@@ -45,7 +45,7 @@
 @include mixins.respond-to(variables.$sm) {
   .section-symptoms {
     .moving-element {
-      animation: float 40s infinite linear;
+      animation: float 30s infinite linear;
     }
 
     .section__header {

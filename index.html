@@ -47,9 +47,9 @@
 
     <main class="main">
         <section class="section-banner">
-            <div class="container">
+            <div id="container" class="container">
                 <picture>
-                    <source srcset="assets/img/back-banner.webp" type="image/webp" />
+                    <source srcset="assets/img/back-banner.webp" type="image/webp"/>
                     <img class=" back-wave" src="assets/img/back-banner.png" width="2244"
                          height="798" alt="Хвилі полярного сяйва">
                 </picture>
@@ -58,12 +58,15 @@
                 <div class="ellipse-back ellipse-back-2"></div>
                 <div class="banner-grid">
                     <header class="banner-grid__header">
-                        <h1 class="banner-grid__title">Містерія</h1>
-                        <h2 class="banner-grid__subtitle">підтримка судин <br> і здоров’я мозку</h2>
+                        <h1 class="anim-title banner-grid__title fadeInDownBig">Містерія</h1>
+                        <h2 class="anim-title banner-grid__subtitle fadeInDownBig">підтримка судин <br> і здоров’я мозку
+                        </h2>
                     </header>
 
                     <div class="banner-grid__call2action-row">
-                        <a target="_blank" href="https://tabletki.ua/uk/%D0%9C%D0%B8%D1%81%D1%82%D0%B5%D1%80%D0%B8%D1%8F/1090450/" class="btn btn_primary">Купити</a>
+                        <a target="_blank"
+                           href="https://tabletki.ua/uk/%D0%9C%D0%B8%D1%81%D1%82%D0%B5%D1%80%D0%B8%D1%8F/1090450/"
+                           class="btn btn_primary">Купити</a>
                     </div>
 
                     <div class="banner-grid__img-block">
@@ -310,12 +313,12 @@
                                 </defs>
                             </svg>
                             <picture>
-                                <source srcset="assets/img/Mystery_20tab.webp" type="image/webp" />
+                                <source srcset="assets/img/Mystery_20tab.webp" type="image/webp"/>
                                 <img class="banner-grid__product-img" src="assets/img/Mystery_20tab.png" width="386"
                                      height="572" alt="Упаковка препарату Містерія">
                             </picture>
 
-                          </div>
+                        </div>
                     </div>
                     <div class="banner-grid__addition-info">
                         <article class="card message-block">
@@ -327,12 +330,12 @@
                 </div>
             </div>
         </section>
-        <section class="section section-symptoms move-el">
+        <section class="section section-symptoms">
             <div class="moving-element"></div>
             <div class="container">
 
                 <div class="section__header">
-                    <h3 id="symptomsTest" class="title">Чи можуть зазначені симптоми бути проявами
+                    <h3 id="symptomsTest" class="anim-title title">Чи можуть зазначені симптоми бути проявами
                         <b class="color_blue"> вегетативних порушень?</b>
                     </h3>
                 </div>
@@ -430,11 +433,11 @@
         </section>
         <section class="section section-manifestation">
             <div class="sticky-trigger">
-                <div class="container move-el">
+                <div class="container">
                     <div class="moving-element"></div>
                     <div class="manifestation-grid">
                         <div class="section__header">
-                            <h3 class="title"><b class="color_blue">Майже 80% населення</b>
+                            <h3 class="anim-title title"><b class="color_blue">Майже 80% населення</b>
                                 стикаються з проявами вегетативних порушень, такими як<sup>*</sup><sup>1</sup>:
                             </h3>
                         </div>
@@ -480,7 +483,13 @@
                                  height="560">
                             <!-- Блок для іконок -->
                             <div class="icons"></div>
-                            <div class="manifestation-grid__bg"></div>
+                            <picture>
+                                <source srcset="assets/img/back-wave-girl-1920.webp" type="image/webp"/>
+                                <img class="manifestation-grid__bg" src="assets/img/back-wave-girl-1920.png"
+                                     width="2378"
+                                     height="1932" alt="Хвилі полярного сяйва">
+                            </picture>
+
                         </div>
                     </div>
                     <div class="card message-block">
@@ -496,7 +505,7 @@
             <div class="container">
                 <div class="improvement-grid">
                     <div class="section__header">
-                        <h3 class="title">Завдяки ефектам компонентів <b> <span class="color_blue">Містерія може сприяти
+                        <h3 class="anim-title title">Завдяки ефектам компонентів <b> <span class="color_blue">Містерія може сприяти
                             поліпшенню
                             самопочуття</span></b> людей
                             із проявами вегетативних порушень<sup>*</sup><sup>2</sup>:</h3>
@@ -871,8 +880,8 @@
                 <div class="about-grid">
                     <div class="about-grid__header-col">
                         <div class="section__header">
-                            <h2 class="title_lg">МІСТЕРІЯ</h2>
-                            <div class="sub-title"><b class="color_blue">сучасний<sup>**</sup> комплекс для
+                            <h2 class="anim-title title_lg">МІСТЕРІЯ</h2>
+                            <div class="anim-title sub-title"><b class="color_blue">сучасний<sup>**</sup> комплекс для
                                 підтримки
                                 судин і
                                 здоров’я мозку<sup>2</sup></b></div>
@@ -1318,7 +1327,7 @@
                                         </picture>
                                     </div>
                                     <div class="card-about__content">
-                                        <h3 class="card-about__title">
+                                        <h3 class="anim-title card-about__title">
                                             Рослинна форма Омега-3 AvailOm <sup>®</sup> 50 High DHA
                                             Algae<sup>2</sup>
                                         </h3>
@@ -1345,7 +1354,7 @@
                                         </picture>
                                     </div>
                                     <div class="card-about__content">
-                                        <div class="card-about__title">
+                                        <div class="anim-title card-about__title">
                                             Екстракт гінкго білоби EGb 7612<sup>2</sup>
                                         </div>
                                         <div class="card-about__label">80 мг</div>
@@ -1370,7 +1379,7 @@
                                         </picture>
                                     </div>
                                     <div class="card-about__content">
-                                        <div class="card-about__title">
+                                        <div class="anim-title card-about__title">
                                             Cognizin<sup>™</sup> Цитиколін<sup>2</sup>
                                         </div>
                                         <div class="card-about__label">250 мг</div>
@@ -1399,7 +1408,7 @@
                     <section id="application" class="section section-app move-el">
                         <div class="moving-element"></div>
                         <div class="section__header">
-                            <h3 class="title">
+                            <h3 class="anim-title title">
                                 <span class="color_blue">Спосіб застосування</span>
                                 <span class="text_uppercase"> Містерія<sup>2</sup></span>
                             </h3>
@@ -1732,7 +1741,7 @@
                             <div class="ellipse"></div>
                             <img class="back-wave" src="assets/img/image-7screen.png" alt="">
                             <picture>
-                                <source srcset="assets/img/Mystery_20tab.webp" type="image/webp" />
+                                <source srcset="assets/img/Mystery_20tab.webp" type="image/webp"/>
                                 <img class="sticky-grid__product-img" src="assets/img/Mystery_20tab_right.png"
                                      alt="Упаковка препарату Містерія">
                             </picture>
@@ -1742,7 +1751,7 @@
 
                     <section id="faq" class="section section-faq">
                         <div class="section__header">
-                            <h3 class="title">Поширені запитання</h3>
+                            <h3 class="anim-title title">Поширені запитання</h3>
                         </div>
                         <div class="accordion">
 
@@ -2556,6 +2565,8 @@
 </div>
 
 </div>
+<script src="https://code.jquery.com/jquery-3.7.1.min.js"
+        integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollToPlugin.min.js"></script>

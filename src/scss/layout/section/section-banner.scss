@@ -46,6 +46,7 @@
     font-weight: 800;
     line-height: 61.6px;
     letter-spacing: 0.06em;
+    animation-delay: .4s;
   }
 
   .banner-grid__subtitle {
@@ -53,6 +54,8 @@
     font-size: 24px;
     line-height: 28.8px;
     letter-spacing: 0.01em;
+    animation-delay: .2s;
+    animation-name: fadeInDown;
   }
 
   .banner-grid__product-img {
@@ -139,6 +142,7 @@
   .section-banner {
     padding-top: 180px;
     padding-bottom: 80px;
+
     .back-wave {
       height: 612px;
       transform: translate(25%, 41%);
@@ -218,7 +222,8 @@
       height: 892px;
       transform: translateX(-50%);
     }
-    .ellipse-back-2{
+
+    .ellipse-back-2 {
       width: 413px;
       height: 518px;
       transform: translateY(53%);
@@ -306,7 +311,8 @@
       left: 50%;
       transform: translateX(-50%);
       bottom: -24%;
-
+      will-change: transform;
+      transition: transform 0.05s ease-out;
     }
 
     .ellipse-back-2 {
@@ -326,6 +332,7 @@
       transform: translate(-57%, -148px);
     }
   }
+
 }
 
 @include mixins.respond-to(variables.$xl) {

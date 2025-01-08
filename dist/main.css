@@ -317,6 +317,18 @@ sup {
   letter-spacing: 0.06em;
 }
 
+@keyframes fadeInDownBig {
+  0% {
+    opacity: 0;
+    transform: translate3d(0, -2000px, 0);
+  }
+
+  100% {
+    opacity: 1;
+    transform: none;
+  }
+}
+
 @keyframes scaleAnim {
   0%, 100% {
     opacity: 1;
@@ -937,23 +949,23 @@ sup {
 
 @keyframes float1 {
   0% {
-    transform: translate(0, 0);
+    transform: translate(-50%, 0);
   }
 
   25% {
-    transform: translate(60vw, 10%);
+    transform: translate(-20%, 10%);
   }
 
   50% {
-    transform: translate(40vw, 70%);
+    transform: translate(-40%, 70%);
   }
 
   75% {
-    transform: translate(10vw, 30%);
+    transform: translate(-20%, 30%);
   }
 
   100% {
-    transform: translate(0, 0);
+    transform: translate(-50%, 0);
   }
 }
 
@@ -2120,6 +2132,7 @@ sup {
   font-weight: 800;
   line-height: 61.6px;
   letter-spacing: 0.06em;
+  animation-delay: 0.4s;
 }
 
 .section-banner .banner-grid__subtitle {
@@ -2127,6 +2140,8 @@ sup {
   font-size: 24px;
   line-height: 28.8px;
   letter-spacing: 0.01em;
+  animation-delay: 0.2s;
+  animation-name: fadeInDown;
 }
 
 .section-banner .banner-grid__product-img {
@@ -2290,6 +2305,9 @@ sup {
 .section-manifestation .moving-element {
   width: 254px;
   height: 240px;
+  right: 0;
+  top: 0;
+  transform: translate(50%, 50%);
 }
 
 .manifestation-grid {
@@ -2298,19 +2316,16 @@ sup {
 }
 
 .manifestation-grid__bg {
-  background-image: url(../assets/img/back-wave-girl-1920.png);
-}
-
-.manifestation-grid__bg {
   position: absolute;
-  background-position: center bottom;
-  background-size: cover;
-  left: 50%;
-  transform: translateX(-45%);
+  left: 0;
+  right: 0;
   height: 463px;
-  width: 397px;
-  bottom: -68px;
+  max-width: none;
+  bottom: -72px;
   z-index: -1;
+  width: initial;
+  transform: translateX(-25%);
+  margin-left: -20px;
 }
 
 .sticky-trigger {
@@ -2415,7 +2430,9 @@ sup {
 .images {
   position: relative;
   width: 100%;
+  max-width: 320px;
   height: 332px;
+  margin: 0 auto;
 }
 
 .image {
@@ -2437,7 +2454,11 @@ sup {
 .icons .icon {
   position: absolute;
   top: 0;
-  left: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100%;
+  max-width: 246px;
+  margin-left: -16px;
   opacity: 0;
   transition: opacity 0.5s ease-in-out;
 }
@@ -2510,6 +2531,7 @@ sup {
 .section-about .title_lg {
   margin-bottom: 10px;
   text-align: center;
+  animation-delay: 0.4s;
 }
 
 .section-about .sub-title {
@@ -2518,6 +2540,7 @@ sup {
   line-height: 28.8px;
   letter-spacing: 0.01em;
   text-align: center;
+  animation-delay: 0.2s;
 }
 
 .section-about .section__header {
@@ -3275,7 +3298,7 @@ sup {
   }
 
   .section-symptoms .moving-element {
-    animation: float 40s infinite linear;
+    animation: float 30s infinite linear;
   }
 
   .section-symptoms .section__header {
@@ -3296,11 +3319,16 @@ sup {
     justify-content: center;
   }
 
+  .manifestation-grid__bg {
+    height: 532px;
+  }
+
   .manifestation-list {
     order: 1;
     width: 50%;
     transform: none;
-    padding-bottom: 47px;
+    padding-bottom: 10px;
+    min-height: 440px;
   }
 
   .manifestation-list ul {
@@ -3336,7 +3364,9 @@ sup {
   }
 
   .section-manifestation .moving-element {
-    animation: float2 40s infinite linear;
+    animation: float1 20s infinite linear;
+    width: 387px;
+    height: 366px;
   }
 
   .section-manifestation .section__header {
@@ -3369,23 +3399,30 @@ sup {
 
   .section-manifestation .images {
     width: 50%;
-    min-height: 396px;
-    padding-top: 42px;
-    height: auto;
+    min-height: 404px;
+    padding-top: 50px;
+    margin-top: auto;
   }
 
   .section-manifestation .icon {
-    top: -11px;
+    top: -22px;
+    max-width: 433px;
+    margin-left: 0;
   }
 
   .image {
-    width: 228px;
-    height: auto;
+    width: auto;
+    height: 356px;
     transform: translateX(calc(-50% + 15px)) scale(0.95);
   }
 
   .image.visible {
     transform: translateX(calc(-50% + 15px)) scale(1);
+  }
+
+  .manifestation-grid__bg {
+    height: 532px;
+    margin-left: -30px;
   }
 
   .section-improvement .title {
@@ -3776,6 +3813,8 @@ sup {
     left: 50%;
     transform: translateX(-50%);
     bottom: -24%;
+    will-change: transform;
+    transition: transform 0.05s ease-out;
   }
 
   .section-banner .ellipse-back-2 {
@@ -3858,8 +3897,10 @@ sup {
     grid-column: 1/2;
     grid-row: 1/3;
     width: 100%;
+    max-width: none;
     padding-top: 56px;
-    min-height: 620px;
+    min-height: 0;
+    height: auto;
   }
 
   .section-manifestation .section__header {
@@ -3875,13 +3916,19 @@ sup {
   }
 
   .image {
-    width: 350px;
+    width: 340px;
+    height: 596px;
+    transform: translateX(50px) scale(0.95);
     left: 0;
-    transform: translateX(35px) scale(0.95);
   }
 
   .image.visible {
-    transform: translateX(35px) scale(1);
+    transform: translateX(50px) scale(1);
+  }
+
+  .manifestation-grid__bg {
+    width: 1215px;
+    height: 966px;
   }
 
   .improvement-grid__product-img {
