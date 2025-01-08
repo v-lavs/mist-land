@@ -435,26 +435,6 @@ document.addEventListener('DOMContentLoaded', function () {
             markers: true,        // Remove in production; helpful for debugging
         },
     });
-
-    // timeline
-    //     .to(".pill-anim__components", {
-    //         scale: 0,
-    //         opacity: 1,
-    //         rotation: 360,
-    //         duration: 2,
-    //         ease: "linear",
-    //     }, "+=1")
-    //     .from(".pill-anim__images", {
-    //         opacity: 1,
-    //         scale: 0,
-    //         duration: 2,
-    //         ease: "linear",
-    //     }, "+=0.3")
-    //     .from(".pill-anim__logo", {
-    //         opacity: 0,
-    //         xPercent: -150,
-    //         duration: 1,
-    //     }, "+=0.4");
     timeline
         .to(".pill-anim__components", {
             scale: 0.2,
@@ -473,8 +453,8 @@ document.addEventListener('DOMContentLoaded', function () {
         .from(".pill-anim__logo", {
             opacity: 0,
             xPercent: -150,
-            duration: 0.8, // Менша тривалість
-        }, "+=0.1"); // Мінімальна затримка
+            duration: 0.6, // Менша тривалість
+        }, "-=0.1"); // Мінімальна затримка
 
 
 // ANIM SECTION STICKY
@@ -499,48 +479,13 @@ document.addEventListener('DOMContentLoaded', function () {
 
 
 // // HOVER PARALLAX
-//     if (window.innerWidth >= 1024) {
-//         const container = document.querySelector('.container-parallax');
-//         let rect = container.getBoundingClientRect();
-//         const mouse = { x: 0, y: 0, moved: false };
-//
-//         container.addEventListener('mousemove', (e) => {
-//             mouse.moved = true;
-//             mouse.x = e.clientX - rect.left;
-//             mouse.y = e.clientY - rect.top;
-//         });
-//
-//         gsap.ticker.add(() => {
-//             if (mouse.moved) {
-//                 parallaxIt(".img-parallax", 10);
-//                 parallaxIt(".back-wave-parallax", -20);
-//             }
-//             mouse.moved = false;
-//         });
-//
-//         function parallaxIt(target, movement) {
-//             gsap.to(target, {
-//                 duration: 0.5,
-//                 x: (mouse.x - rect.width / 2) / rect.width * movement,
-//                 y: (mouse.y - rect.height / 2) / rect.height * movement
-//             });
-//         }
-//
-//         window.addEventListener('resize', updateRect);
-//         window.addEventListener('scroll', updateRect);
-//
-//         function updateRect() {
-//             rect = container.getBoundingClientRect();
-//         }
-//     }
-
     if (window.innerWidth >= 1024) {
         // Знаходимо всі секції, які повинні мати ефект паралаксу
         const containers = document.querySelectorAll('.container-parallax');
 
         containers.forEach(container => {
             let rect = container.getBoundingClientRect();
-            const mouse = { x: 0, y: 0, moved: false };
+            const mouse = {x: 0, y: 0, moved: false};
 
             // Відстеження руху миші в межах кожного контейнера
             container.addEventListener('mousemove', (e) => {
@@ -579,67 +524,68 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
 
-// Паралакс для хвилі
-// // Паралакс для хвилі (вертикальний рух)
-//     gsap.to('.parallax-wave', {
-//         scrollTrigger: {
-//             trigger: '.section-improvement', // Секція, де активується анімація
-//             start: 'top bottom', // Початок анімації
-//             end: 'bottom top', // Кінець анімації
-//             scrub: true, // Плавний зв’язок із прокруткою
-//         },
-//         y: '-15%' // Легкий рух вгору
-//     });
-//
-// // Паралакс для продукту (вертикальний рух)
-//     gsap.to('.parallax-img', {
-//         scrollTrigger: {
-//             trigger: '.section-improvement', // Секція, де активується анімація
-//             start: 'top bottom', // Початок анімації
-//             end: 'bottom top', // Кінець анімації
-//             scrub: true, // Плавний зв’язок із прокруткою
-//         },
-//         y: '15%' // Легкий рух вниз
-//     });
-
-
-
 //ANIM TITLE
-    const titles = gsap.utils.toArray('.anim-title');
+//     const titles = gsap.utils.toArray('.anim-title');
+//
+//     titles.forEach((title, i) => {
+//         const animTitle = gsap.fromTo(title, 1,  {opacity: 0, y: -100}, {duration: 1, opacity: 1, y: 0});
+//         ScrollTrigger.create({
+//             trigger: title,
+//             start: 'top center',
+//             animation: animTitle,
+//             stagger: 0.5,
+//             onLeaveBack: self => self.disable(),
+//         });
+//     });
+// });
+    const sections2 = gsap.utils.toArray('.section-anim'); // Масив секцій
 
-    titles.forEach((title, i) => {
-        const animTitle = gsap.fromTo(title, 1,  {opacity: 0, y: -100}, {duration: 1, opacity: 1, y: 0});
-        ScrollTrigger.create({
-            trigger: title,
-            start: 'top center',
-            animation: animTitle,
-            stagger: 0.5,
-            onLeaveBack: self => self.disable(),
+    sections2.forEach((section) => {
+        const elements = gsap.utils.toArray('.anim-title, .anim-subtitle', section); // Заголовки і підзаголовки
+
+        elements.forEach((el) => {
+            const isTitle = el.classList.contains('anim-title'); // Перевірка, чи це заголовок
+            const delay = isTitle ? 0.4 : 0.2; // Затримка для заголовків і підзаголовків
+
+            const anim = gsap.fromTo(
+                el,
+                {opacity: 0, y: -100}, // Початкові параметри (загальний зсув)
+                {duration: 1, opacity: 1, y: 0} // Кінцеві параметри
+            );
+
+            ScrollTrigger.create({
+                trigger: el,
+                start: 'top center',
+                animation: anim,
+                stagger: delay, // Відмінність у затримці
+                onLeaveBack: (self) => self.disable(),
+            });
         });
     });
-});
+
 
 // ANIM ELEMENTS SECTION
-const sections = gsap.utils.toArray('.anim-container'); // Всі секції на сторінці
-sections.forEach((section) => {
-    const items = gsap.utils.toArray('.anim-item', section); // Елементи (лише в межах секції)
+    const sections = gsap.utils.toArray('.anim-container'); // Всі секції на сторінці
+    sections.forEach((section) => {
+        const items = gsap.utils.toArray('.anim-item', section); // Елементи (лише в межах секції)
 
-    gsap.fromTo(
-        items, // Масив елементів
-        { opacity: 0, y: 50 }, // Початковий стан (прозорість і зсув вниз)
-        {
-            opacity: 1,
-            y: 0,
-            duration: 0.5, // Тривалість анімації кожного елементу
-            stagger: 0.2, // Інтервал між появою наступного елементу
-            ease: 'power2.out', // Ефект анімації
-            scrollTrigger: {
-                trigger: section, // Тригер — сама секція
-                start: 'top 75%', // Анімація починається, коли секція в 75% вікна
-                toggleActions: 'play none none reverse', // Відтворення при вході та скасування при виході
-            },
-        }
-    );
-});
+        gsap.fromTo(
+            items, // Масив елементів
+            {opacity: 0, y: 100}, // Початковий стан (прозорість і зсув вниз)
+            {
+                opacity: 1,
+                y: 0,
+                duration: 0.6, // Тривалість анімації кожного елементу
+                stagger: 0.1, // Інтервал між появою наступного елементу
+                ease: "power1.in", // Ефект анімації
+                scrollTrigger: {
+                    trigger: section, // Тригер — сама секція
+                    start: 'top 75%', // Анімація починається, коли секція в 75% вікна
+                    toggleActions: 'play none none none', // Відтворення при вході та скасування при виході
+                },
+            }
+        );
+    });
+})
 
 

@@ -332,32 +332,49 @@
     }
 
     .icon {
-      width: 494px;
+      width: 518px;
       top: -36px;
       left: 0;
-      transform: translateX(-45px);
+      transform: translateX(-72px);
       max-width: none;
 
     }
   }
   .image {
     width: auto;
-    height: 596px;
-    transform: translateX(50px) scale(0.95);
+    height: 590px;
+    transform: translateX(35px) scale(0.95);
     left: 0;
 
     &.visible {
-      transform: translateX(50px) scale(1);
+      transform: translateX(35px) scale(1);
     }
   }
   .manifestation-grid__bg{
     width: 1215px;
     height: 966px;
+    left: auto;
+    right: 0;
+
+    transform: translateX(20%);
+    bottom: -106px;
   }
 }
 
-@include mixins.respond-to(variables.$xl) {
+@include mixins.respond-to(variables.$xxl) {
   .image {
-    width: 360px;
+    height: 560px;
+    transform: translateX(148px) scale(.95);
+  }
+  .image.visible{
+    transform: translateX(148px) scale(.95);
+  }
+ .icons .icon{
+    width: 500px;
+    transform: translateX(30px);
+  }
+  .moving-element{
+    width: 638px;
+    height: 278px;
   }
 }

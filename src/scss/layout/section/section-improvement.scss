@@ -17,14 +17,6 @@
     transition: transform 0.3s ease-out;
   }
 
-  .moving-element {
-    width: 438px;
-    height: 457px;
-    opacity: 0.5;
-    filter: blur(80px);
-    background: #0096FF;
-    right: 50%;
-  }
 }
 
 .improvement-grid {
@@ -68,6 +60,15 @@
 
 @include mixins.respond-to(variables.$sm) { // 768
   .section-improvement {
+    .moving-element {
+      width: 438px;
+      height: 457px;
+      opacity: 0.5;
+      filter: blur(80px);
+      background: #0096FF;
+      right: 50%;
+      animation: float3 20s infinite linear;
+    }
     .title {
       text-align: center;
     }
@@ -173,6 +174,7 @@
       left: -439px;
       bottom: -187px;
     }
+
   }
 }
 
