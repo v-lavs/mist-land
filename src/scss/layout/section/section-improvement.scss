@@ -11,6 +11,10 @@
     right: auto;
     left: auto;
     bottom: -108px;
+
+
+    will-change: transform; /* Оптимізація для плавних змін */
+    transition: transform 0.3s ease-out;
   }
 
   .moving-element {

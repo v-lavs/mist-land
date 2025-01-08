@@ -498,39 +498,110 @@ document.addEventListener('DOMContentLoaded', function () {
     });
 
 
-// HOVER PARALLAX
+// // HOVER PARALLAX
+//     if (window.innerWidth >= 1024) {
+//         const container = document.querySelector('.container-parallax');
+//         let rect = container.getBoundingClientRect();
+//         const mouse = { x: 0, y: 0, moved: false };
+//
+//         container.addEventListener('mousemove', (e) => {
+//             mouse.moved = true;
+//             mouse.x = e.clientX - rect.left;
+//             mouse.y = e.clientY - rect.top;
+//         });
+//
+//         gsap.ticker.add(() => {
+//             if (mouse.moved) {
+//                 parallaxIt(".img-parallax", 10);
+//                 parallaxIt(".back-wave-parallax", -20);
+//             }
+//             mouse.moved = false;
+//         });
+//
+//         function parallaxIt(target, movement) {
+//             gsap.to(target, {
+//                 duration: 0.5,
+//                 x: (mouse.x - rect.width / 2) / rect.width * movement,
+//                 y: (mouse.y - rect.height / 2) / rect.height * movement
+//             });
+//         }
+//
+//         window.addEventListener('resize', updateRect);
+//         window.addEventListener('scroll', updateRect);
+//
+//         function updateRect() {
+//             rect = container.getBoundingClientRect();
+//         }
+//     }
+
     if (window.innerWidth >= 1024) {
+        // Знаходимо всі секції, які повинні мати ефект паралаксу
+        const containers = document.querySelectorAll('.container-parallax');
 
-        let rect = $('#container')[0].getBoundingClientRect();
-        const mouse = {x: 0, y: 0, moved: false};
+        containers.forEach(container => {
+            let rect = container.getBoundingClientRect();
+            const mouse = { x: 0, y: 0, moved: false };
 
-        $("#container").mousemove(function (e) {
-            mouse.moved = true;
-            mouse.x = e.clientX - rect.left;
-            mouse.y = e.clientY - rect.top;
-        });
-
-// Ticker event will be called on every frame
-        gsap.ticker.add(() => {
-            if (mouse.moved) {
-                parallaxIt(".banner-grid__product-img", 10);
-                parallaxIt(".back-wave", -20);
-            }
-            mouse.moved = false;
-        });
-
-        function parallaxIt(target, movement) {
-            gsap.to(target, {
-                duration: 0.5,
-                x: (mouse.x - rect.width / 2) / rect.width * movement,
-                y: (mouse.y - rect.height / 2) / rect.height * movement
+            // Відстеження руху миші в межах кожного контейнера
+            container.addEventListener('mousemove', (e) => {
+                mouse.moved = true;
+                mouse.x = e.clientX - rect.left;
+                mouse.y = e.clientY - rect.top;
             });
-        }
 
-        $(window).on('resize scroll', function () {
-            rect = $('#container')[0].getBoundingClientRect();
-        })
+            // GSAP Ticker для оновлення паралаксу
+            gsap.ticker.add(() => {
+                if (mouse.moved) {
+                    parallaxIt(container.querySelector('.img-parallax'), 10);
+                    parallaxIt(container.querySelector('.back-wave-parallax'), -20);
+                }
+                mouse.moved = false;
+            });
+
+            // Функція паралаксу для конкретного контейнера
+            function parallaxIt(target, movement) {
+                if (!target) return; // Перевірка, чи елемент існує
+                gsap.to(target, {
+                    duration: 0.5,
+                    x: (mouse.x - rect.width / 2) / rect.width * movement,
+                    y: (mouse.y - rect.height / 2) / rect.height * movement
+                });
+            }
+
+            // Оновлення координат контейнера при зміні розміру або прокрутці
+            window.addEventListener('resize', updateRect);
+            window.addEventListener('scroll', updateRect);
+
+            function updateRect() {
+                rect = container.getBoundingClientRect();
+            }
+        });
     }
+
+
+// Паралакс для хвилі
+// // Паралакс для хвилі (вертикальний рух)
+//     gsap.to('.parallax-wave', {
+//         scrollTrigger: {
+//             trigger: '.section-improvement', // Секція, де активується анімація
+//             start: 'top bottom', // Початок анімації
+//             end: 'bottom top', // Кінець анімації
+//             scrub: true, // Плавний зв’язок із прокруткою
+//         },
+//         y: '-15%' // Легкий рух вгору
+//     });
+//
+// // Паралакс для продукту (вертикальний рух)
+//     gsap.to('.parallax-img', {
+//         scrollTrigger: {
+//             trigger: '.section-improvement', // Секція, де активується анімація
+//             start: 'top bottom', // Початок анімації
+//             end: 'bottom top', // Кінець анімації
+//             scrub: true, // Плавний зв’язок із прокруткою
+//         },
+//         y: '15%' // Легкий рух вниз
+//     });
+
 
 
 //ANIM TITLE
@@ -547,4 +618,28 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     });
 });
+
+// ANIM ELEMENTS SECTION
+const sections = gsap.utils.toArray('.anim-container'); // Всі секції на сторінці
+sections.forEach((section) => {
+    const items = gsap.utils.toArray('.anim-item', section); // Елементи (лише в межах секції)
+
+    gsap.fromTo(
+        items, // Масив елементів
+        { opacity: 0, y: 50 }, // Початковий стан (прозорість і зсув вниз)
+        {
+            opacity: 1,
+            y: 0,
+            duration: 0.5, // Тривалість анімації кожного елементу
+            stagger: 0.2, // Інтервал між появою наступного елементу
+            ease: 'power2.out', // Ефект анімації
+            scrollTrigger: {
+                trigger: section, // Тригер — сама секція
+                start: 'top 75%', // Анімація починається, коли секція в 75% вікна
+                toggleActions: 'play none none reverse', // Відтворення при вході та скасування при виході
+            },
+        }
+    );
+});
+
 
