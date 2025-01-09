@@ -309,7 +309,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 symptom.style.filter = 'blur(0)';
             } else {
 
-                symptom.style.opacity = '0';
+                symptom.style.opacity = '0.3';
                 symptom.style.filter = `blur(4px)`;
             }
             symptom.style.fontSize = '16px'; // Фіксований розмір шрифту
