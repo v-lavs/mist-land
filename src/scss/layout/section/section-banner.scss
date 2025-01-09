@@ -46,6 +46,7 @@
     font-weight: 800;
     line-height: 61.6px;
     letter-spacing: 0.06em;
+    opacity: 0;
   }
 
   .banner-grid__subtitle {
@@ -54,6 +55,7 @@
     line-height: 28.8px;
     letter-spacing: 0.01em;
     animation-name: fadeInDown;
+    opacity: 0;
   }
 
   .banner-grid__product-img {

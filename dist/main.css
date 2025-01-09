@@ -2134,6 +2134,7 @@ sup {
   font-weight: 800;
   line-height: 61.6px;
   letter-spacing: 0.06em;
+  opacity: 0;
 }
 
 .section-banner .banner-grid__subtitle {
@@ -2142,6 +2143,7 @@ sup {
   line-height: 28.8px;
   letter-spacing: 0.01em;
   animation-name: fadeInDown;
+  opacity: 0;
 }
 
 .section-banner .banner-grid__product-img {
@@ -2269,7 +2271,6 @@ sup {
   position: relative;
   padding-left: 18px;
   padding-right: 18px;
-  transition: transform 1.5s ease, opacity 1s ease;
 }
 
 .section-manifestation .message-block:before {
@@ -2330,7 +2331,7 @@ sup {
 .sticky-trigger {
   position: relative;
   top: 0;
-  height: 200vh;
+  height: 500vh;
   border: 2px solid red;
 }
 
@@ -2355,8 +2356,9 @@ sup {
   margin-right: 8px;
   flex-shrink: 0;
   width: auto;
-  filter: blur(0);
-  transition: all 0.3s ease;
+  opacity: 0.2;
+  filter: blur(4px);
+  transition: opacity 0.3s ease, filter 0.3s ease, font-size 0.3s ease;
 }
 
 .manifestation:nth-child(1) {

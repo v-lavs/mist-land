@@ -8,9 +8,7 @@
     position: relative;
     padding-left: 18px;
     padding-right: 18px;
-    transition: transform 1.5s ease, opacity 1s ease;
-    //transform: translateY(150%);
-    //opacity: 0;
+    //transition: transform 1.5s ease, opacity 1s ease;
 
     &:before {
       position: absolute;
@@ -72,7 +70,8 @@
 .sticky-trigger {
   position: relative;
   top: 0;
-  height: 200vh;
+  height: 500vh;
+  //height: 900vh;
   border: 2px solid red;
 }
 
@@ -101,8 +100,9 @@
   $symptom-opacity-start: 0.6; // Початкова прозорість
   $symptom-opacity-end: 0.2; // Кінцева прозорість
   $symptom-blur-end: 4px; // Максимальний блюр
-  filter: blur(0);
-  transition: all 0.3s ease;
+  opacity: 0.2;
+  filter: blur(4px);
+  transition: opacity 0.3s ease, filter 0.3s ease, font-size 0.3s ease;
 
   @for $i from 1 through $symptom-count {
     &:nth-child(#{$i}) {

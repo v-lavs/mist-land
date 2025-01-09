@@ -255,8 +255,10 @@ document.addEventListener('DOMContentLoaded', function () {
             start: 'top top',
             end: 'bottom bottom',
             pin: true,
+            markers: true,
             pinSpacing: false,
             anticipatePin: 1,
+            toggleActions: 'play none none reverse',
             onUpdate: self => updateAnimationOnScroll(self.progress),
         }
     });
@@ -347,6 +349,7 @@ document.addEventListener('DOMContentLoaded', function () {
             iconElement.classList.add("icon", "visible");
             iconsContainer.appendChild(iconElement);
         }
+        console.log(444, newImageIndex)
     };
 
 // Оновлення анімації на основі скролу
@@ -369,8 +372,8 @@ document.addEventListener('DOMContentLoaded', function () {
 
         // Логіка для завершення анімації (залишаємо незмінною)
         if (currentSymptomIndex === symptoms.length - 1 && !isLastAnimation) {
-            isLastAnimation = true;
-
+            // isLastAnimation = true;
+            console.log(2222)
             setTimeout(() => {
                 stickyTrigger.style.position = "relative";
                 stickyTrigger.style.top = "auto";
@@ -478,8 +481,8 @@ document.addEventListener('DOMContentLoaded', function () {
     });
 
 
-// // HOVER PARALLAX
-    if (window.innerWidth >= 1024) {
+//HOVER PARALLAX
+if (window.innerWidth >= 1024) {
         // Знаходимо всі секції, які повинні мати ефект паралаксу
         const containers = document.querySelectorAll('.container-parallax');
 
@@ -525,19 +528,6 @@ document.addEventListener('DOMContentLoaded', function () {
 
 
 //ANIM TITLE
-//     const titles = gsap.utils.toArray('.anim-title');
-//
-//     titles.forEach((title, i) => {
-//         const animTitle = gsap.fromTo(title, 1,  {opacity: 0, y: -100}, {duration: 1, opacity: 1, y: 0});
-//         ScrollTrigger.create({
-//             trigger: title,
-//             start: 'top center',
-//             animation: animTitle,
-//             stagger: 0.5,
-//             onLeaveBack: self => self.disable(),
-//         });
-//     });
-// });
     const sections2 = gsap.utils.toArray('.section-anim'); // Масив секцій
 
     sections2.forEach((section) => {
@@ -562,7 +552,6 @@ document.addEventListener('DOMContentLoaded', function () {
             });
         });
     });
-
 
 // ANIM ELEMENTS SECTION
     const sections = gsap.utils.toArray('.anim-container'); // Всі секції на сторінці
