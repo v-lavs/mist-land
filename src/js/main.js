@@ -271,7 +271,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
     let currentSymptomIndex = -1;
     let isLastAnimation = false;
-    const delayAfterLastAnimation = 1000;
+    const delayAfterLastAnimation = 500;
 
     const sectionTop = animationSection.offsetTop;
     const sectionHeight = animationSection.offsetHeight;
@@ -309,7 +309,7 @@ document.addEventListener('DOMContentLoaded', function () {
             } else {
 
                 symptom.style.opacity = '0.3';
-                symptom.style.filter = `blur(4px)`;
+                // symptom.style.filter = `blur(4px)`;
             }
             symptom.style.fontSize = '16px'; // Фіксований розмір шрифту
         });
@@ -377,6 +377,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 stickyTrigger.style.position = "relative";
                 stickyTrigger.style.top = "auto";
                 stickyTrigger.style.scroll = "auto";
+                stickyTrigger.style.height = "auto";
                 updateState(currentSymptomIndex);
                 ScrollTrigger.refresh();
             }, delayAfterLastAnimation);

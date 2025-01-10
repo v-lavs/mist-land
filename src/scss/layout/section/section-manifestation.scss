@@ -53,6 +53,7 @@
     right: 0;
     top: 0;
     transform: translate(50%, 50%);
+    background: radial-gradient(93.19% 74.17% at 30% 59%, rgb(255, 255, 255), rgb(204, 0, 255) 52.831%, rgb(35, 141, 172) 100%);
   }
 }
 
@@ -229,7 +230,7 @@
   }
   .section-manifestation {
     .moving-element{
-      animation: float1 20s infinite linear;
+      animation: float2 20s infinite linear;
       width: 387px;
       height: 366px;
     }
