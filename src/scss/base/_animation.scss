@@ -11,8 +11,6 @@
   }
 }
 
-
-
 // ANIM STARS
 @keyframes scaleAnim {
   0%, 100% {
@@ -33,20 +31,22 @@
   max-width: none;
   z-index: 1;
 }
-.sticky-stars .star{
-  @for $i from 1 through 36 {
-    &:nth-child(#{$i}) {
-      animation-delay: 0.45s * ($i - 1);
-    }
-  }
-}
-.improvement-stars .star {
-    @for $i from 1 through 32 {
-    &:nth-child(#{$i}) {
-      animation-delay: 0.45s * ($i - 1);
-    }
-  }
-}
+//
+//.sticky-stars .star{
+//  @for $i from 1 through 36 {
+//    &:nth-child(#{$i}) {
+//      animation-delay: 0.2s * ($i - 1);
+//    }
+//  }
+//}
+//
+//.improvement-stars .star {
+//    @for $i from 1 through 32 {
+//    &:nth-child(#{$i}) {
+//      animation-delay: 0.45s * ($i - 1);
+//    }
+//  }
+//}
 
 .banner__stars .star {
   @for $i from 1 through 29 {
@@ -58,7 +58,7 @@
 .about-stars .star{
   @for $i from 1 through 43 {
     &:nth-child(#{$i}) {
-      animation-delay: 0.45s * ($i - 1);
+      animation-delay: 0.2s * ($i - 1);
     }
   }
 }

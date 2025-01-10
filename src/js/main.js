@@ -257,7 +257,6 @@ document.addEventListener('DOMContentLoaded', function () {
             pin: true,
             markers: true,
             pinSpacing: false,
-            anticipatePin: 1,
             toggleActions: 'play none none reverse',
             onUpdate: self => updateAnimationOnScroll(self.progress),
         }
@@ -443,7 +442,7 @@ document.addEventListener('DOMContentLoaded', function () {
             scale: 0.2,
             opacity: 0,
             rotation: 360,
-            duration: 2, // Скорочено тривалість
+            duration: 1.5, // Скорочено тривалість
             ease: "power2.out",
         }, "+=0.5") // Скорочено затримку
         .from(".pill-anim__images", {
@@ -462,7 +461,6 @@ document.addEventListener('DOMContentLoaded', function () {
 
 // ANIM SECTION STICKY
     ScrollTrigger.matchMedia({
-
         "(min-width: 768px)": function () {
             const tl2 = gsap.timeline({
                 scrollTrigger: {

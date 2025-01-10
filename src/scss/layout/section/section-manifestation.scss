@@ -3,6 +3,13 @@
 
 .section-manifestation {
   position: relative;
+  padding-top: 0!important;
+  .container {
+    //display: flex;
+    //flex-direction: column;
+    ////min-height: 100vh;
+    //justify-content: center;
+  }
   .message-block {
     padding-top: 42px;
     position: relative;
@@ -73,6 +80,10 @@
   height: 500vh;
   //height: 900vh;
   border: 2px solid red;
+
+  .container {
+    padding-top: 40px;
+  }
 }
 
 .manifestation-list {
@@ -189,6 +200,7 @@
     min-height: 440px;
 
     ul {
+      transform: none!important;
       display: block;
     }
   }
@@ -225,7 +237,7 @@
     .section__header {
       margin-bottom: 50px;
     }
-    .sticky-trigger{
+    .sticky-trigger .container {
       padding-top: 80px;
     }
 
@@ -301,7 +313,7 @@
   }
   .section-manifestation {
     padding-top: 0;
-    .sticky-trigger{
+    .sticky-trigger .container{
       padding-top: 100px;
     }
     .message-block {
