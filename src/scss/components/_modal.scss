@@ -167,6 +167,27 @@
   width: 240px;
   height: 245px;
   margin: 0 auto 10px;
+  cursor: pointer;
+
+  .roulette__circle-bg {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 2;
+    pointer-events: none;
+  }
+  .roulette__data {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    pointer-events: none;
+    transition: transform 3s cubic-bezier(0.1, 0.7, 0.1, 1);
+  }
 
   &__wheel {
     transform: rotate(60deg);
@@ -199,7 +220,7 @@
     border-radius: 0;
     bottom: 6px;
     right: -15px;
-    z-index: 1;
+    z-index: 5;
   }
 }
 
@@ -208,24 +229,16 @@
   margin: 0 auto;
 }
 
-$num-dots: 17;
-$animation-duration: .5s;
+//$num-dots: 17;
+//$animation-duration: .4s;
+//
+//@for $i from 1 through $num-dots {
+//  .dot:nth-child(#{$i}) {
+//    animation: fade $animation-duration linear infinite;
+//    animation-delay: #{($i - 1) * calc(1 / 17)}s;
+//  }
+//}
 
-@for $i from 1 through $num-dots {
-  .dot:nth-child(#{$i}) {
-    animation: fade $animation-duration linear infinite;
-    animation-delay: #{($i - 1) * calc(1 / 17)}s;
-  }
-}
-
-@keyframes fade {
-  0%, 100% {
-    opacity: 0.5;
-  }
-  50% {
-    opacity: 1;
-  }
-}
 
 @include mixins.respond-to(variables.$sm) {
   .modal {

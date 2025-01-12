@@ -3,10 +3,9 @@
 * */
 
 // CUSTOM SCRIPTS
-document.addEventListener('DOMContentLoaded', function () {
-    // console.log("GSAP:", gsap);
-    // gsap.registerPlugin(ScrollTrigger, ScrollToPlugin);
+gsap.registerPlugin(ScrollTrigger, ScrollToPlugin);
 
+document.addEventListener('DOMContentLoaded', function () {
 // MOBILE MENU
     const nav = document.querySelector('.header__nav');
     const navOpenHeader = document.querySelector('.header');
@@ -37,7 +36,6 @@ document.addEventListener('DOMContentLoaded', function () {
     });
 
 // SCROLL TO ANCHOR
-    gsap.registerPlugin(ScrollToPlugin);
 
 
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
@@ -223,6 +221,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
 // SPIN ROULETTE
     const wheel = document.getElementById('wheel');
+    const wheelData = document.getElementById('wheelData');
     const btnSpin = document.getElementById('spinButton');
     const textStart = document.querySelector('.text-start');
     const textEnd = document.querySelector('.text-end');
@@ -234,7 +233,7 @@ document.addEventListener('DOMContentLoaded', function () {
         const randomSpins = Math.floor(Math.random() * 5) + 5;
         const totalRotation = randomSpins * 360 + targetSectorAngle;
 
-        wheel.style.transform = `rotate(${totalRotation}deg)`;
+        wheelData.style.transform = `rotate(${totalRotation}deg)`;
         textStart.style.display = 'none';
         btnSpin.style.display = 'none';
 
@@ -253,10 +252,10 @@ document.addEventListener('DOMContentLoaded', function () {
         scrollTrigger: {
             trigger: '.sticky-trigger',
             start: 'top top',
-            end: 'bottom bottom',
+            end: '+=400%',
             pin: true,
-            markers: true,
-            pinSpacing: false,
+            spinWheel: true,
+            pinSpacing: true,
             toggleActions: 'play none none reverse',
             onUpdate: self => updateAnimationOnScroll(self.progress),
         }
@@ -302,7 +301,7 @@ document.addEventListener('DOMContentLoaded', function () {
 // Функція для оновлення стилів симптомів на мобільних (поступово)
     const updateSymptomsStylesMobile = (currentIndex) => {
         symptoms.forEach((symptom, i) => {
-            if (i === currentIndex) {
+            if (i <= currentIndex) {
 
                 symptom.style.opacity = '1';
                 symptom.style.filter = 'blur(0)';
@@ -348,7 +347,6 @@ document.addEventListener('DOMContentLoaded', function () {
             iconElement.classList.add("icon", "visible");
             iconsContainer.appendChild(iconElement);
         }
-        console.log(444, newImageIndex)
     };
 
 // Оновлення анімації на основі скролу
@@ -372,7 +370,6 @@ document.addEventListener('DOMContentLoaded', function () {
         // Логіка для завершення анімації (залишаємо незмінною)
         if (currentSymptomIndex === symptoms.length - 1 && !isLastAnimation) {
             // isLastAnimation = true;
-            console.log(2222)
             setTimeout(() => {
                 stickyTrigger.style.position = "relative";
                 stickyTrigger.style.top = "auto";
@@ -435,7 +432,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 // Add the class when the timeline starts
                 document.getElementById("about").classList.add("timeline-started");
             },
-            markers: true,        // Remove in production; helpful for debugging
+            // markers: true,        // Remove in production; helpful for debugging
         },
     });
     timeline
