@@ -175,5 +175,13 @@
     &__logo {
       max-width: 140px;
     }
+    .menu{
+      gap: 30px;
+    }
+  }
+}
+@include mixins.respond-to(variables.$xxl){
+  .header .menu{
+    gap: 36px;
   }
 }

@@ -253,7 +253,7 @@ document.addEventListener('DOMContentLoaded', function () {
         scrollTrigger: {
             trigger: '.sticky-trigger',
             start: 'top top',
-            end: '+=400%',
+            end: '+=250%',
             pin: true,
             spinWheel: true,
             pinSpacing: true,
