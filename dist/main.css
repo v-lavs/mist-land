@@ -1772,14 +1772,18 @@ sup {
   width: 50%;
   z-index: 5;
   opacity: 0;
-  transition: 0.35s;
+  will-change: transform, opacity;
+  backface-visibility: hidden;
+  perspective: 1000px;
 }
 
 .section-banner .banner-grid__addition-info {
   position: relative;
   width: 100%;
   opacity: 0;
-  transition: 0.35s;
+  will-change: transform, opacity;
+  backface-visibility: hidden;
+  perspective: 1000px;
 }
 
 .section-banner .banner-grid__title {
@@ -1789,7 +1793,9 @@ sup {
   line-height: 61.6px;
   letter-spacing: 0.06em;
   opacity: 0;
-  transition: 0.35s;
+  will-change: transform, opacity;
+  backface-visibility: hidden;
+  perspective: 1000px;
 }
 
 .section-banner .banner-grid__subtitle {
@@ -1798,7 +1804,9 @@ sup {
   line-height: 28.8px;
   letter-spacing: 0.01em;
   opacity: 0;
-  transition: 0.35s;
+  will-change: transform, opacity;
+  backface-visibility: hidden;
+  perspective: 1000px;
 }
 
 .section-banner .banner-grid__product-img {

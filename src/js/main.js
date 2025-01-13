@@ -6,6 +6,7 @@
 // CUSTOM SCRIPTS
 gsap.registerPlugin(ScrollTrigger, ScrollToPlugin);
 gsap.ticker.lagSmoothing(1000, 33);
+gsap.ticker.fps(60);
 
 document.addEventListener('DOMContentLoaded', function () {
 // MOBILE MENU
