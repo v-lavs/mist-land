@@ -417,7 +417,7 @@ document.addEventListener('DOMContentLoaded', function () {
     const timeline = gsap.timeline({
         scrollTrigger: {
             trigger: "#about",
-            start: "top 30%",
+            start: "top 35%",
                        onEnter: () => {
                 document.getElementById("about").classList.add("timeline-started");
             },
@@ -430,7 +430,7 @@ document.addEventListener('DOMContentLoaded', function () {
             rotation: 360,
             duration: 1.5,
             ease: "power2.out",
-        }, "+=0.5")
+        }, "+=0.8")
         .from(".pill-anim__images", {
             opacity: 1,
             scale: 0,
