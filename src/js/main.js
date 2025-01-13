@@ -442,56 +442,56 @@ document.addEventListener('DOMContentLoaded', function () {
                 rect = container.getBoundingClientRect();
             }
         });
+    }
 
-        // ANIM TITLE
-        const sections2 = gsap.utils.toArray('.section-anim');
+    // ANIM TITLE
+    const sections2 = gsap.utils.toArray('.section-anim');
 
-        sections2.forEach((section) => {
-            const elements = gsap.utils.toArray('.anim-title, .anim-subtitle', section);
+    sections2.forEach((section) => {
+        const elements = gsap.utils.toArray('.anim-title, .anim-subtitle', section);
 
-            elements.forEach((el) => {
-                const isTitle = el.classList.contains('anim-title');
-                const delay = isTitle ? 0.4 : 0.2;
+        elements.forEach((el) => {
+            const isTitle = el.classList.contains('anim-title');
+            const delay = isTitle ? 0.4 : 0.2;
 
-                const anim = gsap.fromTo(
-                    el,
-                    {opacity: 0, y: -100},
-                    {duration: 1, opacity: 1, y: 0, ease: "power1.inOut"}
-                );
+            const anim = gsap.fromTo(
+                el,
+                {opacity: 0, y: -100},
+                {duration: 1, opacity: 1, y: 0, ease: "power1.inOut"}
+            );
 
-                ScrollTrigger.create({
-                    trigger: el,
-                    start: 'top center',
-                    animation: anim,
-                    stagger: delay,
-                    onLeaveBack: (self) => self.disable(),
-                    once: true,
-                });
+            ScrollTrigger.create({
+                trigger: el,
+                start: 'top center',
+                animation: anim,
+                stagger: delay,
+                onLeaveBack: (self) => self.disable(),
+                once: true,
             });
         });
+    });
 
-        // ANIM ELEMENTS SECTION
+    // ANIM ELEMENTS SECTION
 
-        const sections = gsap.utils.toArray('.anim-container');
-        sections.forEach((section) => {
-            const items = gsap.utils.toArray('.anim-item', section);
-            gsap.fromTo(
-                items,
-                {opacity: 0, y: 100},
-                {
-                    opacity: 1,
-                    y: 0,
-                    duration: 0.6,
-                    stagger: 0.2,
-                    ease: "power1.inOut",
-                    scrollTrigger: {
-                        trigger: section,
-                        start: 'top 75%',
-                        toggleActions: 'play none none reverse',
-                        once: true,
-                    },
-                }
-            );
-        });
-    }
-)
+    const sections = gsap.utils.toArray('.anim-container');
+    sections.forEach((section) => {
+        const items = gsap.utils.toArray('.anim-item', section);
+        gsap.fromTo(
+            items,
+            {opacity: 0, y: 100},
+            {
+                opacity: 1,
+                y: 0,
+                duration: 0.6,
+                stagger: 0.2,
+                ease: "power1.inOut",
+                scrollTrigger: {
+                    trigger: section,
+                    start: 'top 75%',
+                    toggleActions: 'play none none reverse',
+                    once: true,
+                },
+            }
+        );
+    });
+});
