@@ -37,22 +37,19 @@ document.addEventListener('DOMContentLoaded', function () {
     });
 
 // SCROLL TO ANCHOR
-
-
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener("click", function (e) {
-            e.preventDefault(); // Вимикаємо стандартну поведінку браузера
+            e.preventDefault();
 
-            const targetId = this.getAttribute("href").substring(1); // Отримуємо ID цільової секції
-            const targetElement = document.getElementById(targetId); // Шукаємо елемент по ID
+            const targetId = this.getAttribute("href").substring(1);
+            const targetElement = document.getElementById(targetId);
 
             if (targetElement) {
                 gsap.to(window, {
-                    scrollTo: targetElement, // Прокручуємо до елемента
-                    duration: 1.5, // Тривалість анімації (в секундах)
-                    ease: "power2.out",// Ефект анімації
+                    scrollTo: targetElement,
+                    duration: 1.5,
+                    ease: "power2.out",
                     onComplete: () => {
-                        // Перезапускаємо всі ScrollTrigger після прокрутки
                         ScrollTrigger.refresh();
                     }
                 });
@@ -168,12 +165,12 @@ document.addEventListener('DOMContentLoaded', function () {
     })();
 
 // POPUPS
-    const openButtons = document.querySelectorAll('.open-popup'); // Кнопки для відкриття перших двох попапів
-    const popup = document.getElementById('modal'); // Перший/Другий Попап
+    const openButtons = document.querySelectorAll('.open-popup');
+    const popup = document.getElementById('modal');
     const popupText = document.getElementById('modalHeader');
     const closePopupButton = document.getElementById('closePopup');
     const overlay = document.querySelector('.overlay');
-    const thirdPopup = document.getElementById('playDiscount'); // Третій Попап
+    const thirdPopup = document.getElementById('playDiscount');
     const closeThirdPopupButton = document.getElementById('closeThirdPopup');
 
     function openPopup(popupElement) {
@@ -228,7 +225,6 @@ document.addEventListener('DOMContentLoaded', function () {
     const textEnd = document.querySelector('.text-end');
     const btnDiscount = document.querySelector('.btn_discount');
 
-// Спільна функція запуску барабана
     function spinWheel() {
         const targetSectorAngle = 300;
         const randomSpins = Math.floor(Math.random() * 5) + 5;
@@ -244,7 +240,6 @@ document.addEventListener('DOMContentLoaded', function () {
         }, 3000);
     }
 
-// Додаємо слухачі подій
     wheel.addEventListener('click', spinWheel);
     btnSpin.addEventListener('click', spinWheel);
 
@@ -259,7 +254,6 @@ document.addEventListener('DOMContentLoaded', function () {
             pinSpacing: true,
             toggleActions: 'play none none reverse',
             onUpdate: self => updateAnimationOnScroll(self.progress),
-
         }
     });
 
@@ -278,10 +272,9 @@ document.addEventListener('DOMContentLoaded', function () {
     const sectionHeight = animationSection.offsetHeight;
     const symptomStep = sectionHeight / symptoms.length;
 
-// Перевірка, чи це мобільний екран
     const isMobile = () => window.innerWidth < 768;
 
-// Функція для оновлення стилів симптомів на десктопі (накопичувально)
+// Функція для оновлення стилів симптомів на десктопі
     const updateSymptomsStylesDesktop = (currentIndex) => {
         symptoms.forEach((symptom, i) => {
             if (i <= currentIndex) {
@@ -300,7 +293,7 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     };
 
-// Функція для оновлення стилів симптомів на мобільних (поступово)
+// Функція для оновлення стилів симптомів на мобільних
     const updateSymptomsStylesMobile = (currentIndex) => {
         symptoms.forEach((symptom, i) => {
             if (i <= currentIndex) {
@@ -310,20 +303,18 @@ document.addEventListener('DOMContentLoaded', function () {
             } else {
 
                 symptom.style.opacity = '0.3';
-                // symptom.style.filter = `blur(4px)`;
             }
-            symptom.style.fontSize = '16px'; // Фіксований розмір шрифту
+            symptom.style.fontSize = '16px';
         });
         let shiftWidth = 0;
         for (let i = 0; i < currentIndex; i++) {
-            shiftWidth += symptoms[i].offsetWidth + 8; // Ширина елементів + gap (8px)
+            shiftWidth += symptoms[i].offsetWidth + 8;
         }
         symptomList.style.transform = `translateX(-${shiftWidth}px)`;
     };
 
 // Функція для оновлення стану
     const updateState = (index) => {
-        // Логіка залежно від розміру екрана
         if (isMobile()) {
             updateSymptomsStylesMobile(index);
         } else {
@@ -343,7 +334,7 @@ document.addEventListener('DOMContentLoaded', function () {
         // Оновлюємо іконки
         const iconSrc = symptoms[index]?.dataset.icon;
         if (iconSrc) {
-            iconsContainer.innerHTML = ""; // Очищаємо попередні іконки
+            iconsContainer.innerHTML = "";
             const iconElement = document.createElement("img");
             iconElement.src = iconSrc;
             iconElement.classList.add("icon", "visible");
@@ -369,9 +360,8 @@ document.addEventListener('DOMContentLoaded', function () {
             });
         }
 
-        // Логіка для завершення анімації (залишаємо незмінною)
+        // Логіка для завершення анімації
         if (currentSymptomIndex === symptoms.length - 1 && !isLastAnimation) {
-            // isLastAnimation = true;
             setTimeout(() => {
                 stickyTrigger.style.position = "relative";
                 stickyTrigger.style.top = "auto";
@@ -398,7 +388,6 @@ document.addEventListener('DOMContentLoaded', function () {
     const getDurationRandomValue = () => 2 + Math.random();
     const getRotationRandomValue = () => Math.random() * 20 - 10;
 
-    // This function creates the animation for each component.
     document.querySelectorAll(".pill-anim__component").forEach((component) => {
         const tl = gsap.timeline({repeat: -1, yoyo: true});
 
@@ -427,14 +416,11 @@ document.addEventListener('DOMContentLoaded', function () {
 
     const timeline = gsap.timeline({
         scrollTrigger: {
-            trigger: "#about", // Section to observe for scroll
-            start: "top center",
-            // When to start (e.g., when the top of the section reaches the top of the viewport)
-            onEnter: () => {
-                // Add the class when the timeline starts
+            trigger: "#about",
+            start: "top 40%",
+                       onEnter: () => {
                 document.getElementById("about").classList.add("timeline-started");
             },
-            // markers: true,        // Remove in production; helpful for debugging
         },
     });
     timeline
@@ -442,21 +428,21 @@ document.addEventListener('DOMContentLoaded', function () {
             scale: 0.2,
             opacity: 0,
             rotation: 360,
-            duration: 1.5, // Скорочено тривалість
+            duration: 1.5,
             ease: "power2.out",
-        }, "+=0.5") // Скорочено затримку
+        }, "+=0.5")
         .from(".pill-anim__images", {
             opacity: 1,
             scale: 0,
-            duration: 1.5, // Скорочено тривалість
+            duration: 1.5,
             // ease: "linear",
             ease: "power1.out"
-        }, "-=1") // Мінімальна затримка
+        }, "-=1")
         .from(".pill-anim__logo", {
             opacity: 0,
             xPercent: -150,
-            duration: 0.6, // Менша тривалість
-        }, "-=0.1"); // Мінімальна затримка
+            duration: 0.6,
+        }, "-=0.1");
 
 
 // ANIM SECTION STICKY
@@ -466,7 +452,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 scrollTrigger: {
                     trigger: '.sticky-grid__img-block',
                     start: 'top top',
-                    end: 'center top', // Це значення може бути некоректним, див. пояснення нижче
+                    end: 'center top',
                     pin: true,
                     pinSpacing: false,
                     anticipatePin: 1
