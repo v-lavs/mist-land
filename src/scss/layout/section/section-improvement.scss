@@ -55,14 +55,7 @@
   height: 170px;
   transform: translate(17%, -56px);
 }
-//.section-improvement .title{
-//  opacity: 0;
-//  transform: translateY(30px);
-//}
-//.section-improvement .labels-grid__item {
-//  opacity: 0;
-//  transform: translateY(-30px);
-//}
+
 @include mixins.respond-to(variables.$sm) { // 768
   .section-improvement {
     .moving-element {
@@ -72,7 +65,7 @@
       filter: blur(80px);
       background: #0096FF;
       right: 50%;
-      animation: float3 20s infinite linear;
+      animation: float3 25s infinite linear;
     }
     .title {
       text-align: center;

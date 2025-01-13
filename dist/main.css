@@ -706,6 +706,28 @@ sup {
   }
 }
 
+@keyframes float3 {
+  0% {
+    transform: translate(200%, 50%);
+  }
+
+  25% {
+    transform: translate(150%, 30%);
+  }
+
+  50% {
+    transform: translate(100%, 80%);
+  }
+
+  75% {
+    transform: translate(150%, 20%);
+  }
+
+  100% {
+    transform: translate(200%, 50%);
+  }
+}
+
 .menu {
   margin-top: auto;
   margin-bottom: auto;
@@ -1616,14 +1638,20 @@ sup {
 }
 
 .header {
-  position: absolute;
+  position: fixed;
   top: 0;
   left: 0;
   right: 0;
   width: 100%;
   padding: 12px 0;
   min-height: 60px;
-  z-index: 12;
+  z-index: 120;
+  transition: all 0.35s ease-in-out;
+}
+
+.header.active {
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(20px);
 }
 
 .header__logo {
@@ -3057,7 +3085,7 @@ sup {
     filter: blur(80px);
     background: #0096FF;
     right: 50%;
-    animation: float3 20s infinite linear;
+    animation: float3 25s infinite linear;
   }
 
   .section-improvement .title {

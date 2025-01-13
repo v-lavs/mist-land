@@ -1,16 +1,5 @@
 @use "sass:math";
 
-//@keyframes fadeInDownBig {
-//  0% {
-//    opacity: 0;
-//    transform: translate3d(0, -2000px, 0);
-//  }
-//  100% {
-//    opacity: 1;
-//    transform: none;
-//  }
-//}
-
 // ANIM STARS
 @keyframes scaleAnim {
   0%, 100% {
@@ -112,20 +101,20 @@
 
 }
 
-//@keyframes float3 {
-//  0% {
-//    transform: translate(50vw, 50vh);
-//  }
-//  25% {
-//    transform: translate(20vw, 30vh);
-//  }
-//  50% {
-//    transform: translate(70vw, 80vh);
-//  }
-//  75% {
-//    transform: translate(10vw, 10vh);
-//  }
-//  100% {
-//    transform: translate(50vw, 50vh);
-//  }
-//}
+@keyframes float3 {
+  0% {
+  transform: translate(200%, 50%);
+  }
+  25% {
+    transform: translate(150%, 30%);
+  }
+  50% {
+    transform: translate(100%, 80%);
+  }
+  75% {
+    transform: translate(150%, 20%);
+  }
+  100% {
+    transform: translate(200%, 50%);
+  }
+}

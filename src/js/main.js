@@ -36,6 +36,7 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     });
 
+
 // SCROLL TO ANCHOR
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener("click", function (e) {
