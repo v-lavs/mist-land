@@ -417,7 +417,7 @@ document.addEventListener('DOMContentLoaded', function () {
     const timeline = gsap.timeline({
         scrollTrigger: {
             trigger: "#about",
-            start: "top 40%",
+            start: "top 30%",
                        onEnter: () => {
                 document.getElementById("about").classList.add("timeline-started");
             },
