@@ -122,6 +122,7 @@ body {
   color: #FFFFFF;
   height: 100%;
   scroll-behavior: smooth;
+  -webkit-overflow-scrolling: auto;
 }
 
 body.disable-scroll {

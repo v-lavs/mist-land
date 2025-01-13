@@ -185,18 +185,18 @@ document.addEventListener('DOMContentLoaded', function () {
 
 // // ANIM BLOCK WITH GIRL
 
-    // const tl1 = gsap.timeline({
-    //     scrollTrigger: {
-    //         trigger: '.sticky-trigger',
-    //         start: 'top top',
-    //         end: '+=250%',
-    //         pin: true,
-    //         spinWheel: true,
-    //         pinSpacing: true,
-    //         toggleActions: 'play none none reverse',
-    //         onUpdate: self => updateAnimationOnScroll(self.progress),
-    //     }
-    // });
+    const tl1 = gsap.timeline({
+        scrollTrigger: {
+            trigger: '.sticky-trigger',
+            start: 'top top',
+            end: '+=250%',
+            pin: true,
+            spinWheel: true,
+            pinSpacing: true,
+            toggleActions: 'play none none reverse',
+            onUpdate: self => updateAnimationOnScroll(self.progress),
+        }
+    });
 
     const symptoms = document.querySelectorAll(".manifestation");
     const symptomList = document.querySelector(".manifestation-list ul");
@@ -217,114 +217,114 @@ document.addEventListener('DOMContentLoaded', function () {
 
 // Функція для оновлення стилів симптомів на десктопі
 
-//     const updateSymptomsStylesDesktop = (currentIndex) => {
-//         symptoms.forEach((symptom, i) => {
-//             if (i <= currentIndex) {
-//                 symptom.style.fontSize = '20px';
-//                 symptom.style.opacity = '1';
-//                 symptom.style.filter = 'blur(0)';
-//             } else {
-//                 const factor = Math.abs(i - currentIndex);
-//                 const opacity = 0.6 - factor * (0.6 - 0.2) / symptoms.length;
-//                 const blur = factor * (4 / symptoms.length);
-//
-//                 symptom.style.fontSize = '16px';
-//                 symptom.style.opacity = opacity.toFixed(2);
-//                 symptom.style.filter = `blur(${blur}px)`;
-//             }
-//         });
-//     };
+    const updateSymptomsStylesDesktop = (currentIndex) => {
+        symptoms.forEach((symptom, i) => {
+            if (i <= currentIndex) {
+                symptom.style.fontSize = '20px';
+                symptom.style.opacity = '1';
+                symptom.style.filter = 'blur(0)';
+            } else {
+                const factor = Math.abs(i - currentIndex);
+                const opacity = 0.6 - factor * (0.6 - 0.2) / symptoms.length;
+                const blur = factor * (4 / symptoms.length);
+
+                symptom.style.fontSize = '16px';
+                symptom.style.opacity = opacity.toFixed(2);
+                symptom.style.filter = `blur(${blur}px)`;
+            }
+        });
+    };
 
 // Функція для оновлення стилів симптомів на мобільних
 
-//     const updateSymptomsStylesMobile = (currentIndex) => {
-//         symptoms.forEach((symptom, i) => {
-//             if (i <= currentIndex) {
-//
-//                 symptom.style.opacity = '1';
-//                 symptom.style.filter = 'blur(0)';
-//             } else {
-//
-//                 symptom.style.opacity = '0.3';
-//             }
-//             symptom.style.fontSize = '16px';
-//         });
-//         let shiftWidth = 0;
-//         for (let i = 0; i < currentIndex; i++) {
-//             shiftWidth += symptoms[i].offsetWidth + 8;
-//         }
-//         symptomList.style.transform = `translateX(-${shiftWidth}px)`;
-//     };
+    const updateSymptomsStylesMobile = (currentIndex) => {
+        symptoms.forEach((symptom, i) => {
+            if (i <= currentIndex) {
+
+                symptom.style.opacity = '1';
+                symptom.style.filter = 'blur(0)';
+            } else {
+
+                symptom.style.opacity = '0.3';
+            }
+            symptom.style.fontSize = '16px';
+        });
+        let shiftWidth = 0;
+        for (let i = 0; i < currentIndex; i++) {
+            shiftWidth += symptoms[i].offsetWidth + 8;
+        }
+        symptomList.style.transform = `translateX(-${shiftWidth}px)`;
+    };
 
 // Функція для оновлення стану
 
-//     const updateState = (index) => {
-//         if (isMobile()) {
-//             updateSymptomsStylesMobile(index);
-//         } else {
-//             updateSymptomsStylesDesktop(index);
-//         }
-//
-//         // Показуємо відповідну картинку
-//         const newImageIndex = getImageIndexForSymptom(index);
-//         images.forEach((image, imgIndex) => {
-//             if (imgIndex === newImageIndex) {
-//                 image.classList.add("visible");
-//             } else {
-//                 image.classList.remove("visible");
-//             }
-//         });
-//
-//         // Оновлюємо іконки
-//         const iconSrc = symptoms[index]?.dataset.icon;
-//         if (iconSrc) {
-//             iconsContainer.innerHTML = "";
-//             const iconElement = document.createElement("img");
-//             iconElement.src = iconSrc;
-//             iconElement.classList.add("icon", "visible");
-//             iconsContainer.appendChild(iconElement);
-//         }
-//     };
+    const updateState = (index) => {
+        if (isMobile()) {
+            updateSymptomsStylesMobile(index);
+        } else {
+            updateSymptomsStylesDesktop(index);
+        }
+
+        // Показуємо відповідну картинку
+        const newImageIndex = getImageIndexForSymptom(index);
+        images.forEach((image, imgIndex) => {
+            if (imgIndex === newImageIndex) {
+                image.classList.add("visible");
+            } else {
+                image.classList.remove("visible");
+            }
+        });
+
+        // Оновлюємо іконки
+        const iconSrc = symptoms[index]?.dataset.icon;
+        if (iconSrc) {
+            iconsContainer.innerHTML = "";
+            const iconElement = document.createElement("img");
+            iconElement.src = iconSrc;
+            iconElement.classList.add("icon", "visible");
+            iconsContainer.appendChild(iconElement);
+        }
+    };
 
 // Оновлення анімації на основі скролу
-//     const updateAnimationOnScroll = (progress) => {
-//         const scrollPosition = progress * sectionHeight;
-//
-//         if (!isLastAnimation) {
-//             symptoms.forEach((symptom, index) => {
-//                 const start = index * symptomStep;
-//                 const end = start + symptomStep;
-//
-//                 if (scrollPosition >= start && scrollPosition < end) {
-//                     if (currentSymptomIndex !== index) {
-//                         currentSymptomIndex = index;
-//                         updateState(index); // Оновлюємо стан на основі індексу
-//                     }
-//                 }
-//             });
-//         }
-//
-//         // Логіка для завершення анімації
-//         if (currentSymptomIndex === symptoms.length - 1 && !isLastAnimation) {
-//             setTimeout(() => {
-//                 stickyTrigger.style.position = "relative";
-//                 stickyTrigger.style.top = "auto";
-//                 stickyTrigger.style.scroll = "auto";
-//                 stickyTrigger.style.height = "auto";
-//                 updateState(currentSymptomIndex);
-//                 ScrollTrigger.refresh();
-//             }, delayAfterLastAnimation);
-//         }
-//     };
+    const updateAnimationOnScroll = (progress) => {
+        const scrollPosition = progress * sectionHeight;
+
+        if (!isLastAnimation) {
+            symptoms.forEach((symptom, index) => {
+                const start = index * symptomStep;
+                const end = start + symptomStep;
+
+                if (scrollPosition >= start && scrollPosition < end) {
+                    if (currentSymptomIndex !== index) {
+                        currentSymptomIndex = index;
+                        updateState(index); // Оновлюємо стан на основі індексу
+                    }
+                }
+            });
+        }
+
+        // Логіка для завершення анімації
+        if (currentSymptomIndex === symptoms.length - 1 && !isLastAnimation) {
+            setTimeout(() => {
+                stickyTrigger.style.position = "relative";
+                stickyTrigger.style.top = "auto";
+                stickyTrigger.style.scroll = "auto";
+                stickyTrigger.style.height = "auto";
+                updateState(currentSymptomIndex);
+                ScrollTrigger.refresh();
+            }, delayAfterLastAnimation);
+        }
+    };
 
 // Функція для визначення, яка картинка відповідає поточному симптому
-//     const getImageIndexForSymptom = (symptomIndex) => {
-//         if (symptomIndex >= 0 && symptomIndex <= 2) return 0; // Картинка 1 (симптоми 1–3)
-//         if (symptomIndex >= 3 && symptomIndex <= 5) return 1; // Картинка 2 (симптоми 4–6)
-//         if (symptomIndex >= 6 && symptomIndex <= 7) return 2; // Картинка 3 (симптоми 7–8)
-//         if (symptomIndex === 8) return 3; // Картинка 4 (симптом 9)
-//         return -1; // Без картинки
-//     };
+    const getImageIndexForSymptom = (symptomIndex) => {
+        if (symptomIndex >= 0 && symptomIndex <= 2) return 0; // Картинка 1 (симптоми 1–3)
+        if (symptomIndex >= 3 && symptomIndex <= 5) return 1; // Картинка 2 (симптоми 4–6)
+        if (symptomIndex >= 6 && symptomIndex <= 7) return 2; // Картинка 3 (симптоми 7–8)
+        if (symptomIndex === 8) return 3; // Картинка 4 (симптом 9)
+        return -1; // Без картинки
+    };
 
 
 //    ANIMATION PILL
