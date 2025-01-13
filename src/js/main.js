@@ -405,6 +405,7 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     });
     window.addEventListener('resize', () => {
+        alert(33335555)
         ScrollTrigger.refresh();
     });
 
