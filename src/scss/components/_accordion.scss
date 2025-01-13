@@ -155,8 +155,11 @@
       padding-right: 76px;
     }
 
-    &__item h4 {
-      line-height: 20.8px;
+    &__item {
+      padding-left: 30px;
+      h4 {
+        line-height: 20.8px;
+      }
     }
   }
 }

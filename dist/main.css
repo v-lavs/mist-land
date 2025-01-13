@@ -2500,6 +2500,10 @@ sup {
     padding-right: 76px;
   }
 
+  .accordion__item {
+    padding-left: 30px;
+  }
+
   .accordion__item h4 {
     line-height: 20.8px;
   }
