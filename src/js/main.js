@@ -5,6 +5,7 @@
 
 // CUSTOM SCRIPTS
 gsap.registerPlugin(ScrollTrigger, ScrollToPlugin);
+gsap.ticker.lagSmoothing(1000, 33);
 
 document.addEventListener('DOMContentLoaded', function () {
 // MOBILE MENU
@@ -529,6 +530,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 animation: anim,
                 stagger: delay,
                 onLeaveBack: (self) => self.disable(),
+                once: true,
             });
         });
     });
@@ -550,6 +552,7 @@ document.addEventListener('DOMContentLoaded', function () {
                     trigger: section,
                     start: 'top 75%',
                     toggleActions: 'play none none none',
+                    once: true,
                 },
             }
         );
