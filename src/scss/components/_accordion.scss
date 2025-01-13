@@ -28,7 +28,9 @@
     font-weight: 600;
     line-height: 18.2px;
   }
-
+  sup{
+    font-size: 10px;
+  }
   &:hover {
     background: linear-gradient(0deg, rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.5)), linear-gradient(96.49deg, #00E0E0 5.97%, #00C6FF 98.25%);
     box-shadow: 0 0 20px 0 #04F4E280;
@@ -157,6 +159,9 @@
 
     &__item {
       padding-left: 30px;
+      sup{
+        font-size: 12px;
+      }
       h4 {
         line-height: 20.8px;
       }

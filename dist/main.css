@@ -974,6 +974,10 @@ sup {
   line-height: 18.2px;
 }
 
+.accordion__item sup {
+  font-size: 10px;
+}
+
 .accordion__item:hover {
   background: linear-gradient(0deg, rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.5)), linear-gradient(96.49deg, #00E0E0 5.97%, #00C6FF 98.25%);
   box-shadow: 0 0 20px 0 rgba(4, 244, 226, 0.5019607843);
@@ -2502,6 +2506,10 @@ sup {
 
   .accordion__item {
     padding-left: 30px;
+  }
+
+  .accordion__item sup {
+    font-size: 12px;
   }
 
   .accordion__item h4 {
