@@ -404,9 +404,12 @@ document.addEventListener('DOMContentLoaded', function () {
             });
         }
     });
+    let windowW = window.innerWidth;
     window.addEventListener('resize', () => {
-        alert(33335555)
-        ScrollTrigger.refresh();
+        if (windowW !== window.innerWidth) {
+            windowW = window.innerWidth;
+            ScrollTrigger.refresh();
+        }
     });
 
 
