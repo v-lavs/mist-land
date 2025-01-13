@@ -150,7 +150,7 @@ document.addEventListener('DOMContentLoaded', function () {
     document.getElementById('closePopup').addEventListener('click', () => closePopup(popups.modal));
     document.getElementById('closeThirdPopup').addEventListener('click', () => closePopup(popups.thirdPopup));
     overlay.addEventListener('click', () => Object.values(popups).forEach(closePopup));
-alert(333)
+
     /* Animations for sections */
     // SPIN ROULETTE
     const wheel = document.getElementById('wheel');
@@ -404,44 +404,44 @@ alert(333)
 
 
 //HOVER PARALLAX
-//     if (window.innerWidth >= 1024) {
-//         const containers = document.querySelectorAll('.container-parallax');
-//
-//         containers.forEach(container => {
-//             let rect = container.getBoundingClientRect();
-//             const mouse = {x: 0, y: 0, moved: false};
-//
-//             container.addEventListener('mousemove', (e) => {
-//                 mouse.moved = true;
-//                 mouse.x = e.clientX - rect.left;
-//                 mouse.y = e.clientY - rect.top;
-//             });
-//
-//             gsap.ticker.add(() => {
-//                 if (mouse.moved) {
-//                     parallaxIt(container.querySelector('.img-parallax'), 10);
-//                     parallaxIt(container.querySelector('.back-wave-parallax'), -20);
-//                 }
-//                 mouse.moved = false;
-//             });
-//
-//             function parallaxIt(target, movement) {
-//                 if (!target) return;
-//                 gsap.to(target, {
-//                     duration: 0.5,
-//                     x: (mouse.x - rect.width / 2) / rect.width * movement,
-//                     y: (mouse.y - rect.height / 2) / rect.height * movement
-//                 });
-//             }
-//
-//             window.addEventListener('resize', updateRect);
-//             window.addEventListener('scroll', updateRect);
-//
-//             function updateRect() {
-//                 rect = container.getBoundingClientRect();
-//             }
-//         });
-//     }
+    if (window.innerWidth >= 1024) {
+        const containers = document.querySelectorAll('.container-parallax');
+
+        containers.forEach(container => {
+            let rect = container.getBoundingClientRect();
+            const mouse = {x: 0, y: 0, moved: false};
+
+            container.addEventListener('mousemove', (e) => {
+                mouse.moved = true;
+                mouse.x = e.clientX - rect.left;
+                mouse.y = e.clientY - rect.top;
+            });
+
+            gsap.ticker.add(() => {
+                if (mouse.moved) {
+                    parallaxIt(container.querySelector('.img-parallax'), 10);
+                    parallaxIt(container.querySelector('.back-wave-parallax'), -20);
+                }
+                mouse.moved = false;
+            });
+
+            function parallaxIt(target, movement) {
+                if (!target) return;
+                gsap.to(target, {
+                    duration: 0.5,
+                    x: (mouse.x - rect.width / 2) / rect.width * movement,
+                    y: (mouse.y - rect.height / 2) / rect.height * movement
+                });
+            }
+
+            window.addEventListener('resize', updateRect);
+            window.addEventListener('scroll', updateRect);
+
+            function updateRect() {
+                rect = container.getBoundingClientRect();
+            }
+        });
+    }
 
 
 //ANIM TITLE
@@ -473,25 +473,25 @@ alert(333)
 
 // ANIM ELEMENTS SECTION
 
-//     const sections = gsap.utils.toArray('.anim-container');
-//     sections.forEach((section) => {
-//         const items = gsap.utils.toArray('.anim-item', section);
-//         gsap.fromTo(
-//             items,
-//             {opacity: 0, y: 100},
-//             {
-//                 opacity: 1,
-//                 y: 0,
-//                 duration: 0.6,
-//                 stagger: 0.2,
-//                 ease: "power1.in",
-//                 scrollTrigger: {
-//                     trigger: section,
-//                     start: 'top 75%',
-//                     toggleActions: 'play none none none',
-//                     once: true,
-//                 },
-//             }
-//         );
-//     });
+    const sections = gsap.utils.toArray('.anim-container');
+    sections.forEach((section) => {
+        const items = gsap.utils.toArray('.anim-item', section);
+        gsap.fromTo(
+            items,
+            {opacity: 0, y: 100},
+            {
+                opacity: 1,
+                y: 0,
+                duration: 0.6,
+                stagger: 0.2,
+                ease: "power1.inOut",
+                scrollTrigger: {
+                    trigger: section,
+                    start: 'top 75%',
+                    toggleActions: 'play none none reverse',
+                    once: true,
+                },
+            }
+        );
+    });
 })
