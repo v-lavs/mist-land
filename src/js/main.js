@@ -179,18 +179,19 @@ document.addEventListener('DOMContentLoaded', function () {
     btnSpin.addEventListener('click', spinWheel);
 
 // // ANIM BLOCK WITH GIRL
-    const tl1 = gsap.timeline({
-        scrollTrigger: {
-            trigger: '.sticky-trigger',
-            start: 'top top',
-            end: '+=250%',
-            pin: true,
-            spinWheel: true,
-            pinSpacing: true,
-            toggleActions: 'play none none reverse',
-            onUpdate: self => updateAnimationOnScroll(self.progress),
-        }
-    });
+
+    // const tl1 = gsap.timeline({
+    //     scrollTrigger: {
+    //         trigger: '.sticky-trigger',
+    //         start: 'top top',
+    //         end: '+=250%',
+    //         pin: true,
+    //         spinWheel: true,
+    //         pinSpacing: true,
+    //         toggleActions: 'play none none reverse',
+    //         onUpdate: self => updateAnimationOnScroll(self.progress),
+    //     }
+    // });
 
     const symptoms = document.querySelectorAll(".manifestation");
     const symptomList = document.querySelector(".manifestation-list ul");
@@ -210,112 +211,115 @@ document.addEventListener('DOMContentLoaded', function () {
     const isMobile = () => window.innerWidth < 768;
 
 // Функція для оновлення стилів симптомів на десктопі
-    const updateSymptomsStylesDesktop = (currentIndex) => {
-        symptoms.forEach((symptom, i) => {
-            if (i <= currentIndex) {
-                symptom.style.fontSize = '20px';
-                symptom.style.opacity = '1';
-                symptom.style.filter = 'blur(0)';
-            } else {
-                const factor = Math.abs(i - currentIndex);
-                const opacity = 0.6 - factor * (0.6 - 0.2) / symptoms.length;
-                const blur = factor * (4 / symptoms.length);
 
-                symptom.style.fontSize = '16px';
-                symptom.style.opacity = opacity.toFixed(2);
-                symptom.style.filter = `blur(${blur}px)`;
-            }
-        });
-    };
+//     const updateSymptomsStylesDesktop = (currentIndex) => {
+//         symptoms.forEach((symptom, i) => {
+//             if (i <= currentIndex) {
+//                 symptom.style.fontSize = '20px';
+//                 symptom.style.opacity = '1';
+//                 symptom.style.filter = 'blur(0)';
+//             } else {
+//                 const factor = Math.abs(i - currentIndex);
+//                 const opacity = 0.6 - factor * (0.6 - 0.2) / symptoms.length;
+//                 const blur = factor * (4 / symptoms.length);
+//
+//                 symptom.style.fontSize = '16px';
+//                 symptom.style.opacity = opacity.toFixed(2);
+//                 symptom.style.filter = `blur(${blur}px)`;
+//             }
+//         });
+//     };
 
 // Функція для оновлення стилів симптомів на мобільних
-    const updateSymptomsStylesMobile = (currentIndex) => {
-        symptoms.forEach((symptom, i) => {
-            if (i <= currentIndex) {
 
-                symptom.style.opacity = '1';
-                symptom.style.filter = 'blur(0)';
-            } else {
-
-                symptom.style.opacity = '0.3';
-            }
-            symptom.style.fontSize = '16px';
-        });
-        let shiftWidth = 0;
-        for (let i = 0; i < currentIndex; i++) {
-            shiftWidth += symptoms[i].offsetWidth + 8;
-        }
-        symptomList.style.transform = `translateX(-${shiftWidth}px)`;
-    };
+//     const updateSymptomsStylesMobile = (currentIndex) => {
+//         symptoms.forEach((symptom, i) => {
+//             if (i <= currentIndex) {
+//
+//                 symptom.style.opacity = '1';
+//                 symptom.style.filter = 'blur(0)';
+//             } else {
+//
+//                 symptom.style.opacity = '0.3';
+//             }
+//             symptom.style.fontSize = '16px';
+//         });
+//         let shiftWidth = 0;
+//         for (let i = 0; i < currentIndex; i++) {
+//             shiftWidth += symptoms[i].offsetWidth + 8;
+//         }
+//         symptomList.style.transform = `translateX(-${shiftWidth}px)`;
+//     };
 
 // Функція для оновлення стану
-    const updateState = (index) => {
-        if (isMobile()) {
-            updateSymptomsStylesMobile(index);
-        } else {
-            updateSymptomsStylesDesktop(index);
-        }
 
-        // Показуємо відповідну картинку
-        const newImageIndex = getImageIndexForSymptom(index);
-        images.forEach((image, imgIndex) => {
-            if (imgIndex === newImageIndex) {
-                image.classList.add("visible");
-            } else {
-                image.classList.remove("visible");
-            }
-        });
-
-        // Оновлюємо іконки
-        const iconSrc = symptoms[index]?.dataset.icon;
-        if (iconSrc) {
-            iconsContainer.innerHTML = "";
-            const iconElement = document.createElement("img");
-            iconElement.src = iconSrc;
-            iconElement.classList.add("icon", "visible");
-            iconsContainer.appendChild(iconElement);
-        }
-    };
+//     const updateState = (index) => {
+//         if (isMobile()) {
+//             updateSymptomsStylesMobile(index);
+//         } else {
+//             updateSymptomsStylesDesktop(index);
+//         }
+//
+//         // Показуємо відповідну картинку
+//         const newImageIndex = getImageIndexForSymptom(index);
+//         images.forEach((image, imgIndex) => {
+//             if (imgIndex === newImageIndex) {
+//                 image.classList.add("visible");
+//             } else {
+//                 image.classList.remove("visible");
+//             }
+//         });
+//
+//         // Оновлюємо іконки
+//         const iconSrc = symptoms[index]?.dataset.icon;
+//         if (iconSrc) {
+//             iconsContainer.innerHTML = "";
+//             const iconElement = document.createElement("img");
+//             iconElement.src = iconSrc;
+//             iconElement.classList.add("icon", "visible");
+//             iconsContainer.appendChild(iconElement);
+//         }
+//     };
 
 // Оновлення анімації на основі скролу
-    const updateAnimationOnScroll = (progress) => {
-        const scrollPosition = progress * sectionHeight;
-
-        if (!isLastAnimation) {
-            symptoms.forEach((symptom, index) => {
-                const start = index * symptomStep;
-                const end = start + symptomStep;
-
-                if (scrollPosition >= start && scrollPosition < end) {
-                    if (currentSymptomIndex !== index) {
-                        currentSymptomIndex = index;
-                        updateState(index); // Оновлюємо стан на основі індексу
-                    }
-                }
-            });
-        }
-
-        // Логіка для завершення анімації
-        if (currentSymptomIndex === symptoms.length - 1 && !isLastAnimation) {
-            setTimeout(() => {
-                stickyTrigger.style.position = "relative";
-                stickyTrigger.style.top = "auto";
-                stickyTrigger.style.scroll = "auto";
-                stickyTrigger.style.height = "auto";
-                updateState(currentSymptomIndex);
-                ScrollTrigger.refresh();
-            }, delayAfterLastAnimation);
-        }
-    };
+//     const updateAnimationOnScroll = (progress) => {
+//         const scrollPosition = progress * sectionHeight;
+//
+//         if (!isLastAnimation) {
+//             symptoms.forEach((symptom, index) => {
+//                 const start = index * symptomStep;
+//                 const end = start + symptomStep;
+//
+//                 if (scrollPosition >= start && scrollPosition < end) {
+//                     if (currentSymptomIndex !== index) {
+//                         currentSymptomIndex = index;
+//                         updateState(index); // Оновлюємо стан на основі індексу
+//                     }
+//                 }
+//             });
+//         }
+//
+//         // Логіка для завершення анімації
+//         if (currentSymptomIndex === symptoms.length - 1 && !isLastAnimation) {
+//             setTimeout(() => {
+//                 stickyTrigger.style.position = "relative";
+//                 stickyTrigger.style.top = "auto";
+//                 stickyTrigger.style.scroll = "auto";
+//                 stickyTrigger.style.height = "auto";
+//                 updateState(currentSymptomIndex);
+//                 ScrollTrigger.refresh();
+//             }, delayAfterLastAnimation);
+//         }
+//     };
 
 // Функція для визначення, яка картинка відповідає поточному симптому
-    const getImageIndexForSymptom = (symptomIndex) => {
-        if (symptomIndex >= 0 && symptomIndex <= 2) return 0; // Картинка 1 (симптоми 1–3)
-        if (symptomIndex >= 3 && symptomIndex <= 5) return 1; // Картинка 2 (симптоми 4–6)
-        if (symptomIndex >= 6 && symptomIndex <= 7) return 2; // Картинка 3 (симптоми 7–8)
-        if (symptomIndex === 8) return 3; // Картинка 4 (симптом 9)
-        return -1; // Без картинки
-    };
+//     const getImageIndexForSymptom = (symptomIndex) => {
+//         if (symptomIndex >= 0 && symptomIndex <= 2) return 0; // Картинка 1 (симптоми 1–3)
+//         if (symptomIndex >= 3 && symptomIndex <= 5) return 1; // Картинка 2 (симптоми 4–6)
+//         if (symptomIndex >= 6 && symptomIndex <= 7) return 2; // Картинка 3 (симптоми 7–8)
+//         if (symptomIndex === 8) return 3; // Картинка 4 (симптом 9)
+//         return -1; // Без картинки
+//     };
 
 
 //    ANIMATION PILL
@@ -370,7 +374,6 @@ document.addEventListener('DOMContentLoaded', function () {
             opacity: 1,
             scale: 0,
             duration: 1.5,
-            // ease: "linear",
             ease: "power1.out"
         }, "-=1")
         .from(".pill-anim__logo", {
@@ -381,113 +384,114 @@ document.addEventListener('DOMContentLoaded', function () {
 
 
 // ANIM SECTION STICKY
-    ScrollTrigger.matchMedia({
-        "(min-width: 768px)": function () {
-            const tl2 = gsap.timeline({
-                scrollTrigger: {
-                    trigger: '.sticky-grid__img-block',
-                    start: 'top top',
-                    end: 'center top',
-                    pin: true,
-                    pinSpacing: false,
-                    anticipatePin: 1
-                }
-            });
-        }
-    });
-    window.addEventListener('resize', () => {
-        ScrollTrigger.refresh();
-    });
+//     ScrollTrigger.matchMedia({
+//         "(min-width: 768px)": function () {
+//             const tl2 = gsap.timeline({
+//                 scrollTrigger: {
+//                     trigger: '.sticky-grid__img-block',
+//                     start: 'top top',
+//                     end: 'center top',
+//                     pin: true,
+//                     pinSpacing: false,
+//                     anticipatePin: 1
+//                 }
+//             });
+//         }
+//     });
+//     window.addEventListener('resize', () => {
+//         ScrollTrigger.refresh();
+//     });
 
 
 //HOVER PARALLAX
-    if (window.innerWidth >= 1024) {
-        const containers = document.querySelectorAll('.container-parallax');
-
-        containers.forEach(container => {
-            let rect = container.getBoundingClientRect();
-            const mouse = {x: 0, y: 0, moved: false};
-
-            container.addEventListener('mousemove', (e) => {
-                mouse.moved = true;
-                mouse.x = e.clientX - rect.left;
-                mouse.y = e.clientY - rect.top;
-            });
-
-            gsap.ticker.add(() => {
-                if (mouse.moved) {
-                    parallaxIt(container.querySelector('.img-parallax'), 10);
-                    parallaxIt(container.querySelector('.back-wave-parallax'), -20);
-                }
-                mouse.moved = false;
-            });
-
-            function parallaxIt(target, movement) {
-                if (!target) return;
-                gsap.to(target, {
-                    duration: 0.5,
-                    x: (mouse.x - rect.width / 2) / rect.width * movement,
-                    y: (mouse.y - rect.height / 2) / rect.height * movement
-                });
-            }
-
-            window.addEventListener('resize', updateRect);
-            window.addEventListener('scroll', updateRect);
-
-            function updateRect() {
-                rect = container.getBoundingClientRect();
-            }
-        });
-    }
+//     if (window.innerWidth >= 1024) {
+//         const containers = document.querySelectorAll('.container-parallax');
+//
+//         containers.forEach(container => {
+//             let rect = container.getBoundingClientRect();
+//             const mouse = {x: 0, y: 0, moved: false};
+//
+//             container.addEventListener('mousemove', (e) => {
+//                 mouse.moved = true;
+//                 mouse.x = e.clientX - rect.left;
+//                 mouse.y = e.clientY - rect.top;
+//             });
+//
+//             gsap.ticker.add(() => {
+//                 if (mouse.moved) {
+//                     parallaxIt(container.querySelector('.img-parallax'), 10);
+//                     parallaxIt(container.querySelector('.back-wave-parallax'), -20);
+//                 }
+//                 mouse.moved = false;
+//             });
+//
+//             function parallaxIt(target, movement) {
+//                 if (!target) return;
+//                 gsap.to(target, {
+//                     duration: 0.5,
+//                     x: (mouse.x - rect.width / 2) / rect.width * movement,
+//                     y: (mouse.y - rect.height / 2) / rect.height * movement
+//                 });
+//             }
+//
+//             window.addEventListener('resize', updateRect);
+//             window.addEventListener('scroll', updateRect);
+//
+//             function updateRect() {
+//                 rect = container.getBoundingClientRect();
+//             }
+//         });
+//     }
 
 
 //ANIM TITLE
-    const sections2 = gsap.utils.toArray('.section-anim');
-
-    sections2.forEach((section) => {
-        const elements = gsap.utils.toArray('.anim-title, .anim-subtitle', section);
-
-        elements.forEach((el) => {
-            const isTitle = el.classList.contains('anim-title');
-            const delay = isTitle ? 0.4 : 0.2;
-
-            const anim = gsap.fromTo(
-                el,
-                {opacity: 0, y: -100},
-                {duration: 1, opacity: 1, y: 0}
-            );
-
-            ScrollTrigger.create({
-                trigger: el,
-                start: 'top center',
-                animation: anim,
-                stagger: delay,
-                onLeaveBack: (self) => self.disable(),
-                once: true,
-            });
-        });
-    });
+//     const sections2 = gsap.utils.toArray('.section-anim');
+//
+//     sections2.forEach((section) => {
+//         const elements = gsap.utils.toArray('.anim-title, .anim-subtitle', section);
+//
+//         elements.forEach((el) => {
+//             const isTitle = el.classList.contains('anim-title');
+//             const delay = isTitle ? 0.4 : 0.2;
+//
+//             const anim = gsap.fromTo(
+//                 el,
+//                 {opacity: 0, y: -100},
+//                 {duration: 1, opacity: 1, y: 0}
+//             );
+//
+//             ScrollTrigger.create({
+//                 trigger: el,
+//                 start: 'top center',
+//                 animation: anim,
+//                 stagger: delay,
+//                 onLeaveBack: (self) => self.disable(),
+//                 once: true,
+//             });
+//         });
+//     });
 
 // ANIM ELEMENTS SECTION
-    const sections = gsap.utils.toArray('.anim-container');
-    sections.forEach((section) => {
-        const items = gsap.utils.toArray('.anim-item', section);
-        gsap.fromTo(
-            items,
-            {opacity: 0, y: 100},
-            {
-                opacity: 1,
-                y: 0,
-                duration: 0.6,
-                stagger: 0.2,
-                ease: "power1.in",
-                scrollTrigger: {
-                    trigger: section,
-                    start: 'top 75%',
-                    toggleActions: 'play none none none',
-                    once: true,
-                },
-            }
-        );
-    });
+
+//     const sections = gsap.utils.toArray('.anim-container');
+//     sections.forEach((section) => {
+//         const items = gsap.utils.toArray('.anim-item', section);
+//         gsap.fromTo(
+//             items,
+//             {opacity: 0, y: 100},
+//             {
+//                 opacity: 1,
+//                 y: 0,
+//                 duration: 0.6,
+//                 stagger: 0.2,
+//                 ease: "power1.in",
+//                 scrollTrigger: {
+//                     trigger: section,
+//                     start: 'top 75%',
+//                     toggleActions: 'play none none none',
+//                     once: true,
+//                 },
+//             }
+//         );
+//     });
 })
