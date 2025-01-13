@@ -2,268 +2,157 @@
 * to include js file write: `//= include ./path-to-file`
 * */
 
-// CUSTOM SCRIPTS
-gsap.registerPlugin(ScrollTrigger, ScrollToPlugin);
-gsap.ticker.lagSmoothing(1000, 33);
-gsap.ticker.fps(60);
 
 document.addEventListener('DOMContentLoaded', function () {
-// MOBILE MENU
+    // Register GSAP plugins
+    gsap.registerPlugin(ScrollTrigger, ScrollToPlugin);
+    gsap.ticker.lagSmoothing(1000, 33);
+    gsap.ticker.fps(60);
+
+    const body = document.body;
+
+    // Mobile Menu
     const nav = document.querySelector('.header__nav');
     const navOpenHeader = document.querySelector('.header');
     const btnBurger = document.querySelector('.btn_burger');
     const btnClose = document.querySelector('.btn_close');
     const menuLinks = document.querySelectorAll('.menu__link');
-    const body = document.querySelector('body');
 
-    btnBurger.addEventListener('click', function (e) {
+    const toggleMenu = (isOpen) => {
+        nav.classList.toggle('open', isOpen);
+        navOpenHeader.classList.toggle('hidden', !isOpen);
+        body.classList.toggle('disable-scroll', isOpen);
+        navOpenHeader.classList.toggle('active', isOpen);
+        btnClose.style.display = isOpen ? 'flex' : 'none';
+    };
+
+    btnBurger.addEventListener('click', (e) => {
         e.preventDefault();
-        nav.classList.add('open');
-        navOpenHeader.classList.remove('hidden')
-        body.classList.add('disable-scroll');
-        navOpenHeader.classList.add('active');
-        setTimeout(() => {
-            btnClose.style.display = 'flex';
-        }, 250);
-
+        toggleMenu(true);
     });
 
-    [btnClose, ...menuLinks].forEach(function (element) {
-        element.addEventListener('click', function () {
-            nav.classList.remove('open');
-            btnClose.style.display = 'none';
-            body.classList.remove('disable-scroll');
-            navOpenHeader.classList.remove('active');
-        });
+    [btnClose, ...menuLinks].forEach((element) => {
+        element.addEventListener('click', () => toggleMenu(false));
     });
 
-// SCROLL HEADER
-//     let lastScrollY = 0;
-//
-//     const header = document.querySelector(".header");
-//
-//     ScrollTrigger.create({
-//         onUpdate: (self) => {
-//             const currentScrollY = self.scroll();
-//
-//             if (currentScrollY > lastScrollY && currentScrollY > 100) {
-//                 header.classList.add("hidden");
-//             }
-//             else {
-//                 header.classList.remove("hidden");
-//             }
-//             if (currentScrollY > 0) {
-//                 header.classList.add("active");
-//             } else {
-//                 header.classList.remove("active");
-//             }
-//             lastScrollY = currentScrollY;
-//         }
-//     });
+    // Header Scroll Animation
+    const header = document.querySelector('header');
     let lastScrollTop = 0;
-    const header = document.querySelector("header");
 
-    window.addEventListener("scroll", () => {
+    window.addEventListener('scroll', () => {
         const scrollTop = window.scrollY;
+        const direction = scrollTop > lastScrollTop ? 'up' : 'down';
 
-        if (scrollTop > lastScrollTop) {
-            // Скролимо вниз
-            gsap.to(header, {y: "-100%", duration: 0.5, ease: "power2.out"});
-            header.classList.remove("active"); // Прибираємо клас
-        } else {
-            // Скролимо вверх
-            gsap.to(header, {y: "0%", duration: 0.5, ease: "power2.out"});
-            header.classList.add("active"); // Додаємо клас
-        }
+        gsap.to(header, {
+            y: direction === 'up' ? '-100%' : '0%',
+            duration: 0.5,
+            ease: 'power2.out',
+        });
 
+        header.classList.toggle('active', scrollTop < lastScrollTop || scrollTop === 0);
         lastScrollTop = scrollTop;
-        if (scrollTop === 0){
-            header.classList.remove("active"); // Прибираємо клас
-        }
     });
 
-// SCROLL TO ANCHOR
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-        anchor.addEventListener("click", function (e) {
+    // Scroll to Anchor
+    document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+        anchor.addEventListener('click', (e) => {
             e.preventDefault();
-
-            const targetId = this.getAttribute("href").substring(1);
-            const targetElement = document.getElementById(targetId);
-
+            const targetElement = document.getElementById(anchor.getAttribute('href').substring(1));
             if (targetElement) {
                 gsap.to(window, {
                     scrollTo: targetElement,
                     duration: 1.5,
-                    ease: "power2.out",
-                    onComplete: () => {
-                        ScrollTrigger.refresh();
-                    }
+                    ease: 'power2.out',
+                    onComplete: () => ScrollTrigger.refresh(),
                 });
             }
         });
     });
 
-//ACCORDION
-    const accordionList = document.querySelectorAll(".accordion__item");
-    accordionList.forEach((item) => {
-        item.addEventListener("click", () => {
-            const isActive = item.classList.contains("active");
-            accordionList.forEach((item) => item.classList.remove("active"));
-
-            if (!isActive) {
-                item.classList.add("active");
-            }
+    // Accordion
+    document.querySelectorAll('.accordion__item').forEach((item) => {
+        item.addEventListener('click', () => {
+            const isActive = item.classList.contains('active');
+            document.querySelectorAll('.accordion__item').forEach((item) => item.classList.remove('active'));
+            if (!isActive) item.classList.add('active');
         });
     });
 
+    // Swiper Initialization
+    const initSwiper = () => {
+        const sliderAboutConfig = window.innerWidth >= 1024
+            ? {effect: 'fade', speed: 1000}
+            : {spaceBetween: 10, slidesPerView: 'auto', breakpoints: {768: {spaceBetween: 20}}};
 
-// SLIDER - TABS
-    let sliderAbout;
-
-    function initSwiper() {
-        if (sliderAbout) sliderAbout.destroy(true, true);
-
-        if (window.innerWidth >= 1024) {
-            sliderAbout = new Swiper('.slider-about', {
-                effect: 'fade',
-                speed: 1000,
-                pagination: {
-                    el: '.slider-about .swiper-pagination',
-                    clickable: true,
-                },
-                on: {
-                    slideChange: updateCustomNavigation,
-                },
-            });
-        } else {
-            sliderAbout = new Swiper('.slider-about', {
-                spaceBetween: 10,
-                slidesPerView: 'auto',
-                breakpoints: {
-                    768: {
-                        spaceBetween: 20,
-                    },
-                },
-                pagination: {
-                    el: '.slider-about .swiper-pagination',
-                    clickable: true,
-                },
-                on: {
-                    slideChange: updateCustomNavigation,
-                },
-            });
-        }
-
-        setupCustomNavigation();
-    }
-
-    function updateCustomNavigation() {
-        const activeIndex = sliderAbout.realIndex;
-        document.querySelectorAll('.about-nav__btn').forEach((btn, index) => {
-            if (index === activeIndex) {
-                btn.classList.add('active');
-            } else {
-                btn.classList.remove('active');
-            }
+        const sliderAbout = new Swiper('.slider-about', {
+            ...sliderAboutConfig,
+            pagination: {el: '.slider-about .swiper-pagination', clickable: true},
+            on: {slideChange: updateCustomNavigation},
         });
-    }
 
-    function setupCustomNavigation() {
-        const navButtons = document.querySelectorAll('.about-nav__btn');
+        setupCustomNavigation(sliderAbout);
+    };
 
-        navButtons.forEach((button, index) => {
+    const updateCustomNavigation = (sliderAbout) => {
+        document.querySelectorAll('.about-nav__btn').forEach((btn, index) => {
+            btn.classList.toggle('active', index === sliderAbout.realIndex);
+        });
+    };
+
+    const setupCustomNavigation = (sliderAbout) => {
+        document.querySelectorAll('.about-nav__btn').forEach((button, index) => {
             button.addEventListener('click', (e) => {
                 e.preventDefault();
                 sliderAbout.slideTo(index);
             });
         });
-    }
+    };
 
     window.addEventListener('load', initSwiper);
     window.addEventListener('resize', initSwiper);
 
-//BTN-UP
-    (function () {
+    // Back-to-Top Button
+    const goTopBtn = document.querySelector('.btn_up');
+    const trackScroll = () => {
+        goTopBtn.classList.toggle('show', window.scrollY > document.documentElement.clientHeight);
+    };
 
-        function trackScroll() {
-            let scrolled = window.pageYOffset;
-            let coords = document.documentElement.clientHeight;
+    goTopBtn.addEventListener('click', () => {
+        gsap.to(window, {scrollTo: 0, duration: 1, ease: 'power2.out'});
+    });
 
-            if (scrolled > coords) {
-                goTopBtn.classList.add('show');
-            }
-            if (scrolled < coords) {
-                goTopBtn.classList.remove('show');
-            }
-        }
+    window.addEventListener('scroll', trackScroll);
 
-        function backToTop() {
-            if (window.pageYOffset > 0) {
-                window.scrollBy(0, -80);
-                setTimeout(backToTop, 0);
-            }
-        }
-
-        const goTopBtn = document.querySelector('.btn_up');
-
-        window.addEventListener('scroll', trackScroll);
-        goTopBtn.addEventListener('click', backToTop);
-    })();
-
-// POPUPS
-    const openButtons = document.querySelectorAll('.open-popup');
-    const popup = document.getElementById('modal');
-    const popupText = document.getElementById('modalHeader');
-    const closePopupButton = document.getElementById('closePopup');
+    // Popup Logic
     const overlay = document.querySelector('.overlay');
-    const thirdPopup = document.getElementById('playDiscount');
-    const closeThirdPopupButton = document.getElementById('closeThirdPopup');
-
-    function openPopup(popupElement) {
-        popupElement.classList.add('open');
+    const openPopup = (popup) => {
+        popup.classList.add('open');
         overlay.classList.add('show');
         body.classList.add('disable-scroll');
-    }
+    };
 
-    function closePopup(popupElement) {
-        popupElement.classList.remove('open');
-
+    const closePopup = (popup) => {
+        popup.classList.remove('open');
         if (!document.querySelector('.popup.show')) {
             overlay.classList.remove('show');
             body.classList.remove('disable-scroll');
         }
-    }
+    };
 
-    openButtons.forEach(button => {
+    const popups = {modal: document.getElementById('modal'), thirdPopup: document.getElementById('playDiscount')};
+    document.querySelectorAll('.open-popup').forEach((button) => {
         button.addEventListener('click', () => {
-            const templateId = button.getAttribute('data-template-id');
-            const template = document.getElementById(templateId);
-
-            if (template) {
-                const templateContent = template.content.cloneNode(true);
-                popupText.innerHTML = '';
-                popupText.appendChild(templateContent);
-
-                const thirdPopupButton = popup.querySelector('.trigger-play');
-                thirdPopupButton.addEventListener('click', () => {
-                    closePopup(popup);
-                    openPopup(thirdPopup);
-                });
-
-                openPopup(popup);
-            }
+            const popup = popups.modal;
+            openPopup(popup);
         });
     });
 
-    closePopupButton.addEventListener('click', () => closePopup(popup));
-    closeThirdPopupButton.addEventListener('click', () => closePopup(thirdPopup));
+    document.getElementById('closePopup').addEventListener('click', () => closePopup(popups.modal));
+    document.getElementById('closeThirdPopup').addEventListener('click', () => closePopup(popups.thirdPopup));
+    overlay.addEventListener('click', () => Object.values(popups).forEach(closePopup));
 
-    overlay.addEventListener('click', () => {
-        closePopup(popup);
-        closePopup(thirdPopup);
-    });
-
-// SPIN ROULETTE
+    /* Animations for sections */
+    // SPIN ROULETTE
     const wheel = document.getElementById('wheel');
     const wheelData = document.getElementById('wheelData');
     const btnSpin = document.getElementById('spinButton');
