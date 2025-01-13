@@ -430,7 +430,7 @@ document.addEventListener('DOMContentLoaded', function () {
             opacity: 0,
             rotation: 360,
             duration: 1.5,
-            ease: "power2.out",
+            ease: "power1.in",
         }, "+=0.8")
         .from(".pill-anim__images", {
             opacity: 1,
