@@ -44,7 +44,7 @@ document.addEventListener('DOMContentLoaded', function () {
         const direction = scrollTop > lastScrollTop ? 'up' : 'down';
 
         gsap.to(header, {
-            y: direction === 'up' ? '-100%' : '0%',
+            y: scrollTop === 0 ? 0 : direction === 'up' ? '-100%' : '0%',
             duration: 0.5,
             ease: 'power2.out',
         });
