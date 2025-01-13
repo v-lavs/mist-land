@@ -1883,7 +1883,6 @@ sup {
 
 .section-manifestation {
   position: relative;
-  padding-top: 0 !important;
 }
 
 .section-manifestation .message-block {
@@ -1953,10 +1952,10 @@ sup {
 .sticky-trigger {
   position: relative;
   top: 0;
-}
-
-.sticky-trigger .container {
-  padding-top: 40px;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  justify-content: center;
 }
 
 .manifestation-list {
@@ -2977,8 +2976,8 @@ sup {
     top: 11px;
   }
 
-  .section-manifestation {
-    padding-top: 0;
+  .sticky-trigger .container {
+    padding-top: 80px;
   }
 
   .section-manifestation .moving-element {
@@ -2989,10 +2988,6 @@ sup {
 
   .section-manifestation .section__header {
     margin-bottom: 50px;
-  }
-
-  .section-manifestation .sticky-trigger .container {
-    padding-top: 80px;
   }
 
   .section-manifestation .title {
@@ -3502,11 +3497,7 @@ sup {
     grid-template-rows: auto auto;
   }
 
-  .section-manifestation {
-    padding-top: 0;
-  }
-
-  .section-manifestation .sticky-trigger .container {
+  .sticky-trigger .container {
     padding-top: 100px;
   }
 

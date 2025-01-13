@@ -3,7 +3,7 @@
 
 .section-manifestation {
   position: relative;
-  padding-top: 0!important;
+  //padding-top: 0!important;
 
   .message-block {
     padding-top: 42px;
@@ -74,8 +74,13 @@
   position: relative;
   top: 0;
 
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  justify-content: center;
+
   .container {
-    padding-top: 40px;
+    //padding-top: 40px;
   }
 }
 
@@ -220,19 +225,20 @@
       }
     }
   }
+  .sticky-trigger .container {
+    padding-top: 80px;
+  }
   .section-manifestation {
     .moving-element{
       animation: float2 20s infinite linear;
       width: 387px;
       height: 366px;
     }
-    padding-top: 0;
+    //padding-top: 0;
     .section__header {
       margin-bottom: 50px;
     }
-    .sticky-trigger .container {
-      padding-top: 80px;
-    }
+
 
     .title {
       max-width: 609px;
@@ -304,11 +310,12 @@
     grid-template-columns:50% 50%;
     grid-template-rows: auto auto;
   }
+  .sticky-trigger .container{
+    padding-top: 100px;
+  }
   .section-manifestation {
-    padding-top: 0;
-    .sticky-trigger .container{
-      padding-top: 100px;
-    }
+    //padding-top: 0;
+
     .message-block {
       padding-bottom: 30px;
 
