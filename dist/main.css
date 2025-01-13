@@ -998,6 +998,7 @@ sup {
 
 .accordion__item sup {
   font-size: 10px;
+  vertical-align: 4px;
 }
 
 .accordion__item:hover {
