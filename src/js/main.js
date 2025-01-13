@@ -150,7 +150,7 @@ document.addEventListener('DOMContentLoaded', function () {
     document.getElementById('closePopup').addEventListener('click', () => closePopup(popups.modal));
     document.getElementById('closeThirdPopup').addEventListener('click', () => closePopup(popups.thirdPopup));
     overlay.addEventListener('click', () => Object.values(popups).forEach(closePopup));
-
+alert(111)
     /* Animations for sections */
     // SPIN ROULETTE
     const wheel = document.getElementById('wheel');
