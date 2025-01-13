@@ -384,23 +384,24 @@ document.addEventListener('DOMContentLoaded', function () {
 
 
 // ANIM SECTION STICKY
-//     ScrollTrigger.matchMedia({
-//         "(min-width: 768px)": function () {
-//             const tl2 = gsap.timeline({
-//                 scrollTrigger: {
-//                     trigger: '.sticky-grid__img-block',
-//                     start: 'top top',
-//                     end: 'center top',
-//                     pin: true,
-//                     pinSpacing: false,
-//                     anticipatePin: 1
-//                 }
-//             });
-//         }
-//     });
-//     window.addEventListener('resize', () => {
-//         ScrollTrigger.refresh();
-//     });
+    ScrollTrigger.matchMedia({
+        "(min-width: 768px)": function () {
+            const tl2 = gsap.timeline({
+                scrollTrigger: {
+                    trigger: '.sticky-grid__img-block',
+                    start: 'top top',
+                    end: 'center top',
+                    pin: true,
+                    pinSpacing: false,
+                    anticipatePin: 1,
+                    ease: "power1.inOut"
+                }
+            });
+        }
+    });
+    window.addEventListener('resize', () => {
+        ScrollTrigger.refresh();
+    });
 
 
 //HOVER PARALLAX
