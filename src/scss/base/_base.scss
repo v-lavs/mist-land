@@ -21,6 +21,7 @@ body {
   position: relative;
   background: linear-gradient(108deg, rgb(9, 46, 103) 0%, rgb(9, 64, 134) 28%, rgb(0, 78, 158) 60%, rgb(0, 107, 182) 100%);
   overflow: hidden;
+  -webkit-backface-visibility: hidden;
 }
 
 .overlay{
