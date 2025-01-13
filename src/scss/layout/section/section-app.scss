@@ -32,7 +32,11 @@
     height: 242px;
     opacity: 0.3;
     background: #00E6FF;
-  filter: blur(140px)
+  filter: blur(140px);
+
+
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
 
   }
 }

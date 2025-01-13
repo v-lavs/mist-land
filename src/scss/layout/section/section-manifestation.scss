@@ -47,7 +47,10 @@
     height: 240px;
     right: 0;
     top: 0;
-    transform: translate(50%, 50%);
+    transform: translate3d(50%, 50%, 0);
+    will-change: transform;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
     background: radial-gradient(93.19% 74.17% at 30% 59%, rgb(255, 255, 255), rgb(204, 0, 255) 52.831%, rgb(35, 141, 172) 100%);
   }
 }
@@ -234,7 +237,7 @@
       width: 387px;
       height: 366px;
     }
-    //padding-top: 0;
+
     .section__header {
       margin-bottom: 50px;
     }
