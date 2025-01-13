@@ -139,7 +139,11 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     };
 
-    const popups = {modal: document.getElementById('modal'), thirdPopup: document.getElementById('playDiscount')};
+    const popups = {
+        modal: document.getElementById('modal'),
+        thirdPopup: document.getElementById('playDiscount')
+    };
+
     document.querySelectorAll('.open-popup').forEach((button) => {
         button.addEventListener('click', () => {
             const popup = popups.modal;
@@ -149,6 +153,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
     document.getElementById('closePopup').addEventListener('click', () => closePopup(popups.modal));
     document.getElementById('closeThirdPopup').addEventListener('click', () => closePopup(popups.thirdPopup));
+
     overlay.addEventListener('click', () => Object.values(popups).forEach(closePopup));
 
     /* Animations for sections */
