@@ -1646,7 +1646,6 @@ sup {
   padding: 12px 0;
   min-height: 60px;
   z-index: 120;
-  transition: all 0.35s ease-in-out;
 }
 
 .header.active {

@@ -1,4 +1,3 @@
-
 /*
 * to include js file write: `//= include ./path-to-file`
 * */
@@ -38,6 +37,50 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     });
 
+// SCROLL HEADER
+//     let lastScrollY = 0;
+//
+//     const header = document.querySelector(".header");
+//
+//     ScrollTrigger.create({
+//         onUpdate: (self) => {
+//             const currentScrollY = self.scroll();
+//
+//             if (currentScrollY > lastScrollY && currentScrollY > 100) {
+//                 header.classList.add("hidden");
+//             }
+//             else {
+//                 header.classList.remove("hidden");
+//             }
+//             if (currentScrollY > 0) {
+//                 header.classList.add("active");
+//             } else {
+//                 header.classList.remove("active");
+//             }
+//             lastScrollY = currentScrollY;
+//         }
+//     });
+    let lastScrollTop = 0;
+    const header = document.querySelector("header");
+
+    window.addEventListener("scroll", () => {
+        const scrollTop = window.scrollY;
+
+        if (scrollTop > lastScrollTop) {
+            // Скролимо вниз
+            gsap.to(header, {y: "-100%", duration: 0.5, ease: "power2.out"});
+            header.classList.remove("active"); // Прибираємо клас
+        } else {
+            // Скролимо вверх
+            gsap.to(header, {y: "0%", duration: 0.5, ease: "power2.out"});
+            header.classList.add("active"); // Додаємо клас
+        }
+
+        lastScrollTop = scrollTop;
+        if (scrollTop === 0){
+            header.classList.remove("active"); // Прибираємо клас
+        }
+    });
 
 // SCROLL TO ANCHOR
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
@@ -421,7 +464,7 @@ document.addEventListener('DOMContentLoaded', function () {
         scrollTrigger: {
             trigger: "#about",
             start: "top 35%",
-                       onEnter: () => {
+            onEnter: () => {
                 document.getElementById("about").classList.add("timeline-started");
             },
         },
