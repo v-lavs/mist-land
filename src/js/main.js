@@ -1,3 +1,4 @@
+
 /*
 * to include js file write: `//= include ./path-to-file`
 * */
@@ -258,6 +259,7 @@ document.addEventListener('DOMContentLoaded', function () {
             pinSpacing: true,
             toggleActions: 'play none none reverse',
             onUpdate: self => updateAnimationOnScroll(self.progress),
+
         }
     });
 
@@ -478,22 +480,19 @@ document.addEventListener('DOMContentLoaded', function () {
 
 
 //HOVER PARALLAX
-if (window.innerWidth >= 1024) {
-        // Знаходимо всі секції, які повинні мати ефект паралаксу
+    if (window.innerWidth >= 1024) {
         const containers = document.querySelectorAll('.container-parallax');
 
         containers.forEach(container => {
             let rect = container.getBoundingClientRect();
             const mouse = {x: 0, y: 0, moved: false};
 
-            // Відстеження руху миші в межах кожного контейнера
             container.addEventListener('mousemove', (e) => {
                 mouse.moved = true;
                 mouse.x = e.clientX - rect.left;
                 mouse.y = e.clientY - rect.top;
             });
 
-            // GSAP Ticker для оновлення паралаксу
             gsap.ticker.add(() => {
                 if (mouse.moved) {
                     parallaxIt(container.querySelector('.img-parallax'), 10);
@@ -502,9 +501,8 @@ if (window.innerWidth >= 1024) {
                 mouse.moved = false;
             });
 
-            // Функція паралаксу для конкретного контейнера
             function parallaxIt(target, movement) {
-                if (!target) return; // Перевірка, чи елемент існує
+                if (!target) return;
                 gsap.to(target, {
                     duration: 0.5,
                     x: (mouse.x - rect.width / 2) / rect.width * movement,
@@ -512,7 +510,6 @@ if (window.innerWidth >= 1024) {
                 });
             }
 
-            // Оновлення координат контейнера при зміні розміру або прокрутці
             window.addEventListener('resize', updateRect);
             window.addEventListener('scroll', updateRect);
 
@@ -524,53 +521,50 @@ if (window.innerWidth >= 1024) {
 
 
 //ANIM TITLE
-    const sections2 = gsap.utils.toArray('.section-anim'); // Масив секцій
+    const sections2 = gsap.utils.toArray('.section-anim');
 
     sections2.forEach((section) => {
-        const elements = gsap.utils.toArray('.anim-title, .anim-subtitle', section); // Заголовки і підзаголовки
+        const elements = gsap.utils.toArray('.anim-title, .anim-subtitle', section);
 
         elements.forEach((el) => {
-            const isTitle = el.classList.contains('anim-title'); // Перевірка, чи це заголовок
-            const delay = isTitle ? 0.4 : 0.2; // Затримка для заголовків і підзаголовків
+            const isTitle = el.classList.contains('anim-title');
+            const delay = isTitle ? 0.4 : 0.2;
 
             const anim = gsap.fromTo(
                 el,
-                {opacity: 0, y: -100}, // Початкові параметри (загальний зсув)
-                {duration: 1, opacity: 1, y: 0} // Кінцеві параметри
+                {opacity: 0, y: -100},
+                {duration: 1, opacity: 1, y: 0}
             );
 
             ScrollTrigger.create({
                 trigger: el,
                 start: 'top center',
                 animation: anim,
-                stagger: delay, // Відмінність у затримці
+                stagger: delay,
                 onLeaveBack: (self) => self.disable(),
             });
         });
     });
 
 // ANIM ELEMENTS SECTION
-    const sections = gsap.utils.toArray('.anim-container'); // Всі секції на сторінці
+    const sections = gsap.utils.toArray('.anim-container');
     sections.forEach((section) => {
-        const items = gsap.utils.toArray('.anim-item', section); // Елементи (лише в межах секції)
-
+        const items = gsap.utils.toArray('.anim-item', section);
         gsap.fromTo(
-            items, // Масив елементів
-            {opacity: 0, y: 100}, // Початковий стан (прозорість і зсув вниз)
+            items,
+            {opacity: 0, y: 100},
             {
                 opacity: 1,
                 y: 0,
-                duration: 0.6, // Тривалість анімації кожного елементу
-                stagger: 0.1, // Інтервал між появою наступного елементу
-                ease: "power1.in", // Ефект анімації
+                duration: 0.6,
+                stagger: 0.2,
+                ease: "power1.in",
                 scrollTrigger: {
-                    trigger: section, // Тригер — сама секція
-                    start: 'top 75%', // Анімація починається, коли секція в 75% вікна
-                    toggleActions: 'play none none none', // Відтворення при вході та скасування при виході
+                    trigger: section,
+                    start: 'top 75%',
+                    toggleActions: 'play none none none',
                 },
             }
         );
     });
 })
-
-

@@ -3,7 +3,6 @@
 
 .section{
   padding: 40px 0;
-  //overflow: hidden;
   &__header{
     margin-bottom: 30px;
   }
@@ -21,8 +20,5 @@
 @include mixins.respond-to(variables.$md) {
   .section {
     padding: 100px 0;
-    &__header{
-      //margin-bottom: 70px;
-    }
   }
 }

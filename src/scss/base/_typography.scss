@@ -28,14 +28,6 @@
   letter-spacing: 0.06em;
 }
 
-.title_md {
-
-}
-
-.title_sm {
-
-}
-
 @include mixins.respond-to(variables.$sm) {
   .title {
     font-size: 32px;
@@ -46,9 +38,5 @@
       letter-spacing: 0.06em
     }
   }
-
-}
-
-.main_hot {
 
 }

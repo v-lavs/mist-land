@@ -4,18 +4,13 @@
 .section-manifestation {
   position: relative;
   padding-top: 0!important;
-  .container {
-    //display: flex;
-    //flex-direction: column;
-    ////min-height: 100vh;
-    //justify-content: center;
-  }
+
   .message-block {
     padding-top: 42px;
     position: relative;
     padding-left: 18px;
     padding-right: 18px;
-    //transition: transform 1.5s ease, opacity 1s ease;
+    transition: transform 0.5s ease, opacity .35s ease;
 
     &:before {
       position: absolute;
@@ -78,9 +73,6 @@
 .sticky-trigger {
   position: relative;
   top: 0;
-  //height: 500vh;
-  //height: 900vh;
-  border: 2px solid red;
 
   .container {
     padding-top: 40px;
@@ -108,10 +100,10 @@
   margin-right: 8px;
   flex-shrink: 0;
   width: auto;
-  $symptom-count: 9; // Кількість елементів
-  $symptom-opacity-start: 0.6; // Початкова прозорість
-  $symptom-opacity-end: 0.2; // Кінцева прозорість
-  $symptom-blur-end: 4px; // Максимальний блюр
+  $symptom-count: 9;
+  $symptom-opacity-start: 0.6;
+  $symptom-opacity-end: 0.2;
+  $symptom-blur-end: 4px;
   opacity: 0.2;
   filter: blur(4px);
   transition: opacity 0.3s ease, filter 0.3s ease, font-size 0.3s ease;
@@ -377,10 +369,10 @@
 @include mixins.respond-to(variables.$xxl) {
   .image {
     height: 560px;
-    transform: translateX(148px) scale(.95);
+    transform: translate(148px, 13px) scale(.95);
   }
   .image.visible{
-    transform: translateX(148px) scale(.95);
+    transform: translate(148px, 13px) scale(.95);
   }
  .icons .icon{
     width: 500px;
