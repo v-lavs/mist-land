@@ -231,15 +231,12 @@ document.addEventListener('DOMContentLoaded', function () {
         scrollTrigger: {
             trigger: '.sticky-trigger',
             start: 'top top',
-            end: '+=250%',
+            end: '+=325%',
             pin: true,
             spinWheel: true,
             pinSpacing: true,
             toggleActions: 'play none none reverse',
             onUpdate: self => updateAnimationOnScroll(self.progress),
-            onLeave: self => {
-                console.log(self)
-            }
         }
     });
 
@@ -336,7 +333,6 @@ document.addEventListener('DOMContentLoaded', function () {
 // Оновлення анімації на основі скролу
     const updateAnimationOnScroll = (progress) => {
         const scrollPosition = progress * sectionHeight;
-        console.log(progress)
 
         if (!isLastAnimation) {
             symptoms.forEach((symptom, index) => {
@@ -385,7 +381,6 @@ document.addEventListener('DOMContentLoaded', function () {
             duration: getDurationRandomValue(),
             ease: "sine.inOut",
             force3D: true,
-            lazy: true
         })
             .to(component, {
                 y: `+=${getCoordinatesRandomValue()}`,
@@ -394,7 +389,6 @@ document.addEventListener('DOMContentLoaded', function () {
                 duration: getDurationRandomValue(),
                 ease: "sine.inOut",
                 force3D: true,
-                lazy: true
             })
             .to(component, {
                 y: `+=${getCoordinatesRandomValue()}`,
@@ -403,7 +397,6 @@ document.addEventListener('DOMContentLoaded', function () {
                 duration: getDurationRandomValue(),
                 ease: "sine.inOut",
                 force3D: true,
-                lazy: true
             });
     });
 
@@ -504,7 +497,6 @@ document.addEventListener('DOMContentLoaded', function () {
                     x: (mouse.x - rect.width / 2) / rect.width * movement,
                     y: (mouse.y - rect.height / 2) / rect.height * movement,
                     ease: "power1.inOut",
-                    lazy: true
                 });
             }
 
@@ -563,10 +555,10 @@ document.addEventListener('DOMContentLoaded', function () {
                     start: 'top 75%',
                     toggleActions: 'play none none none',
                     once: true,
-                },
-                lazy: true
+                }
             }
         );
     });
 });
+
 
