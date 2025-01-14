@@ -237,6 +237,9 @@ document.addEventListener('DOMContentLoaded', function () {
             pinSpacing: true,
             toggleActions: 'play none none reverse',
             onUpdate: self => updateAnimationOnScroll(self.progress),
+            onLeave: self => {
+                console.log(self)
+            }
         }
     });
 
@@ -321,11 +324,11 @@ document.addEventListener('DOMContentLoaded', function () {
         // Оновлюємо іконки
         if (mobileIcons.length > currentSymptomIndex) {
             mobileIcons.forEach((icon, i) => {
-              if (i === currentSymptomIndex) {
-                  icon.classList.add("visible");
-              }  else {
-                  icon.classList.remove("visible");
-              }
+                if (i === currentSymptomIndex) {
+                    icon.classList.add("visible");
+                }  else {
+                    icon.classList.remove("visible");
+                }
             });
         }
     };
@@ -381,6 +384,8 @@ document.addEventListener('DOMContentLoaded', function () {
             rotation: `+=${getRotationRandomValue()}`,
             duration: getDurationRandomValue(),
             ease: "sine.inOut",
+            force3D: true,
+            lazy: true
         })
             .to(component, {
                 y: `+=${getCoordinatesRandomValue()}`,
@@ -388,6 +393,8 @@ document.addEventListener('DOMContentLoaded', function () {
                 rotation: `+=${getRotationRandomValue()}`,
                 duration: getDurationRandomValue(),
                 ease: "sine.inOut",
+                force3D: true,
+                lazy: true
             })
             .to(component, {
                 y: `+=${getCoordinatesRandomValue()}`,
@@ -395,6 +402,8 @@ document.addEventListener('DOMContentLoaded', function () {
                 rotation: `+=${getRotationRandomValue()}`,
                 duration: getDurationRandomValue(),
                 ease: "sine.inOut",
+                force3D: true,
+                lazy: true
             });
     });
 
@@ -414,17 +423,21 @@ document.addEventListener('DOMContentLoaded', function () {
             rotation: 360,
             duration: 1.5,
             ease: "power1.in",
-        }, "+=0.8")
+            force3D: true,
+            lazy: true
+        }, "+=0.4")
         .from(".pill-anim__images", {
             opacity: 1,
             scale: 0,
             duration: 1.5,
-            ease: "power1.out"
-        }, "-=1")
+            ease: "power1.out",
+            force3D: true,
+        }, "-=0.8")
         .from(".pill-anim__logo", {
             opacity: 0,
             xPercent: -150,
             duration: 0.6,
+            force3D: true,
         }, "-=0.1");
 
 
@@ -490,7 +503,8 @@ document.addEventListener('DOMContentLoaded', function () {
                     duration: 0.5,
                     x: (mouse.x - rect.width / 2) / rect.width * movement,
                     y: (mouse.y - rect.height / 2) / rect.height * movement,
-                    ease: "power1.inOut"
+                    ease: "power1.inOut",
+                    lazy: true
                 });
             }
 
@@ -550,7 +564,9 @@ document.addEventListener('DOMContentLoaded', function () {
                     toggleActions: 'play none none none',
                     once: true,
                 },
+                lazy: true
             }
         );
     });
 });
+
