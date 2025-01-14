@@ -289,7 +289,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
                 symptom.style.opacity = '0.3';
             }
-            symptom.style.fontSize = '16px';
+            symptom.style.fontSize = '18px';
         });
         let shiftWidth = 0;
         for (let i = 0; i < currentIndex; i++) {
