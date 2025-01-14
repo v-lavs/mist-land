@@ -108,12 +108,8 @@ document.addEventListener('DOMContentLoaded', function () {
             });
         });
     };
-
-    window.addEventListener('load', initSwiper);
-    window.addEventListener('resize', initSwiper);
-    const btnsSeeMore = document.querySelectorAll('.see-more');
-
     if (window.innerWidth < 768) {
+        const btnsSeeMore = document.querySelectorAll('.slider-about .see-more');
         btnsSeeMore.forEach((btn) => {
             btn.addEventListener('click', function () {
                 const hideText = this.parentElement.querySelector('.card-about__hide-content');
@@ -125,6 +121,11 @@ document.addEventListener('DOMContentLoaded', function () {
             });
         });
     }
+    window.addEventListener('load', initSwiper);
+    window.addEventListener('resize', initSwiper);
+
+
+
 
     // Back-to-Top Button
     const goTopBtn = document.querySelector('.btn_up');
@@ -139,12 +140,11 @@ document.addEventListener('DOMContentLoaded', function () {
     window.addEventListener('scroll', trackScroll);
 
     // Popup Logic
-    const openButtons = document.querySelectorAll('.open-popup'); // Кнопки для відкриття перших двох попапів
-    const popup = document.getElementById('modal'); // Перший/Другий Попап
+    const openButtons = document.querySelectorAll('.open-popup');
+    const popup = document.getElementById('modal');
     const popupText = document.getElementById('modalHeader');
     const closePopupButton = document.getElementById('closePopup');
-    // const overlay = document.querySelector('.overlay');
-    const thirdPopup = document.getElementById('playDiscount'); // Третій Попап
+    const thirdPopup = document.getElementById('playDiscount');
     const closeThirdPopupButton = document.getElementById('closeThirdPopup');
     const overlay = document.querySelector('.overlay');
     const openPopup = (popup) => {
@@ -403,7 +403,7 @@ document.addEventListener('DOMContentLoaded', function () {
     const timeline = gsap.timeline({
         scrollTrigger: {
             trigger: "#about",
-            start: "top 35%",
+            start: "top 40%",
             onEnter: () => {
                 document.getElementById("about").classList.add("timeline-started");
             },
@@ -540,7 +540,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 scrollTrigger: {
                     trigger: section,
                     start: 'top 75%',
-                    toggleActions: 'play none none reverse',
+                    toggleActions: 'play none none none',
                     once: true,
                 },
             }

@@ -2357,13 +2357,13 @@ sup {
   max-height: 0;
   width: 100%;
   overflow: hidden;
-  transition: max-height 1.25s ease;
+  transition: max-height 1s ease-in;
 }
 
 .card-about__hide-content.open-text {
   height: auto;
   max-height: 1000px;
-  transition: max-height 1.25s ease;
+  transition: max-height 1s ease-in;
 }
 
 .see-more {
