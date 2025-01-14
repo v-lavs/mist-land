@@ -79,12 +79,14 @@ document.addEventListener('DOMContentLoaded', function () {
     });
 
     // Swiper Initialization
+    let sliderAbout;
     const initSwiper = () => {
+        if (sliderAbout) sliderAbout.destroy(true, true);
         const sliderAboutConfig = window.innerWidth >= 1024
             ? {effect: 'fade', speed: 1000}
             : {spaceBetween: 10, slidesPerView: 'auto', breakpoints: {768: {spaceBetween: 20}}};
 
-        const sliderAbout = new Swiper('.slider-about', {
+        sliderAbout = new Swiper('.slider-about', {
             ...sliderAboutConfig,
             pagination: {el: '.slider-about .swiper-pagination', clickable: true},
             on: {slideChange: updateCustomNavigation},
