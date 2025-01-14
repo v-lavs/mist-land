@@ -62,7 +62,7 @@ document.addEventListener('DOMContentLoaded', function () {
                     scrollTo: targetElement,
                     duration: 1.5,
                     ease: 'power2.out',
-                    onComplete: () => ScrollTrigger.refresh(),
+                    onComplete: () => ScrollTrigger.update(),
                 });
             }
         });
@@ -245,11 +245,12 @@ document.addEventListener('DOMContentLoaded', function () {
     const images = document.querySelectorAll(".image");
     const iconsContainer = document.querySelector(".icons");
     const animationSection = document.querySelector(".section-manifestation");
+    const mobileIcons = iconsContainer.querySelectorAll(".icon");
     const stickyTrigger = document.querySelector(".sticky-trigger");
 
     let currentSymptomIndex = -1;
     let isLastAnimation = false;
-    const delayAfterLastAnimation = 500;
+    const delayAfterLastAnimation = 25;
 
     const sectionTop = animationSection.offsetTop;
     const sectionHeight = animationSection.offsetHeight;
@@ -318,19 +319,21 @@ document.addEventListener('DOMContentLoaded', function () {
         });
 
         // Оновлюємо іконки
-        const iconSrc = symptoms[index]?.dataset.icon;
-        if (iconSrc) {
-            iconsContainer.innerHTML = "";
-            const iconElement = document.createElement("img");
-            iconElement.src = iconSrc;
-            iconElement.classList.add("icon", "visible");
-            iconsContainer.appendChild(iconElement);
+        if (mobileIcons.length > currentSymptomIndex) {
+            mobileIcons.forEach((icon, i) => {
+              if (i === currentSymptomIndex) {
+                  icon.classList.add("visible");
+              }  else {
+                  icon.classList.remove("visible");
+              }
+            });
         }
     };
 
 // Оновлення анімації на основі скролу
     const updateAnimationOnScroll = (progress) => {
         const scrollPosition = progress * sectionHeight;
+        console.log(progress)
 
         if (!isLastAnimation) {
             symptoms.forEach((symptom, index) => {
@@ -349,12 +352,7 @@ document.addEventListener('DOMContentLoaded', function () {
         // Логіка для завершення анімації
         if (currentSymptomIndex === symptoms.length - 1 && !isLastAnimation) {
             setTimeout(() => {
-                stickyTrigger.style.position = "relative";
-                stickyTrigger.style.top = "auto";
-                stickyTrigger.style.scroll = "auto";
-                stickyTrigger.style.height = "auto";
                 updateState(currentSymptomIndex);
-                // ScrollTrigger.refresh();
             }, delayAfterLastAnimation);
         }
     };
@@ -447,12 +445,21 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     });
     let windowW = window.innerWidth;
+    let resizeTimeout;
+
     window.addEventListener('resize', () => {
-        if (windowW !== window.innerWidth) {
-            windowW = window.innerWidth;
-            ScrollTrigger.refresh();
-        }
+        // Clear the previous timeout
+        clearTimeout(resizeTimeout);
+
+        // Set a new debounce timeout
+        resizeTimeout = setTimeout(() => {
+            if (windowW !== window.innerWidth) {
+                windowW = window.innerWidth;
+                ScrollTrigger.update();
+            }
+        }, 100); // Adjust the delay as needed
     });
+
 
 
 //HOVER PARALLAX
