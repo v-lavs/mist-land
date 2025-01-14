@@ -354,7 +354,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 stickyTrigger.style.scroll = "auto";
                 stickyTrigger.style.height = "auto";
                 updateState(currentSymptomIndex);
-                ScrollTrigger.refresh();
+                // ScrollTrigger.refresh();
             }, delayAfterLastAnimation);
         }
     };
