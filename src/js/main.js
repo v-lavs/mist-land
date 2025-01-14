@@ -124,6 +124,13 @@ document.addEventListener('DOMContentLoaded', function () {
     window.addEventListener('scroll', trackScroll);
 
     // Popup Logic
+    const openButtons = document.querySelectorAll('.open-popup'); // Кнопки для відкриття перших двох попапів
+    const popup = document.getElementById('modal'); // Перший/Другий Попап
+    const popupText = document.getElementById('modalHeader');
+    const closePopupButton = document.getElementById('closePopup');
+    // const overlay = document.querySelector('.overlay');
+    const thirdPopup = document.getElementById('playDiscount'); // Третій Попап
+    const closeThirdPopupButton = document.getElementById('closeThirdPopup');
     const overlay = document.querySelector('.overlay');
     const openPopup = (popup) => {
         popup.classList.add('open');
@@ -151,6 +158,26 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     });
 
+    openButtons.forEach(button => {
+        button.addEventListener('click', () => {
+            const templateId = button.getAttribute('data-template-id');
+            const template = document.getElementById(templateId);
+
+            if (template) {
+                const templateContent = template.content.cloneNode(true);
+                popupText.innerHTML = '';
+                popupText.appendChild(templateContent);
+
+                const thirdPopupButton = popup.querySelector('.trigger-play');
+                thirdPopupButton.addEventListener('click', () => {
+                    closePopup(popup);
+                    openPopup(thirdPopup);
+                });
+
+                openPopup(popup);
+            }
+        });
+    });
     document.getElementById('closePopup').addEventListener('click', () => closePopup(popups.modal));
     document.getElementById('closeThirdPopup').addEventListener('click', () => closePopup(popups.thirdPopup));
 
