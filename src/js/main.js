@@ -35,7 +35,7 @@ document.addEventListener('DOMContentLoaded', function () {
         element.addEventListener('click', () => toggleMenu(false));
     });
 
-    // Header Scroll Animation
+// Header Scroll Animation
     const header = document.querySelector('header');
     let lastScrollTop = 0;
 
@@ -48,8 +48,7 @@ document.addEventListener('DOMContentLoaded', function () {
             duration: 0.5,
             ease: 'power2.out',
         });
-
-        header.classList.toggle('active', scrollTop < lastScrollTop || scrollTop === 0);
+        header.classList.toggle('active', scrollTop < lastScrollTop && scrollTop !== 0);
         lastScrollTop = scrollTop;
     });
 
