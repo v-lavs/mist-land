@@ -3,6 +3,7 @@
 
 .section-about {
   padding-bottom: 23px;
+
   .title_lg {
     margin-bottom: 10px;
     text-align: center;
@@ -52,7 +53,6 @@
 
   .swiper-slide {
     width: 271px;
-    height: auto;
   }
 }
 
@@ -100,6 +100,7 @@
     line-height: 24px;
     letter-spacing: -0.01em;
     margin-bottom: 10px;
+    min-height: 55px;
   }
 
   &__label {
@@ -115,7 +116,7 @@
   }
 
   &__content {
-    padding: 20px 20px 30px;
+    padding: 20px 20px 52px;
 
     p {
       margin-bottom: 8px;
@@ -156,6 +157,54 @@
         }
       }
     }
+  }
+}
+
+.card-about__hide-content {
+  max-height: 0;
+  width: 100%;
+  overflow: hidden;
+  transition: max-height 1.25s ease;
+
+  &.open-text {
+    height: auto;
+    max-height: 1000px;
+    transition: max-height 1.25s ease;
+  }
+}
+
+.see-more {
+  position: absolute;
+  background: linear-gradient(117.73deg, rgb(5, 255, 218) 7.855%, rgb(0, 198, 255) 88.98%);
+  width: 32px;
+  height: 32px;
+  border: none;
+  appearance: none;
+  border-radius: 50%;
+  right: 20px;
+  bottom: 20px;
+  transition: .5s;
+  z-index: 1;
+
+  &.toggle-open {
+    transform: rotate(180deg);
+  }
+
+  &:before {
+    position: absolute;
+    width: 14px;
+    height: 9px;
+    content: '';
+    display: block;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    margin-top: 1px;
+    background-image: url('../assets/img/about/arr-down.svg');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 20px 9px;
+    z-index: 1;
   }
 }
 
@@ -233,10 +282,12 @@
   }
   .slider-about {
     padding-bottom: 42px;
+
     .swiper-slide {
       width: 614px;
     }
- .swiper-pagination-bullets.swiper-pagination-horizontal {
+
+    .swiper-pagination-bullets.swiper-pagination-horizontal {
       bottom: 10px;
     }
   }
@@ -280,9 +331,18 @@
       padding: 10px 20px;
       margin-bottom: 20px;
     }
+
+    &__hide-content {
+      max-height: max-content;
+    }
+
+    .see-more {
+      display: none;
+    }
   }
   .section-about {
     padding-bottom: 38px;
+
     .sub-title {
       font-size: 32px;
       line-height: 38.4px;
@@ -409,6 +469,7 @@
       flex-direction: row;
       align-items: center;
       margin-bottom: 220px;
+
       &__header-col,
       &__animation-col {
         width: 50%;
@@ -435,9 +496,9 @@
 
 @include mixins.respond-to(variables.$xl) {
   .section-about {
-   .about-grid{
-     margin-bottom: 200px;
-   }
+    .about-grid {
+      margin-bottom: 200px;
+    }
   }
 }
 

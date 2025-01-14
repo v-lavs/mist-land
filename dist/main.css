@@ -2247,7 +2247,6 @@ sup {
 
 .slider-about .swiper-slide {
   width: 271px;
-  height: auto;
 }
 
 .card-about {
@@ -2273,7 +2272,7 @@ sup {
 
 .card-about__thumb {
   width: 100%;
-  height: 120px;
+  height: 180px;
   position: relative;
 }
 
@@ -2295,6 +2294,7 @@ sup {
   line-height: 24px;
   letter-spacing: -0.01em;
   margin-bottom: 10px;
+  min-height: 55px;
 }
 
 .card-about__label {
@@ -2310,7 +2310,7 @@ sup {
 }
 
 .card-about__content {
-  padding: 20px 20px 30px;
+  padding: 20px 20px 52px;
 }
 
 .card-about__content p {
@@ -2351,6 +2351,54 @@ sup {
 
 .card-about__content ul li:last-child {
   margin-bottom: 0;
+}
+
+.card-about__hide-content {
+  max-height: 0;
+  width: 100%;
+  overflow: hidden;
+  transition: max-height 1.25s ease;
+}
+
+.card-about__hide-content.open-text {
+  height: auto;
+  max-height: 1000px;
+  transition: max-height 1.25s ease;
+}
+
+.see-more {
+  position: absolute;
+  background: linear-gradient(117.73deg, rgb(5, 255, 218) 7.855%, rgb(0, 198, 255) 88.98%);
+  width: 32px;
+  height: 32px;
+  border: none;
+  appearance: none;
+  border-radius: 50%;
+  right: 20px;
+  bottom: 20px;
+  transition: 0.5s;
+  z-index: 1;
+}
+
+.see-more.toggle-open {
+  transform: rotate(180deg);
+}
+
+.see-more:before {
+  position: absolute;
+  width: 14px;
+  height: 9px;
+  content: "";
+  display: block;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  margin-top: 1px;
+  background-image: url("../assets/img/about/arr-down.svg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 20px 9px;
+  z-index: 1;
 }
 
 .about-nav {
@@ -3240,6 +3288,14 @@ sup {
     font-size: 16px;
     padding: 10px 20px;
     margin-bottom: 20px;
+  }
+
+  .card-about__hide-content {
+    max-height: max-content;
+  }
+
+  .card-about .see-more {
+    display: none;
   }
 
   .section-about {

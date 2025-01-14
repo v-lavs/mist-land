@@ -111,6 +111,20 @@ document.addEventListener('DOMContentLoaded', function () {
 
     window.addEventListener('load', initSwiper);
     window.addEventListener('resize', initSwiper);
+    const btnsSeeMore = document.querySelectorAll('.see-more');
+
+    if (window.innerWidth < 768) {
+        btnsSeeMore.forEach((btn) => {
+            btn.addEventListener('click', function () {
+                const hideText = this.parentElement.querySelector('.card-about__hide-content');
+                btn.classList.toggle('toggle-open');
+                if (hideText) {
+                    hideText.classList.toggle('open-text');
+
+                }
+            });
+        });
+    }
 
     // Back-to-Top Button
     const goTopBtn = document.querySelector('.btn_up');
