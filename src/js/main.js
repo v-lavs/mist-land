@@ -6,8 +6,8 @@
 document.addEventListener('DOMContentLoaded', function () {
     // Register GSAP plugins
     gsap.registerPlugin(ScrollTrigger, ScrollToPlugin);
-    gsap.ticker.lagSmoothing(1000, 33);
-    gsap.ticker.fps(60);
+    // gsap.ticker.lagSmoothing(1000, 33);
+    // gsap.ticker.fps(60);
 
     const body = document.body;
 
