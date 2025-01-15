@@ -1,5 +1,9 @@
 @use "sass:math";
 
+.anim-item {
+  will-change: transform;
+}
+
 // ANIM STARS
 @keyframes scaleAnim {
   0%, 100% {
@@ -41,6 +45,7 @@
   z-index: 0;
   position: absolute;
   transition: transform 1s;
+  will-change: transform;
 }
 
 @keyframes float {
