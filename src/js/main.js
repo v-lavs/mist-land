@@ -400,7 +400,7 @@ document.addEventListener('DOMContentLoaded', function () {
     const timeline = gsap.timeline({
         scrollTrigger: {
             trigger: "#about",
-            start: "top 40%",
+            start: "top 30%",
             onEnter: () => {
                 document.getElementById("about").classList.add("timeline-started");
             },
@@ -471,84 +471,124 @@ document.addEventListener('DOMContentLoaded', function () {
 
 
 //HOVER PARALLAX
-    let containers = [];
-    let mouse = {x: 0, y: 0, moved: false};
-    let parallaxlisteners = [];
+//     let containers = [];
+//     let mouse = {x: 0, y: 0, moved: false};
+//     let parallaxlisteners = [];
+//
+//     function initParallax() {
+//         containers = document.querySelectorAll('.container-parallax');
+//
+//         containers.forEach(container => {
+//             let rect = container.getBoundingClientRect();
+//
+//             function handleMouseMove(e) {
+//                 mouse.moved = true;
+//                 mouse.x = e.clientX - rect.left;
+//                 mouse.y = e.clientY - rect.top;
+//             }
+//
+//             container.addEventListener('mousemove', handleMouseMove);
+//             parallaxlisteners.push(handleMouseMove);
+//         });
+//
+//         gsap.ticker.add(updateParallax);
+//     }
+//
+//     function removeParallaxListeners() {
+//
+//         containers.forEach((container, index) => {
+//             const parallaxElements = [container.querySelector('.img-parallax'), container.querySelector('.back-wave-parallax')]
+//             parallaxElements.forEach(el => {
+//                 if (el) {
+//                     // remove gsap styles after resize
+//                     el.style.removeProperty('transform');
+//                 }
+//             });
+//             const handleMouseMove = parallaxlisteners[index];
+//             if (!handleMouseMove) return;
+//             container.removeEventListener('mousemove', handleMouseMove);
+//             if (index === parallaxlisteners.length - 1) {
+//                 parallaxlisteners = [];
+//             }
+//         });
+//         gsap.ticker.remove(updateParallax);
+//     }
+//
+//     function updateParallax() {
+//         containers.forEach(container => {
+//             let rect = container.getBoundingClientRect();
+//
+//             if (mouse.moved && window.innerWidth >= 1024) {
+//                 parallaxIt(container.querySelector('.img-parallax'), 10, rect);
+//                 parallaxIt(container.querySelector('.back-wave-parallax'), -20, rect);
+//             }
+//             mouse.moved = false;
+//         });
+//     }
+//
+//     function parallaxIt(target, movement, rect) {
+//         if (!target) return;
+//         gsap.to(target, {
+//             duration: 0.5,
+//             x: (mouse.x - rect.left - rect.width / 2) / rect.width * movement,
+//             y: (mouse.y - rect.top - rect.height / 2) / rect.height * movement,
+//             ease: "power1.inOut",
+//         });
+//     }
+//
+//     function handleParallaxElementResize() {
+//         if (window.innerWidth < 1024) {
+//             removeParallaxListeners();
+//         } else {
+//             initParallax();
+//         }
+//     }
+//
+//     // Initial setup based on viewport width
+//     if (window.innerWidth >= 1024) {
+//         initParallax();
+//     }
 
-    function initParallax() {
-        containers = document.querySelectorAll('.container-parallax');
+    if (window.innerWidth >= 1024) {
+        const containers = document.querySelectorAll('.container-parallax');
 
         containers.forEach(container => {
             let rect = container.getBoundingClientRect();
+            const mouse = {x: 0, y: 0, moved: false};
 
-            function handleMouseMove(e) {
+            container.addEventListener('mousemove', (e) => {
                 mouse.moved = true;
                 mouse.x = e.clientX - rect.left;
                 mouse.y = e.clientY - rect.top;
-            }
-
-            container.addEventListener('mousemove', handleMouseMove);
-            parallaxlisteners.push(handleMouseMove);
-        });
-
-        gsap.ticker.add(updateParallax);
-    }
-
-    function removeParallaxListeners() {
-
-        containers.forEach((container, index) => {
-            const parallaxElements = [container.querySelector('.img-parallax'), container.querySelector('.back-wave-parallax')]
-            parallaxElements.forEach(el => {
-                if (el) {
-                    // remove gsap styles after resize
-                    el.style.removeProperty('transform');
-                }
             });
-            const handleMouseMove = parallaxlisteners[index];
-            if (!handleMouseMove) return;
-            container.removeEventListener('mousemove', handleMouseMove);
-            if (index === parallaxlisteners.length - 1) {
-                parallaxlisteners = [];
+
+            gsap.ticker.add(() => {
+                if (mouse.moved) {
+                    parallaxIt(container.querySelector('.img-parallax'), 10);
+                    parallaxIt(container.querySelector('.back-wave-parallax'), -20);
+                }
+                mouse.moved = false;
+            });
+
+            function parallaxIt(target, movement) {
+                if (!target) return;
+                gsap.to(target, {
+                    duration: 0.5,
+                    x: (mouse.x - rect.width / 2) / rect.width * movement,
+                    y: (mouse.y - rect.height / 2) / rect.height * movement,
+                    ease: "power1.inOut",
+                    lazy: true
+                });
+            }
+
+            window.addEventListener('resize', updateRect);
+            window.addEventListener('scroll', updateRect);
+
+            function updateRect() {
+                rect = container.getBoundingClientRect();
             }
         });
-        gsap.ticker.remove(updateParallax);
     }
-
-    function updateParallax() {
-        containers.forEach(container => {
-            let rect = container.getBoundingClientRect();
-
-            if (mouse.moved && window.innerWidth >= 1024) {
-                parallaxIt(container.querySelector('.img-parallax'), 10, rect);
-                parallaxIt(container.querySelector('.back-wave-parallax'), -20, rect);
-            }
-            mouse.moved = false;
-        });
-    }
-
-    function parallaxIt(target, movement, rect) {
-        if (!target) return;
-        gsap.to(target, {
-            duration: 0.5,
-            x: (mouse.x - rect.left - rect.width / 2) / rect.width * movement,
-            y: (mouse.y - rect.top - rect.height / 2) / rect.height * movement,
-            ease: "power1.inOut",
-        });
-    }
-
-    function handleParallaxElementResize() {
-        if (window.innerWidth < 1024) {
-            removeParallaxListeners();
-        } else {
-            initParallax();
-        }
-    }
-
-    // Initial setup based on viewport width
-    if (window.innerWidth >= 1024) {
-        initParallax();
-    }
-
 
     // ANIM TITLE
     const sections2 = gsap.utils.toArray('.section-anim');
