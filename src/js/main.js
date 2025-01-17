@@ -190,6 +190,7 @@ document.addEventListener('DOMContentLoaded', function () {
             }
         });
     });
+    document.getElementById('btnBuy').addEventListener('click', () => closePopup(popups.modal));
     document.getElementById('closePopup').addEventListener('click', () => closePopup(popups.modal));
     document.getElementById('closeThirdPopup').addEventListener('click', () => closePopup(popups.thirdPopup));
 
@@ -471,29 +472,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
 
 //HOVER PARALLAX
-//     let containers = [];
-//     let mouse = {x: 0, y: 0, moved: false};
-//     let parallaxlisteners = [];
-//
-//     function initParallax() {
-//         containers = document.querySelectorAll('.container-parallax');
-//
-//         containers.forEach(container => {
-//             let rect = container.getBoundingClientRect();
-//
-//             function handleMouseMove(e) {
-//                 mouse.moved = true;
-//                 mouse.x = e.clientX - rect.left;
-//                 mouse.y = e.clientY - rect.top;
-//             }
-//
-//             container.addEventListener('mousemove', handleMouseMove);
-//             parallaxlisteners.push(handleMouseMove);
-//         });
-//
-//         gsap.ticker.add(updateParallax);
-//     }
-//
+
     function removeParallaxListeners() {
 
         containers.forEach((container, index) => {
@@ -513,41 +492,6 @@ document.addEventListener('DOMContentLoaded', function () {
         });
         gsap.ticker.remove(updateParallax);
     }
-//
-//     function updateParallax() {
-//         containers.forEach(container => {
-//             let rect = container.getBoundingClientRect();
-//
-//             if (mouse.moved && window.innerWidth >= 1024) {
-//                 parallaxIt(container.querySelector('.img-parallax'), 10, rect);
-//                 parallaxIt(container.querySelector('.back-wave-parallax'), -20, rect);
-//             }
-//             mouse.moved = false;
-//         });
-//     }
-//
-//     function parallaxIt(target, movement, rect) {
-//         if (!target) return;
-//         gsap.to(target, {
-//             duration: 0.5,
-//             x: (mouse.x - rect.left - rect.width / 2) / rect.width * movement,
-//             y: (mouse.y - rect.top - rect.height / 2) / rect.height * movement,
-//             ease: "power1.inOut",
-//         });
-//     }
-//
-//     function handleParallaxElementResize() {
-//         if (window.innerWidth < 1024) {
-//             removeParallaxListeners();
-//         } else {
-//             initParallax();
-//         }
-//     }
-//
-//     // Initial setup based on viewport width
-//     if (window.innerWidth >= 1024) {
-//         initParallax();
-//     }
 
     if (window.innerWidth >= 1024) {
         const containers = document.querySelectorAll('.container-parallax');
