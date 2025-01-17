@@ -464,8 +464,8 @@ document.addEventListener('DOMContentLoaded', function () {
                 // Reinitialize the swiper configuration
                 initSwiper();
 
-                // Listen for resize events to toggle parallax based on viewport width
-                handleParallaxElementResize();
+                // // Listen for resize events to toggle parallax based on viewport width
+                // handleParallaxElementResize();
             }
         }, 100); // Adjust the delay as needed
     });
