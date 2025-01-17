@@ -494,25 +494,25 @@ document.addEventListener('DOMContentLoaded', function () {
 //         gsap.ticker.add(updateParallax);
 //     }
 //
-//     function removeParallaxListeners() {
-//
-//         containers.forEach((container, index) => {
-//             const parallaxElements = [container.querySelector('.img-parallax'), container.querySelector('.back-wave-parallax')]
-//             parallaxElements.forEach(el => {
-//                 if (el) {
-//                     // remove gsap styles after resize
-//                     el.style.removeProperty('transform');
-//                 }
-//             });
-//             const handleMouseMove = parallaxlisteners[index];
-//             if (!handleMouseMove) return;
-//             container.removeEventListener('mousemove', handleMouseMove);
-//             if (index === parallaxlisteners.length - 1) {
-//                 parallaxlisteners = [];
-//             }
-//         });
-//         gsap.ticker.remove(updateParallax);
-//     }
+    function removeParallaxListeners() {
+
+        containers.forEach((container, index) => {
+            const parallaxElements = [container.querySelector('.img-parallax'), container.querySelector('.back-wave-parallax')]
+            parallaxElements.forEach(el => {
+                if (el) {
+                    // remove gsap styles after resize
+                    el.style.removeProperty('transform');
+                }
+            });
+            const handleMouseMove = parallaxlisteners[index];
+            if (!handleMouseMove) return;
+            container.removeEventListener('mousemove', handleMouseMove);
+            if (index === parallaxlisteners.length - 1) {
+                parallaxlisteners = [];
+            }
+        });
+        gsap.ticker.remove(updateParallax);
+    }
 //
 //     function updateParallax() {
 //         containers.forEach(container => {
