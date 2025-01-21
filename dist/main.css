@@ -3076,6 +3076,11 @@ sup {
     line-height: 1.4;
   }
 
+  .manifestation:nth-child(n) {
+    opacity: 0;
+    filter: blur(0);
+  }
+
   .manifestation:before {
     top: 8px;
   }
