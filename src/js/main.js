@@ -293,7 +293,7 @@ document.addEventListener('DOMContentLoaded', function () {
         });
         let shiftWidth = 0;
         for (let i = 0; i < currentIndex; i++) {
-            shiftWidth += symptoms[i].offsetWidth + 20;
+            shiftWidth += symptoms[i].offsetWidth + 8;
         }
         symptomList.style.transform = `translateX(-${shiftWidth}px)`;
     };
