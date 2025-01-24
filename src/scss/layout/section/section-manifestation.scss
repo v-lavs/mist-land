@@ -80,10 +80,6 @@
   flex-direction: column;
   min-height: 100vh;
   justify-content: center;
-
-  .container {
-    //padding-top: 40px;
-  }
 }
 
 .manifestation-list {
@@ -103,7 +99,7 @@
   line-height: 19.2px;
   padding-left: 16px;
   position: relative;
-  max-width: 280px;
+  //max-width: 280px;
   margin-right: 8px;
   flex-shrink: 0;
   width: auto;
@@ -143,7 +139,7 @@
 .manifestation.visible {
   opacity: 1;
   filter: blur(0);
-  font-size: 22px;
+
 }
 
 .images {
@@ -198,7 +194,7 @@
     width: 50%;
     transform: none;
     padding-bottom: 10px;
-    min-height: 440px;
+    min-height: 450px;
 
     ul {
       transform: none !important;
@@ -212,9 +208,12 @@
     font-size: 16px;
     line-height: 1.4;
 
+    br {
+      display: none;
+    }
+
     &:nth-child(n) {
       opacity: 0;
-      filter: blur(0);
     }
 
     &:before {
@@ -322,8 +321,6 @@
     padding-top: 100px;
   }
   .section-manifestation {
-    //padding-top: 0;
-
     .message-block {
       padding-bottom: 30px;
 

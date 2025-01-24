@@ -265,16 +265,8 @@ document.addEventListener('DOMContentLoaded', function () {
                 symptom.style.opacity = '1';
                 symptom.style.filter = 'blur(0)';
             } else {
-                // const factor = Math.abs(i - currentIndex);
-                // const opacity = 0.6 - factor * (0.6 - 0.2) / symptoms.length;
                 symptom.style.opacity = '0';
-                symptom.style.filter = 'blur(0)';
-
-                // const blur = factor * (4 / symptoms.length);
-
                 symptom.style.fontSize = '0';
-                // symptom.style.opacity = opacity.toFixed(2);
-                // symptom.style.filter = `blur(${blur}px)`;
             }
         });
     };

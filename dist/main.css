@@ -2032,7 +2032,6 @@ sup {
   line-height: 19.2px;
   padding-left: 16px;
   position: relative;
-  max-width: 280px;
   margin-right: 8px;
   flex-shrink: 0;
   width: auto;
@@ -2105,7 +2104,6 @@ sup {
 .manifestation.visible {
   opacity: 1;
   filter: blur(0);
-  font-size: 22px;
 }
 
 .images {
@@ -3061,7 +3059,7 @@ sup {
     width: 50%;
     transform: none;
     padding-bottom: 10px;
-    min-height: 440px;
+    min-height: 450px;
   }
 
   .manifestation-list ul {
@@ -3077,9 +3075,12 @@ sup {
     line-height: 1.4;
   }
 
+  .manifestation br {
+    display: none;
+  }
+
   .manifestation:nth-child(n) {
     opacity: 0;
-    filter: blur(0);
   }
 
   .manifestation:before {
