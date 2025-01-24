@@ -359,10 +359,15 @@ document.addEventListener('DOMContentLoaded', function () {
 
 // Функція для визначення, яка картинка відповідає поточному симптому
     const getImageIndexForSymptom = (symptomIndex) => {
-        if (symptomIndex >= 0 && symptomIndex <= 2) return 0; // Картинка 1 (симптоми 1–3)
-        if (symptomIndex >= 3 && symptomIndex <= 5) return 1; // Картинка 2 (симптоми 4–6)
-        if (symptomIndex >= 6 && symptomIndex <= 7) return 2; // Картинка 3 (симптоми 7–8)
-        if (symptomIndex === 8) return 3; // Картинка 4 (симптом 9)
+        // if (symptomIndex >= 0 && symptomIndex <= 2) return 0; // Картинка 1 (симптоми 1–3)
+        // if (symptomIndex >= 3 && symptomIndex <= 5) return 1; // Картинка 2 (симптоми 4–6)
+        // if (symptomIndex >= 6 && symptomIndex <= 7) return 2; // Картинка 3 (симптоми 7–8)
+        // if (symptomIndex === 8) return 3; // Картинка 4 (симптом 9)
+
+        if (symptomIndex >= 0 && symptomIndex <= 1) return 0; // Картинка 1 (симптоми 1–2)
+        if (symptomIndex >= 2 && symptomIndex <= 4) return 1; // Картинка 2 (симптоми 3–5)
+        if (symptomIndex >= 5 && symptomIndex <= 6) return 2; // Картинка 3 (симптоми 5–6)
+        if (symptomIndex >= 7 && symptomIndex <= 8) return 3; // Картинка 4 (симптом 9)
         return -1; // Без картинки
     };
 
