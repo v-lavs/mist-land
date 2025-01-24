@@ -261,7 +261,7 @@ document.addEventListener('DOMContentLoaded', function () {
     const updateSymptomsStylesDesktop = (currentIndex) => {
         symptoms.forEach((symptom, i) => {
             if (i <= currentIndex) {
-                symptom.style.fontSize = '20px';
+                symptom.style.fontSize = '22px';
                 symptom.style.opacity = '1';
                 symptom.style.filter = 'blur(0)';
             } else {
@@ -368,6 +368,7 @@ document.addEventListener('DOMContentLoaded', function () {
         if (symptomIndex >= 2 && symptomIndex <= 4) return 1; // Картинка 2 (симптоми 3–5)
         if (symptomIndex >= 5 && symptomIndex <= 6) return 2; // Картинка 3 (симптоми 5–6)
         if (symptomIndex >= 7 && symptomIndex <= 8) return 3; // Картинка 4 (симптом 9)
+
         return -1; // Без картинки
     };
 
