@@ -264,9 +264,18 @@ document.addEventListener('DOMContentLoaded', function () {
                 symptom.style.fontSize = '22px';
                 symptom.style.opacity = '1';
                 symptom.style.filter = 'blur(0)';
+                symptom.style.transform = 'translateX(0)'
             } else {
-                symptom.style.opacity = '0';
-                symptom.style.fontSize = '0';
+                // symptom.style.opacity = '0';
+                // symptom.style.fontSize = '0';
+                // symptom.style.transform = 'translateX(50%)';
+                // symptom.style.transition = 'transform .3s'
+                symptom.style.transition = 'transform 0.3s ease, opacity 0.3s ease 0.15s'; // Затримка для opacity
+                symptom.style.transform = 'translateX(100%)';
+                setTimeout(() => {
+                    symptom.style.opacity = '0';
+                    symptom.style.fontSize = '0';
+                }, 150); // Затримка синхронізована з transform
             }
         });
     };
