@@ -9,6 +9,24 @@ document.addEventListener('DOMContentLoaded', function () {
     gsap.ticker.lagSmoothing(1000, 33);
     gsap.ticker.fps(60);
 
+    // UTM
+    const utmKeys = ['utm_source', 'utm_medium', 'utm_campaign', 'utm_term', 'utm_content', 'utm_id'];
+
+    const urlParams = new URLSearchParams(window.location.search);
+
+    const utms = utmKeys.map(key => urlParams.has(key) ? `${key}=${urlParams.get(key)}` : '').filter(Boolean);
+    if (utms.length) {
+        const utmGet = utms.join('&');
+        document.querySelectorAll('a[href^="https://tabletki.ua"]').forEach(a => {
+            let href = a.getAttribute('href');
+
+            href += href.includes('?') ? `&${utmGet}` : `?${utmGet}`;
+
+            a.setAttribute('href', href);
+        });
+    }
+    //  end UTM
+
     const body = document.body;
 
     // Mobile Menu
@@ -256,7 +274,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
     const isMobile = () => window.innerWidth < 768;
 
-// Функція для оновлення стилів симптомів на десктопі
+// Р¤СѓРЅРєС†С–СЏ РґР»СЏ РѕРЅРѕРІР»РµРЅРЅСЏ СЃС‚РёР»С–РІ СЃРёРјРїС‚РѕРјС–РІ РЅР° РґРµСЃРєС‚РѕРїС–
 
     const updateSymptomsStylesDesktop = (currentIndex) => {
         symptoms.forEach((symptom, i) => {
@@ -264,23 +282,14 @@ document.addEventListener('DOMContentLoaded', function () {
                 symptom.style.fontSize = '22px';
                 symptom.style.opacity = '1';
                 symptom.style.filter = 'blur(0)';
-                symptom.style.transform = 'translateX(0)'
             } else {
-                // symptom.style.opacity = '0';
-                // symptom.style.fontSize = '0';
-                // symptom.style.transform = 'translateX(50%)';
-                // symptom.style.transition = 'transform .3s'
-                symptom.style.transition = 'transform 0.3s ease, opacity 0.3s ease 0.15s'; // Затримка для opacity
-                symptom.style.transform = 'translateX(100%)';
-                setTimeout(() => {
-                    symptom.style.opacity = '0';
-                    symptom.style.fontSize = '0';
-                }, 150); // Затримка синхронізована з transform
+                symptom.style.opacity = '0';
+                symptom.style.fontSize = '0';
             }
         });
     };
 
-// Функція для оновлення стилів симптомів на мобільних
+// Р¤СѓРЅРєС†С–СЏ РґР»СЏ РѕРЅРѕРІР»РµРЅРЅСЏ СЃС‚РёР»С–РІ СЃРёРјРїС‚РѕРјС–РІ РЅР° РјРѕР±С–Р»СЊРЅРёС…
 
     const updateSymptomsStylesMobile = (currentIndex) => {
         symptoms.forEach((symptom, i) => {
@@ -307,7 +316,7 @@ document.addEventListener('DOMContentLoaded', function () {
         symptomList.style.transform = `translateX(-${shiftWidth}px)`;
     };
 
-// Функція для оновлення стану
+// Р¤СѓРЅРєС†С–СЏ РґР»СЏ РѕРЅРѕРІР»РµРЅРЅСЏ СЃС‚Р°РЅСѓ
 
     const updateState = (index) => {
         if (isMobile()) {
@@ -316,7 +325,7 @@ document.addEventListener('DOMContentLoaded', function () {
             updateSymptomsStylesDesktop(index);
         }
 
-        // Показуємо відповідну картинку
+        // РџРѕРєР°Р·СѓС”РјРѕ РІС–РґРїРѕРІС–РґРЅСѓ РєР°СЂС‚РёРЅРєСѓ
         const newImageIndex = getImageIndexForSymptom(index);
         images.forEach((image, imgIndex) => {
             if (imgIndex === newImageIndex) {
@@ -326,7 +335,7 @@ document.addEventListener('DOMContentLoaded', function () {
             }
         });
 
-        // Оновлюємо іконки
+        // РћРЅРѕРІР»СЋС”РјРѕ С–РєРѕРЅРєРё
         if (mobileIcons.length > currentSymptomIndex) {
             mobileIcons.forEach((icon, i) => {
                 if (i === currentSymptomIndex) {
@@ -338,7 +347,7 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     };
 
-// Оновлення анімації на основі скролу
+// РћРЅРѕРІР»РµРЅРЅСЏ Р°РЅС–РјР°С†С–С— РЅР° РѕСЃРЅРѕРІС– СЃРєСЂРѕР»Сѓ
     const updateAnimationOnScroll = (progress) => {
         const scrollPosition = progress * sectionHeight;
 
@@ -350,13 +359,13 @@ document.addEventListener('DOMContentLoaded', function () {
                 if (scrollPosition >= start && scrollPosition < end) {
                     if (currentSymptomIndex !== index) {
                         currentSymptomIndex = index;
-                        updateState(index); // Оновлюємо стан на основі індексу
+                        updateState(index); // РћРЅРѕРІР»СЋС”РјРѕ СЃС‚Р°РЅ РЅР° РѕСЃРЅРѕРІС– С–РЅРґРµРєСЃСѓ
                     }
                 }
             });
         }
 
-        // Логіка для завершення анімації
+        // Р›РѕРіС–РєР° РґР»СЏ Р·Р°РІРµСЂС€РµРЅРЅСЏ Р°РЅС–РјР°С†С–С—
         if (currentSymptomIndex === symptoms.length - 1 && !isLastAnimation) {
             setTimeout(() => {
                 updateState(currentSymptomIndex);
@@ -364,19 +373,19 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     };
 
-// Функція для визначення, яка картинка відповідає поточному симптому
+// Р¤СѓРЅРєС†С–СЏ РґР»СЏ РІРёР·РЅР°С‡РµРЅРЅСЏ, СЏРєР° РєР°СЂС‚РёРЅРєР° РІС–РґРїРѕРІС–РґР°С” РїРѕС‚РѕС‡РЅРѕРјСѓ СЃРёРјРїС‚РѕРјСѓ
     const getImageIndexForSymptom = (symptomIndex) => {
-        // if (symptomIndex >= 0 && symptomIndex <= 2) return 0; // Картинка 1 (симптоми 1–3)
-        // if (symptomIndex >= 3 && symptomIndex <= 5) return 1; // Картинка 2 (симптоми 4–6)
-        // if (symptomIndex >= 6 && symptomIndex <= 7) return 2; // Картинка 3 (симптоми 7–8)
-        // if (symptomIndex === 8) return 3; // Картинка 4 (симптом 9)
+        // if (symptomIndex >= 0 && symptomIndex <= 2) return 0; // РљР°СЂС‚РёРЅРєР° 1 (СЃРёРјРїС‚РѕРјРё 1вЂ“3)
+        // if (symptomIndex >= 3 && symptomIndex <= 5) return 1; // РљР°СЂС‚РёРЅРєР° 2 (СЃРёРјРїС‚РѕРјРё 4вЂ“6)
+        // if (symptomIndex >= 6 && symptomIndex <= 7) return 2; // РљР°СЂС‚РёРЅРєР° 3 (СЃРёРјРїС‚РѕРјРё 7вЂ“8)
+        // if (symptomIndex === 8) return 3; // РљР°СЂС‚РёРЅРєР° 4 (СЃРёРјРїС‚РѕРј 9)
 
-        if (symptomIndex >= 0 && symptomIndex <= 1) return 0; // Картинка 1 (симптоми 1–2)
-        if (symptomIndex >= 2 && symptomIndex <= 4) return 1; // Картинка 2 (симптоми 3–5)
-        if (symptomIndex >= 5 && symptomIndex <= 6) return 2; // Картинка 3 (симптоми 5–6)
-        if (symptomIndex >= 7 && symptomIndex <= 8) return 3; // Картинка 4 (симптом 9)
+        if (symptomIndex >= 0 && symptomIndex <= 1) return 0; // РљР°СЂС‚РёРЅРєР° 1 (СЃРёРјРїС‚РѕРјРё 1вЂ“2)
+        if (symptomIndex >= 2 && symptomIndex <= 4) return 1; // РљР°СЂС‚РёРЅРєР° 2 (СЃРёРјРїС‚РѕРјРё 3вЂ“5)
+        if (symptomIndex >= 5 && symptomIndex <= 6) return 2; // РљР°СЂС‚РёРЅРєР° 3 (СЃРёРјРїС‚РѕРјРё 5вЂ“6)
+        if (symptomIndex >= 7 && symptomIndex <= 8) return 3; // РљР°СЂС‚РёРЅРєР° 4 (СЃРёРјРїС‚РѕРј 9)
 
-        return -1; // Без картинки
+        return -1; // Р‘РµР· РєР°СЂС‚РёРЅРєРё
     };
 
 

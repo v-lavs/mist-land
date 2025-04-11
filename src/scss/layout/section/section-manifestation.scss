@@ -99,7 +99,6 @@
   line-height: 19.2px;
   padding-left: 16px;
   position: relative;
-  //max-width: 280px;
   margin-right: 8px;
   flex-shrink: 0;
   width: auto;
@@ -109,7 +108,7 @@
   $symptom-blur-end: 4px;
   opacity: 0.2;
   filter: blur(4px);
-  transition: opacity 0.3s ease, filter 0.3s ease, font-size 0.3s ease;
+  transition: opacity .3s ease, filter .3s ease, font-size .3s ease, -webkit-filter .3s ease;
 
   @for $i from 1 through $symptom-count {
     &:nth-child(#{$i}) {
@@ -207,8 +206,6 @@
     margin-right: 0;
     font-size: 16px;
     line-height: 1.4;
-    transform: translateX(100%);
-    transition: opacity 0.3s ease, transform 0.3s ease;
 
     br {
       display: none;
