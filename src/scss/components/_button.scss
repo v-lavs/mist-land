@@ -80,6 +80,24 @@
     }
   }
 
+  &_pulse {
+    justify-content: center;
+    align-items: center;
+    width: 36px;
+    height: 36px;
+    padding: 0;
+    border-radius: 50%;
+    position: fixed;
+    right: 24px;
+    top: 50%;
+    opacity: 0;
+    z-index: 300;
+    animation: inout 1s ease infinite;
+    .icon:before {
+      background-image: url('../assets/img/icon-cart.svg');
+      background-size: auto;
+    }
+  }
   &_up {
     justify-content: center;
     align-items: center;
@@ -159,6 +177,15 @@
     padding: 0;
     width: 40px;
     height: 40px;
+  }
+}
+
+@keyframes inout {
+  0% {
+    box-shadow: 0 0 0 0 rgba(0, 198, 255,0.4), 0 0 0 0 rgba(255, 255, 255,0.2);
+  }
+  100% {
+    box-shadow: 0 0 0 10px rgba(0, 198, 255,0), 0 0 0 20px rgba(255, 255, 255,0.05);
   }
 }
 

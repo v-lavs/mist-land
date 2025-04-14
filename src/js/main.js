@@ -221,7 +221,8 @@ document.addEventListener('DOMContentLoaded', function () {
     const btnSpin = document.getElementById('spinButton');
     const textStart = document.querySelector('.text-start');
     const textEnd = document.querySelector('.text-end');
-    const btnDiscount = document.querySelector('.btn_discount');
+    const btnDiscount1 = document.querySelector('.btn_discount-1');
+    const btnDiscount2 = document.querySelector('.btn_discount-2');
 
     function spinWheel() {
         const targetSectorAngle = 300;
@@ -234,7 +235,8 @@ document.addEventListener('DOMContentLoaded', function () {
 
         setTimeout(() => {
             textEnd.style.display = 'block';
-            btnDiscount.style.display = 'inline-flex';
+            btnDiscount1.style.display = 'inline-flex';
+            btnDiscount2.style.display = 'inline-flex';
         }, 3000);
     }
 
@@ -274,7 +276,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
     const isMobile = () => window.innerWidth < 768;
 
-// Р¤СѓРЅРєС†С–СЏ РґР»СЏ РѕРЅРѕРІР»РµРЅРЅСЏ СЃС‚РёР»С–РІ СЃРёРјРїС‚РѕРјС–РІ РЅР° РґРµСЃРєС‚РѕРїС–
+// Function to update symptom styles on the desktop
 
     const updateSymptomsStylesDesktop = (currentIndex) => {
         symptoms.forEach((symptom, i) => {
@@ -289,7 +291,7 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     };
 
-// Р¤СѓРЅРєС†С–СЏ РґР»СЏ РѕРЅРѕРІР»РµРЅРЅСЏ СЃС‚РёР»С–РІ СЃРёРјРїС‚РѕРјС–РІ РЅР° РјРѕР±С–Р»СЊРЅРёС…
+// Function to update symptom styles on the mobile
 
     const updateSymptomsStylesMobile = (currentIndex) => {
         symptoms.forEach((symptom, i) => {
@@ -316,7 +318,7 @@ document.addEventListener('DOMContentLoaded', function () {
         symptomList.style.transform = `translateX(-${shiftWidth}px)`;
     };
 
-// Р¤СѓРЅРєС†С–СЏ РґР»СЏ РѕРЅРѕРІР»РµРЅРЅСЏ СЃС‚Р°РЅСѓ
+// Function to update the state
 
     const updateState = (index) => {
         if (isMobile()) {
@@ -325,7 +327,7 @@ document.addEventListener('DOMContentLoaded', function () {
             updateSymptomsStylesDesktop(index);
         }
 
-        // РџРѕРєР°Р·СѓС”РјРѕ РІС–РґРїРѕРІС–РґРЅСѓ РєР°СЂС‚РёРЅРєСѓ
+        // Show the corresponding image
         const newImageIndex = getImageIndexForSymptom(index);
         images.forEach((image, imgIndex) => {
             if (imgIndex === newImageIndex) {
@@ -335,7 +337,7 @@ document.addEventListener('DOMContentLoaded', function () {
             }
         });
 
-        // РћРЅРѕРІР»СЋС”РјРѕ С–РєРѕРЅРєРё
+        // Update the icons
         if (mobileIcons.length > currentSymptomIndex) {
             mobileIcons.forEach((icon, i) => {
                 if (i === currentSymptomIndex) {
@@ -347,7 +349,7 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     };
 
-// РћРЅРѕРІР»РµРЅРЅСЏ Р°РЅС–РјР°С†С–С— РЅР° РѕСЃРЅРѕРІС– СЃРєСЂРѕР»Сѓ
+// Update animation based on scrolling
     const updateAnimationOnScroll = (progress) => {
         const scrollPosition = progress * sectionHeight;
 
@@ -359,13 +361,13 @@ document.addEventListener('DOMContentLoaded', function () {
                 if (scrollPosition >= start && scrollPosition < end) {
                     if (currentSymptomIndex !== index) {
                         currentSymptomIndex = index;
-                        updateState(index); // РћРЅРѕРІР»СЋС”РјРѕ СЃС‚Р°РЅ РЅР° РѕСЃРЅРѕРІС– С–РЅРґРµРєСЃСѓ
+                        updateState(index); // Update the state based on the index
                     }
                 }
             });
         }
 
-        // Р›РѕРіС–РєР° РґР»СЏ Р·Р°РІРµСЂС€РµРЅРЅСЏ Р°РЅС–РјР°С†С–С—
+        // Logic to end the animation
         if (currentSymptomIndex === symptoms.length - 1 && !isLastAnimation) {
             setTimeout(() => {
                 updateState(currentSymptomIndex);
@@ -373,19 +375,15 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     };
 
-// Р¤СѓРЅРєС†С–СЏ РґР»СЏ РІРёР·РЅР°С‡РµРЅРЅСЏ, СЏРєР° РєР°СЂС‚РёРЅРєР° РІС–РґРїРѕРІС–РґР°С” РїРѕС‚РѕС‡РЅРѕРјСѓ СЃРёРјРїС‚РѕРјСѓ
+// Function to determine which picture corresponds to the current symptom
     const getImageIndexForSymptom = (symptomIndex) => {
-        // if (symptomIndex >= 0 && symptomIndex <= 2) return 0; // РљР°СЂС‚РёРЅРєР° 1 (СЃРёРјРїС‚РѕРјРё 1вЂ“3)
-        // if (symptomIndex >= 3 && symptomIndex <= 5) return 1; // РљР°СЂС‚РёРЅРєР° 2 (СЃРёРјРїС‚РѕРјРё 4вЂ“6)
-        // if (symptomIndex >= 6 && symptomIndex <= 7) return 2; // РљР°СЂС‚РёРЅРєР° 3 (СЃРёРјРїС‚РѕРјРё 7вЂ“8)
-        // if (symptomIndex === 8) return 3; // РљР°СЂС‚РёРЅРєР° 4 (СЃРёРјРїС‚РѕРј 9)
 
-        if (symptomIndex >= 0 && symptomIndex <= 1) return 0; // РљР°СЂС‚РёРЅРєР° 1 (СЃРёРјРїС‚РѕРјРё 1вЂ“2)
-        if (symptomIndex >= 2 && symptomIndex <= 4) return 1; // РљР°СЂС‚РёРЅРєР° 2 (СЃРёРјРїС‚РѕРјРё 3вЂ“5)
-        if (symptomIndex >= 5 && symptomIndex <= 6) return 2; // РљР°СЂС‚РёРЅРєР° 3 (СЃРёРјРїС‚РѕРјРё 5вЂ“6)
-        if (symptomIndex >= 7 && symptomIndex <= 8) return 3; // РљР°СЂС‚РёРЅРєР° 4 (СЃРёРјРїС‚РѕРј 9)
+        if (symptomIndex >= 0 && symptomIndex <= 1) return 0; // Image 1 (symptoms 1–2)
+        if (symptomIndex >= 2 && symptomIndex <= 4) return 1; // Image 2(symptoms 3–5)
+        if (symptomIndex >= 5 && symptomIndex <= 6) return 2; // Image 3 (symptoms 5–6)
+        if (symptomIndex >= 7 && symptomIndex <= 8) return 3; // Image 4 (symptom 9)
 
-        return -1; // Р‘РµР· РєР°СЂС‚РёРЅРєРё
+        return -1;// Without picture
     };
 
 
@@ -608,5 +606,27 @@ document.addEventListener('DOMContentLoaded', function () {
                 }
             }
         );
+    });
+
+    //BTN-PULSE
+    const button = document.querySelector(".btn_pulse");
+
+    ScrollTrigger.create({
+        trigger: ".section-symptoms",
+        start: "top center",
+        onEnter: () => {
+            gsap.to(button, {
+                display: 'flex',
+                autoAlpha: 1,
+                duration: 0.5
+            });
+        },
+        onLeaveBack: () => {
+            gsap.to(button, {
+                autoAlpha: 0,
+                duration: 0.5,
+                onComplete: () => button.style.display = 'none'
+            });
+        }
     });
 });

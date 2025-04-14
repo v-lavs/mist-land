@@ -36,7 +36,8 @@
                         <li class="menu__item"><a href="#application" class="menu__link">Як приймати</a></li>
                         <li class="menu__item"><a href="#faq" class="menu__link">Поширені запитання</a></li>
                     </ul>
-                    <a href="https://tabletki.ua/uk/%D0%9C%D0%B8%D1%81%D1%82%D0%B5%D1%80%D0%B8%D1%8F/1090450/" class="btn btn_primary btn_mob">Купити</a>
+                    <a href="https://tabletki.ua/uk/%D0%9C%D0%B8%D1%81%D1%82%D0%B5%D1%80%D0%B8%D1%8F/1090450/"
+                       class="btn btn_primary btn_mob">Купити</a>
                 </div>
             </div>
             <button type="button" aria-label="Відкрити меню" class="btn_burger"></button>
@@ -327,6 +328,105 @@
                                     class="icon"></span></a>
                         </article>
                     </div>
+                </div>
+            </div>
+        </section>
+        <section class="section-discount section-anim">
+            <div class="container">
+                <style>
+                    .modal-play {
+                        position: static !important;
+                        transform: none;
+                        margin: 0 auto;
+                        visibility: visible;
+                        opacity: 1;
+                        pointer-events: all;
+                        z-index: 5;
+                        max-height: 100%;
+                    }
+
+                    .modal-play .modal__inner {
+                        max-height: 100%;
+                    }
+
+                    .modal-play__footer {
+                        display: flex;
+                        flex-wrap: wrap;
+                        justify-content: space-around;
+                    }
+
+                    .modal-play .btn_secondary {
+                        min-width: 272px;
+                    }
+
+                    .section-banner .banner-grid__addition-info {
+                        display: none !important;
+                    }
+
+                    .section-discount .banner-grid__addition-info {
+                        padding-top: 60px;
+                        padding-bottom: 40px;
+                    }
+
+                    @media screen and (min-width: 768px) {
+                        .section-banner .banner-grid__addition-info {
+                            display: block!important;
+                        }
+
+                        .section-discount .banner-grid__addition-info {
+                            display: none;
+                        }
+                    }
+
+                    #closeThirdPopup {
+                        pointer-events: none;
+                        opacity: 0;
+                    }
+                </style>
+                <div id="playDiscount" class="modal modal-play anim-item">
+                    <div class="modal__inner">
+                        <div class="modal__body">
+                            <button id="closeThirdPopup" class="btn btn_modal-close">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                     fill="none">
+                                    <path d="M5 19L19 5" stroke="#014589" stroke-width="2" stroke-linecap="round"/>
+                                    <path d="M5 5L19 19" stroke="#014589" stroke-width="2" stroke-linecap="round"/>
+                                </svg>
+                            </button>
+                            <div class="roulette" id="wheel">
+                                <object class="roulette__circle-bg" data="./assets/img/popup/circle.svg"
+                                        type="image/svg+xml"></object>
+                                <object class="roulette__data" data="./assets/img/popup/roulette.svg"
+                                        type="image/svg+xml"
+                                        id="wheelData"></object>
+
+                                <button id="spinButton" type="button" class="btn roulette__spin"></button>
+                            </div>
+                            <div class="text text-start">
+                                Покрутіть барабан та вигравайте <br> знижку на покупку Містерія
+                            </div>
+                            <div class="text text-end">
+                                <b class="color_blue">Вітаємо!</b> Ваша знижка <br> на покупку Містерія становить <br>
+                                <b
+                                        class="color_blue text_xl">30%</b>
+                            </div>
+                            <div class="modal-play__footer">
+                                <a href="#" class="btn btn_secondary btn_icon btn_discount-1">Використати знижку <br>
+                                    (аптека "Подорожник")<span
+                                            class="icon"></span></a>
+                                <a href="#" class="btn btn_secondary btn_icon btn_discount-2">Використати знижку <br>
+                                    (аптека "Здорова родина") <span
+                                            class="icon"></span></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="banner-grid__addition-info">
+                    <article class="card message-block">
+                        <p>Чи знаєте ви про симптоми вегетативних порушень?</p>
+                        <a href="#symptomsTest" class="btn btn_secondary btn_icon btn_anchor">Пройти тест<span
+                                class="icon"></span></a>
+                    </article>
                 </div>
             </div>
         </section>
@@ -832,7 +932,7 @@
                                 <source srcset="assets/img/mystery_20tab.webp" type="image/webp"/>
                                 <img class="sticky-grid__product-img img-parallax"
                                      src="assets/img/mystery_20tab_right.png" width="194" height="283"
-                                      alt="Упаковка препарату Містерія">
+                                     alt="Упаковка препарату Містерія">
                             </picture>
 
                         </div>
@@ -932,6 +1032,7 @@
         </div>
     </main>
     <a href="#" class="btn btn_up"><span class="icon"></span></a>
+    <a target="_blank" href="https://tabletki.ua/uk/%D0%9C%D0%B8%D1%81%D1%82%D0%B5%D1%80%D0%B8%D1%8F/1090450/" class="btn btn_primary  btn_pulse"><span class="icon"></span></a>
     <!--footer-->
     <div class="disclaimer">
         <picture>
@@ -994,14 +1095,16 @@
                 <div class="card-modal">
                     <picture>
                         <source srcset="assets/img/mystery_20tab.webp" type="image/webp"/>
-                        <img class="img" src="assets/img/mystery_20tab.png" width="386" height="572" alt="Упаковка препарату Містерія">
+                        <img class="img" src="assets/img/mystery_20tab.png" width="386" height="572"
+                             alt="Упаковка препарату Містерія">
                     </picture>
 
                     <ul>
                         <li>Потурбуйтеся про здоров’я судин та мозку з <span class="text_uppercase">Містерія</span></li>
                     </ul>
                     <div class="card-modal__footer">
-                        <button style="display: none" type="button" class="btn btn_secondary btn_icon trigger-play">Отримати знижку<span
+                        <button style="display: none" type="button" class="btn btn_secondary btn_icon trigger-play">
+                            Отримати знижку<span
                                 class="icon"></span></button>
                         <a id="btnBuy" target="_blank"
                            href="https://tabletki.ua/uk/%D0%9C%D0%B8%D1%81%D1%82%D0%B5%D1%80%D0%B8%D1%8F/1090450/"
@@ -1011,35 +1114,44 @@
             </div>
         </div>
     </div>
-    <div id="playDiscount" class="modal modal-play">
-        <div class="modal__inner">
-            <div class="modal__body">
-                <button id="closeThirdPopup" class="btn btn_modal-close">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
-                        <path d="M5 19L19 5" stroke="#014589" stroke-width="2" stroke-linecap="round"/>
-                        <path d="M5 5L19 19" stroke="#014589" stroke-width="2" stroke-linecap="round"/>
-                    </svg>
-                </button>
-                <div class="roulette" id="wheel">
-                    <object class="roulette__circle-bg" data="./assets/img/popup/circle.svg"
-                            type="image/svg+xml"></object>
-                    <object class="roulette__data" data="./assets/img/popup/roulette.svg" type="image/svg+xml"
-                            id="wheelData"></object>
+<!--    <div id="playDiscount" class="modal modal-play">-->
+<!--        <div class="modal__inner">-->
+<!--            <div class="modal__body">-->
+<!--                <button id="closeThirdPopup" class="btn btn_modal-close">-->
+<!--                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"-->
+<!--                         fill="none">-->
+<!--                        <path d="M5 19L19 5" stroke="#014589" stroke-width="2" stroke-linecap="round"/>-->
+<!--                        <path d="M5 5L19 19" stroke="#014589" stroke-width="2" stroke-linecap="round"/>-->
+<!--                    </svg>-->
+<!--                </button>-->
+<!--                <div class="roulette" id="wheel">-->
+<!--                    <object class="roulette__circle-bg" data="./assets/img/popup/circle.svg"-->
+<!--                            type="image/svg+xml"></object>-->
+<!--                    <object class="roulette__data" data="./assets/img/popup/roulette.svg"-->
+<!--                            type="image/svg+xml"-->
+<!--                            id="wheelData"></object>-->
 
-                    <button id="spinButton" type="button" class="btn roulette__spin"></button>
-                </div>
-                <div class="text text-start">
-                    Покрутіть барабан та вигравайте <br> знижку на покупку Містерія
-                </div>
-                <div class="text text-end">
-                    <b class="color_blue">Вітаємо!</b> Ваша знижка <br> на покупку Містерія становить <br> <b
-                        class="color_blue text_xl">30%</b>
-                </div>
-
-                <a href="#" class="btn btn_secondary btn_icon btn_discount">Використати знижку<span class="icon"></span></a>
-            </div>
-        </div>
-    </div>
+<!--                    <button id="spinButton" type="button" class="btn roulette__spin"></button>-->
+<!--                </div>-->
+<!--                <div class="text text-start">-->
+<!--                    Покрутіть барабан та вигравайте <br> знижку на покупку Містерія-->
+<!--                </div>-->
+<!--                <div class="text text-end">-->
+<!--                    <b class="color_blue">Вітаємо!</b> Ваша знижка <br> на покупку Містерія становить <br>-->
+<!--                    <b-->
+<!--                            class="color_blue text_xl">30%</b>-->
+<!--                </div>-->
+<!--                <div class="modal-play__footer">-->
+<!--                    <a href="#" class="btn btn_secondary btn_icon btn_discount-1">Використати знижку <br>-->
+<!--                        (аптека "Подорожник")<span-->
+<!--                                class="icon"></span></a>-->
+<!--                    <a href="#" class="btn btn_secondary btn_icon btn_discount-2">Використати знижку <br>-->
+<!--                        (аптека "Здорова родина") <span-->
+<!--                                class="icon"></span></a>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--        </div>-->
+<!--    </div>-->
 </div>
 
 
