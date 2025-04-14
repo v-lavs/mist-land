@@ -1362,6 +1362,10 @@ sup {
   line-height: 24px;
 }
 
+.modal-play .text-start-top {
+  margin-bottom: 10px;
+}
+
 .modal-play .btn_secondary,
 .modal-play .text-end {
   display: none;
