@@ -219,7 +219,8 @@ document.addEventListener('DOMContentLoaded', function () {
     const wheel = document.getElementById('wheel');
     const wheelData = document.getElementById('wheelData');
     const btnSpin = document.getElementById('spinButton');
-    const textStart = document.querySelector('.text-start');
+    const textStartTop = document.querySelector('.text-start-top');
+    const textStartBottom = document.querySelector('.text-start-bottom');
     const textEnd = document.querySelector('.text-end');
     const btnDiscount1 = document.querySelector('.btn_discount-1');
     const btnDiscount2 = document.querySelector('.btn_discount-2');
@@ -230,7 +231,8 @@ document.addEventListener('DOMContentLoaded', function () {
         const totalRotation = randomSpins * 360 + targetSectorAngle;
 
         wheelData.style.transform = `rotate(${totalRotation}deg)`;
-        textStart.style.display = 'none';
+        textStartTop.style.display = 'none';
+        textStartBottom.style.display = 'none';
         btnSpin.style.display = 'none';
 
         setTimeout(() => {

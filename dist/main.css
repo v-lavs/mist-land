@@ -1358,6 +1358,8 @@ sup {
 
 .modal-play .text {
   max-width: 342px;
+  font-size: 20px;
+  line-height: 24px;
 }
 
 .modal-play .btn_secondary,
